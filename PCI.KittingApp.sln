@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCI.KittingApp", "PCI.KittingApp\PCI.KittingApp.csproj", "{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {785DAFF9-246A-4F7D-BBB7-E44B417F049B}
+	EndGlobalSection
+EndGlobal
