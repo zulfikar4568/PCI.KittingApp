@@ -32,7 +32,7 @@ namespace PCI.KittingApp
             this.FormBorderStyle= FormBorderStyle.None;
         }
 
-        // Structs
+        // Structs to use Custom Colors
         private struct RGBColors
         {
             public static Color color1 = Color.FromArgb(172, 126, 241);
@@ -104,19 +104,19 @@ namespace PCI.KittingApp
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            ActiveButton(sender, RGBColors.color1);
+            ActiveButton(sender, Color.Coral);
             OpenChildForm(new FormOrder());
         }
 
         private void btnUnitRegistration_Click(object sender, EventArgs e)
         {
-            ActiveButton(sender, RGBColors.color2);
+            ActiveButton(sender, Color.Coral);
             OpenChildForm(new FormUnitRegistration());
         }
 
         private void btnMaterialRegistration_Click(object sender, EventArgs e)
         {
-            ActiveButton(sender, RGBColors.color3);
+            ActiveButton(sender, Color.Coral);
             OpenChildForm(new FormMaterialRegistration());
         }
 

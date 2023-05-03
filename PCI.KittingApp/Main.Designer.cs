@@ -239,7 +239,7 @@
             // 
             // iconCurrentChildForm
             // 
-            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
             this.iconCurrentChildForm.ForeColor = System.Drawing.Color.Coral;
             this.iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.House;
             this.iconCurrentChildForm.IconColor = System.Drawing.Color.Coral;
