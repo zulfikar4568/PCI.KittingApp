@@ -9,9 +9,9 @@ namespace PCI.KittingApp.UseCase
 {
     public class UseCaseModule : Module
     {
-        protected override void Load(ContainerBuilder builder)
+        protected override void Load(ContainerBuilder moduleBuilder)
         {
-            base.Load(builder);
+            moduleBuilder.RegisterType<Kitting>().AsSelf();
         }
     }
 }
