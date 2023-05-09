@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCI.KittingApp", "PCI.KittingApp\PCI.KittingApp.csproj", "{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCI.KittingApp.Test", "PCI.KittingApp.Test\PCI.KittingApp.Test.csproj", "{89B42575-E0A1-4A99-A1CB-39BBDC518FBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89B42575-E0A1-4A99-A1CB-39BBDC518FBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89B42575-E0A1-4A99-A1CB-39BBDC518FBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89B42575-E0A1-4A99-A1CB-39BBDC518FBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89B42575-E0A1-4A99-A1CB-39BBDC518FBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

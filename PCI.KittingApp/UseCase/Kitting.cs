@@ -14,7 +14,7 @@ namespace PCI.KittingApp.UseCase
             // Validate 8 digit characters
             if (FGSerialNumber.Length != 8) return false;
             // Validate IDN must be capitals letters
-            if (FGSerialNumber.Contains("IDN")) return false;
+            if (!FGSerialNumber.Contains("IDN")) return false;
             // Validate if FG Serial Number already exists
             return ValidateFGExists(FGSerialNumber);
         }
