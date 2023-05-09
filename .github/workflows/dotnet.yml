@@ -34,6 +34,9 @@ jobs:
     
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
+
+    - name: Setup VSTest Path
+      uses: darenm/Setup-VSTest@v1.2
       
     - name: Restore Nuget Packages
       run: nuget restore PCI.ImageTestUI.sln
