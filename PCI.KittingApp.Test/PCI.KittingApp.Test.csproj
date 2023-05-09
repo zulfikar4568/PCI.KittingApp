@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{89B42575-E0A1-4A99-A1CB-39BBDC518FBA}</ProjectGuid>
+    <ProjectGuid>{D1EDF30D-C2F1-4CFB-B68C-A31E39495A73}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PCI.KittingApp.Test</RootNamespace>
@@ -61,6 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCI.KittingApp\PCI.KittingApp.csproj">
+      <Project>{37BDB2A0-614E-4DAE-B94F-CC12F7E568CF}</Project>
+      <Name>PCI.KittingApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
