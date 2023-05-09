@@ -66,7 +66,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 674);
+            this.panelMenu.Size = new System.Drawing.Size(220, 823);
             this.panelMenu.TabIndex = 0;
             // 
             // panelLogo
@@ -90,7 +90,7 @@
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(220, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(994, 80);
+            this.panelTitleBar.Size = new System.Drawing.Size(1132, 80);
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTItleBar_MouseDown);
             // 
@@ -112,7 +112,7 @@
             this.panelShadow.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelShadow.Location = new System.Drawing.Point(220, 80);
             this.panelShadow.Name = "panelShadow";
-            this.panelShadow.Size = new System.Drawing.Size(994, 9);
+            this.panelShadow.Size = new System.Drawing.Size(1132, 9);
             this.panelShadow.TabIndex = 2;
             // 
             // panelDesktop
@@ -122,7 +122,7 @@
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Location = new System.Drawing.Point(220, 89);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(994, 585);
+            this.panelDesktop.Size = new System.Drawing.Size(1132, 734);
             this.panelDesktop.TabIndex = 3;
             // 
             // pictureBox1
@@ -133,7 +133,7 @@
             this.pictureBox1.Image = global::PCI.KittingApp.Properties.Resources.Ilustration;
             this.pictureBox1.Location = new System.Drawing.Point(198, 101);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(639, 355);
+            this.pictureBox1.Size = new System.Drawing.Size(777, 504);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -148,7 +148,7 @@
             this.btnExit.IconColor = System.Drawing.Color.Gainsboro;
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExit.IconSize = 20;
-            this.btnExit.Location = new System.Drawing.Point(965, 11);
+            this.btnExit.Location = new System.Drawing.Point(1103, 11);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(20, 20);
             this.btnExit.TabIndex = 4;
@@ -165,7 +165,7 @@
             this.btnMaximize.IconColor = System.Drawing.Color.Gainsboro;
             this.btnMaximize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximize.IconSize = 20;
-            this.btnMaximize.Location = new System.Drawing.Point(939, 11);
+            this.btnMaximize.Location = new System.Drawing.Point(1077, 11);
             this.btnMaximize.Name = "btnMaximize";
             this.btnMaximize.Size = new System.Drawing.Size(20, 20);
             this.btnMaximize.TabIndex = 3;
@@ -182,7 +182,7 @@
             this.btnMinimize.IconColor = System.Drawing.Color.Gainsboro;
             this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimize.IconSize = 20;
-            this.btnMinimize.Location = new System.Drawing.Point(913, 11);
+            this.btnMinimize.Location = new System.Drawing.Point(1051, 11);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(20, 20);
             this.btnMinimize.TabIndex = 2;
@@ -291,7 +291,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1214, 674);
+            this.ClientSize = new System.Drawing.Size(1352, 823);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelShadow);
             this.Controls.Add(this.panelTitleBar);

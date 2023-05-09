@@ -35,8 +35,6 @@
             this.panelMfgProduct = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panelMfgQty = new System.Windows.Forms.Panel();
-            this.panelMfgUOM = new System.Windows.Forms.Panel();
             this.panelMfgSubmit = new System.Windows.Forms.Panel();
             this.buttonMfgSubmit = new FontAwesome.Sharp.IconButton();
             this.PanelMfgOrder.SuspendLayout();
@@ -56,8 +54,6 @@
             this.PanelMfgOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
             this.PanelMfgOrder.Controls.Add(this.PanelMfgName, 0, 0);
             this.PanelMfgOrder.Controls.Add(this.panelMfgProduct, 1, 0);
-            this.PanelMfgOrder.Controls.Add(this.panelMfgQty, 2, 0);
-            this.PanelMfgOrder.Controls.Add(this.panelMfgUOM, 0, 1);
             this.PanelMfgOrder.Controls.Add(this.panelMfgSubmit, 2, 3);
             this.PanelMfgOrder.Location = new System.Drawing.Point(35, 69);
             this.PanelMfgOrder.Name = "PanelMfgOrder";
@@ -141,22 +137,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Mfg Order";
             // 
-            // panelMfgQty
-            // 
-            this.panelMfgQty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgQty.Location = new System.Drawing.Point(695, 3);
-            this.panelMfgQty.Name = "panelMfgQty";
-            this.panelMfgQty.Size = new System.Drawing.Size(352, 130);
-            this.panelMfgQty.TabIndex = 11;
-            // 
-            // panelMfgUOM
-            // 
-            this.panelMfgUOM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgUOM.Location = new System.Drawing.Point(3, 139);
-            this.panelMfgUOM.Name = "panelMfgUOM";
-            this.panelMfgUOM.Size = new System.Drawing.Size(340, 130);
-            this.panelMfgUOM.TabIndex = 12;
-            // 
             // panelMfgSubmit
             // 
             this.panelMfgSubmit.Controls.Add(this.buttonMfgSubmit);
@@ -218,8 +198,6 @@
         private System.Windows.Forms.Panel panelMfgProduct;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panelMfgQty;
-        private System.Windows.Forms.Panel panelMfgUOM;
         private System.Windows.Forms.Panel panelMfgSubmit;
         private FontAwesome.Sharp.IconButton buttonMfgSubmit;
     }
