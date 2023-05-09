@@ -45,7 +45,7 @@ jobs:
       run: msbuild PCI.KittingApp.sln /p:Configuration=Release
     
     - name: VSTest
-      run: vstest.console.exe /Platform:x64
+      run: vstest.console.exe ./PCI.KittingApp.Test/bin/Release/PCI.KittingApp.Test.dll /Platform:x64
       
     - name: Install Versionize
       run: dotnet tool install --global Versionize
