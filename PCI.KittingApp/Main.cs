@@ -16,6 +16,7 @@ namespace PCI.KittingApp
 {
     public partial class Main : Form
     {
+        #region UI_Field
         //Fields
         private IconButton currentBtn;
         private Panel leftBorderBtn;
@@ -23,16 +24,21 @@ namespace PCI.KittingApp
         
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.Since the form is resized because it takes into account the size of the title bar and borders.
+        #endregion
         public Main()
         {
             InitializeComponent();
-            leftBorderBtn= new Panel();
+            #region UI_Constructor
+            leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7,60);
             panelMenu.Controls.Add(leftBorderBtn);
 
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(45, 45, 65);//Border color
+            #endregion
         }
+
+        #region UI_Resposibility
         //Overrride methods
         protected override void WndProc(ref Message m)
         {
@@ -255,5 +261,6 @@ namespace PCI.KittingApp
         {
             formSize = this.ClientSize;
         }
+        #endregion
     }
 }
