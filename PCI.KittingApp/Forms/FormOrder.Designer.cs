@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxMfgName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxMfgProduct = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxMfgQty = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxMfgUOM = new System.Windows.Forms.TextBox();
             this.PanelMfgOrder = new System.Windows.Forms.TableLayoutPanel();
             this.PanelMfgName = new System.Windows.Forms.Panel();
             this.panelMfgProduct = new System.Windows.Forms.Panel();
@@ -51,18 +51,18 @@
             this.panelMfgSubmit.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxMfgName
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxMfgName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Location = new System.Drawing.Point(17, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 50);
-            this.textBox1.TabIndex = 0;
+            this.textBoxMfgName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxMfgName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxMfgName.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMfgName.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxMfgName.Location = new System.Drawing.Point(17, 65);
+            this.textBoxMfgName.Name = "textBoxMfgName";
+            this.textBoxMfgName.Size = new System.Drawing.Size(300, 50);
+            this.textBoxMfgName.TabIndex = 0;
             // 
             // label1
             // 
@@ -90,18 +90,18 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Product";
             // 
-            // textBox2
+            // textBoxMfgProduct
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxMfgProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
-            this.textBox2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox2.Location = new System.Drawing.Point(23, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 50);
-            this.textBox2.TabIndex = 2;
+            this.textBoxMfgProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxMfgProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxMfgProduct.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.textBoxMfgProduct.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxMfgProduct.Location = new System.Drawing.Point(23, 65);
+            this.textBoxMfgProduct.Name = "textBoxMfgProduct";
+            this.textBoxMfgProduct.Size = new System.Drawing.Size(300, 50);
+            this.textBoxMfgProduct.TabIndex = 2;
             // 
             // label3
             // 
@@ -116,18 +116,18 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Order Qty";
             // 
-            // textBox3
+            // textBoxMfgQty
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxMfgQty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
-            this.textBox3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox3.Location = new System.Drawing.Point(23, 65);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(300, 50);
-            this.textBox3.TabIndex = 4;
+            this.textBoxMfgQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxMfgQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxMfgQty.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.textBoxMfgQty.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxMfgQty.Location = new System.Drawing.Point(23, 65);
+            this.textBoxMfgQty.Name = "textBoxMfgQty";
+            this.textBoxMfgQty.Size = new System.Drawing.Size(300, 50);
+            this.textBoxMfgQty.TabIndex = 4;
             // 
             // label4
             // 
@@ -142,18 +142,18 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "UOM";
             // 
-            // textBox4
+            // textBoxMfgUOM
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxMfgUOM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
-            this.textBox4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox4.Location = new System.Drawing.Point(17, 63);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(300, 50);
-            this.textBox4.TabIndex = 6;
+            this.textBoxMfgUOM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxMfgUOM.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxMfgUOM.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.textBoxMfgUOM.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxMfgUOM.Location = new System.Drawing.Point(17, 63);
+            this.textBoxMfgUOM.Name = "textBoxMfgUOM";
+            this.textBoxMfgUOM.Size = new System.Drawing.Size(300, 50);
+            this.textBoxMfgUOM.TabIndex = 6;
             // 
             // PanelMfgOrder
             // 
@@ -181,7 +181,7 @@
             // 
             // PanelMfgName
             // 
-            this.PanelMfgName.Controls.Add(this.textBox1);
+            this.PanelMfgName.Controls.Add(this.textBoxMfgName);
             this.PanelMfgName.Controls.Add(this.label1);
             this.PanelMfgName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMfgName.Location = new System.Drawing.Point(3, 3);
@@ -191,7 +191,7 @@
             // 
             // panelMfgProduct
             // 
-            this.panelMfgProduct.Controls.Add(this.textBox2);
+            this.panelMfgProduct.Controls.Add(this.textBoxMfgProduct);
             this.panelMfgProduct.Controls.Add(this.label2);
             this.panelMfgProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgProduct.Location = new System.Drawing.Point(349, 3);
@@ -201,7 +201,7 @@
             // 
             // panelMfgQty
             // 
-            this.panelMfgQty.Controls.Add(this.textBox3);
+            this.panelMfgQty.Controls.Add(this.textBoxMfgQty);
             this.panelMfgQty.Controls.Add(this.label3);
             this.panelMfgQty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgQty.Location = new System.Drawing.Point(695, 3);
@@ -211,7 +211,7 @@
             // 
             // panelMfgUOM
             // 
-            this.panelMfgUOM.Controls.Add(this.textBox4);
+            this.panelMfgUOM.Controls.Add(this.textBoxMfgUOM);
             this.panelMfgUOM.Controls.Add(this.label4);
             this.panelMfgUOM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgUOM.Location = new System.Drawing.Point(3, 139);
@@ -277,14 +277,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxMfgName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxMfgProduct;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxMfgQty;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxMfgUOM;
         private System.Windows.Forms.TableLayoutPanel PanelMfgOrder;
         private System.Windows.Forms.Panel PanelMfgName;
         private System.Windows.Forms.Panel panelMfgProduct;

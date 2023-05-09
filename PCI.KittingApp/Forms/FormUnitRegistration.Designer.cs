@@ -30,13 +30,13 @@
         {
             this.PanelMfgOrder = new System.Windows.Forms.TableLayoutPanel();
             this.PanelMfgName = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxUnitContainer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMfgProduct = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxUnitMfg = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panelMfgSubmit = new System.Windows.Forms.Panel();
-            this.buttonMfgSubmit = new FontAwesome.Sharp.IconButton();
+            this.buttonUnitSubmit = new FontAwesome.Sharp.IconButton();
             this.PanelMfgOrder.SuspendLayout();
             this.PanelMfgName.SuspendLayout();
             this.panelMfgProduct.SuspendLayout();
@@ -67,7 +67,7 @@
             // 
             // PanelMfgName
             // 
-            this.PanelMfgName.Controls.Add(this.textBox1);
+            this.PanelMfgName.Controls.Add(this.textBoxUnitContainer);
             this.PanelMfgName.Controls.Add(this.label1);
             this.PanelMfgName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMfgName.Location = new System.Drawing.Point(3, 3);
@@ -75,18 +75,18 @@
             this.PanelMfgName.Size = new System.Drawing.Size(340, 130);
             this.PanelMfgName.TabIndex = 9;
             // 
-            // textBox1
+            // textBoxUnitContainer
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxUnitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Location = new System.Drawing.Point(17, 65);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 50);
-            this.textBox1.TabIndex = 0;
+            this.textBoxUnitContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxUnitContainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitContainer.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUnitContainer.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxUnitContainer.Location = new System.Drawing.Point(17, 65);
+            this.textBoxUnitContainer.Name = "textBoxUnitContainer";
+            this.textBoxUnitContainer.Size = new System.Drawing.Size(300, 50);
+            this.textBoxUnitContainer.TabIndex = 0;
             // 
             // label1
             // 
@@ -103,7 +103,7 @@
             // 
             // panelMfgProduct
             // 
-            this.panelMfgProduct.Controls.Add(this.textBox2);
+            this.panelMfgProduct.Controls.Add(this.textBoxUnitMfg);
             this.panelMfgProduct.Controls.Add(this.label2);
             this.panelMfgProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgProduct.Location = new System.Drawing.Point(349, 3);
@@ -111,18 +111,18 @@
             this.panelMfgProduct.Size = new System.Drawing.Size(340, 130);
             this.panelMfgProduct.TabIndex = 10;
             // 
-            // textBox2
+            // textBoxUnitMfg
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxUnitMfg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
-            this.textBox2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox2.Location = new System.Drawing.Point(23, 65);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 50);
-            this.textBox2.TabIndex = 2;
+            this.textBoxUnitMfg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxUnitMfg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUnitMfg.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.textBoxUnitMfg.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxUnitMfg.Location = new System.Drawing.Point(23, 65);
+            this.textBoxUnitMfg.Name = "textBoxUnitMfg";
+            this.textBoxUnitMfg.Size = new System.Drawing.Size(300, 50);
+            this.textBoxUnitMfg.TabIndex = 2;
             // 
             // label2
             // 
@@ -139,35 +139,35 @@
             // 
             // panelMfgSubmit
             // 
-            this.panelMfgSubmit.Controls.Add(this.buttonMfgSubmit);
+            this.panelMfgSubmit.Controls.Add(this.buttonUnitSubmit);
             this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgSubmit.Location = new System.Drawing.Point(695, 465);
             this.panelMfgSubmit.Name = "panelMfgSubmit";
             this.panelMfgSubmit.Size = new System.Drawing.Size(352, 77);
             this.panelMfgSubmit.TabIndex = 14;
             // 
-            // buttonMfgSubmit
+            // buttonUnitSubmit
             // 
-            this.buttonMfgSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonUnitSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMfgSubmit.AutoSize = true;
-            this.buttonMfgSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
-            this.buttonMfgSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonMfgSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonMfgSubmit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonMfgSubmit.ForeColor = System.Drawing.Color.White;
-            this.buttonMfgSubmit.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
-            this.buttonMfgSubmit.IconColor = System.Drawing.Color.White;
-            this.buttonMfgSubmit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.buttonMfgSubmit.IconSize = 40;
-            this.buttonMfgSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonMfgSubmit.Location = new System.Drawing.Point(105, 16);
-            this.buttonMfgSubmit.Name = "buttonMfgSubmit";
-            this.buttonMfgSubmit.Size = new System.Drawing.Size(179, 46);
-            this.buttonMfgSubmit.TabIndex = 13;
-            this.buttonMfgSubmit.Text = "Submit";
-            this.buttonMfgSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonMfgSubmit.UseVisualStyleBackColor = false;
+            this.buttonUnitSubmit.AutoSize = true;
+            this.buttonUnitSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
+            this.buttonUnitSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonUnitSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonUnitSubmit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonUnitSubmit.ForeColor = System.Drawing.Color.White;
+            this.buttonUnitSubmit.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
+            this.buttonUnitSubmit.IconColor = System.Drawing.Color.White;
+            this.buttonUnitSubmit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonUnitSubmit.IconSize = 40;
+            this.buttonUnitSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonUnitSubmit.Location = new System.Drawing.Point(105, 16);
+            this.buttonUnitSubmit.Name = "buttonUnitSubmit";
+            this.buttonUnitSubmit.Size = new System.Drawing.Size(179, 46);
+            this.buttonUnitSubmit.TabIndex = 13;
+            this.buttonUnitSubmit.Text = "Submit";
+            this.buttonUnitSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonUnitSubmit.UseVisualStyleBackColor = false;
             // 
             // FormUnitRegistration
             // 
@@ -193,12 +193,12 @@
 
         private System.Windows.Forms.TableLayoutPanel PanelMfgOrder;
         private System.Windows.Forms.Panel PanelMfgName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxUnitContainer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelMfgProduct;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxUnitMfg;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelMfgSubmit;
-        private FontAwesome.Sharp.IconButton buttonMfgSubmit;
+        private FontAwesome.Sharp.IconButton buttonUnitSubmit;
     }
 }

@@ -30,28 +30,28 @@
         {
             this.PanelMfgOrder = new System.Windows.Forms.TableLayoutPanel();
             this.PanelMfgName = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxRegisterContainer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelMfgSubmit = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxRegisterERPBOM = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBoxRegisterProduct = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBoxRegisterPN = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBoxRegisterSN = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxRegisterBatchID = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.buttonMfgSubmit = new FontAwesome.Sharp.IconButton();
+            this.buttonRegisterSubmit = new FontAwesome.Sharp.IconButton();
             this.buttonMaterialRegister = new FontAwesome.Sharp.IconButton();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Material = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -95,7 +95,7 @@
             // 
             // PanelMfgName
             // 
-            this.PanelMfgName.Controls.Add(this.textBox1);
+            this.PanelMfgName.Controls.Add(this.textBoxRegisterContainer);
             this.PanelMfgName.Controls.Add(this.label1);
             this.PanelMfgName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMfgName.Location = new System.Drawing.Point(3, 3);
@@ -103,18 +103,18 @@
             this.PanelMfgName.Size = new System.Drawing.Size(345, 100);
             this.PanelMfgName.TabIndex = 0;
             // 
-            // textBox1
+            // textBoxRegisterContainer
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxRegisterContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Location = new System.Drawing.Point(17, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(305, 50);
-            this.textBox1.TabIndex = 0;
+            this.textBoxRegisterContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxRegisterContainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegisterContainer.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegisterContainer.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxRegisterContainer.Location = new System.Drawing.Point(17, 35);
+            this.textBoxRegisterContainer.Name = "textBoxRegisterContainer";
+            this.textBoxRegisterContainer.Size = new System.Drawing.Size(305, 50);
+            this.textBoxRegisterContainer.TabIndex = 0;
             // 
             // label1
             // 
@@ -131,7 +131,7 @@
             // 
             // panelMfgSubmit
             // 
-            this.panelMfgSubmit.Controls.Add(this.buttonMfgSubmit);
+            this.panelMfgSubmit.Controls.Add(this.buttonRegisterSubmit);
             this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgSubmit.Location = new System.Drawing.Point(711, 655);
             this.panelMfgSubmit.Name = "panelMfgSubmit";
@@ -166,7 +166,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.textBoxRegisterERPBOM);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 109);
@@ -174,20 +174,20 @@
             this.panel2.Size = new System.Drawing.Size(345, 100);
             this.panel2.TabIndex = 10;
             // 
-            // textBox2
+            // textBoxRegisterERPBOM
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxRegisterERPBOM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox2.Location = new System.Drawing.Point(17, 35);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(305, 50);
-            this.textBox2.TabIndex = 10;
+            this.textBoxRegisterERPBOM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.textBoxRegisterERPBOM.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegisterERPBOM.Enabled = false;
+            this.textBoxRegisterERPBOM.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegisterERPBOM.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxRegisterERPBOM.Location = new System.Drawing.Point(17, 35);
+            this.textBoxRegisterERPBOM.Name = "textBoxRegisterERPBOM";
+            this.textBoxRegisterERPBOM.ReadOnly = true;
+            this.textBoxRegisterERPBOM.Size = new System.Drawing.Size(305, 50);
+            this.textBoxRegisterERPBOM.TabIndex = 10;
             // 
             // label2
             // 
@@ -204,7 +204,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.textBox3);
+            this.panel3.Controls.Add(this.textBoxRegisterProduct);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(354, 109);
@@ -212,20 +212,20 @@
             this.panel3.Size = new System.Drawing.Size(345, 100);
             this.panel3.TabIndex = 10;
             // 
-            // textBox3
+            // textBoxRegisterProduct
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxRegisterProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox3.Location = new System.Drawing.Point(17, 35);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(305, 50);
-            this.textBox3.TabIndex = 11;
+            this.textBoxRegisterProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.textBoxRegisterProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegisterProduct.Enabled = false;
+            this.textBoxRegisterProduct.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegisterProduct.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxRegisterProduct.Location = new System.Drawing.Point(17, 35);
+            this.textBoxRegisterProduct.Name = "textBoxRegisterProduct";
+            this.textBoxRegisterProduct.ReadOnly = true;
+            this.textBoxRegisterProduct.Size = new System.Drawing.Size(305, 50);
+            this.textBoxRegisterProduct.TabIndex = 11;
             // 
             // label3
             // 
@@ -259,7 +259,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.textBox4);
+            this.panel4.Controls.Add(this.textBoxRegisterPN);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
@@ -267,18 +267,18 @@
             this.panel4.Size = new System.Drawing.Size(413, 115);
             this.panel4.TabIndex = 1;
             // 
-            // textBox4
+            // textBoxRegisterPN
             // 
-            this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxRegisterPN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox4.Location = new System.Drawing.Point(17, 63);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(373, 50);
-            this.textBox4.TabIndex = 1;
+            this.textBoxRegisterPN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxRegisterPN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegisterPN.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegisterPN.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxRegisterPN.Location = new System.Drawing.Point(17, 63);
+            this.textBoxRegisterPN.Name = "textBoxRegisterPN";
+            this.textBoxRegisterPN.Size = new System.Drawing.Size(373, 50);
+            this.textBoxRegisterPN.TabIndex = 1;
             // 
             // label4
             // 
@@ -295,7 +295,7 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.textBox6);
+            this.panel5.Controls.Add(this.textBoxRegisterBatchID);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 245);
@@ -303,18 +303,18 @@
             this.panel5.Size = new System.Drawing.Size(413, 117);
             this.panel5.TabIndex = 2;
             // 
-            // textBox5
+            // textBoxRegisterSN
             // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxRegisterSN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox5.Location = new System.Drawing.Point(17, 46);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(373, 50);
-            this.textBox5.TabIndex = 3;
+            this.textBoxRegisterSN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxRegisterSN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegisterSN.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegisterSN.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxRegisterSN.Location = new System.Drawing.Point(17, 46);
+            this.textBoxRegisterSN.Name = "textBoxRegisterSN";
+            this.textBoxRegisterSN.Size = new System.Drawing.Size(373, 50);
+            this.textBoxRegisterSN.TabIndex = 3;
             // 
             // label5
             // 
@@ -332,25 +332,25 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.textBox5);
+            this.panel6.Controls.Add(this.textBoxRegisterSN);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 124);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(413, 115);
             this.panel6.TabIndex = 2;
             // 
-            // textBox6
+            // textBoxRegisterBatchID
             // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxRegisterBatchID.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBox6.Location = new System.Drawing.Point(17, 48);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(373, 50);
-            this.textBox6.TabIndex = 2;
+            this.textBoxRegisterBatchID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxRegisterBatchID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegisterBatchID.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegisterBatchID.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxRegisterBatchID.Location = new System.Drawing.Point(17, 48);
+            this.textBoxRegisterBatchID.Name = "textBoxRegisterBatchID";
+            this.textBoxRegisterBatchID.Size = new System.Drawing.Size(373, 50);
+            this.textBoxRegisterBatchID.TabIndex = 2;
             // 
             // label6
             // 
@@ -365,28 +365,28 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Scan Component Serial Number";
             // 
-            // buttonMfgSubmit
+            // buttonRegisterSubmit
             // 
-            this.buttonMfgSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonRegisterSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMfgSubmit.AutoSize = true;
-            this.buttonMfgSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
-            this.buttonMfgSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonMfgSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonMfgSubmit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonMfgSubmit.ForeColor = System.Drawing.Color.White;
-            this.buttonMfgSubmit.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
-            this.buttonMfgSubmit.IconColor = System.Drawing.Color.White;
-            this.buttonMfgSubmit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.buttonMfgSubmit.IconSize = 40;
-            this.buttonMfgSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonMfgSubmit.Location = new System.Drawing.Point(171, 13);
-            this.buttonMfgSubmit.Name = "buttonMfgSubmit";
-            this.buttonMfgSubmit.Size = new System.Drawing.Size(179, 46);
-            this.buttonMfgSubmit.TabIndex = 5;
-            this.buttonMfgSubmit.Text = "Submit";
-            this.buttonMfgSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonMfgSubmit.UseVisualStyleBackColor = false;
+            this.buttonRegisterSubmit.AutoSize = true;
+            this.buttonRegisterSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
+            this.buttonRegisterSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegisterSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonRegisterSubmit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonRegisterSubmit.ForeColor = System.Drawing.Color.White;
+            this.buttonRegisterSubmit.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
+            this.buttonRegisterSubmit.IconColor = System.Drawing.Color.White;
+            this.buttonRegisterSubmit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonRegisterSubmit.IconSize = 40;
+            this.buttonRegisterSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonRegisterSubmit.Location = new System.Drawing.Point(171, 13);
+            this.buttonRegisterSubmit.Name = "buttonRegisterSubmit";
+            this.buttonRegisterSubmit.Size = new System.Drawing.Size(179, 46);
+            this.buttonRegisterSubmit.TabIndex = 5;
+            this.buttonRegisterSubmit.Text = "Submit";
+            this.buttonRegisterSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonRegisterSubmit.UseVisualStyleBackColor = false;
             // 
             // buttonMaterialRegister
             // 
@@ -436,12 +436,12 @@
             // Material
             // 
             this.Material.Text = "Material";
-            this.Material.Width = 136;
+            this.Material.Width = 458;
             // 
             // Status
             // 
             this.Status.Text = "Status";
-            this.Status.Width = 212;
+            this.Status.Width = 151;
             // 
             // FormMaterialRegistration
             // 
@@ -479,28 +479,28 @@
 
         private System.Windows.Forms.TableLayoutPanel PanelMfgOrder;
         private System.Windows.Forms.Panel PanelMfgName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxRegisterContainer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelMfgSubmit;
-        private FontAwesome.Sharp.IconButton buttonMfgSubmit;
+        private FontAwesome.Sharp.IconButton buttonRegisterSubmit;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton buttonMaterialRegister;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxRegisterProduct;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxRegisterERPBOM;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxRegisterBatchID;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBoxRegisterSN;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBoxRegisterPN;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader Material;
