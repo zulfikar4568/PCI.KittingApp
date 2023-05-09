@@ -39,10 +39,10 @@ jobs:
       uses: darenm/Setup-VSTest@v1.2
       
     - name: Restore Nuget Packages
-      run: nuget restore PCI.ImageTestUI.sln
+      run: nuget restore PCI.KittingApp.sln
     
     - name: Build the Solution
-      run: msbuild PCI.ImageTestUI.sln /p:Configuration=Release
+      run: msbuild PCI.KittingApp.sln /p:Configuration=Release
     
     - name: VSTest
       run: vstest.console.exe /Platform:x64
