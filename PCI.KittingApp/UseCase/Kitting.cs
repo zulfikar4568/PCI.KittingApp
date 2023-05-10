@@ -41,5 +41,21 @@ namespace PCI.KittingApp.UseCase
 
             return result;
         }
+
+        public bool ValidateCustomerSerialNumber(string CustomerSerialNumber, string FGSerialNumber)
+        {
+            if (CustomerSerialNumber == null) return false;
+            var data = CustomerSerialNumber.Split('_');
+            if (data.Length != 3) return false;
+            if (FGSerialNumber != data[2]) return false;
+            return true;
+        }
+
+        public bool ValidateBatchID(string BatchID)
+        {
+            if (BatchID == null) return false;
+            if (BatchID.Length < 10) return false;
+            return true;
+        }
     }
 }

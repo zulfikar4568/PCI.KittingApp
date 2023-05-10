@@ -78,6 +78,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UseCase\KittingFGSerialNumber.cs" />
     <Compile Include="UseCase\KittingERPBOM.cs" />
+    <Compile Include="UseCase\KittingCustomerSN.cs" />
+    <Compile Include="UseCase\KittingBatchID.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
