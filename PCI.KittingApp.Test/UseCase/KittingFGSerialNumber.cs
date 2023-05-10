@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace PCI.KittingApp.Tests
 {
     [TestClass()]
-    public class Kitting
+    public class KittingFGSerialNumber
     {
         private UseCase.Kitting kittingUsecase = new UseCase.Kitting();
 

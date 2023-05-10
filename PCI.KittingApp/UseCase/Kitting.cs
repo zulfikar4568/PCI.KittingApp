@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Camstar.WCF.ObjectStack;
+using PCI.KittingApp.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +19,27 @@ namespace PCI.KittingApp.UseCase
             if (!FGSerialNumber.Contains("IDN")) return false;
             // Validate if FG Serial Number already exists
             return ValidateFGExists(FGSerialNumber);
+        }
+
+        public bool ValidatePNAssociatedWithERPBOM(string PartNumber, ref BillOfMaterial[] BOMs)
+        {
+            bool result = false;
+
+            for (int i = 0; i < BOMs.Length; i++)
+            {
+                if (BOMs[i] == null) continue;
+                // If Type is not serialized
+                if (BOMs[i].IssueControl != IssueControlEnum.Serialized) continue;
+                // Check if PartNumber is same and not yet registered
+                if (BOMs[i].Product == PartNumber && !BOMs[i].isRegistered)
+                {
+                    BOMs[i].isRegistered = true;
+                    result = true;
+                    break;
+                }
+            }
+
+            return result;
         }
     }
 }

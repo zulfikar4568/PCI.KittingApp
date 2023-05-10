@@ -39,6 +39,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Camstar.Exceptions, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Camstar\Camstar.Exceptions.dll</HintPath>
+    </Reference>
+    <Reference Include="Camstar.Util, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Camstar\Camstar.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="Camstar.WCFClient, Version=8.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Camstar\Camstar.WCFClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Camstar.WCFClientBase, Version=8.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Camstar\Camstar.WCFClientBase.dll</HintPath>
+    </Reference>
+    <Reference Include="InSiteXMLClient">
+      <HintPath>..\Camstar\InSiteXMLClient.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\MSTest.TestFramework.2.2.7\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
     </Reference>
@@ -57,7 +76,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UseCase\Kitting.cs" />
+    <Compile Include="UseCase\KittingFGSerialNumber.cs" />
+    <Compile Include="UseCase\KittingERPBOM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
