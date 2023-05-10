@@ -18,6 +18,39 @@ namespace PCI.KittingApp.Driver.Opcenter
         {
             _helper = helper;
         }
+        public bool StartTxn(Start ServiceObject, StartService Service, bool IgnoreException = true)
+        {
+            string TxnId = Guid.NewGuid().ToString();
+            try
+            {
+                string sMessage = "";
+                Start oServiceObject = null;
+                ResultStatus oResulstStatus = null;
+                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, "Setting input data for Start ..."), System.Diagnostics.EventLogEntryType.Information, 2);
+                oServiceObject = ServiceObject;
+
+                // Execute Transaction
+                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, "Execution a Start"), System.Diagnostics.EventLogEntryType.Information, 2);
+                oResulstStatus = Service.ExecuteTransaction(oServiceObject);
+
+                // Process Result
+                bool statusStart = _helper.ProcessResult(oResulstStatus, ref sMessage, false);
+                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, sMessage), System.Diagnostics.EventLogEntryType.Information, 2);
+                return statusStart;
+            }
+            catch (Exception ex)
+            {
+                ex.Source = AppSettings.AssemblyName == ex.Source ? MethodBase.GetCurrentMethod().Name : MethodBase.GetCurrentMethod().Name + "." + ex.Source;
+                string exceptionMsg = Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, ex.Message);
+                EventLogUtil.LogErrorEvent(ex.Source, exceptionMsg);
+                if (!IgnoreException) throw ex;
+                return false;
+            }
+            finally
+            {
+                if (!(Service is null)) Service.Close();
+            }
+        }
         public ViewContainerStatus ContainerInfo(ViewContainerStatus_Info ContainerInfo, string ContainerName, bool IgnoreException = true)
         {
             string TxnId = Guid.NewGuid().ToString();
