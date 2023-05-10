@@ -19,6 +19,11 @@ namespace PCI.KittingApp.Repository.Opcenter
             _maintenanceTxn = maintenanceTxn;
             _helper = helper;
         }
+        public bool MfgOrderExists(string MfgOrderName)
+        {
+            MfgOrderMaintService oServiceMfgOrder= new MfgOrderMaintService(AppSettings.ExCoreUserProfile);
+            return _helper.ObjectExists(oServiceMfgOrder, new MfgOrderMaint(), MfgOrderName);
+        }
         public bool ProductTypeExists(string ProductTypeName)
         {
             ProductTypeMaintService oServiceProduct = new ProductTypeMaintService(AppSettings.ExCoreUserProfile);
