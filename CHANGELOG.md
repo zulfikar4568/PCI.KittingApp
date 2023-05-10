@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.1.0"></a>
+## [1.1.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.1.0) (2023-5-10)
+
+### Features
+
+* add mfg order is exists ([2616405](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/261640586aff34e447a2e150238bdf7d64e829b3))
+* add start transaction ([e435c66](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/e435c666bc6d07e212cbde1b209ec3ce9f90fb82))
+* add validate of erpBOM ([6315444](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/63154446ac81d247a2cc7c3c78bf258c954b190d))
+* change the validation status ([d949b7b](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/d949b7b9747e972c8d817d1f0a871352c977f39a))
+* container transaction ([1200633](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/1200633d91a5acd616c2f9d2c86352b11f28d5b8))
+* validation of batch ID and Customer SN ([d4fe84f](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/d4fe84f7b36e93c6a4209ec578b77a5fbb623dbf))
+
+### Bug Fixes
+
+* maintenance txn bug ([8206149](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/82061498428eff6a9d2ac224f342691042efc0be))
+
+### Other
+
+* Merge pull request #1 from zulfikar4568/feat/dev ([6e78a1e](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/6e78a1e7da7a75b4f0a4b7503cdab7622c44dae4))
+* inheritance maintenance txn ([b5859fb](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/b5859fb670bde4a18b23755e54cc2fd3db1e3b71))
+
 <a name="1.0.0"></a>
 ## [1.0.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.0.0) (2023-5-9)
 
