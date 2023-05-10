@@ -34,7 +34,7 @@ namespace PCI.KittingApp.Repository.Opcenter
             OrderTypeChanges objectChanges = new OrderTypeChanges();
             objectChanges.Name = Name;
             objectChanges.Description = Description;
-            return _maintenanceTxn.NamedDataObjectTxn(objectChanges, IgnoreException);
+            return _maintenanceTxn.OrderTypeTxn(objectChanges, IgnoreException);
         }
         public bool SaveOrderStatus(string Name, dynamic isOrderStates, string Description = "", bool IgnoreException = true)
         {
@@ -42,7 +42,7 @@ namespace PCI.KittingApp.Repository.Opcenter
             objectChanges.Name = Name;
             objectChanges.isOrderStates = isOrderStates;
             objectChanges.Description = Description;
-            return _maintenanceTxn.NamedDataObjectTxn(objectChanges, IgnoreException);
+            return _maintenanceTxn.OrderStatusTxn(objectChanges, IgnoreException);
         }
         public bool SaveMfgOrder(string Name, string Description = "", string Notes = "", string ProductName = "", string ProductRevision = "", string WorkflowName = "", string WorkflowRevision = "", double Qty = 0, List<MfgOrderMaterialListItmChanges> MaterialList = null, string ERPRoute = "", string PlannedStartDate = "", string PlannedCompletedDate = "", string ReleaseDate = "", string OrderStatus = "", string OrderType = "", bool IgnoreException = true)
         {
@@ -89,7 +89,7 @@ namespace PCI.KittingApp.Repository.Opcenter
             if (Formatting.IsDate(PlannedStartDate)) objectChanges.PlannedStartDate = new Primitive<DateTime>() { Value = Convert.ToDateTime(PlannedStartDate) };
             if (Formatting.IsDate(PlannedCompletedDate)) objectChanges.PlannedCompletionDate = new Primitive<DateTime>() { Value = Convert.ToDateTime(PlannedCompletedDate) };
             if (Formatting.IsDate(ReleaseDate)) objectChanges.ReleaseDate = new Primitive<DateTime>() { Value = Convert.ToDateTime(ReleaseDate) };
-            return _maintenanceTxn.NamedDataObjectTxn(objectChanges, IgnoreException);
+            return _maintenanceTxn.MfgOrderTxn(objectChanges, IgnoreException);
         }
         public bool SaveProduct(string ProductName, string Revision, string IsRevOfRcd = "", string Description = "", string Notes = "", string ProductType = "", string DocumentSet = "", string WorkflowName = "", string WorkflowRevision = "", string BOMName = "", string BOMRevision = "", string ProductFamily = "", string StartUOM = "", double StartQty = 0, bool IgnoreException = true)
         {
@@ -120,7 +120,7 @@ namespace PCI.KittingApp.Repository.Opcenter
             {
                 objectChanges.BOM = new RevisionedObjectRef(BOMName, BOMRevision);
             }
-            return _maintenanceTxn.RevisionedObjectTxn(objectChanges, IgnoreException);
+            return _maintenanceTxn.ProductTxn(objectChanges, IgnoreException);
         }
         public bool SaveProductFamily(string Name, string Description = "", string WorkflowName = "", string WorkflowRevision = "", string DocumentSet = "", string ContainerNumberingRule = "", bool IgnoreException = true)
         {
@@ -137,21 +137,21 @@ namespace PCI.KittingApp.Repository.Opcenter
             }
             if (DocumentSet != "") objectChanges.DocumentSet = new NamedObjectRef(DocumentSet);
             if (ContainerNumberingRule != "") objectChanges.ContainerNumberingRule = new NamedObjectRef(ContainerNumberingRule);
-            return _maintenanceTxn.NamedDataObjectTxn(objectChanges, IgnoreException);
+            return _maintenanceTxn.ProductFamilyTxn(objectChanges, IgnoreException);
         }
         public bool SaveProductType(string Name, string Description = "", bool IgnoreException = true)
         {
             ProductTypeChanges objectChanges = new ProductTypeChanges();
             objectChanges.Name = new Primitive<string>() { Value = Name };
             if (Description != "") objectChanges.Description = new Primitive<string>() { Value = Description };
-            return _maintenanceTxn.NamedDataObjectTxn(objectChanges, IgnoreException);
+            return _maintenanceTxn.ProductTypeTxn(objectChanges, IgnoreException);
         }
         public bool SaveUOM(string Name, string Description = "", bool IgnoreException = true)
         {
             UOMChanges objectChanges = new UOMChanges();
             objectChanges.Name = new Primitive<string>() { Value = Name };
             if (Description != "") objectChanges.Description = new Primitive<string>() { Value = Description };
-            return _maintenanceTxn.NamedDataObjectTxn(objectChanges, IgnoreException);
+            return _maintenanceTxn.UOMTxn(objectChanges, IgnoreException);
         }
         public ProductChanges GetProduct(string ProductName, string ProductRevision = "", bool IgnoreException = true)
         {
@@ -182,12 +182,12 @@ namespace PCI.KittingApp.Repository.Opcenter
             attachDocumentDetails_Info.AttachmentType = new Info(true);
             productInfo.AttachDocumentDetails = attachDocumentDetails_Info;
 
-            return (ProductChanges)_maintenanceTxn.RevisionedObjectInfo(objectToChange, productInfo, IgnoreException);
+            return _maintenanceTxn.ProductInfo(objectToChange, productInfo, IgnoreException);
         }
         public MfgOrderChanges GetMfgOrder(string MfgOrderName, bool IgnoreException = true)
         {
             NamedObjectRef objectToChange = new NamedObjectRef(MfgOrderName);
-            return (MfgOrderChanges)_maintenanceTxn.NamedDataObjectInfo(objectToChange, IgnoreException);
+            return _maintenanceTxn.MfgOrderInfo(objectToChange, IgnoreException);
         }
         public NamedObjectRef[] ListMfgOrderInfo(bool IgnoreException = true)
         {
@@ -210,7 +210,7 @@ namespace PCI.KittingApp.Repository.Opcenter
             routeStepChanges_Info.Sequence = new Info(true);
             erpRouteInfo.RouteSteps = routeStepChanges_Info;
             erpRouteInfo.Status = new Info(true);
-            return (ERPRouteChanges)_maintenanceTxn.RevisionedObjectInfo(objectToChange, erpRouteInfo, IgnoreException);
+            return _maintenanceTxn.ERPRouteInfo(objectToChange, erpRouteInfo, IgnoreException);
         }
         public WorkflowChanges GetWorkflow(string WorkflowName, string WorkflowRevision = "", bool IgnoreException = true)
         {
@@ -247,7 +247,7 @@ namespace PCI.KittingApp.Repository.Opcenter
             workflowInfo.Steps = stepChanges_Info;
             workflowInfo.Status = new Info(true);
 
-            return (WorkflowChanges)_maintenanceTxn.RevisionedObjectInfo(objectToChange, workflowInfo, IgnoreException);
+            return _maintenanceTxn.WorkflowInfo(objectToChange, workflowInfo, IgnoreException);
         }
         public ERPBOMChanges GetERPBOM(string ERPBOMName, string ERPBOMRevision = "", bool IgnoreException = true)
         {
@@ -270,7 +270,7 @@ namespace PCI.KittingApp.Repository.Opcenter
             erpbomInfo.MaterialList = bOMMaterialListItemChanges_Info;
             erpbomInfo.Status = new Info(true);
 
-            return (ERPBOMChanges)_maintenanceTxn.RevisionedObjectInfo(objectToChange, erpbomInfo, IgnoreException);
+            return (ERPBOMChanges)_maintenanceTxn.ERPBOMInfo(objectToChange, erpbomInfo, IgnoreException);
         }
     }
 }
