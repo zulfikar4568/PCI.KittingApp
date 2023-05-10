@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using PCI.KittingApp.Config;
+using PCI.KittingApp.Forms;
 using PCI.KittingApp.Util;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace PCI.KittingApp
             containerBuilder.RegisterModule(new Driver.DriverModule());
             containerBuilder.RegisterModule(new Repository.RepositoryModule());
             containerBuilder.RegisterModule(new UseCase.UseCaseModule());
+            containerBuilder.RegisterModule(new FormModule());
             containerBuilder.RegisterType<Main>().AsSelf();
 
             return containerBuilder;

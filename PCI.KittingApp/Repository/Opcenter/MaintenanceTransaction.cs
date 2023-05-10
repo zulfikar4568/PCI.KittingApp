@@ -19,6 +19,11 @@ namespace PCI.KittingApp.Repository.Opcenter
             _maintenanceTxn = maintenanceTxn;
             _helper = helper;
         }
+        public bool MfgOrderExists(string MfgOrderName)
+        {
+            MfgOrderMaintService oServiceMfgOrder= new MfgOrderMaintService(AppSettings.ExCoreUserProfile);
+            return _helper.ObjectExists(oServiceMfgOrder, new MfgOrderMaint(), MfgOrderName);
+        }
         public bool ProductTypeExists(string ProductTypeName)
         {
             ProductTypeMaintService oServiceProduct = new ProductTypeMaintService(AppSettings.ExCoreUserProfile);
@@ -248,6 +253,29 @@ namespace PCI.KittingApp.Repository.Opcenter
             workflowInfo.Status = new Info(true);
 
             return _maintenanceTxn.WorkflowInfo(objectToChange, workflowInfo, IgnoreException);
+        }
+        public ERPBOMChanges GetERPBOM(string ERPBOMName, string ERPBOMRevision = "", bool IgnoreException = true)
+        {
+            RevisionedObjectRef objectToChange = new RevisionedObjectRef(ERPBOMName);
+            if (ERPBOMName != "" && ERPBOMRevision != "")
+            {
+                objectToChange = new RevisionedObjectRef(ERPBOMName, ERPBOMRevision);
+            }
+            ERPBOMChanges_Info erpbomInfo = new ERPBOMChanges_Info();
+            erpbomInfo.Name = new Info(true);
+            erpbomInfo.Description = new Info(true);
+            erpbomInfo.ERPRoute = new Info(true);
+            BOMMaterialListItemChanges_Info bOMMaterialListItemChanges_Info = new BOMMaterialListItemChanges_Info();
+            bOMMaterialListItemChanges_Info.Name = new Info(true);
+            bOMMaterialListItemChanges_Info.Product = new Info(true);
+            bOMMaterialListItemChanges_Info.Description1 = new Info(true);
+            bOMMaterialListItemChanges_Info.isProductDescription = new Info(true);
+            bOMMaterialListItemChanges_Info.QtyRequired= new Info(true);
+            bOMMaterialListItemChanges_Info.IssueControl = new Info(true);
+            erpbomInfo.MaterialList = bOMMaterialListItemChanges_Info;
+            erpbomInfo.Status = new Info(true);
+
+            return (ERPBOMChanges)_maintenanceTxn.ERPBOMInfo(objectToChange, erpbomInfo, IgnoreException);
         }
     }
 }

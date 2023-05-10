@@ -14,6 +14,8 @@ namespace PCI.KittingApp.Repository
         protected override void Load(ContainerBuilder moduleBuilder)
         {
             moduleBuilder.RegisterType<MaintenanceTransaction>().AsSelf();
+            moduleBuilder.RegisterType<ContainerTransaction>().AsSelf();
+            moduleBuilder.RegisterType<MaintenanceMapper>().AsSelf();
         }
     }
 }

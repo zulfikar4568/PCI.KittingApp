@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using PCI.KittingApp.Driver.Opcenter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,9 @@ namespace PCI.KittingApp.Driver
     {
         protected override void Load(ContainerBuilder moduleBuilder)
         {
-            moduleBuilder.RegisterType<KittingApp.Driver.Opcenter.Helper>().AsSelf();
-            moduleBuilder.RegisterType<KittingApp.Driver.Opcenter.MaintenanceTransaction>().AsSelf();
+            moduleBuilder.RegisterType<Helper>().AsSelf();
+            moduleBuilder.RegisterType<MaintenanceTransaction>().AsSelf();
+            moduleBuilder.RegisterType<ContainerTransaction>().AsSelf();
         }
     }
 }

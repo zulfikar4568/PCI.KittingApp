@@ -18,7 +18,42 @@ namespace PCI.KittingApp.Driver.Opcenter
         {
             _helper = helper;
         }
+        public ERPBOMChanges ERPBOMInfo(RevisionedObjectRef ObjectRevisionRef, ERPBOMChanges_Info ObjectChanges, bool IgnoreException = true)
+        {
+            ERPBOMMaintService oService = null;
+            try
+            {
+                oService = new ERPBOMMaintService(AppSettings.ExCoreUserProfile);
+                ERPBOMMaint oServiceObject = new ERPBOMMaint();
+                oServiceObject.ObjectToChange = ObjectRevisionRef;
+                ERPBOMMaint_Request oServiceRequest = new ERPBOMMaint_Request();
+                oServiceRequest.Info = new ERPBOMMaint_Info();
+                oServiceRequest.Info.ObjectChanges = ObjectChanges;
 
+                ResultStatus oResultStatus = oService.Load(oServiceObject, oServiceRequest, out ERPBOMMaint_Result oServiceResult);
+
+                EventLogUtil.LogEvent(oResultStatus.Message, System.Diagnostics.EventLogEntryType.Information, 3);
+                if (oServiceResult.Value.ObjectChanges != null)
+                {
+                    return oServiceResult.Value.ObjectChanges;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Source = AppSettings.AssemblyName == ex.Source ? MethodBase.GetCurrentMethod().Name : MethodBase.GetCurrentMethod().Name + "." + ex.Source;
+                EventLogUtil.LogErrorEvent(ex.Source, ex);
+                if (!IgnoreException) throw ex;
+                return null;
+            }
+            finally
+            {
+                if (!(oService is null)) oService.Close();
+            }
+        }
         public WorkflowChanges WorkflowInfo(RevisionedObjectRef ObjectRevisionRef, WorkflowChanges_Info ObjectChanges, bool IgnoreException = true)
         {
             WorkflowMaintService oService = null;
