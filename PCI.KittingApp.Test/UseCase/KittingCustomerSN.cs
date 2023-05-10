@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PCI.KittingApp.Entity;
 using System;
 
 namespace PCI.KittingApp.Test
@@ -13,21 +15,27 @@ namespace PCI.KittingApp.Test
         {
             string customerSN = "5918748_01_IDN00001";
             string FG = "IDN00001";
-            Assert.AreEqual(true, kittingUsecase.ValidateCustomerSerialNumber(customerSN, FG));
+            var correctValue = new ValidationStatus() { IsSuccess = true, ErrorCode = null };
+
+            kittingUsecase.ValidateCustomerSerialNumber(customerSN, FG).Should().BeEquivalentTo(correctValue);
         }
         [TestMethod]
         public void WrongSN()
         {
             string customerSN = "5918748_01_IDN00002";
             string FG = "IDN00001";
-            Assert.AreEqual(false, kittingUsecase.ValidateCustomerSerialNumber(customerSN, FG));
+            var wrongValue = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_SN_MISSMATCH };
+
+            kittingUsecase.ValidateCustomerSerialNumber(customerSN, FG).Should().BeEquivalentTo(wrongValue);
         }
         [TestMethod]
         public void WrongCustomerSN()
         {
             string customerSN = "WrongSN";
             string FG = "IDN00001";
-            Assert.AreEqual(false, kittingUsecase.ValidateCustomerSerialNumber(customerSN, FG));
+            var wrongValue = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_FORMAT_CUSTOMER_SN };
+
+            kittingUsecase.ValidateCustomerSerialNumber(customerSN, FG).Should().BeEquivalentTo(wrongValue);
         }
     }
 }

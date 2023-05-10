@@ -109,6 +109,8 @@
     <Compile Include="Driver\Opcenter\Helper.cs" />
     <Compile Include="Driver\Opcenter\MaintenanceTransaction.cs" />
     <Compile Include="Entity\BillOfMaterial.cs" />
+    <Compile Include="Entity\ErrorCode.cs" />
+    <Compile Include="Entity\ValidationStatus.cs" />
     <Compile Include="Forms\FormMaterialRegistration.cs">
       <SubType>Form</SubType>
     </Compile>

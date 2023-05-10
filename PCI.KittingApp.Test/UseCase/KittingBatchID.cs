@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using PCI.KittingApp.Entity;
 using System;
 
 namespace PCI.KittingApp.Test
@@ -11,7 +13,9 @@ namespace PCI.KittingApp.Test
         public void CorrectBatchID()
         {
             string batchID = "0007405096";
-            Assert.AreEqual(true, kittingUsecase.ValidateBatchID(batchID));
+            var correctValue = new ValidationStatus() { IsSuccess= true, ErrorCode = null };
+            
+            kittingUsecase.ValidateBatchID(batchID).Should().BeEquivalentTo(correctValue);
         }
 
         [TestMethod]
@@ -19,7 +23,9 @@ namespace PCI.KittingApp.Test
         {
 
             string batchID = "000746";
-            Assert.AreEqual(false, kittingUsecase.ValidateBatchID(batchID));
+            var wrongValue = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_DIGIT_LESS_10 };
+
+            kittingUsecase.ValidateBatchID(batchID).Should().BeEquivalentTo(wrongValue);
         }
     }
 }
