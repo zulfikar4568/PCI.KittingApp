@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using PCI.KittingApp.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,12 @@ namespace PCI.KittingApp
         static void Main()
         {
             // Check Connection
-            /*bool status = Bootstrapper.CheckConnection();
+            bool status = Bootstrapper.CheckConnection();
             if (!status)
             {
-                MessageBox.Show("Cannot establish the connection to the server, make sure the IP Server and Port Reachable, the app will close!", "Network Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ZIMessageBox.Show("Cannot establish the connection to the server, make sure the IP Server and Port Reachable, the app will close!", "Network Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
-            }*/
+            }
             // Dependency injection
             var containerBuilder = Bootstrapper.DependencyInjectionBuilder(new ContainerBuilder());
             var container = containerBuilder.Build();

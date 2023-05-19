@@ -21,10 +21,9 @@ namespace PCI.KittingApp.Util
                 return false;
             }
         }
-        public static bool CanCovertTo(string testString, string testType)
+        public static bool CanCovertTo<T>(string testString)
         {
-            Type type = Type.GetType(testType, null, null);
-            TypeConverter converter = TypeDescriptor.GetConverter(type);
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(T));
             return converter.IsValid(testString);
         }
     }

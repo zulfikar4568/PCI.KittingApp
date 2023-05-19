@@ -102,6 +102,7 @@
             this.textBoxMfgProduct.Name = "textBoxMfgProduct";
             this.textBoxMfgProduct.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgProduct.TabIndex = 2;
+            this.textBoxMfgProduct.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgProduct_KeyDown);
             // 
             // label3
             // 
@@ -128,6 +129,7 @@
             this.textBoxMfgQty.Name = "textBoxMfgQty";
             this.textBoxMfgQty.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgQty.TabIndex = 4;
+            this.textBoxMfgQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgQty_KeyDown);
             // 
             // label4
             // 
@@ -154,6 +156,7 @@
             this.textBoxMfgUOM.Name = "textBoxMfgUOM";
             this.textBoxMfgUOM.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgUOM.TabIndex = 6;
+            this.textBoxMfgUOM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgUOM_KeyDown);
             // 
             // PanelMfgOrder
             // 
@@ -250,6 +253,7 @@
             this.buttonMfgSubmit.Text = "Submit";
             this.buttonMfgSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonMfgSubmit.UseVisualStyleBackColor = false;
+            this.buttonMfgSubmit.Click += new System.EventHandler(this.buttonMfgSubmit_Click);
             // 
             // FormOrder
             // 
