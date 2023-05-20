@@ -1,5 +1,6 @@
 ﻿using PCI.KittingApp.Components;
 using PCI.KittingApp.Repository.Opcenter;
+using PCI.KittingApp.UseCase;
 using PCI.KittingApp.Util;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,13 @@ namespace PCI.KittingApp.Forms
 {
     public partial class FormOrder : Form
     {
-        private MaintenanceTransaction _maintenanceTransaction;
-        public FormOrder(MaintenanceTransaction maintenanceTransaction)
+        private OpcenterCheckData _opcenterCheckData;
+        private OpcenterSaveData _opcenterSaveData;
+        public FormOrder(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData)
         {
             InitializeComponent();
-            _maintenanceTransaction = maintenanceTransaction;
+            _opcenterCheckData = opcenterCheckData;
+            _opcenterSaveData = opcenterSaveData;
         }
 
         private void ResetField()
@@ -32,53 +35,18 @@ namespace PCI.KittingApp.Forms
 
         private void buttonMfgSubmit_Click(object sender, EventArgs e)
         {
-            if (!IsProductExists()) return;
-            if (!IsUOMExists()) return;
-            if (!IsQtyDouble()) return;
-            bool result = _maintenanceTransaction.SaveMfgOrder(textBoxMfgName.Text, "", "", textBoxMfgProduct.Text, "", "", "", Convert.ToDouble(textBoxMfgQty.Text), null, "", textBoxMfgUOM.Text);
-            if (result)
-            {
-                ZIMessageBox.Show($"Order {textBoxMfgName.Text} save succussfully!", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ResetField();
-            }
-        }
-
-        private bool IsProductExists()
-        {
-
-            if (!_maintenanceTransaction.ProductExists(textBoxMfgProduct.Text))
-            {
-                ZIMessageBox.Show($"Product {textBoxMfgProduct.Text} not found!", "Not Found Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            return true;
-        }
-
-        private bool IsUOMExists()
-        {
-            if (!_maintenanceTransaction.UOMExists(textBoxMfgUOM.Text))
-            {
-                ZIMessageBox.Show($"UOM {textBoxMfgUOM.Text} not found!", "Not Found Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            return true;
-        }
-
-        private bool IsQtyDouble()
-        {
-            if (!Formatting.CanCovertTo<Double>(textBoxMfgQty.Text))
-            {
-                ZIMessageBox.Show($"Qty {textBoxMfgUOM.Text} is not number!", "Type Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            return true;
+            if (!_opcenterCheckData.IsProductExists(textBoxMfgProduct.Text)) return;
+            if (!_opcenterCheckData.IsUOMExists(textBoxMfgUOM.Text)) return;
+            if (!_opcenterCheckData.IsQtyDouble(textBoxMfgQty.Text)) return;
+            bool result = _opcenterSaveData.SaveMfgOrder(textBoxMfgName.Text, textBoxMfgProduct.Text, textBoxMfgQty.Text, textBoxMfgUOM.Text);
+            if (result) ResetField();
         }
 
         private void textBoxMfgProduct_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (!IsProductExists()) return;
+                if (!!_opcenterCheckData.IsProductExists(textBoxMfgProduct.Text)) return;
             }
         }
 
@@ -86,7 +54,7 @@ namespace PCI.KittingApp.Forms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (!IsQtyDouble()) return;
+                if (!_opcenterCheckData.IsQtyDouble(textBoxMfgQty.Text)) return;
             }
         }
 
@@ -94,7 +62,7 @@ namespace PCI.KittingApp.Forms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (!IsUOMExists()) return;
+                if (!_opcenterCheckData.IsUOMExists(textBoxMfgUOM.Text)) return;
             }
         }
     }

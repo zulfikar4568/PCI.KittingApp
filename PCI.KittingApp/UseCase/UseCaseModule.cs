@@ -12,6 +12,8 @@ namespace PCI.KittingApp.UseCase
         protected override void Load(ContainerBuilder moduleBuilder)
         {
             moduleBuilder.RegisterType<Kitting>().AsSelf();
+            moduleBuilder.RegisterType<OpcenterCheckData>().AsSelf();
+            moduleBuilder.RegisterType<OpcenterSaveData>().AsSelf();
         }
     }
 }

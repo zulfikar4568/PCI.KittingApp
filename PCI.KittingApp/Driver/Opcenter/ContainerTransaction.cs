@@ -24,24 +24,22 @@ namespace PCI.KittingApp.Driver.Opcenter
             try
             {
                 string sMessage = "";
-                Start oServiceObject = null;
-                ResultStatus oResulstStatus = null;
-                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, "Setting input data for Start ..."), System.Diagnostics.EventLogEntryType.Information, 2);
-                oServiceObject = ServiceObject;
+                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Details.ContainerName.ToString(), TxnId, "Setting input data for Start ..."), System.Diagnostics.EventLogEntryType.Information, 2);
+                Start oServiceObject = ServiceObject;
 
                 // Execute Transaction
-                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, "Execution a Start"), System.Diagnostics.EventLogEntryType.Information, 2);
-                oResulstStatus = Service.ExecuteTransaction(oServiceObject);
+                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Details.ContainerName.ToString(), TxnId, "Execution a Start"), System.Diagnostics.EventLogEntryType.Information, 2);
+                ResultStatus oResulstStatus = Service.ExecuteTransaction(oServiceObject);
 
                 // Process Result
                 bool statusStart = _helper.ProcessResult(oResulstStatus, ref sMessage, false);
-                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, sMessage), System.Diagnostics.EventLogEntryType.Information, 2);
+                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Details.ContainerName.ToString(), TxnId, sMessage), System.Diagnostics.EventLogEntryType.Information, 2);
                 return statusStart;
             }
             catch (Exception ex)
             {
                 ex.Source = AppSettings.AssemblyName == ex.Source ? MethodBase.GetCurrentMethod().Name : MethodBase.GetCurrentMethod().Name + "." + ex.Source;
-                string exceptionMsg = Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, ex.Message);
+                string exceptionMsg = Logging.LoggingContainer(ServiceObject.Details.ContainerName.ToString(), TxnId, ex.Message);
                 EventLogUtil.LogErrorEvent(ex.Source, exceptionMsg);
                 if (!IgnoreException) throw ex;
                 return false;

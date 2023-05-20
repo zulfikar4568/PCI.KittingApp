@@ -19,6 +19,12 @@ namespace PCI.KittingApp.Repository.Opcenter
             _maintenanceTxn = maintenanceTxn;
             _helper = helper;
         }
+
+        public bool ContainerLevelExists(string ContainerLevelName)
+        {
+            ContainerLevelMaintService oServiceMfgOrder = new ContainerLevelMaintService(AppSettings.ExCoreUserProfile);
+            return _helper.ObjectExists(oServiceMfgOrder, new ContainerLevelMaint(), ContainerLevelName);
+        }
         public bool MfgOrderExists(string MfgOrderName)
         {
             MfgOrderMaintService oServiceMfgOrder= new MfgOrderMaintService(AppSettings.ExCoreUserProfile);
@@ -184,6 +190,11 @@ namespace PCI.KittingApp.Repository.Opcenter
             productInfo.StdStartQty = new Info(true);
             productInfo.UOM = new Info(true);
             productInfo.isAttachImage = new Info(true);
+            productInfo.StdStartLevel = new Info(true);
+            productInfo.StdStartOwner = new Info(true);
+            productInfo.StdStartReason = new Info(true);
+            productInfo.StdStartQty = new Info(true);
+            productInfo.StdStartUOM= new Info(true);
 
             AttachDocumentDetails_Info attachDocumentDetails_Info = new AttachDocumentDetails_Info();
             attachDocumentDetails_Info.Document = new Info(true);
