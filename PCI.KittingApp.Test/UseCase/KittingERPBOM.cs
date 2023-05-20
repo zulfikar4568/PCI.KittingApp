@@ -20,16 +20,7 @@ namespace PCI.KittingApp.Test
             var correctValue = new ValidationStatus() { IsSuccess = true, ErrorCode = null };
 
             // Validate the PN can be registered
-            kittingUsecase.ValidatePNAssociatedWithERPBOM(partNumber, ref BOMsMock).Should().BeEquivalentTo(correctValue);
-
-            foreach (var item in BOMsMock)
-            {
-                if (item.Product == partNumber)
-                {
-                    // Make sure item changed to registered
-                    Assert.AreEqual(true, item.isRegistered);
-                }
-            }
+            kittingUsecase.ValidatePNAssociatedWithERPBOM(partNumber, BOMsMock).Should().BeEquivalentTo(correctValue);
         }
         [TestMethod]
         public void ValidateAlreadyRegisteredPN()
@@ -39,15 +30,7 @@ namespace PCI.KittingApp.Test
             var wrongValue = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_PN_REGISTERED };
 
             // Validate the PN can't be registered because the status already registered
-            kittingUsecase.ValidatePNAssociatedWithERPBOM(partNumber, ref BOMsMock).Should().BeEquivalentTo(wrongValue);
-            foreach (var item in BOMsMock)
-            {
-                if (item.Product == partNumber)
-                {
-                    // Make sure item still registered
-                    Assert.AreEqual(true, item.isRegistered);
-                }
-            }
+            kittingUsecase.ValidatePNAssociatedWithERPBOM(partNumber, BOMsMock).Should().BeEquivalentTo(wrongValue);
         }
         [TestMethod]
         public void ValidateIssueControlPN()
@@ -57,15 +40,7 @@ namespace PCI.KittingApp.Test
             var wrongValue = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_ISSUE_CONTROL };
 
             // Validate the PN can't be registered because the Issue Control not serialized
-            kittingUsecase.ValidatePNAssociatedWithERPBOM(partNumber, ref BOMsMock).Should().BeEquivalentTo(wrongValue);
-            foreach (var item in BOMsMock)
-            {
-                if (item.Product == partNumber)
-                {
-                    // Make sure item not yet registered
-                    Assert.AreEqual(false, item.isRegistered);
-                }
-            }
+            kittingUsecase.ValidatePNAssociatedWithERPBOM(partNumber, BOMsMock).Should().BeEquivalentTo(wrongValue);
         }
         [TestMethod]
         public void ValidateWrongPN()
@@ -74,7 +49,7 @@ namespace PCI.KittingApp.Test
             var partNumber = "WRONGPN001";
             var wrongValue = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_WRONG_PN };
 
-            kittingUsecase.ValidatePNAssociatedWithERPBOM(partNumber, ref BOMsMock).Should().BeEquivalentTo(wrongValue);
+            kittingUsecase.ValidatePNAssociatedWithERPBOM(partNumber, BOMsMock).Should().BeEquivalentTo(wrongValue);
         }
 
         public BillOfMaterial[] billOfMaterialsMock()

@@ -113,6 +113,7 @@
     <Compile Include="Driver\Opcenter\MaintenanceTransaction.cs" />
     <Compile Include="Entity\BillOfMaterial.cs" />
     <Compile Include="Entity\ErrorCode.cs" />
+    <Compile Include="Entity\MaterialRegistration.cs" />
     <Compile Include="Entity\ProductDefaultStart.cs" />
     <Compile Include="Entity\ValidationStatus.cs" />
     <Compile Include="Forms\FormMaterialRegistration.cs">
@@ -157,6 +158,9 @@
     <Compile Include="Util\UtilModule.cs" />
     <EmbeddedResource Include="Components\FormMessageBox.resx">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormMaterialRegistration.resx">
+      <DependentUpon>FormMaterialRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormOrder.resx">
       <DependentUpon>FormOrder.cs</DependentUpon>

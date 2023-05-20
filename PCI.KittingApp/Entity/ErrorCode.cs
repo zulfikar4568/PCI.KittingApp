@@ -19,6 +19,7 @@ namespace PCI.KittingApp.Entity
         ERROR_FORMAT_CUSTOMER_SN = 106,
         ERROR_SN_MISSMATCH = 107,
         ERROR_DIGIT_LESS_10 = 108,
+        ERROR_NOT_EXISTS = 109,
     }
     public static class ErrorCodeMeaning
     {
@@ -56,6 +57,9 @@ namespace PCI.KittingApp.Entity
                     break;
                 case ErrorCode.ERROR_DIGIT_LESS_10:
                     message = "The characters must 10 digits or upper!";
+                    break;
+                case ErrorCode.ERROR_NOT_EXISTS:
+                    message = "Data is not exist!";
                     break;
                 default:
                     message = "Unknown Error";
