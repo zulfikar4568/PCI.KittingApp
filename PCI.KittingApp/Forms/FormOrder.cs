@@ -46,7 +46,7 @@ namespace PCI.KittingApp.Forms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (!!_opcenterCheckData.IsProductExists(textBoxMfgProduct.Text)) return;
+                if (!_opcenterCheckData.IsProductExists(textBoxMfgProduct.Text)) return;
             }
         }
 
