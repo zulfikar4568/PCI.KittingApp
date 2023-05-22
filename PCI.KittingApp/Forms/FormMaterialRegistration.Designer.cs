@@ -47,16 +47,16 @@
             this.Material = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.PanelMfgName = new System.Windows.Forms.Panel();
             this.textBoxRegisterContainer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBoxRegisterERPBOM = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxRegisterProduct = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxRegisterERPBOM = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.PanelMfgOrder.SuspendLayout();
             this.panelMfgSubmit.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -65,10 +65,10 @@
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             this.PanelMfgName.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelMfgOrder
@@ -98,9 +98,9 @@
             // 
             this.panelMfgSubmit.Controls.Add(this.buttonRegisterSubmit);
             this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgSubmit.Location = new System.Drawing.Point(711, 655);
+            this.panelMfgSubmit.Location = new System.Drawing.Point(711, 664);
             this.panelMfgSubmit.Name = "panelMfgSubmit";
-            this.panelMfgSubmit.Size = new System.Drawing.Size(419, 73);
+            this.panelMfgSubmit.Size = new System.Drawing.Size(419, 64);
             this.panelMfgSubmit.TabIndex = 4;
             // 
             // buttonRegisterSubmit
@@ -130,9 +130,9 @@
             // 
             this.panel1.Controls.Add(this.buttonMaterialRegister);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(711, 593);
+            this.panel1.Location = new System.Drawing.Point(711, 594);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(419, 56);
+            this.panel1.Size = new System.Drawing.Size(419, 64);
             this.panel1.TabIndex = 3;
             // 
             // buttonMaterialRegister
@@ -152,7 +152,7 @@
             this.buttonMaterialRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonMaterialRegister.Location = new System.Drawing.Point(171, 7);
             this.buttonMaterialRegister.Name = "buttonMaterialRegister";
-            this.buttonMaterialRegister.Size = new System.Drawing.Size(179, 46);
+            this.buttonMaterialRegister.Size = new System.Drawing.Size(179, 54);
             this.buttonMaterialRegister.TabIndex = 4;
             this.buttonMaterialRegister.Text = "Register";
             this.buttonMaterialRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -167,7 +167,7 @@
             this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(711, 222);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(711, 223);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
@@ -303,7 +303,7 @@
             this.listViewMaterial.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewMaterial.HideSelection = false;
             this.listViewMaterial.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.listViewMaterial.Location = new System.Drawing.Point(30, 249);
+            this.listViewMaterial.Location = new System.Drawing.Point(30, 250);
             this.listViewMaterial.Margin = new System.Windows.Forms.Padding(30);
             this.listViewMaterial.Name = "listViewMaterial";
             this.listViewMaterial.Size = new System.Drawing.Size(648, 311);
@@ -330,29 +330,14 @@
             this.tableLayoutPanel1.Controls.Add(this.PanelMfgName, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(9, 7);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(693, 208);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(702, 214);
             this.tableLayoutPanel1.TabIndex = 19;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.panel3, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 107);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(687, 98);
-            this.tableLayoutPanel3.TabIndex = 0;
             // 
             // PanelMfgName
             // 
@@ -361,7 +346,7 @@
             this.PanelMfgName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMfgName.Location = new System.Drawing.Point(3, 3);
             this.PanelMfgName.Name = "PanelMfgName";
-            this.PanelMfgName.Size = new System.Drawing.Size(687, 98);
+            this.PanelMfgName.Size = new System.Drawing.Size(696, 101);
             this.PanelMfgName.TabIndex = 1;
             // 
             // textBoxRegisterContainer
@@ -372,9 +357,9 @@
             this.textBoxRegisterContainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxRegisterContainer.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRegisterContainer.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxRegisterContainer.Location = new System.Drawing.Point(17, 33);
+            this.textBoxRegisterContainer.Location = new System.Drawing.Point(17, 36);
             this.textBoxRegisterContainer.Name = "textBoxRegisterContainer";
-            this.textBoxRegisterContainer.Size = new System.Drawing.Size(649, 50);
+            this.textBoxRegisterContainer.Size = new System.Drawing.Size(658, 50);
             this.textBoxRegisterContainer.TabIndex = 0;
             this.textBoxRegisterContainer.Leave += new System.EventHandler(this.textBoxRegisterContainer_Leave);
             // 
@@ -385,49 +370,26 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(13, -2);
+            this.label1.Location = new System.Drawing.Point(13, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(280, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "* Scan Customer SN Console";
             // 
-            // panel2
+            // tableLayoutPanel3
             // 
-            this.panel2.Controls.Add(this.textBoxRegisterERPBOM);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(337, 92);
-            this.panel2.TabIndex = 11;
-            // 
-            // textBoxRegisterERPBOM
-            // 
-            this.textBoxRegisterERPBOM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxRegisterERPBOM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
-            this.textBoxRegisterERPBOM.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxRegisterERPBOM.Enabled = false;
-            this.textBoxRegisterERPBOM.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRegisterERPBOM.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxRegisterERPBOM.Location = new System.Drawing.Point(17, 27);
-            this.textBoxRegisterERPBOM.Name = "textBoxRegisterERPBOM";
-            this.textBoxRegisterERPBOM.ReadOnly = true;
-            this.textBoxRegisterERPBOM.Size = new System.Drawing.Size(297, 50);
-            this.textBoxRegisterERPBOM.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(13, -8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 28);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "ERP BOM";
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 110);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(687, 98);
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel3
             // 
@@ -467,6 +429,44 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Product";
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.textBoxRegisterERPBOM);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(337, 92);
+            this.panel2.TabIndex = 11;
+            // 
+            // textBoxRegisterERPBOM
+            // 
+            this.textBoxRegisterERPBOM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxRegisterERPBOM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.textBoxRegisterERPBOM.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegisterERPBOM.Enabled = false;
+            this.textBoxRegisterERPBOM.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegisterERPBOM.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxRegisterERPBOM.Location = new System.Drawing.Point(17, 27);
+            this.textBoxRegisterERPBOM.Name = "textBoxRegisterERPBOM";
+            this.textBoxRegisterERPBOM.ReadOnly = true;
+            this.textBoxRegisterERPBOM.Size = new System.Drawing.Size(297, 50);
+            this.textBoxRegisterERPBOM.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.Location = new System.Drawing.Point(13, -8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 28);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "ERP BOM";
+            // 
             // FormMaterialRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -489,13 +489,13 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
             this.PanelMfgName.ResumeLayout(false);
             this.PanelMfgName.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
