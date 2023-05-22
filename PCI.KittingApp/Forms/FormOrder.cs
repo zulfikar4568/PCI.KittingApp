@@ -32,12 +32,18 @@ namespace PCI.KittingApp.Forms
             textBoxMfgQty.Clear();
             textBoxMfgUOM.Clear();
         }
+        private bool IsRequiredFieldNotEmpty()
+        {
+            if (textBoxMfgName.Text == null || textBoxMfgName.Text == "") return false;
+            if (textBoxMfgProduct.Text == null || textBoxMfgProduct.Text == "") return false;
+            if (textBoxMfgQty.Text == null || textBoxMfgQty.Text == "") return false;
+            if (textBoxMfgUOM.Text == null || textBoxMfgUOM.Text == "") return false;
+            return true;
+        }
 
         private void buttonMfgSubmit_Click(object sender, EventArgs e)
         {
-            if (!_opcenterCheckData.IsProductExists(textBoxMfgProduct.Text)) return;
-            if (!_opcenterCheckData.IsUOMExists(textBoxMfgUOM.Text)) return;
-            if (!_opcenterCheckData.IsQtyDouble(textBoxMfgQty.Text)) return;
+            if (!IsRequiredFieldNotEmpty()) return;
             bool result = _opcenterSaveData.SaveMfgOrder(textBoxMfgName.Text, textBoxMfgProduct.Text, textBoxMfgQty.Text, textBoxMfgUOM.Text);
             if (result) ResetField();
         }

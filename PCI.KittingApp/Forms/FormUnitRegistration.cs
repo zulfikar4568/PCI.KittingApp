@@ -35,10 +35,16 @@ namespace PCI.KittingApp.Forms
             textBoxUnitMfg.Clear();
         }
 
+        private bool IsRequiredFieldNotEmpty()
+        {
+            if (textBoxUnitMfg.Text == null || textBoxUnitMfg.Text == "") return false;
+            if (textBoxUnitContainer.Text == null || textBoxUnitContainer.Text == "") return false;
+            return true;
+        }
+
         private void buttonUnitSubmit_Click(object sender, EventArgs e)
         {
-            if (!_opcenterCheckData.IsMfgOrderExists(textBoxUnitMfg.Text)) return;
-            if (!ValidateTheContainer()) return;
+            if (!IsRequiredFieldNotEmpty()) return;
             RegisterUnitContainer();
         }
 
@@ -65,6 +71,9 @@ namespace PCI.KittingApp.Forms
         }
         private void textBoxUnitMfg_Leave(object sender, EventArgs e)
         {
+            // Check Initial Data
+            if (textBoxUnitMfg.Text == null || textBoxUnitMfg.Text == "") return;
+
             if (!_opcenterCheckData.IsMfgOrderExists(textBoxUnitMfg.Text))
             {
                 textBoxUnitMfg.Clear();
@@ -75,6 +84,9 @@ namespace PCI.KittingApp.Forms
 
         private void textBoxUnitContainer_Leave(object sender, EventArgs e)
         {
+            // Check Initial Data
+            if (textBoxUnitContainer.Text == null || textBoxUnitContainer.Text == "") return;
+
             ValidateTheContainer();
         }
 

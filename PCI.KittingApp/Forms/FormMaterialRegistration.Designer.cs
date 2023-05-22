@@ -246,9 +246,9 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(13, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 28);
+            this.label1.Size = new System.Drawing.Size(350, 35);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Scan Customer SN Console";
+            this.label1.Text = "* Scan Customer SN Console";
             // 
             // panel2
             // 
@@ -324,9 +324,9 @@
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
             this.label6.Location = new System.Drawing.Point(13, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(313, 28);
+            this.label6.Size = new System.Drawing.Size(410, 35);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Scan Component Serial Number";
+            this.label6.Text = "* Scan Component Serial Number";
             // 
             // textBoxRegisterSN
             // 
@@ -412,9 +412,9 @@
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
             this.label4.Location = new System.Drawing.Point(13, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(300, 28);
+            this.label4.Size = new System.Drawing.Size(394, 35);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Scan Component Part Number";
+            this.label4.Text = "* Scan Component Part Number";
             // 
             // listViewMaterial
             // 

@@ -74,9 +74,9 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(13, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 28);
+            this.label1.Size = new System.Drawing.Size(188, 28);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Mfg Order Name";
+            this.label1.Text = "* Mfg Order Name";
             // 
             // label2
             // 
@@ -87,9 +87,9 @@
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(19, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 28);
+            this.label2.Size = new System.Drawing.Size(101, 28);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Product";
+            this.label2.Text = "* Product";
             // 
             // textBoxMfgProduct
             // 
@@ -114,9 +114,9 @@
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
             this.label3.Location = new System.Drawing.Point(19, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 28);
+            this.label3.Size = new System.Drawing.Size(121, 28);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Order Qty";
+            this.label3.Text = "* Order Qty";
             // 
             // textBoxMfgQty
             // 
@@ -141,9 +141,9 @@
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
             this.label4.Location = new System.Drawing.Point(13, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 28);
+            this.label4.Size = new System.Drawing.Size(75, 28);
             this.label4.TabIndex = 7;
-            this.label4.Text = "UOM";
+            this.label4.Text = "* UOM";
             // 
             // textBoxMfgUOM
             // 
