@@ -173,6 +173,5 @@ namespace PCI.KittingApp.Forms
         {
             if (!IsRequiredFieldNotEmpty()) return;
         }
-
     }
 }
