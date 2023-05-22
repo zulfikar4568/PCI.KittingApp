@@ -57,26 +57,26 @@ namespace PCI.KittingApp.Forms
             ValidationStatus isFGValid = _kitting.ValidateFGSerialNumber(textBoxUnitContainer.Text, _opcenterCheckData.IsContainerExists);
             if (!isFGValid.IsSuccess)
             {
-                result = false;
                 ZIMessageBox.Show(ErrorCodeMeaning.Translate(isFGValid.ErrorCode), "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxUnitContainer.Clear();
+                result = false;
             }
             return result;
         }
-
-        private void textBoxUnitMfg_KeyDown(object sender, KeyEventArgs e)
+        private void textBoxUnitMfg_Leave(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            if (!_opcenterCheckData.IsMfgOrderExists(textBoxUnitMfg.Text))
             {
-                if (!_opcenterCheckData.IsMfgOrderExists(textBoxUnitMfg.Text)) return;
+                textBoxUnitMfg.Clear();
+                return;
             }
         }
 
-        private void textBoxUnitContainer_KeyDown(object sender, KeyEventArgs e)
+
+        private void textBoxUnitContainer_Leave(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                ValidateTheContainer();
-            }
+            ValidateTheContainer();
         }
+
     }
 }

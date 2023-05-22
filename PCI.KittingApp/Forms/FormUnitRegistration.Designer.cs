@@ -87,7 +87,7 @@
             this.textBoxUnitContainer.Name = "textBoxUnitContainer";
             this.textBoxUnitContainer.Size = new System.Drawing.Size(300, 50);
             this.textBoxUnitContainer.TabIndex = 0;
-            this.textBoxUnitContainer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUnitContainer_KeyDown);
+            this.textBoxUnitContainer.Leave += new System.EventHandler(this.textBoxUnitContainer_Leave);
             // 
             // label1
             // 
@@ -124,7 +124,7 @@
             this.textBoxUnitMfg.Name = "textBoxUnitMfg";
             this.textBoxUnitMfg.Size = new System.Drawing.Size(300, 50);
             this.textBoxUnitMfg.TabIndex = 2;
-            this.textBoxUnitMfg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUnitMfg_KeyDown);
+            this.textBoxUnitMfg.Leave += new System.EventHandler(this.textBoxUnitMfg_Leave);
             // 
             // label2
             // 
