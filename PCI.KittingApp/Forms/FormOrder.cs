@@ -32,10 +32,6 @@ namespace PCI.KittingApp.Forms
             textBoxMfgQty.Clear();
             textBoxMfgUOM.Clear();
         }
-        private void ShowMessage(string errorMsg)
-        {
-            ZIMessageBox.Show(errorMsg, "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
 
         private void buttonMfgSubmit_Click(object sender, EventArgs e)
         {
