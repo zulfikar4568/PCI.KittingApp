@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.2.0"></a>
+## [1.2.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.2.0) (2023-5-22)
+
+### Features
+
+* create Mfg Order ([603463f](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/603463fea1fef8747f6050d122169a4dc8f8c457))
+* registering main unit ([700940a](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/700940a9496b0bb4e8977e87a22a157877042e84))
+* submit all material txn ([52cc49b](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/52cc49baeb8586551626aa3996c7a1186d8e1726))
+* validate all field ([3e0cf47](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/3e0cf475ce86ad5a209f862bde330e7ac8bb8724))
+* validation on submit ([c9d9bb3](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/c9d9bb3fbe7d90ceb97d7093cdb1641d47829b58))
+
+### Bug Fixes
+
+* change color btn ([4ff11e2](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/4ff11e221f162fce36975d42c757b1c21561083b))
+* event on move focus ([f1c8921](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/f1c89212b66c0e96c1b1f4ce5478489640d4de47))
+* modify panel ([3dbc4f7](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/3dbc4f7dde1f85e9e697ff61e90b974d479ccbc2))
+* order exclamation mark ([174a8a0](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/174a8a0a596aefc3c1b0a1cf0f41318c9f70b10d))
+* UI length field ([474f208](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/474f2083d917d1994f50126f6345e7efc670d315))
+
+### Other
+
+* Merge branch 'master' into feat/dev ([45f1ec3](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/45f1ec3782e564248432013431141c033fac333e))
+* Merge pull request #2 from zulfikar4568/feat/dev ([314fb7a](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/314fb7a9eab66f402a357b65b275791fd3186cc4))
+* add manifest, admin required ([70a5959](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/70a5959bf926e097c9c8fd58523d9ea4773f01aa))
+* change event order to on leave ([13dbe62](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/13dbe62ab8c2ebd0db894d146cf077998480ccac))
+* change event to on leave ([b391f57](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/b391f575646b85b0f2418f34e101f2aaf58ba5dd))
+* change event to on leave ([ca8e7fd](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/ca8e7fdd714082cf80f9aa57a0c229b1e3c4ac55))
+* remove show msg ([7a72e7b](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/7a72e7bf66537f19a49e08a94843af1108647035))
+
 <a name="1.1.0"></a>
 ## [1.1.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.1.0) (2023-5-10)
 
