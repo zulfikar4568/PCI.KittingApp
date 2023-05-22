@@ -92,7 +92,7 @@
             this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.PanelMfgOrder.Size = new System.Drawing.Size(1133, 731);
-            this.PanelMfgOrder.TabIndex = 10;
+            this.PanelMfgOrder.TabIndex = 1013;
             // 
             // panelMfgSubmit
             // 
@@ -101,7 +101,7 @@
             this.panelMfgSubmit.Location = new System.Drawing.Point(711, 664);
             this.panelMfgSubmit.Name = "panelMfgSubmit";
             this.panelMfgSubmit.Size = new System.Drawing.Size(419, 64);
-            this.panelMfgSubmit.TabIndex = 4;
+            this.panelMfgSubmit.TabIndex = 1012;
             // 
             // buttonRegisterSubmit
             // 
@@ -121,7 +121,7 @@
             this.buttonRegisterSubmit.Location = new System.Drawing.Point(171, 13);
             this.buttonRegisterSubmit.Name = "buttonRegisterSubmit";
             this.buttonRegisterSubmit.Size = new System.Drawing.Size(179, 46);
-            this.buttonRegisterSubmit.TabIndex = 5;
+            this.buttonRegisterSubmit.TabIndex = 100;
             this.buttonRegisterSubmit.Text = "Submit";
             this.buttonRegisterSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonRegisterSubmit.UseVisualStyleBackColor = false;
@@ -133,14 +133,14 @@
             this.panel1.Location = new System.Drawing.Point(711, 594);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(419, 64);
-            this.panel1.TabIndex = 3;
+            this.panel1.TabIndex = 1000;
             // 
             // buttonMaterialRegister
             // 
             this.buttonMaterialRegister.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonMaterialRegister.AutoSize = true;
-            this.buttonMaterialRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(71)))), ((int)(((byte)(204)))));
+            this.buttonMaterialRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(225)))));
             this.buttonMaterialRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonMaterialRegister.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonMaterialRegister.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -153,7 +153,7 @@
             this.buttonMaterialRegister.Location = new System.Drawing.Point(171, 7);
             this.buttonMaterialRegister.Name = "buttonMaterialRegister";
             this.buttonMaterialRegister.Size = new System.Drawing.Size(179, 54);
-            this.buttonMaterialRegister.TabIndex = 4;
+            this.buttonMaterialRegister.TabIndex = 99;
             this.buttonMaterialRegister.Text = "Register";
             this.buttonMaterialRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonMaterialRegister.UseVisualStyleBackColor = false;
@@ -174,7 +174,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.34F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(419, 365);
-            this.tableLayoutPanel2.TabIndex = 17;
+            this.tableLayoutPanel2.TabIndex = 1001;
             // 
             // panel6
             // 
@@ -184,7 +184,7 @@
             this.panel6.Location = new System.Drawing.Point(3, 124);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(413, 115);
-            this.panel6.TabIndex = 2;
+            this.panel6.TabIndex = 1002;
             // 
             // label6
             // 
@@ -221,7 +221,7 @@
             this.panel5.Location = new System.Drawing.Point(3, 245);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(413, 117);
-            this.panel5.TabIndex = 2;
+            this.panel5.TabIndex = 1011;
             // 
             // textBoxRegisterBatchID
             // 
@@ -234,7 +234,7 @@
             this.textBoxRegisterBatchID.Location = new System.Drawing.Point(17, 48);
             this.textBoxRegisterBatchID.Name = "textBoxRegisterBatchID";
             this.textBoxRegisterBatchID.Size = new System.Drawing.Size(373, 50);
-            this.textBoxRegisterBatchID.TabIndex = 3;
+            this.textBoxRegisterBatchID.TabIndex = 1003;
             this.textBoxRegisterBatchID.Leave += new System.EventHandler(this.textBoxRegisterBatchID_Leave);
             // 
             // label5
@@ -258,7 +258,7 @@
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(413, 115);
-            this.panel4.TabIndex = 1;
+            this.panel4.TabIndex = 1004;
             // 
             // textBoxRegisterPN
             // 
@@ -337,7 +337,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(702, 214);
-            this.tableLayoutPanel1.TabIndex = 19;
+            this.tableLayoutPanel1.TabIndex = 1005;
             // 
             // PanelMfgName
             // 
@@ -347,7 +347,7 @@
             this.PanelMfgName.Location = new System.Drawing.Point(3, 3);
             this.PanelMfgName.Name = "PanelMfgName";
             this.PanelMfgName.Size = new System.Drawing.Size(696, 101);
-            this.PanelMfgName.TabIndex = 1;
+            this.PanelMfgName.TabIndex = 1006;
             // 
             // textBoxRegisterContainer
             // 
@@ -389,7 +389,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(687, 98);
-            this.tableLayoutPanel3.TabIndex = 0;
+            this.tableLayoutPanel3.TabIndex = 1007;
             // 
             // panel3
             // 
@@ -399,7 +399,7 @@
             this.panel3.Location = new System.Drawing.Point(346, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(338, 92);
-            this.panel3.TabIndex = 12;
+            this.panel3.TabIndex = 1008;
             // 
             // textBoxRegisterProduct
             // 
@@ -437,7 +437,7 @@
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(337, 92);
-            this.panel2.TabIndex = 11;
+            this.panel2.TabIndex = 1009;
             // 
             // textBoxRegisterERPBOM
             // 
