@@ -11,11 +11,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using PCI.KittingApp.Forms;
+using PCI.KittingApp.Repository.Opcenter;
+using PCI.KittingApp.UseCase;
 
 namespace PCI.KittingApp
 {
     public partial class Main : Form
     {
+        public OpcenterCheckData _opcenterCheckData;
+        public OpcenterSaveData _opcenterSaveData;
+        public Kitting _kitting;
         #region UI_Field
         //Fields
         private IconButton currentBtn;
@@ -25,17 +30,21 @@ namespace PCI.KittingApp
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.Since the form is resized because it takes into account the size of the title bar and borders.
         #endregion
-        public Main()
+        public Main(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting)
         {
             InitializeComponent();
             #region UI_Constructor
             leftBorderBtn = new Panel();
-            leftBorderBtn.Size = new Size(7,60);
+            leftBorderBtn.Size = new Size(7, 60);
             panelMenu.Controls.Add(leftBorderBtn);
 
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(45, 45, 65);//Border color
             #endregion
+
+            _opcenterCheckData = opcenterCheckData;
+            _opcenterSaveData = opcenterSaveData;
+            _kitting = kitting;
         }
 
         #region UI_Resposibility
@@ -195,19 +204,19 @@ namespace PCI.KittingApp
         private void btnOrder_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, Color.Coral);
-            OpenChildForm(new FormOrder());
+            OpenChildForm(new FormOrder(_opcenterCheckData, _opcenterSaveData));
         }
 
         private void btnUnitRegistration_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, Color.Coral);
-            OpenChildForm(new FormUnitRegistration());
+            OpenChildForm(new FormUnitRegistration(_opcenterCheckData, _kitting, _opcenterSaveData));
         }
 
         private void btnMaterialRegistration_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, Color.Coral);
-            OpenChildForm(new FormMaterialRegistration());
+            OpenChildForm(new FormMaterialRegistration(_kitting, _opcenterCheckData, _opcenterSaveData));
         }
 
         private void btnHome_Click(object sender, EventArgs e)

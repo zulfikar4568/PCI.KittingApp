@@ -10,6 +10,18 @@ namespace PCI.KittingApp.UseCase
 {
     public class Kitting
     {
+        public ValidationStatus ValidateFGSerialNumberExists(string FGSerialNumber, Func<string, bool> ValidateFGExists)
+        {
+            // IDN00002
+            // Validate 8 digit characters
+            if (FGSerialNumber.Length != 8) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_DIGIT_8 };
+            // Validate IDN must be capitals letters
+            if (!FGSerialNumber.Contains("IDN")) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_IDN };
+            // Validate if FG Serial Number not yet exists
+            if (!ValidateFGExists(FGSerialNumber)) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_NOT_EXISTS };
+            return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
+
+        }
         public ValidationStatus ValidateFGSerialNumber(string FGSerialNumber, Func<string, bool> ValidateFGExists)
         {
             // IDN00002
@@ -17,13 +29,22 @@ namespace PCI.KittingApp.UseCase
             if (FGSerialNumber.Length != 8) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_DIGIT_8 };
             // Validate IDN must be capitals letters
             if (!FGSerialNumber.Contains("IDN")) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_IDN };
-            // Validate if FG Serial Number already exists
+            // Validate if FG Serial Number is already exists
             if (ValidateFGExists(FGSerialNumber)) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_DUPLICATE_FG };
             return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
 
         }
+        public ValidationStatus CheckIfBOMAllRegistered(BillOfMaterial[] BOMs)
+        {
+            if (BOMs == null) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_NULL };
 
-        public ValidationStatus ValidatePNAssociatedWithERPBOM(string PartNumber, ref BillOfMaterial[] BOMs)
+            foreach (var item in BOMs)
+            {
+                if (!item.isRegistered) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_BOM_NOT_COMPLETED };
+            }
+            return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
+        }
+        public ValidationStatus ValidatePNAssociatedWithERPBOM(string PartNumber, BillOfMaterial[] BOMs)
         {
             // By default Part number define not same with on the ERP BOM
             ValidationStatus result = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_WRONG_PN };
@@ -34,7 +55,6 @@ namespace PCI.KittingApp.UseCase
                 if (BOMs[i].Product == PartNumber && BOMs[i].IssueControl == IssueControlEnum.Serialized && !BOMs[i].isRegistered)
                 {
                     result = new ValidationStatus() { IsSuccess = true, ErrorCode = null };
-                    BOMs[i].isRegistered = true;
                     break;
                 }
 
@@ -45,7 +65,7 @@ namespace PCI.KittingApp.UseCase
                     break;
                 }
 
-                // BOM not yet registered
+                // if BOM registered
                 if (BOMs[i].Product == PartNumber && BOMs[i].IssueControl == IssueControlEnum.Serialized && BOMs[i].isRegistered)
                 {
                     result = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_PN_REGISTERED };
@@ -54,6 +74,14 @@ namespace PCI.KittingApp.UseCase
             }
 
             return result;
+        }
+
+        public ValidationStatus ValidateCustomerSerialNumber(string CustomerSerialNumber)
+        {
+            if (CustomerSerialNumber == null) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_NULL };
+            var data = CustomerSerialNumber.Split('_');
+            if (data.Length != 3) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_FORMAT_CUSTOMER_SN };
+            return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
         }
 
         public ValidationStatus ValidateCustomerSerialNumber(string CustomerSerialNumber, string FGSerialNumber)

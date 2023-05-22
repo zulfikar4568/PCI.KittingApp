@@ -19,6 +19,12 @@ namespace PCI.KittingApp.Repository.Opcenter
             _maintenanceTxn = maintenanceTxn;
             _helper = helper;
         }
+
+        public bool ContainerLevelExists(string ContainerLevelName)
+        {
+            ContainerLevelMaintService oServiceMfgOrder = new ContainerLevelMaintService(AppSettings.ExCoreUserProfile);
+            return _helper.ObjectExists(oServiceMfgOrder, new ContainerLevelMaint(), ContainerLevelName);
+        }
         public bool MfgOrderExists(string MfgOrderName)
         {
             MfgOrderMaintService oServiceMfgOrder= new MfgOrderMaintService(AppSettings.ExCoreUserProfile);
@@ -33,6 +39,11 @@ namespace PCI.KittingApp.Repository.Opcenter
         {
             ProductMaintService oServiceProduct = new ProductMaintService(AppSettings.ExCoreUserProfile);
             return _helper.ObjectExists(oServiceProduct, new ProductMaint(), ProductName, ProductRevision);
+        }
+        public bool UOMExists(string UOMName)
+        {
+            UOMMaintService oServiceUOM = new UOMMaintService(AppSettings.ExCoreUserProfile);
+            return _helper.ObjectExists(oServiceUOM, new UOMMaint(), UOMName);
         }
         public bool SaveOrderType(string Name, string Description = "", bool IgnoreException = true)
         {
@@ -49,12 +60,13 @@ namespace PCI.KittingApp.Repository.Opcenter
             objectChanges.Description = Description;
             return _maintenanceTxn.OrderStatusTxn(objectChanges, IgnoreException);
         }
-        public bool SaveMfgOrder(string Name, string Description = "", string Notes = "", string ProductName = "", string ProductRevision = "", string WorkflowName = "", string WorkflowRevision = "", double Qty = 0, List<MfgOrderMaterialListItmChanges> MaterialList = null, string ERPRoute = "", string PlannedStartDate = "", string PlannedCompletedDate = "", string ReleaseDate = "", string OrderStatus = "", string OrderType = "", bool IgnoreException = true)
+        public bool SaveMfgOrder(string Name, string Description = "", string Notes = "", string ProductName = "", string ProductRevision = "", string WorkflowName = "", string WorkflowRevision = "", double Qty = 0, List<MfgOrderMaterialListItmChanges> MaterialList = null, string ERPRoute = "", string UOM = "", string PlannedStartDate = "", string PlannedCompletedDate = "", string ReleaseDate = "", string OrderStatus = "", string OrderType = "", bool IgnoreException = true)
         {
             MfgOrderChanges objectChanges = new MfgOrderChanges();
             objectChanges.Name = new Primitive<string>() { Value = Name };
             if (ERPRoute != "") objectChanges.ERPRoute = new RevisionedObjectRef(ERPRoute);
             if (OrderStatus != "") objectChanges.OrderStatus = new NamedObjectRef(OrderStatus);
+            if (UOM != "") objectChanges.UOM = new NamedObjectRef(UOM);
             if (ProductName != "" && ProductRevision != "" && _helper.ObjectExists(new ProductMaintService(AppSettings.ExCoreUserProfile), new ProductMaint(), ProductName, ProductRevision))
             {
                 objectChanges.Product = new RevisionedObjectRef(ProductName, ProductRevision);
@@ -178,6 +190,11 @@ namespace PCI.KittingApp.Repository.Opcenter
             productInfo.StdStartQty = new Info(true);
             productInfo.UOM = new Info(true);
             productInfo.isAttachImage = new Info(true);
+            productInfo.StdStartLevel = new Info(true);
+            productInfo.StdStartOwner = new Info(true);
+            productInfo.StdStartReason = new Info(true);
+            productInfo.StdStartQty = new Info(true);
+            productInfo.StdStartUOM= new Info(true);
 
             AttachDocumentDetails_Info attachDocumentDetails_Info = new AttachDocumentDetails_Info();
             attachDocumentDetails_Info.Document = new Info(true);
@@ -194,7 +211,7 @@ namespace PCI.KittingApp.Repository.Opcenter
             NamedObjectRef objectToChange = new NamedObjectRef(MfgOrderName);
             return _maintenanceTxn.MfgOrderInfo(objectToChange, IgnoreException);
         }
-        public NamedObjectRef[] ListMfgOrderInfo(bool IgnoreException = true)
+        public NamedObjectRef[] ListMfgOrders(bool IgnoreException = true)
         {
             return _maintenanceTxn.MfgOrderInfo(IgnoreException);
         }

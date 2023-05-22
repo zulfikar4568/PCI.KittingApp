@@ -63,6 +63,8 @@
             this.textBoxMfgName.Name = "textBoxMfgName";
             this.textBoxMfgName.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgName.TabIndex = 0;
+            this.textBoxMfgName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgName_KeyDown);
+            this.textBoxMfgName.Leave += new System.EventHandler(this.textBoxMfgName_Leave);
             // 
             // label1
             // 
@@ -73,9 +75,9 @@
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(13, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 28);
+            this.label1.Size = new System.Drawing.Size(188, 28);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Mfg Order Name";
+            this.label1.Text = "* Mfg Order Name";
             // 
             // label2
             // 
@@ -86,9 +88,9 @@
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(19, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 28);
+            this.label2.Size = new System.Drawing.Size(101, 28);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Product";
+            this.label2.Text = "* Product";
             // 
             // textBoxMfgProduct
             // 
@@ -102,6 +104,8 @@
             this.textBoxMfgProduct.Name = "textBoxMfgProduct";
             this.textBoxMfgProduct.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgProduct.TabIndex = 2;
+            this.textBoxMfgProduct.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgProduct_KeyDown);
+            this.textBoxMfgProduct.Leave += new System.EventHandler(this.textBoxMfgProduct_Leave);
             // 
             // label3
             // 
@@ -112,9 +116,9 @@
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
             this.label3.Location = new System.Drawing.Point(19, 30);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(106, 28);
+            this.label3.Size = new System.Drawing.Size(121, 28);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Order Qty";
+            this.label3.Text = "* Order Qty";
             // 
             // textBoxMfgQty
             // 
@@ -128,6 +132,8 @@
             this.textBoxMfgQty.Name = "textBoxMfgQty";
             this.textBoxMfgQty.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgQty.TabIndex = 4;
+            this.textBoxMfgQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgQty_KeyDown);
+            this.textBoxMfgQty.Leave += new System.EventHandler(this.textBoxMfgQty_Leave);
             // 
             // label4
             // 
@@ -138,9 +144,9 @@
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
             this.label4.Location = new System.Drawing.Point(13, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 28);
+            this.label4.Size = new System.Drawing.Size(75, 28);
             this.label4.TabIndex = 7;
-            this.label4.Text = "UOM";
+            this.label4.Text = "* UOM";
             // 
             // textBoxMfgUOM
             // 
@@ -154,6 +160,8 @@
             this.textBoxMfgUOM.Name = "textBoxMfgUOM";
             this.textBoxMfgUOM.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgUOM.TabIndex = 6;
+            this.textBoxMfgUOM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgUOM_KeyDown);
+            this.textBoxMfgUOM.Leave += new System.EventHandler(this.textBoxMfgUOM_Leave);
             // 
             // PanelMfgOrder
             // 
@@ -250,6 +258,7 @@
             this.buttonMfgSubmit.Text = "Submit";
             this.buttonMfgSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonMfgSubmit.UseVisualStyleBackColor = false;
+            this.buttonMfgSubmit.Click += new System.EventHandler(this.buttonMfgSubmit_Click);
             // 
             // FormOrder
             // 
