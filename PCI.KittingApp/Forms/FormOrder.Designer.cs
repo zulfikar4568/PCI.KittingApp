@@ -63,6 +63,7 @@
             this.textBoxMfgName.Name = "textBoxMfgName";
             this.textBoxMfgName.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgName.TabIndex = 0;
+            this.textBoxMfgName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgName_KeyDown);
             this.textBoxMfgName.Leave += new System.EventHandler(this.textBoxMfgName_Leave);
             // 
             // label1
@@ -103,6 +104,7 @@
             this.textBoxMfgProduct.Name = "textBoxMfgProduct";
             this.textBoxMfgProduct.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgProduct.TabIndex = 2;
+            this.textBoxMfgProduct.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgProduct_KeyDown);
             this.textBoxMfgProduct.Leave += new System.EventHandler(this.textBoxMfgProduct_Leave);
             // 
             // label3
@@ -130,6 +132,7 @@
             this.textBoxMfgQty.Name = "textBoxMfgQty";
             this.textBoxMfgQty.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgQty.TabIndex = 4;
+            this.textBoxMfgQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgQty_KeyDown);
             this.textBoxMfgQty.Leave += new System.EventHandler(this.textBoxMfgQty_Leave);
             // 
             // label4
@@ -157,6 +160,7 @@
             this.textBoxMfgUOM.Name = "textBoxMfgUOM";
             this.textBoxMfgUOM.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgUOM.TabIndex = 6;
+            this.textBoxMfgUOM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgUOM_KeyDown);
             this.textBoxMfgUOM.Leave += new System.EventHandler(this.textBoxMfgUOM_Leave);
             // 
             // PanelMfgOrder

@@ -31,11 +31,6 @@ namespace PCI.KittingApp.Forms
             _opcenterCheckData = opcenterCheckData;
         }
 
-        private void textBoxRegisterContainer_Leave(object sender, EventArgs e)
-        {
-            CheckContainerRegistration();
-        }
-
         private void CheckContainerRegistration()
         {
             // Clear the Initial materials
@@ -71,6 +66,9 @@ namespace PCI.KittingApp.Forms
             GenerateListView(ref newBOMs, listViewMaterial);
             // reassign the new BOM
             materialRegistrationData.BillOfMaterial = newBOMs;
+
+            // Select next field
+            textBoxRegisterPN.Select();
         }
 
         private ListView.ListViewItemCollection GenerateListView(ref BillOfMaterial[] billOfMaterials, ListView owner)
@@ -99,11 +97,6 @@ namespace PCI.KittingApp.Forms
             ZIMessageBox.Show(errorMsg, "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void textBoxRegisterPN_Leave(object sender, EventArgs e)
-        {
-            CheckPartNumberRegistration();
-        }
-
         private void CheckPartNumberRegistration()
         {
             // Check Initial Data is Ready or Not
@@ -118,6 +111,9 @@ namespace PCI.KittingApp.Forms
                 textBoxRegisterPN.Clear();
                 return;
             }
+
+            // Select next field
+            textBoxRegisterSN.Select();
         }
         private void CheckRegisterSN()
         {
@@ -139,10 +135,9 @@ namespace PCI.KittingApp.Forms
                 textBoxRegisterSN.Clear();
                 return;
             }
-        }
-        private void textBoxRegisterSN_Leave(object sender, EventArgs e)
-        {
-            CheckRegisterSN();
+
+            // Select next field
+            textBoxRegisterBatchID.Select();
         }
 
         private void CheckBatchID()
@@ -157,10 +152,9 @@ namespace PCI.KittingApp.Forms
                 textBoxRegisterBatchID.Clear();
                 return;
             }
-        }
-        private void textBoxRegisterBatchID_Leave(object sender, EventArgs e)
-        {
-            CheckBatchID();
+
+            // Select next field
+            textBoxRegisterPN.Select();
         }
         private bool IsRequiredFieldNotEmpty()
         {
@@ -172,6 +166,58 @@ namespace PCI.KittingApp.Forms
         private void buttonMaterialRegister_Click(object sender, EventArgs e)
         {
             if (!IsRequiredFieldNotEmpty()) return;
+        }
+
+        private void textBoxRegisterContainer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckContainerRegistration();
+            }
+        }
+
+        private void textBoxRegisterPN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckPartNumberRegistration();
+            }
+        }
+
+        private void textBoxRegisterSN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckRegisterSN();
+            }
+        }
+
+        private void textBoxRegisterBatchID_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckBatchID();
+            }
+        }
+
+        private void textBoxRegisterContainer_Leave(object sender, EventArgs e)
+        {
+            CheckContainerRegistration();
+        }
+
+        private void textBoxRegisterPN_Leave(object sender, EventArgs e)
+        {
+            CheckPartNumberRegistration();
+        }
+
+        private void textBoxRegisterSN_Leave(object sender, EventArgs e)
+        {
+            CheckRegisterSN();
+        }
+
+        private void textBoxRegisterBatchID_Leave(object sender, EventArgs e)
+        {
+            CheckBatchID();
         }
     }
 }

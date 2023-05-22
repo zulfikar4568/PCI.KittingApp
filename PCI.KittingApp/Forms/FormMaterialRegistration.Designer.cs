@@ -211,6 +211,7 @@
             this.textBoxRegisterSN.Name = "textBoxRegisterSN";
             this.textBoxRegisterSN.Size = new System.Drawing.Size(373, 50);
             this.textBoxRegisterSN.TabIndex = 2;
+            this.textBoxRegisterSN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxRegisterSN_KeyDown);
             this.textBoxRegisterSN.Leave += new System.EventHandler(this.textBoxRegisterSN_Leave);
             // 
             // panel5
@@ -235,6 +236,7 @@
             this.textBoxRegisterBatchID.Name = "textBoxRegisterBatchID";
             this.textBoxRegisterBatchID.Size = new System.Drawing.Size(373, 50);
             this.textBoxRegisterBatchID.TabIndex = 1003;
+            this.textBoxRegisterBatchID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxRegisterBatchID_KeyDown);
             this.textBoxRegisterBatchID.Leave += new System.EventHandler(this.textBoxRegisterBatchID_Leave);
             // 
             // label5
@@ -272,6 +274,7 @@
             this.textBoxRegisterPN.Name = "textBoxRegisterPN";
             this.textBoxRegisterPN.Size = new System.Drawing.Size(373, 50);
             this.textBoxRegisterPN.TabIndex = 1;
+            this.textBoxRegisterPN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxRegisterPN_KeyDown);
             this.textBoxRegisterPN.Leave += new System.EventHandler(this.textBoxRegisterPN_Leave);
             // 
             // label4
@@ -361,6 +364,7 @@
             this.textBoxRegisterContainer.Name = "textBoxRegisterContainer";
             this.textBoxRegisterContainer.Size = new System.Drawing.Size(658, 50);
             this.textBoxRegisterContainer.TabIndex = 0;
+            this.textBoxRegisterContainer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxRegisterContainer_KeyDown);
             this.textBoxRegisterContainer.Leave += new System.EventHandler(this.textBoxRegisterContainer_Leave);
             // 
             // label1

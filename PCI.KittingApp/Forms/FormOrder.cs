@@ -50,6 +50,11 @@ namespace PCI.KittingApp.Forms
 
         private void textBoxMfgName_Leave(object sender, EventArgs e)
         {
+            CheckMfgNameField();
+        }
+
+        private void CheckMfgNameField()
+        {
             // Check initial data
             if (textBoxMfgName.Text == null || textBoxMfgName.Text == "") return;
 
@@ -58,9 +63,17 @@ namespace PCI.KittingApp.Forms
                 textBoxMfgName.Clear();
                 return;
             }
+
+            // Select next field
+            textBoxMfgProduct.Select();
         }
 
         private void textBoxMfgProduct_Leave(object sender, EventArgs e)
+        {
+            CheckProductField();
+        }
+
+        private void CheckProductField()
         {
             // Check initial data
             if (textBoxMfgProduct.Text == null || textBoxMfgProduct.Text == "") return;
@@ -70,9 +83,17 @@ namespace PCI.KittingApp.Forms
                 textBoxMfgProduct.Clear();
                 return;
             }
+
+            // Select next field
+            textBoxMfgQty.Select();
         }
 
         private void textBoxMfgQty_Leave(object sender, EventArgs e)
+        {
+            CheckQtyField();
+        }
+
+        private void CheckQtyField()
         {
             // Check initial data
             if (textBoxMfgQty.Text == null || textBoxMfgQty.Text == "") return;
@@ -82,9 +103,17 @@ namespace PCI.KittingApp.Forms
                 textBoxMfgQty.Clear();
                 return;
             }
+
+            // Select next field
+            textBoxMfgUOM.Select();
         }
 
         private void textBoxMfgUOM_Leave(object sender, EventArgs e)
+        {
+            CheckUOMField();
+        }
+
+        private void CheckUOMField()
         {
             // Check initial data
             if (textBoxMfgUOM.Text == null || textBoxMfgUOM.Text == "") return;
@@ -93,6 +122,41 @@ namespace PCI.KittingApp.Forms
             {
                 textBoxMfgUOM.Clear();
                 return;
+            }
+
+            // Select next field
+            buttonMfgSubmit.Select();
+        }
+
+        private void textBoxMfgName_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckMfgNameField();
+            }
+        }
+
+        private void textBoxMfgProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckProductField();
+            }
+        }
+
+        private void textBoxMfgQty_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckQtyField();
+            }
+        }
+
+        private void textBoxMfgUOM_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckUOMField();
             }
         }
     }

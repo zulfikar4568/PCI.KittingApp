@@ -71,6 +71,11 @@ namespace PCI.KittingApp.Forms
         }
         private void textBoxUnitMfg_Leave(object sender, EventArgs e)
         {
+            CheckMfgField();
+        }
+
+        private void CheckMfgField()
+        {
             // Check Initial Data
             if (textBoxUnitMfg.Text == null || textBoxUnitMfg.Text == "") return;
 
@@ -79,16 +84,42 @@ namespace PCI.KittingApp.Forms
                 textBoxUnitMfg.Clear();
                 return;
             }
+
+            // Select next field
+            buttonUnitSubmit.Select();
         }
 
 
         private void textBoxUnitContainer_Leave(object sender, EventArgs e)
         {
+            CheckContainerField();   
+        }
+
+        private void CheckContainerField()
+        {
             // Check Initial Data
             if (textBoxUnitContainer.Text == null || textBoxUnitContainer.Text == "") return;
 
             ValidateTheContainer();
+
+            // Select next field
+            textBoxUnitMfg.Select();
         }
 
+        private void textBoxUnitContainer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckContainerField();
+            }
+        }
+
+        private void textBoxUnitMfg_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckMfgField();
+            }
+        }
     }
 }
