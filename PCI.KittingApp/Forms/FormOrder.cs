@@ -32,6 +32,10 @@ namespace PCI.KittingApp.Forms
             textBoxMfgQty.Clear();
             textBoxMfgUOM.Clear();
         }
+        private void ShowMessage(string errorMsg)
+        {
+            ZIMessageBox.Show(errorMsg, "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
 
         private void buttonMfgSubmit_Click(object sender, EventArgs e)
         {
@@ -42,27 +46,51 @@ namespace PCI.KittingApp.Forms
             if (result) ResetField();
         }
 
-        private void textBoxMfgProduct_KeyDown(object sender, KeyEventArgs e)
+        private void textBoxMfgName_Leave(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            // Check initial data
+            if (textBoxMfgName.Text == null || textBoxMfgName.Text == "") return;
+
+            if (!_opcenterCheckData.IsMfgOrderNotExists(textBoxMfgName.Text))
             {
-                if (!_opcenterCheckData.IsProductExists(textBoxMfgProduct.Text)) return;
+                textBoxMfgName.Clear();
+                return;
             }
         }
 
-        private void textBoxMfgQty_KeyDown(object sender, KeyEventArgs e)
+        private void textBoxMfgProduct_Leave(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            // Check initial data
+            if (textBoxMfgProduct.Text == null || textBoxMfgProduct.Text == "") return;
+
+            if (!_opcenterCheckData.IsProductExists(textBoxMfgProduct.Text))
             {
-                if (!_opcenterCheckData.IsQtyDouble(textBoxMfgQty.Text)) return;
+                textBoxMfgProduct.Clear();
+                return;
             }
         }
 
-        private void textBoxMfgUOM_KeyDown(object sender, KeyEventArgs e)
+        private void textBoxMfgQty_Leave(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            // Check initial data
+            if (textBoxMfgQty.Text == null || textBoxMfgQty.Text == "") return;
+
+            if (!_opcenterCheckData.IsQtyDouble(textBoxMfgQty.Text))
             {
-                if (!_opcenterCheckData.IsUOMExists(textBoxMfgUOM.Text)) return;
+                textBoxMfgQty.Clear();
+                return;
+            }
+        }
+
+        private void textBoxMfgUOM_Leave(object sender, EventArgs e)
+        {
+            // Check initial data
+            if (textBoxMfgUOM.Text == null || textBoxMfgUOM.Text == "") return;
+
+            if (!_opcenterCheckData.IsUOMExists(textBoxMfgUOM.Text))
+            {
+                textBoxMfgUOM.Clear();
+                return;
             }
         }
     }

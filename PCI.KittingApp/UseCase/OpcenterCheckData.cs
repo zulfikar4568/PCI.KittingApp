@@ -58,6 +58,15 @@ namespace PCI.KittingApp.UseCase
             }
             return true;
         }
+        public bool IsMfgOrderNotExists(string MfgOrderName)
+        {
+            if (_maintenanceTransaction.MfgOrderExists(MfgOrderName))
+            {
+                ZIMessageBox.Show($"Mfg Order {MfgOrderName} already exists!", "Validate Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
 
         public bool IsContainerExists(string ContainerName)
         {
