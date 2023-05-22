@@ -263,6 +263,9 @@ namespace PCI.KittingApp.Forms
                 {
                     ZIMessageBox.Show("There's fail transaction please see the log event viewer", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
+                } else
+                {
+                    ZIMessageBox.Show("Success Doing Transaction MES", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
