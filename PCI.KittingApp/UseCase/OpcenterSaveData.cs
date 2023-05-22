@@ -46,5 +46,11 @@ namespace PCI.KittingApp.UseCase
             ProductDefaultStart productDefaultStart = _maintenanceMapper.ExtractDefaultDataFromMfgOrder(mfgOrderChanges);
             return productDefaultStart != null ? _containerTransaction.ExecuteStart(ContainerName, MfgOrderName, "", "", productDefaultStart.Workflow, "", productDefaultStart.StartLevel, productDefaultStart.StartOwner, productDefaultStart.StartReason, "", productDefaultStart.StartQty, productDefaultStart.StartUOM) : false;
         }
+
+        public bool StartTheMaterial(string ContainerName, string ProductName, string BatchID, string SerialNnumberReference)
+        {
+            ProductDefaultStart productDefaultStart = _maintenanceMapper.ExtractDefaultData(_maintenanceTransaction.GetProduct(ProductName));
+            return productDefaultStart != null ? _containerTransaction.ExecuteStart(ContainerName, "", "", "", productDefaultStart.Workflow, "", productDefaultStart.StartLevel, productDefaultStart.StartOwner, productDefaultStart.StartReason, "", productDefaultStart.StartQty, productDefaultStart.StartUOM, "", "", SerialNnumberReference, BatchID) : false;
+        }
     }
 }

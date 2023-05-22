@@ -216,7 +216,7 @@ namespace PCI.KittingApp
         private void btnMaterialRegistration_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, Color.Coral);
-            OpenChildForm(new FormMaterialRegistration(_kitting, _opcenterCheckData));
+            OpenChildForm(new FormMaterialRegistration(_kitting, _opcenterCheckData, _opcenterSaveData));
         }
 
         private void btnHome_Click(object sender, EventArgs e)

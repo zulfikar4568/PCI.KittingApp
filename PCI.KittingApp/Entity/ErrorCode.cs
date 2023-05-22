@@ -20,6 +20,8 @@ namespace PCI.KittingApp.Entity
         ERROR_SN_MISSMATCH = 107,
         ERROR_DIGIT_LESS_10 = 108,
         ERROR_NOT_EXISTS = 109,
+        ERROR_BOM_NOT_COMPLETED = 110,
+        ERROR_UNKNOWN = 500,
     }
     public static class ErrorCodeMeaning
     {
@@ -60,6 +62,9 @@ namespace PCI.KittingApp.Entity
                     break;
                 case ErrorCode.ERROR_NOT_EXISTS:
                     message = "Data is not exist!";
+                    break;
+                case ErrorCode.ERROR_BOM_NOT_COMPLETED:
+                    message = "Please complete all BOM, before submit to MES!";
                     break;
                 default:
                     message = "Unknown Error";

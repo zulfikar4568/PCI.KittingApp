@@ -125,6 +125,7 @@
             this.buttonRegisterSubmit.Text = "Submit";
             this.buttonRegisterSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonRegisterSubmit.UseVisualStyleBackColor = false;
+            this.buttonRegisterSubmit.Click += new System.EventHandler(this.buttonRegisterSubmit_Click);
             // 
             // panel1
             // 

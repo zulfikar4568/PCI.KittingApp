@@ -47,6 +47,11 @@ namespace PCI.KittingApp.Repository
             if (mfgOrderChanges.Product == null) return null;
             if (mfgOrderChanges.Product.Name.ToString() == "") return null;
             ProductChanges productChanges = _maintenanceTransaction.GetProduct(mfgOrderChanges.Product.Name);
+            return ExtractDefaultData(productChanges);
+        }
+
+        public ProductDefaultStart ExtractDefaultData(ProductChanges productChanges)
+        {
             if (productChanges == null) return null;
             if (CheckingTheDefaultProductData(productChanges)) return null;
 

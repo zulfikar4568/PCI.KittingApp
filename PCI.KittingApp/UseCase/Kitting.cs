@@ -34,6 +34,16 @@ namespace PCI.KittingApp.UseCase
             return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
 
         }
+        public ValidationStatus CheckIfBOMAllRegistered(BillOfMaterial[] BOMs)
+        {
+            if (BOMs == null) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_NULL };
+
+            foreach (var item in BOMs)
+            {
+                if (!item.isRegistered) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_BOM_NOT_COMPLETED };
+            }
+            return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
+        }
         public ValidationStatus ValidatePNAssociatedWithERPBOM(string PartNumber, BillOfMaterial[] BOMs)
         {
             // By default Part number define not same with on the ERP BOM

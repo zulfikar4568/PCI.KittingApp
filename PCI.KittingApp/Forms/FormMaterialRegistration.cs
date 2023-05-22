@@ -24,18 +24,17 @@ namespace PCI.KittingApp.Forms
         
         private readonly Kitting _kitting;
         private readonly OpcenterCheckData _opcenterCheckData;
-        public FormMaterialRegistration(Kitting kitting, OpcenterCheckData opcenterCheckData)
+        private readonly OpcenterSaveData _opcenterSaveData;
+        public FormMaterialRegistration(Kitting kitting, OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData)
         {
             InitializeComponent();
             _kitting = kitting;
             _opcenterCheckData = opcenterCheckData;
+            _opcenterSaveData = opcenterSaveData;
         }
 
         private void CheckContainerRegistration()
         {
-            // Clear the Initial materials
-            listViewMaterial.Items.Clear();
-
             // Check Initial Data is Ready or Not
             if (textBoxRegisterContainer.Text == "" || textBoxRegisterContainer.Text == null) return;
 
@@ -61,6 +60,9 @@ namespace PCI.KittingApp.Forms
 
             textBoxRegisterProduct.Text = materialRegistrationData.ProductName;
             textBoxRegisterERPBOM.Text = materialRegistrationData.ERPBOMName;
+
+            // Clear the Initial materials
+            listViewMaterial.Items.Clear();
 
             var newBOMs = materialRegistrationData.BillOfMaterial;
             GenerateListView(ref newBOMs, listViewMaterial);
@@ -166,6 +168,28 @@ namespace PCI.KittingApp.Forms
         private void buttonMaterialRegister_Click(object sender, EventArgs e)
         {
             if (!IsRequiredFieldNotEmpty()) return;
+
+            // Clear the Initial materials
+            listViewMaterial.Items.Clear();
+
+            var newBOMs = materialRegistrationData.BillOfMaterial;
+            for (int i = 0; i < newBOMs.Length; i++)
+            {
+                if (newBOMs[i].Product == textBoxRegisterPN.Text)
+                {
+                    newBOMs[i].isRegistered = true;
+                    newBOMs[i].SerialNumber = textBoxRegisterSN.Text;
+                    newBOMs[i].BatchID = textBoxRegisterBatchID.Text;
+                }
+            }
+            GenerateListView(ref newBOMs, listViewMaterial);
+            // reassign the new BOM
+            materialRegistrationData.BillOfMaterial = newBOMs;
+
+            //Reset Field
+            textBoxRegisterPN.Clear();
+            textBoxRegisterSN.Clear();
+            textBoxRegisterBatchID.Clear();
         }
 
         private void textBoxRegisterContainer_KeyDown(object sender, KeyEventArgs e)
@@ -218,6 +242,42 @@ namespace PCI.KittingApp.Forms
         private void textBoxRegisterBatchID_Leave(object sender, EventArgs e)
         {
             CheckBatchID();
+        }
+
+        private void buttonRegisterSubmit_Click(object sender, EventArgs e)
+        {
+            if (materialRegistrationData == null) return;
+            if (containerName == null || containerName == "") return;
+
+            var statusOfBOM = _kitting.CheckIfBOMAllRegistered(materialRegistrationData.BillOfMaterial);
+            if (!statusOfBOM.IsSuccess)
+            {
+                ShowMessage(ErrorCodeMeaning.Translate(statusOfBOM.ErrorCode));
+                return;
+            }
+
+            foreach (var item in materialRegistrationData.BillOfMaterial)
+            {
+                bool result = _opcenterSaveData.StartTheMaterial(item.SerialNumber, item.Product, item.BatchID, containerName);
+                if (!result)
+                {
+                    ZIMessageBox.Show("There's fail transaction please see the log event viewer", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                }
+            }
+
+            ResetField();
+        }
+
+        private void ResetField()
+        {
+            textBoxRegisterContainer.Clear();
+            textBoxRegisterBatchID.Clear();
+            textBoxRegisterERPBOM.Clear();
+            textBoxRegisterPN.Clear();
+            listViewMaterial.Items.Clear();
+            textBoxRegisterProduct.Clear();
+            textBoxRegisterSN.Clear();
         }
     }
 }

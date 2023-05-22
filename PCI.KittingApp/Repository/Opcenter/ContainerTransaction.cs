@@ -31,7 +31,7 @@ namespace PCI.KittingApp.Repository.Opcenter
             if (containerStatus is null) return false;
             return true;
         }
-        public bool ExecuteStart(string ContainerName, string MfgOrder = "", string ProductName = "", string ProductRevision = "", string WorkflowName = "", string WorkflowRevision = "", string Level = "", string Owner = "", string StartReason = "", string PriorityCode = "", double Qty = 0, string UOM = "", string Comments = "", string TxnDateStr = "", bool IgnoreException = true)
+        public bool ExecuteStart(string ContainerName, string MfgOrder = "", string ProductName = "", string ProductRevision = "", string WorkflowName = "", string WorkflowRevision = "", string Level = "", string Owner = "", string StartReason = "", string PriorityCode = "", double Qty = 0, string UOM = "", string Comments = "", string TxnDateStr = "", string SerialNumberRefrence = "", string BatchID = "", bool IgnoreException = true)
         {
             StartService service = new StartService(AppSettings.ExCoreUserProfile);
             Start serviceObject = new Start();
@@ -55,6 +55,8 @@ namespace PCI.KittingApp.Repository.Opcenter
             {
                 serviceObject.CurrentStatusDetails.Workflow = new RevisionedObjectRef(WorkflowName);
             }
+            if (SerialNumberRefrence != "") serviceObject.Details.pciSerialNumberReference = SerialNumberRefrence;
+            if (BatchID != "") serviceObject.Details.pciBatchID = BatchID;
             if (Level != "") serviceObject.Details.Level = new NamedObjectRef(Level);
             if (Owner != "") serviceObject.Details.Owner = new NamedObjectRef(Owner);
             if (StartReason != "") serviceObject.Details.StartReason = new NamedObjectRef(StartReason);
