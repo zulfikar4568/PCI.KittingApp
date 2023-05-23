@@ -1,6 +1,7 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
+using PCI.KittingApp.Entity.TransactionFailedType;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
 using System;
@@ -10,13 +11,18 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 
 namespace PCI.KittingApp.Forms
 {
     public partial class FormUnitRegistration : Form
     {
+        //Fields
+        private ProductDefaultStart _productDefaultData = null;
+
         private OpcenterCheckData _opcenterCheckData;
         private OpcenterSaveData _opcenterSaveData;
         private Kitting _kitting;
@@ -33,6 +39,7 @@ namespace PCI.KittingApp.Forms
         {
             textBoxUnitContainer.Clear();
             textBoxUnitMfg.Clear();
+            _productDefaultData = null;
         }
 
         private bool IsRequiredFieldNotEmpty()
@@ -50,11 +57,12 @@ namespace PCI.KittingApp.Forms
 
         private void RegisterUnitContainer()
         {
-            if (_opcenterSaveData.StartContainerMainUnit(textBoxUnitContainer.Text, textBoxUnitMfg.Text))
-                ZIMessageBox.Show("Success Start the Container", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                ZIMessageBox.Show("Failed Start the Container, please see on event viewer for the Message!", "Failed Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            ResetField();
+            var data = new StartUnit() { ContainerName = textBoxUnitContainer.Text, MfgOrderName = textBoxUnitMfg.Text, ProductDefaultStart = _productDefaultData };
+            if (_productDefaultData != null)
+            {
+                _opcenterSaveData.StartContainerMainUnit(data);
+                ResetField();
+            }
         }
 
         private bool ValidateTheContainer()
@@ -84,6 +92,8 @@ namespace PCI.KittingApp.Forms
                 textBoxUnitMfg.Clear();
                 return;
             }
+
+            _productDefaultData = _opcenterCheckData.ProductDefaultDataFromMfgOrder(textBoxUnitMfg.Text);
 
             // Select next field
             buttonUnitSubmit.Select();

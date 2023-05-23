@@ -2,6 +2,7 @@
 using Camstar.WCF.Services;
 using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
+using PCI.KittingApp.Entity.TransactionFailedType;
 using PCI.KittingApp.UseCase;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -178,7 +180,7 @@ namespace PCI.KittingApp.Forms
                 if (newBOMs[i].Product == textBoxRegisterPN.Text)
                 {
                     newBOMs[i].isRegistered = true;
-                    newBOMs[i].SerialNumber = textBoxRegisterSN.Text;
+                    newBOMs[i].CustomerSerialNumber = textBoxRegisterSN.Text;
                     newBOMs[i].BatchID = textBoxRegisterBatchID.Text;
                 }
             }
@@ -256,15 +258,7 @@ namespace PCI.KittingApp.Forms
                 return;
             }
 
-            foreach (var item in materialRegistrationData.BillOfMaterial)
-            {
-                bool result = _opcenterSaveData.StartTheMaterial(item.SerialNumber, item.Product, item.BatchID, containerName);
-                if (!result)
-                {
-                    ZIMessageBox.Show("There's fail transaction please see the log event viewer", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    break;
-                }
-            }
+            _opcenterSaveData.RegisterAllBillOfMaterial(materialRegistrationData.BillOfMaterial, containerName);
 
             ResetField();
         }

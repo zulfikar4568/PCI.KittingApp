@@ -79,5 +79,12 @@ namespace PCI.KittingApp.Config
             }
         }
         #endregion
+
+        #region SQLite
+        public static string LoadConnectionString(string id = "Default")
+        {
+            return ConfigurationManager.ConnectionStrings[id].ConnectionString;
+        }
+        #endregion
     }
 }

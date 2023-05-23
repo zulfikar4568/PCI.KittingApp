@@ -14,6 +14,7 @@ namespace PCI.KittingApp.Forms
             moduleBuilder.RegisterType<FormOrder>().AsSelf();
             moduleBuilder.RegisterType<FormMaterialRegistration>().AsSelf();
             moduleBuilder.RegisterType<FormUnitRegistration>().AsSelf();
+            moduleBuilder.RegisterType<FormTransactionFailed>().AsSelf();
         }
     }
 }

@@ -14,6 +14,7 @@ namespace PCI.KittingApp.UseCase
             moduleBuilder.RegisterType<Kitting>().AsSelf();
             moduleBuilder.RegisterType<OpcenterCheckData>().AsSelf();
             moduleBuilder.RegisterType<OpcenterSaveData>().AsSelf();
+            moduleBuilder.RegisterType<TransactionFailed>().AsSelf();
         }
     }
 }

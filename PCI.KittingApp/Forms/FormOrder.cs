@@ -1,4 +1,5 @@
 ﻿using PCI.KittingApp.Components;
+using PCI.KittingApp.Entity.TransactionFailedType;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
 using PCI.KittingApp.Util;
@@ -9,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -44,8 +46,9 @@ namespace PCI.KittingApp.Forms
         private void buttonMfgSubmit_Click(object sender, EventArgs e)
         {
             if (!IsRequiredFieldNotEmpty()) return;
-            bool result = _opcenterSaveData.SaveMfgOrder(textBoxMfgName.Text, textBoxMfgProduct.Text, textBoxMfgQty.Text, textBoxMfgUOM.Text);
-            if (result) ResetField();
+            var data = new CreateOrder() { MfgOrderName = textBoxMfgName.Text , ProductName = textBoxMfgProduct.Text, Qty = textBoxMfgQty.Text , UOM = textBoxMfgUOM.Text };
+            _opcenterSaveData.SaveMfgOrder(data);
+            ResetField();
         }
 
         private void textBoxMfgName_Leave(object sender, EventArgs e)
