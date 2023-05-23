@@ -18,9 +18,10 @@ namespace PCI.KittingApp
 {
     public partial class Main : Form
     {
-        public OpcenterCheckData _opcenterCheckData;
-        public OpcenterSaveData _opcenterSaveData;
-        public Kitting _kitting;
+        private OpcenterCheckData _opcenterCheckData;
+        private OpcenterSaveData _opcenterSaveData;
+        private Kitting _kitting;
+        private TransactionFailed _transactionFailed;
         #region UI_Field
         //Fields
         private IconButton currentBtn;
@@ -30,7 +31,7 @@ namespace PCI.KittingApp
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.Since the form is resized because it takes into account the size of the title bar and borders.
         #endregion
-        public Main(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting)
+        public Main(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting, TransactionFailed transactionFailed)
         {
             InitializeComponent();
             #region UI_Constructor
@@ -45,6 +46,7 @@ namespace PCI.KittingApp
             _opcenterCheckData = opcenterCheckData;
             _opcenterSaveData = opcenterSaveData;
             _kitting = kitting;
+            _transactionFailed = transactionFailed;
         }
 
         #region UI_Resposibility
@@ -271,5 +273,11 @@ namespace PCI.KittingApp
             formSize = this.ClientSize;
         }
         #endregion
+
+        private void btnTransactionFailed_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender, Color.Coral);
+            OpenChildForm(new FormTransactionFailed(_transactionFailed));
+        }
     }
 }

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Markup;
 
 namespace PCI.KittingApp.UseCase
 {
@@ -23,6 +24,21 @@ namespace PCI.KittingApp.UseCase
             _maintenanceTransaction = maintenanceTransaction;
             _containerTransaction = containerTransaction;
             _maintenanceMapper = maintenanceMapper;
+        }
+        public ProductDefaultStart ProductDefaultDataFromMfgOrder(string MfgOrderName)
+        {
+            MfgOrderChanges mfgOrderChanges = _maintenanceTransaction.GetMfgOrder(MfgOrderName);
+            if (mfgOrderChanges == null)
+            {
+                ZIMessageBox.Show("Mfg Order data cannot be found!");
+                return null;
+            }
+            ProductDefaultStart productDefaultStart = _maintenanceMapper.ExtractDefaultDataFromMfgOrder(mfgOrderChanges);
+            if (productDefaultStart == null)
+            {
+                ZIMessageBox.Show("Metadata modelling is not complete, please check product definition in MES (StartLevel, StartOwner, StartReason, StartQty, StartUOM)!");
+            }
+            return productDefaultStart;
         }
         public MaterialRegistration ExtractMaterialRequirementFromContainer(string ContainerName)
         {
@@ -48,6 +64,10 @@ namespace PCI.KittingApp.UseCase
                 ERPBOMName = eRPBOMData.Name.ToString(),
                 BillOfMaterial = BOMs,
             };
+        }
+        public bool MfgOrderExists(string MfgOrderName)
+        {
+            return _maintenanceTransaction.MfgOrderExists(MfgOrderName);
         }
         public bool IsMfgOrderExists(string MfgOrderName)
         {

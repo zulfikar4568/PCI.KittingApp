@@ -14,8 +14,9 @@ namespace PCI.KittingApp.Entity
         public double QtyRequired { get; set; }
         public Enumeration<IssueControlEnum, int> IssueControl { get; set; }
         public bool isRegistered { get; set; }
-        public string SerialNumber { get; set; }
+        public string CustomerSerialNumber { get; set; }
         public string BatchID { get; set; }
+        public ProductDefaultStart ProductDefaultStart { get; set; }
 
     }
 }

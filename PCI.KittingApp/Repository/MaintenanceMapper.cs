@@ -30,12 +30,17 @@ namespace PCI.KittingApp.Repository
                 if (item.isProductDescription == null) continue;
                 if (item.IssueControl == null) continue;
 
+                var defaultProductData = ExtractDefaultData(_maintenanceTransaction.GetProduct(item.Product.Name));
+                if (defaultProductData == null) continue;
+
                 result.Add(new BillOfMaterial()
                 {
                     Product = item.Product.Name,
                     Description = item.isProductDescription.ToString(),
                     IssueControl = item.IssueControl,
-                    QtyRequired = item.QtyRequired.Value
+                    QtyRequired = item.QtyRequired.Value,
+                    ProductDefaultStart = defaultProductData,
+                    
                 });
             }
             return result.ToArray();

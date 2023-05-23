@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using PCI.KittingApp.Repository.Opcenter;
+using PCI.KittingApp.Repository.SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace PCI.KittingApp.Repository
             moduleBuilder.RegisterType<MaintenanceTransaction>().AsSelf();
             moduleBuilder.RegisterType<ContainerTransaction>().AsSelf();
             moduleBuilder.RegisterType<MaintenanceMapper>().AsSelf();
+            moduleBuilder.RegisterType<TransactionFailed>().AsSelf();
         }
     }
 }
