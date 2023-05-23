@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.3.0"></a>
+## [1.3.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.3.0) (2023-5-23)
+
+### Features
+
+* mechanism manual retry the transaction ([6167c62](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/6167c62577c53cfe00d2d5522d59f3865d96e41e))
+
+### Other
+
+* Merge pull request #3 from zulfikar4568/feat/dev ([9ce6e2c](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/9ce6e2c6c6041a4f4300ce22973833bd85d28409))
+* add notification popup ([36e4d10](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/36e4d1091b8a2d810ecd78d6f4fd706d3e8fdc9d))
+
 <a name="1.2.0"></a>
 ## [1.2.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.2.0) (2023-5-22)
 
