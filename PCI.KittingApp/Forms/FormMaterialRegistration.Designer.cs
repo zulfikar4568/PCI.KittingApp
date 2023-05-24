@@ -30,6 +30,8 @@
         {
             this.PanelMfgOrder = new System.Windows.Forms.TableLayoutPanel();
             this.panelMfgSubmit = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonReset = new FontAwesome.Sharp.IconButton();
             this.buttonRegisterSubmit = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMaterialRegister = new FontAwesome.Sharp.IconButton();
@@ -59,6 +61,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.PanelMfgOrder.SuspendLayout();
             this.panelMfgSubmit.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -96,12 +99,51 @@
             // 
             // panelMfgSubmit
             // 
-            this.panelMfgSubmit.Controls.Add(this.buttonRegisterSubmit);
+            this.panelMfgSubmit.Controls.Add(this.tableLayoutPanel4);
             this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgSubmit.Location = new System.Drawing.Point(711, 664);
             this.panelMfgSubmit.Name = "panelMfgSubmit";
             this.panelMfgSubmit.Size = new System.Drawing.Size(419, 64);
             this.panelMfgSubmit.TabIndex = 1012;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.buttonReset, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.buttonRegisterSubmit, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(419, 64);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonReset.AutoSize = true;
+            this.buttonReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(200)))), ((int)(((byte)(120)))));
+            this.buttonReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonReset.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonReset.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonReset.ForeColor = System.Drawing.Color.White;
+            this.buttonReset.IconChar = FontAwesome.Sharp.IconChar.ArrowsRotate;
+            this.buttonReset.IconColor = System.Drawing.Color.White;
+            this.buttonReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonReset.IconSize = 40;
+            this.buttonReset.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonReset.Location = new System.Drawing.Point(27, 3);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(179, 58);
+            this.buttonReset.TabIndex = 101;
+            this.buttonReset.Text = "Reset";
+            this.buttonReset.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonReset.UseVisualStyleBackColor = false;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
             // buttonRegisterSubmit
             // 
@@ -118,9 +160,9 @@
             this.buttonRegisterSubmit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonRegisterSubmit.IconSize = 40;
             this.buttonRegisterSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonRegisterSubmit.Location = new System.Drawing.Point(171, 13);
+            this.buttonRegisterSubmit.Location = new System.Drawing.Point(237, 3);
             this.buttonRegisterSubmit.Name = "buttonRegisterSubmit";
-            this.buttonRegisterSubmit.Size = new System.Drawing.Size(179, 46);
+            this.buttonRegisterSubmit.Size = new System.Drawing.Size(179, 58);
             this.buttonRegisterSubmit.TabIndex = 100;
             this.buttonRegisterSubmit.Text = "Submit";
             this.buttonRegisterSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -151,7 +193,7 @@
             this.buttonMaterialRegister.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonMaterialRegister.IconSize = 40;
             this.buttonMaterialRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonMaterialRegister.Location = new System.Drawing.Point(171, 7);
+            this.buttonMaterialRegister.Location = new System.Drawing.Point(237, 3);
             this.buttonMaterialRegister.Name = "buttonMaterialRegister";
             this.buttonMaterialRegister.Size = new System.Drawing.Size(179, 54);
             this.buttonMaterialRegister.TabIndex = 99;
@@ -483,7 +525,8 @@
             this.Text = "FormMaterialRegistration";
             this.PanelMfgOrder.ResumeLayout(false);
             this.panelMfgSubmit.ResumeLayout(false);
-            this.panelMfgSubmit.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -536,5 +579,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBoxRegisterERPBOM;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private FontAwesome.Sharp.IconButton buttonReset;
     }
 }

@@ -186,6 +186,8 @@
     <Compile Include="Util\Logging.cs" />
     <Compile Include="Util\Simple3Des.cs" />
     <Compile Include="Util\UtilModule.cs" />
+    <None Include="Resources\Logo1.jpg" />
+    <None Include="Resources\logoPCI1.png" />
     <None Include="Resources\sync.png" />
     <EmbeddedResource Include="Components\FormMessageBox.resx">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
