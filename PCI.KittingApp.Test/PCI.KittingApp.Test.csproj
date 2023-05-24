@@ -113,6 +113,7 @@
     <Compile Include="UseCase\KittingERPBOM.cs" />
     <Compile Include="UseCase\KittingCustomerSN.cs" />
     <Compile Include="UseCase\KittingBatchID.cs" />
+    <Compile Include="UseCase\KittingCustomerSNAlreadyUsed.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
