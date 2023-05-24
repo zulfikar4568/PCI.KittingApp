@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.4.0"></a>
+## [1.4.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.4.0) (2023-5-24)
+
+### Features
+
+* check if customer serial number already used ([565d17a](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/565d17ad56e2d05160e60f107a0bfb2097938f6c))
+
+### Other
+
+* Merge pull request #4 from zulfikar4568/feat/dev ([68dadf8](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/68dadf801a3fc4c119fac6466c446e036702a5e8))
+
 <a name="1.3.0"></a>
 ## [1.3.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.3.0) (2023-5-23)
 
