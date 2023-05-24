@@ -40,6 +40,11 @@ namespace PCI.KittingApp.Forms
             // Check Initial Data is Ready or Not
             if (textBoxRegisterContainer.Text == "" || textBoxRegisterContainer.Text == null) return;
 
+            if (materialRegistrationData != null && containerName != null)
+            {
+                var confirmation = ZIMessageBox.Show($"Currently you still proceed the {containerName}");
+            }
+
             ValidationStatus status = _kitting.ValidateCustomerSerialNumber(textBoxRegisterContainer.Text);
             if (!status.IsSuccess)
             {
@@ -132,6 +137,15 @@ namespace PCI.KittingApp.Forms
                 textBoxRegisterSN.Clear();
                 return;
             }
+
+            ValidationStatus validateCustomerSerialNumberAlreadyExists = _kitting.CheckIfCustomerSNAlreadyUsedInBOM(materialRegistrationData.BillOfMaterial, textBoxRegisterSN.Text);
+            if (!validateCustomerSerialNumberAlreadyExists.IsSuccess)
+            {
+                ShowMessage(ErrorCodeMeaning.Translate(validateCustomerSerialNumberAlreadyExists.ErrorCode));
+                textBoxRegisterSN.Clear();
+                return;
+            }
+
             var IsContainerExists = _opcenterCheckData.IsContainerExists(textBoxRegisterSN.Text);
             if (IsContainerExists)
             {
@@ -272,6 +286,9 @@ namespace PCI.KittingApp.Forms
             listViewMaterial.Items.Clear();
             textBoxRegisterProduct.Clear();
             textBoxRegisterSN.Clear();
+
+            materialRegistrationData = null;
+            containerName = null;
         }
     }
 }

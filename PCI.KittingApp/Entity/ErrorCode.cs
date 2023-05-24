@@ -21,6 +21,7 @@ namespace PCI.KittingApp.Entity
         ERROR_DIGIT_LESS_10 = 108,
         ERROR_NOT_EXISTS = 109,
         ERROR_BOM_NOT_COMPLETED = 110,
+        ERROR_CUSTOMER_SN_ALREADY_USED = 111,
         ERROR_UNKNOWN = 500,
     }
     public static class ErrorCodeMeaning
@@ -65,6 +66,9 @@ namespace PCI.KittingApp.Entity
                     break;
                 case ErrorCode.ERROR_BOM_NOT_COMPLETED:
                     message = "Please complete all BOM, before submit to MES!";
+                    break;
+                case ErrorCode.ERROR_CUSTOMER_SN_ALREADY_USED:
+                    message = "The customer serial number already used by another Part Number, please used others customer serial number!";
                     break;
                 default:
                     message = "Unknown Error";

@@ -34,6 +34,15 @@ namespace PCI.KittingApp.UseCase
             return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
 
         }
+        public ValidationStatus CheckIfCustomerSNAlreadyUsedInBOM(BillOfMaterial[] BOMs, string CustomerSerialNumber)
+        {
+            foreach (var item in BOMs)
+            {
+                if (item.CustomerSerialNumber == null) continue;
+                if (CustomerSerialNumber == item.CustomerSerialNumber) return new ValidationStatus() { ErrorCode = ErrorCode.ERROR_CUSTOMER_SN_ALREADY_USED, IsSuccess = false };
+            }
+            return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
+        }
         public ValidationStatus CheckIfBOMAllRegistered(BillOfMaterial[] BOMs)
         {
             if (BOMs == null) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_NULL };
