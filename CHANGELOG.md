@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.4.1"></a>
+## [1.4.1](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.4.1) (2023-5-24)
+
+### Bug Fixes
+
+* missing parameter product ([4547266](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/4547266e88e0d9d179695e1a46ebbb5725ee6086))
+* some issue during scan ([c6b8e7d](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/c6b8e7dfac4af51632a1ce20db1f2950686198d8))
+
+### Other
+
+* Merge pull request #5 from zulfikar4568/feat/dev ([a80a176](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/a80a176b86f61e812fc4ce63ffa356adfc92dbdb))
+* add button reset ([18c26fe](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/18c26feb766faef222434834bd60fcc7ede4a4f6))
+
 <a name="1.4.0"></a>
 ## [1.4.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.4.0) (2023-5-24)
 
