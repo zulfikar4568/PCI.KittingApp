@@ -31,7 +31,7 @@ namespace PCI.KittingApp.UseCase
 
         private void ShowMessageAlreadyExists()
         {
-            ZIMessageBox.Show("The data already exists, this transaction list will remove from the list!", "Data Alread Exists!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ZIMessageBox.Show("The data already exists, this transaction list will remove from the list!", "Data Already Exists!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         public void RetryCreateOrder(CreateOrder data, string Id)

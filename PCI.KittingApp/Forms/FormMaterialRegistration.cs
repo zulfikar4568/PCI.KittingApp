@@ -72,6 +72,7 @@ namespace PCI.KittingApp.Forms
 
             // Select next field
             textBoxRegisterPN.Select();
+            textBoxRegisterContainer.Enabled = false;
         }
 
         private ListView.ListViewItemCollection GenerateListView(ref BillOfMaterial[] billOfMaterials, ListView owner)
@@ -200,6 +201,9 @@ namespace PCI.KittingApp.Forms
             textBoxRegisterPN.Clear();
             textBoxRegisterSN.Clear();
             textBoxRegisterBatchID.Clear();
+
+            // Select the PN
+            textBoxRegisterPN.Select();
         }
 
         private void textBoxRegisterContainer_KeyDown(object sender, KeyEventArgs e)
@@ -280,9 +284,19 @@ namespace PCI.KittingApp.Forms
             listViewMaterial.Items.Clear();
             textBoxRegisterProduct.Clear();
             textBoxRegisterSN.Clear();
+            textBoxRegisterContainer.Enabled = true;
 
             materialRegistrationData = null;
             containerName = null;
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            if (materialRegistrationData == null) return;
+            if (containerName == null || containerName == "") return;
+
+            var confirmation = ZIMessageBox.Show($"You still process the {containerName}, do you want to reset all field?", "Confirmation Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmation == DialogResult.Yes) ResetField();
         }
     }
 }

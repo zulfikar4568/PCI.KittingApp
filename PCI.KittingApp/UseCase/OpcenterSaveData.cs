@@ -42,7 +42,7 @@ namespace PCI.KittingApp.UseCase
             bool result = _maintenanceTransaction.SaveMfgOrder(data.MfgOrderName, "", "", data.ProductName, "", "", "", Convert.ToDouble(data.Qty), null, "", data.UOM);
             if (result)
             {
-                ZIMessageBox.Show($"Order {data.MfgOrderName} save succussfully!", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ZIMessageBox.Show($"Order {data.MfgOrderName} save successfully!", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
             {
                 _transactionFailedRepository.Insert(new Entity.TransactionFailed()
