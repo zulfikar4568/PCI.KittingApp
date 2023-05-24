@@ -39,12 +39,6 @@ namespace PCI.KittingApp.Forms
         {
             // Check Initial Data is Ready or Not
             if (textBoxRegisterContainer.Text == "" || textBoxRegisterContainer.Text == null) return;
-
-            if (materialRegistrationData != null && containerName != null)
-            {
-                var confirmation = ZIMessageBox.Show($"Currently you still proceed the {containerName}");
-            }
-
             ValidationStatus status = _kitting.ValidateCustomerSerialNumber(textBoxRegisterContainer.Text);
             if (!status.IsSuccess)
             {
