@@ -93,7 +93,7 @@ namespace PCI.KittingApp.UseCase
 
         public bool StartTheMaterial(StartMaterial data)
         {
-            var result = _containerTransaction.ExecuteStart(data.CustomerSerialNumber, "", "", "", data.ProductDefaultStart.Workflow, "", data.ProductDefaultStart.StartLevel, data.ProductDefaultStart.StartOwner, data.ProductDefaultStart.StartReason, "", data.ProductDefaultStart.StartQty, data.ProductDefaultStart.StartUOM, "", "", data.SerialNumberReference, data.BatchID);
+            var result = _containerTransaction.ExecuteStart(data.CustomerSerialNumber, "", data.Product, "", data.ProductDefaultStart.Workflow, "", data.ProductDefaultStart.StartLevel, data.ProductDefaultStart.StartOwner, data.ProductDefaultStart.StartReason, "", data.ProductDefaultStart.StartQty, data.ProductDefaultStart.StartUOM, "", "", data.SerialNumberReference, data.BatchID);
             if (!result)
             {
                 _transactionFailedRepository.Insert(new Entity.TransactionFailed()
