@@ -114,6 +114,7 @@
     <Compile Include="UseCase\KittingCustomerSN.cs" />
     <Compile Include="UseCase\KittingBatchID.cs" />
     <Compile Include="UseCase\KittingCustomerSNAlreadyUsed.cs" />
+    <Compile Include="UseCase\KittingCustomerPN.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

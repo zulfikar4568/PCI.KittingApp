@@ -22,11 +22,12 @@ namespace PCI.KittingApp.Entity
         ERROR_NOT_EXISTS = 109,
         ERROR_BOM_NOT_COMPLETED = 110,
         ERROR_CUSTOMER_SN_ALREADY_USED = 111,
+        ERROR_PN_MISSMATCH = 112,
         ERROR_UNKNOWN = 500,
     }
     public static class ErrorCodeMeaning
     {
-        public static string Translate(ErrorCode? code)
+        public static string Translate(ErrorCode? code, string args1 = "", string args2 = "")
         {
             string message;
             switch (code)
@@ -69,6 +70,9 @@ namespace PCI.KittingApp.Entity
                     break;
                 case ErrorCode.ERROR_CUSTOMER_SN_ALREADY_USED:
                     message = "The customer serial number already used by another Part Number, please used others customer serial number!";
+                    break;
+                case ErrorCode.ERROR_PN_MISSMATCH:
+                    message = $"The part number is missmatch beetwen {args1} and {args2}";
                     break;
                 default:
                     message = "Unknown Error";

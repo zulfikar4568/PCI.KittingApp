@@ -10,6 +10,12 @@ namespace PCI.KittingApp.UseCase
 {
     public class Kitting
     {
+        public ValidationStatus ValidateIfPNMatch(string partNumberBOM, string partNumberActual)
+        {
+            // Validate if PN is contained
+            if (!partNumberBOM.ToUpper().Contains(partNumberActual.ToUpper())) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_PN_MISSMATCH};
+            return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
+        }
         public ValidationStatus ValidateFGSerialNumberExists(string FGSerialNumber, Func<string, bool> ValidateFGExists)
         {
             // IDN00002

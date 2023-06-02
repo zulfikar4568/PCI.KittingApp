@@ -124,6 +124,12 @@ namespace PCI.KittingApp.Forms
             // Check Initial Data is Ready or Not
             if (containerName == null) return;
             if (textBoxRegisterSN.Text == null || textBoxRegisterSN.Text == "") return;
+            if (textBoxRegisterPN.Text == null || textBoxRegisterPN.Text == "")
+            {
+                ShowMessage("You need fill the Part Number First before fill this Customer Serial Number");
+                textBoxRegisterSN.Clear();
+                return;
+            }
 
             ValidationStatus validateCustomerSerialNumber = _kitting.ValidateCustomerSerialNumber(textBoxRegisterSN.Text, containerName);
             if (!validateCustomerSerialNumber.IsSuccess)
@@ -137,6 +143,15 @@ namespace PCI.KittingApp.Forms
             if (!validateCustomerSerialNumberAlreadyExists.IsSuccess)
             {
                 ShowMessage(ErrorCodeMeaning.Translate(validateCustomerSerialNumberAlreadyExists.ErrorCode));
+                textBoxRegisterSN.Clear();
+                return;
+            }
+
+            var actualPN = textBoxRegisterSN.Text.Split('_')[0];
+            ValidationStatus validateIfPNMatch = _kitting.ValidateIfPNMatch(textBoxRegisterPN.Text, actualPN);
+            if (!validateIfPNMatch.IsSuccess)
+            {
+                ShowMessage(ErrorCodeMeaning.Translate(validateIfPNMatch.ErrorCode, textBoxRegisterPN.Text, actualPN));
                 textBoxRegisterSN.Clear();
                 return;
             }
