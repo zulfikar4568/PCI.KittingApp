@@ -174,6 +174,7 @@ namespace PCI.KittingApp.Forms
             if (textBoxRegisterContainer.Text == "" || textBoxRegisterContainer.Text == null) return false;
             if (textBoxRegisterPN.Text == "" || textBoxRegisterPN.Text == null) return false;
             if (textBoxRegisterSN.Text == null || textBoxRegisterSN.Text == "") return false;
+            if (textBoxRegisterBatchID.Text == null || textBoxRegisterBatchID.Text == "") return false;
             return true;
         }
         private void buttonMaterialRegister_Click(object sender, EventArgs e)
