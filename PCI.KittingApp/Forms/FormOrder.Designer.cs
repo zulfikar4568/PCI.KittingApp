@@ -35,12 +35,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxMfgQty = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBoxMfgUOM = new System.Windows.Forms.TextBox();
             this.PanelMfgOrder = new System.Windows.Forms.TableLayoutPanel();
             this.PanelMfgName = new System.Windows.Forms.Panel();
             this.panelMfgProduct = new System.Windows.Forms.Panel();
             this.panelMfgQty = new System.Windows.Forms.Panel();
             this.panelMfgUOM = new System.Windows.Forms.Panel();
+            this.comboBoxMfgUOM = new System.Windows.Forms.ComboBox();
             this.panelMfgSubmit = new System.Windows.Forms.Panel();
             this.buttonMfgSubmit = new FontAwesome.Sharp.IconButton();
             this.PanelMfgOrder.SuspendLayout();
@@ -148,21 +148,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "* UOM";
             // 
-            // textBoxMfgUOM
-            // 
-            this.textBoxMfgUOM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxMfgUOM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBoxMfgUOM.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxMfgUOM.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
-            this.textBoxMfgUOM.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxMfgUOM.Location = new System.Drawing.Point(17, 63);
-            this.textBoxMfgUOM.Name = "textBoxMfgUOM";
-            this.textBoxMfgUOM.Size = new System.Drawing.Size(300, 50);
-            this.textBoxMfgUOM.TabIndex = 6;
-            this.textBoxMfgUOM.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxMfgUOM_KeyDown);
-            this.textBoxMfgUOM.Leave += new System.EventHandler(this.textBoxMfgUOM_Leave);
-            // 
             // PanelMfgOrder
             // 
             this.PanelMfgOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -219,13 +204,29 @@
             // 
             // panelMfgUOM
             // 
-            this.panelMfgUOM.Controls.Add(this.textBoxMfgUOM);
             this.panelMfgUOM.Controls.Add(this.label4);
+            this.panelMfgUOM.Controls.Add(this.comboBoxMfgUOM);
             this.panelMfgUOM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgUOM.Location = new System.Drawing.Point(3, 139);
             this.panelMfgUOM.Name = "panelMfgUOM";
             this.panelMfgUOM.Size = new System.Drawing.Size(340, 130);
             this.panelMfgUOM.TabIndex = 12;
+            // 
+            // comboBoxMfgUOM
+            // 
+            this.comboBoxMfgUOM.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxMfgUOM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.comboBoxMfgUOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMfgUOM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxMfgUOM.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.comboBoxMfgUOM.ForeColor = System.Drawing.Color.Gainsboro;
+            this.comboBoxMfgUOM.FormattingEnabled = true;
+            this.comboBoxMfgUOM.Location = new System.Drawing.Point(17, 59);
+            this.comboBoxMfgUOM.Name = "comboBoxMfgUOM";
+            this.comboBoxMfgUOM.Size = new System.Drawing.Size(300, 58);
+            this.comboBoxMfgUOM.TabIndex = 15;
+            this.comboBoxMfgUOM.SelectedIndexChanged += new System.EventHandler(this.comboBoxMfgUOM_SelectedIndexChanged);
             // 
             // panelMfgSubmit
             // 
@@ -293,7 +294,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxMfgQty;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxMfgUOM;
         private System.Windows.Forms.TableLayoutPanel PanelMfgOrder;
         private System.Windows.Forms.Panel PanelMfgName;
         private System.Windows.Forms.Panel panelMfgProduct;
@@ -301,5 +301,6 @@
         private System.Windows.Forms.Panel panelMfgUOM;
         private System.Windows.Forms.Panel panelMfgSubmit;
         private FontAwesome.Sharp.IconButton buttonMfgSubmit;
+        private System.Windows.Forms.ComboBox comboBoxMfgUOM;
     }
 }

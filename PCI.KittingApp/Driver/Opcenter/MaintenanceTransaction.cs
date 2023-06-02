@@ -208,6 +208,45 @@ namespace PCI.KittingApp.Driver.Opcenter
                 if (!(oService is null)) oService.Close();
             }
         }
+        public NamedObjectRef[] UOMInfo(bool IgnoreException = true)
+        {
+            UOMMaintService oService = null;
+            try
+            {
+                oService = new UOMMaintService(AppSettings.ExCoreUserProfile);
+                UOMMaint oServiceObject = new UOMMaint();
+
+                UOMMaint_Request oServiceRequest = new UOMMaint_Request();
+                oServiceRequest.Info = new UOMMaint_Info();
+                oServiceRequest.Info.ObjectListInquiry = new Info(true);
+                oServiceRequest.Info.ObjectListInquiry.RequestValue = true;
+
+                UOMMaint_Result oServiceResult = null;
+                ResultStatus oResultStatus = oService.GetEnvironment(oServiceRequest, out oServiceResult);
+
+                EventLogUtil.LogEvent(oResultStatus.Message, System.Diagnostics.EventLogEntryType.Information, 3);
+                string sMessage = "";
+                if (_helper.ProcessResult(oResultStatus, ref sMessage, true))
+                {
+                    return oServiceResult.Value.ObjectListInquiry;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Source = AppSettings.AssemblyName == ex.Source ? MethodBase.GetCurrentMethod().Name : MethodBase.GetCurrentMethod().Name + "." + ex.Source;
+                EventLogUtil.LogErrorEvent(ex.Source, ex);
+                if (!IgnoreException) throw ex;
+                return null;
+            }
+            finally
+            {
+                if (!(oService is null)) oService.Close();
+            }
+        }
         public NamedObjectRef[] MfgOrderInfo(bool IgnoreException = true)
         {
             MfgOrderMaintService oService = null;
