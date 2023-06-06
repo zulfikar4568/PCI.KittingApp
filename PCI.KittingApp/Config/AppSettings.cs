@@ -19,6 +19,16 @@ namespace PCI.KittingApp.Config
             }
         }
 
+        #region CRON EXPRESSION
+        public static string CheckConnectionCronExpression
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["CheckConnectionCronExpression"];
+            }
+        }
+        #endregion
+
         #region TIME
         public static TimeSpan UTCOffset
         {

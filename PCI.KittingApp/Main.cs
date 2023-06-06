@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using PCI.KittingApp.Components;
 using PCI.KittingApp.Forms;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
@@ -146,6 +147,24 @@ namespace PCI.KittingApp
 
 
         //Methods
+        public void SetNetworkConnected()
+        {
+            #if DEBUG
+                Console.WriteLine($"Connected!");
+            #endif
+            iconStatusConnection.IconColor = Color.GreenYellow;
+            iconStatusConnection.ForeColor = Color.GreenYellow;
+            iconStatusConnection.Text = "Connected";
+        }
+        public void SetNetworkNotConnected()
+        {
+            #if DEBUG
+                Console.WriteLine($"Disconnected!");
+            #endif
+            iconStatusConnection.IconColor = Color.Red;
+            iconStatusConnection.ForeColor = Color.Red;
+            iconStatusConnection.Text = "Disconnected";
+        }
         private void ActiveButton(object senderBtn, Color color)
         {
             if (senderBtn != null)
@@ -278,6 +297,21 @@ namespace PCI.KittingApp
         {
             ActiveButton(sender, Color.Coral);
             OpenChildForm(new FormTransactionFailed(_transactionFailed));
+        }
+
+        private void iconStatusConnection_Click(object sender, EventArgs e)
+        {
+            bool status = Bootstrapper.CheckConnection();
+            if (!status)
+            {
+                ZIMessageBox.Show("Server Disconnected!", "Network Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                SetNetworkNotConnected();
+            }
+            else
+            {
+                ZIMessageBox.Show("Server Connected!", "Network Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SetNetworkConnected();
+            }
         }
     }
 }
