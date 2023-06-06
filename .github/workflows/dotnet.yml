@@ -102,6 +102,7 @@ jobs:
           }
 
     - name: Set version in all AssemblyInfo.cs files
+      if: steps.versionize.outcome == 'success'
       uses: secondbounce/assemblyinfo-update@v2
       with:
         version: ${{ steps.create_release.outputs.current_tag_no_v }}
