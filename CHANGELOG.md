@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.6.2"></a>
+## [1.6.2](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.2) (2023-6-6)
+
+### Bug Fixes
+
+* ci buffer malloc when create tag ([29a9311](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/29a9311d5da19ac9cce799095890a47dd0e55296))
+
+### Other
+
+* Merge branch 'master' of https://github.com/zulfikar4568/PCI.KittingApp ([c1877b3](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/c1877b32001a17a474e8e1f0743f687f99120f4c))
+
 <a name="1.6.1"></a>
 ## [1.6.1](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.1) (2023-6-6)
 
