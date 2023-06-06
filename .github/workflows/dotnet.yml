@@ -111,7 +111,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: "Get Current Tag"
       id: current_tag
