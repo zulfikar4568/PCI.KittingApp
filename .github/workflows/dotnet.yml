@@ -87,7 +87,7 @@ jobs:
             const tags_url = context.payload.repository.tags_url + "?per_page=1"
             const result = await github.request(tags_url)
             const current_tag = result.data[0].name
-            const current_tag_no_v = current_tag.replace('v', '')
+            const current_tag_no_v = current_tag.toString().replace('v', '')
             core.setOutput('no-v', current_tag_no_v)
             await github.rest.repos.createRelease({
               draft: false,
