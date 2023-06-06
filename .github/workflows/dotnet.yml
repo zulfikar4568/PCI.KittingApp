@@ -110,6 +110,8 @@ jobs:
         os: [windows-latest]
 
     steps:
+    - uses: actions/checkout@v3
+    
     - name: "Get Current Tag"
       id: current_tag
       uses: "actions/github-script@v5"
