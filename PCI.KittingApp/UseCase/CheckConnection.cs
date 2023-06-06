@@ -15,7 +15,8 @@ namespace PCI.KittingApp.UseCase
         {
             await Task.Run(() =>
             {
-                var frmInstance = (Main)dataMap["MainForm"];
+                var frmInstance = (Main)dataMap[typeof(Main).Name];
+                if (frmInstance == null) return;
                 if (frmInstance.IsHandleCreated)
                 {
                     bool status = Bootstrapper.CheckConnection();

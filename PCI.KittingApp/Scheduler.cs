@@ -13,15 +13,16 @@ namespace PCI.KittingApp
     public class Scheduler
     {
         private readonly IScheduler _scheduler;
+        public Dictionary<string, dynamic> jobData = new Dictionary<string, dynamic>();
         public Scheduler(IScheduler scheduler)
         {
             _scheduler = scheduler;
         }
 
-        public void StartCronJob(Form form = null)
+        public void StartCronJob()
         {
             // Start the CronJob
-            if (form != null) ScheduleJob(form);
+            ScheduleJob();
 
             _scheduler.Start().ConfigureAwait(true).GetAwaiter().GetResult();
         }
@@ -30,13 +31,13 @@ namespace PCI.KittingApp
             _scheduler.Shutdown().ConfigureAwait(true).GetAwaiter().GetResult();
         }
 
-        private void ScheduleJob(Form form = null)
+        private void ScheduleJob()
         {   
             // Put the data form if exists!
-            if (form != null) SchedulerCronJob<Job.CheckConnectionJob>(AppSettings.CheckConnectionCronExpression, form);
+            SchedulerCronJob<Job.CheckConnectionJob>(AppSettings.CheckConnectionCronExpression ?? "0/10 * * ? * * *", jobData.ContainsKey(typeof(Job.CheckConnectionJob).Name) ? jobData[typeof(Job.CheckConnectionJob).Name] : null);
         }
 
-        private void SchedulerCronJob<T>(string cronExpression, Form form = null) where T : IJob
+        private void SchedulerCronJob<T>(string cronExpression, dynamic data = null) where T : IJob
         {
             var jobName = typeof(T).Name;
 
@@ -46,7 +47,7 @@ namespace PCI.KittingApp
                 .Build();
             
             // Put the data form if exists!
-            if (form != null ) job.JobDataMap.Put("MainForm", form);
+            if (data != null) job.JobDataMap.Put(data.GetType().Name, data);
 
             var trigger = TriggerBuilder.Create()
                 .WithIdentity($"{jobName}-Trigger", $"{jobName}-TriggerGroup")
