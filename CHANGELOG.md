@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.5.0"></a>
+## [1.5.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.5.0) (2023-6-6)
+
+### Features
+
+* add dictionary of data job ([117b954](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/117b954ef09eb3feec045f98b6bf0065a4009162))
+* add scheduler check connection ([67f1fcd](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/67f1fcd2ab3de542660929f5f56ce739ff1cd8ae))
+* change required batch ID ([2bfd377](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/2bfd3776c913d6f464a668c9170001f2335a1e12))
+* change UOM to dropdown ([3f2827f](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/3f2827fd489f302383420665d48b92a05817edca))
+* validation IDN + Customer SN on Unit Registration ([acd1b9b](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/acd1b9b9eeafee3766bba932b4b1a252d10b97e6))
+* validation of PN with Customer SN ([ebd3689](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/ebd368990c5f8171b70511e134e6381005cc31c2))
+
+### Bug Fixes
+
+* ui length field for unit registration ([179bcc8](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/179bcc8463c202b259c637ae1504c79d46d84d9e))
+
+### Other
+
+* Merge pull request #6 from zulfikar4568/feat/dev ([67cc3c0](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/67cc3c044cca4e61a176375fd398479361b44aa7))
+* add exception of list unit empty ([ec472f3](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/ec472f3cdb805053b0e443ed08067857eccb31bd))
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.4.1) (2023-5-24)
 
