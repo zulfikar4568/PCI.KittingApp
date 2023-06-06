@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.6.8"></a>
+## [1.6.8](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.8) (2023-6-6)
+
+### Bug Fixes
+
+* github token ([00ebdf9](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/00ebdf93df609071b5298e0ac9752a7dfb01e250))
+
 <a name="1.6.7"></a>
 ## [1.6.7](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.7) (2023-6-6)
 
