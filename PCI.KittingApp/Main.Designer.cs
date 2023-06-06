@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.iconStatusConnection = new FontAwesome.Sharp.IconButton();
             this.btnTransactionFailed = new FontAwesome.Sharp.IconButton();
             this.btnMaterialRegistration = new FontAwesome.Sharp.IconButton();
             this.btnUnitRegistration = new FontAwesome.Sharp.IconButton();
@@ -45,7 +46,8 @@
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.iconStatusConnection = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelVersion = new System.Windows.Forms.LinkLabel();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
@@ -56,12 +58,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panelMenu.Controls.Add(this.iconStatusConnection);
+            this.panelMenu.Controls.Add(this.tableLayoutPanel1);
             this.panelMenu.Controls.Add(this.btnTransactionFailed);
             this.panelMenu.Controls.Add(this.btnMaterialRegistration);
             this.panelMenu.Controls.Add(this.btnUnitRegistration);
@@ -72,6 +75,29 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 823);
             this.panelMenu.TabIndex = 0;
+            // 
+            // iconStatusConnection
+            // 
+            this.iconStatusConnection.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconStatusConnection.FlatAppearance.BorderSize = 0;
+            this.iconStatusConnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconStatusConnection.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
+            this.iconStatusConnection.ForeColor = System.Drawing.Color.Gainsboro;
+            this.iconStatusConnection.IconChar = FontAwesome.Sharp.IconChar.WifiStrong;
+            this.iconStatusConnection.IconColor = System.Drawing.Color.Gainsboro;
+            this.iconStatusConnection.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconStatusConnection.IconSize = 32;
+            this.iconStatusConnection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconStatusConnection.Location = new System.Drawing.Point(3, 3);
+            this.iconStatusConnection.Name = "iconStatusConnection";
+            this.iconStatusConnection.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.iconStatusConnection.Size = new System.Drawing.Size(214, 54);
+            this.iconStatusConnection.TabIndex = 5;
+            this.iconStatusConnection.Text = "Connected";
+            this.iconStatusConnection.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconStatusConnection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconStatusConnection.UseVisualStyleBackColor = true;
+            this.iconStatusConnection.Click += new System.EventHandler(this.iconStatusConnection_Click);
             // 
             // btnTransactionFailed
             // 
@@ -314,29 +340,38 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // iconStatusConnection
+            // tableLayoutPanel1
             // 
-            this.iconStatusConnection.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconStatusConnection.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.iconStatusConnection.FlatAppearance.BorderSize = 0;
-            this.iconStatusConnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconStatusConnection.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
-            this.iconStatusConnection.ForeColor = System.Drawing.Color.Gainsboro;
-            this.iconStatusConnection.IconChar = FontAwesome.Sharp.IconChar.WifiStrong;
-            this.iconStatusConnection.IconColor = System.Drawing.Color.Gainsboro;
-            this.iconStatusConnection.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconStatusConnection.IconSize = 32;
-            this.iconStatusConnection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconStatusConnection.Location = new System.Drawing.Point(0, 763);
-            this.iconStatusConnection.Name = "iconStatusConnection";
-            this.iconStatusConnection.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.iconStatusConnection.Size = new System.Drawing.Size(220, 60);
-            this.iconStatusConnection.TabIndex = 5;
-            this.iconStatusConnection.Text = "Connected";
-            this.iconStatusConnection.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconStatusConnection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconStatusConnection.UseVisualStyleBackColor = true;
-            this.iconStatusConnection.Click += new System.EventHandler(this.iconStatusConnection_Click);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.labelVersion, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.iconStatusConnection, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 721);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(220, 102);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.ActiveLinkColor = System.Drawing.Color.Gainsboro;
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelVersion.Font = new System.Drawing.Font("Segoe UI Semibold", 5F);
+            this.labelVersion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelVersion.LinkColor = System.Drawing.Color.Gainsboro;
+            this.labelVersion.Location = new System.Drawing.Point(3, 60);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(214, 42);
+            this.labelVersion.TabIndex = 1;
+            this.labelVersion.TabStop = true;
+            this.labelVersion.Text = "version";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelVersion.VisitedLinkColor = System.Drawing.Color.Gainsboro;
+            this.labelVersion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelVersion_LinkClicked);
             // 
             // Main
             // 
@@ -364,6 +399,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -387,6 +424,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private FontAwesome.Sharp.IconButton btnTransactionFailed;
         private FontAwesome.Sharp.IconButton iconStatusConnection;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.LinkLabel labelVersion;
     }
 }
 

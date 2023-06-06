@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -48,6 +49,8 @@ namespace PCI.KittingApp
             _opcenterSaveData = opcenterSaveData;
             _kitting = kitting;
             _transactionFailed = transactionFailed;
+            labelVersion.Text = $"Copyright © 2023 by OpexCG | Version {Assembly.GetEntryAssembly().GetName().Version}";
+            labelVersion.LinkBehavior = LinkBehavior.NeverUnderline;
         }
 
         #region UI_Resposibility
@@ -312,6 +315,12 @@ namespace PCI.KittingApp
                 ZIMessageBox.Show("Server Connected!", "Network Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SetNetworkConnected();
             }
+        }
+
+        private void labelVersion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            labelVersion.LinkVisited = true;
+            System.Diagnostics.Process.Start("https://opexcg.com/");
         }
     }
 }
