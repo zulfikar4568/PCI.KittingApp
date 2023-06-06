@@ -67,7 +67,9 @@ namespace PCI.KittingApp.UseCase
         }
         public string[] GetUOMList()
         {
-            return _maintenanceTransaction.ListUOM().Select(x => x.Name).ToArray();
+            var dataUOM = _maintenanceTransaction.ListUOM();
+            if (dataUOM == null) return null;
+            return dataUOM.Select(x => x.Name).ToArray();
         }
         public bool MfgOrderExists(string MfgOrderName)
         {
