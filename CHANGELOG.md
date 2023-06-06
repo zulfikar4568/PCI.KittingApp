@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.6.0"></a>
+## [1.6.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.0) (2023-6-6)
+
+### Features
+
+* add tag version ([20f71da](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/20f71da78f886b0b08f9ca2cd356d3b56e479b60))
+
+### Other
+
+* Merge pull request #7 from zulfikar4568/feat/dev ([32aa5e5](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/32aa5e51e2e46983cbc274594fdb42339943f8bc))
+
 <a name="1.5.0"></a>
 ## [1.5.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.5.0) (2023-6-6)
 
