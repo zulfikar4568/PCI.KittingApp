@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.6.5"></a>
+## [1.6.5](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.5) (2023-6-6)
+
+### Bug Fixes
+
+* move label version into UI constructore ([c104ad1](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/c104ad1ff41c330a62e3a28d48f4a42f1fd7c231))
+
+### Other
+
+* **release:** 1.6.4 ([1478eb5](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/1478eb5cb9e35dfe8da2481d30067e28a7f9200a))
+* **release:** v1.6.4 ([69d9878](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/69d9878e069b61866d9f77305d9e38037823d2d7))
+
 <a name="1.6.4"></a>
 ## [1.6.4](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.4) (2023-6-6)
 
