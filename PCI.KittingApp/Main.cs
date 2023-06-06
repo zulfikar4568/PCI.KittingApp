@@ -44,7 +44,7 @@ namespace PCI.KittingApp
             this.Padding = new Padding(borderSize);//Border size
             this.BackColor = Color.FromArgb(45, 45, 65);//Border color
 
-            // Set the label version
+            // Set the label version 
             labelVersion.Text = $"Copyright © 2023 by OpexCG | Version {Assembly.GetEntryAssembly().GetName().Version}";
             labelVersion.LinkBehavior = LinkBehavior.NeverUnderline;
             #endregion
