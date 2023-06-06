@@ -87,8 +87,6 @@ jobs:
             const tags_url = context.payload.repository.tags_url + "?per_page=1"
             const result = await github.request(tags_url)
             const current_tag = result.data[0].name
-            const current_tag_no_v = current_tag.toString().replace('v', '')
-            core.setOutput('no-v', current_tag_no_v)
             await github.rest.repos.createRelease({
               draft: false,
               generate_release_notes: true,
@@ -102,8 +100,45 @@ jobs:
             core.setFailed(error.message);
           }
 
+  assembly_tags:
+    name: build-${{matrix.os}}
+    runs-on: ${{ matrix.os }}
+    needs: [build]
+    if: ${{ github.ref == 'refs/heads/master' }}
+    strategy:
+      matrix:
+        os: [windows-latest]
+
+    steps:
+    - name: "Get Current Tag"
+      id: current_tag
+      uses: "actions/github-script@v5"
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
+        script: |
+            const tags_url = context.payload.repository.tags_url + "?per_page=1"
+            const result = await github.request(tags_url)
+            const tag = result.data[0].name.toString()
+            const no_v = tag.replace('v', '')
+            core.setOutput('tag', tag)
+            core.setOutput('no-v', no_v)
+
     - name: Set version in all AssemblyInfo.cs files
-      if: steps.versionize.outcome == 'success'
       uses: secondbounce/assemblyinfo-update@v2
       with:
-        version: ${{ steps.create_release.outputs.no-v }}
+        version: ${{ steps.current_tag.outputs.no-v}}
+
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v9
+      with:
+        author_name: M. Zulfikar Isnaen
+        author_email: isnaen70@gmail.com
+        message: 'chore(release): ${{ steps.current_tag.outputs.tag }}'
+        add: '*.cs'
+
+    - name: Push changes to GitHub
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+        tags: true
