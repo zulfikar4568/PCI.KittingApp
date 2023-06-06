@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.6.9"></a>
+## [1.6.9](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.9) (2023-6-6)
+
+### Bug Fixes
+
+* token typo ([9f3aa14](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/9f3aa14223ed16e8a49d21849443d5b2827bd266))
+
+### Other
+
+* Merge branch 'master' of https://github.com/zulfikar4568/PCI.KittingApp ([0ce92a6](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/0ce92a64d79969ba9cbcef2300506f6b817dacbe))
+
 <a name="1.6.8"></a>
 ## [1.6.8](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.8) (2023-6-6)
 
