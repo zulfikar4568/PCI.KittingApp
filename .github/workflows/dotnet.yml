@@ -98,3 +98,8 @@ jobs:
           } catch (error) {
             core.setFailed(error.message);
           }
+    
+    - name: Set version in all AssemblyInfo.cs files
+      uses: secondbounce/assemblyinfo-update@v2
+      with:
+        version: ${{ github.ref }}
