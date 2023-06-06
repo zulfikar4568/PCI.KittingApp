@@ -65,17 +65,53 @@ namespace PCI.KittingApp.Forms
             }
         }
 
-        private bool ValidateTheContainer()
+        private bool ValidateTheIDN(string ContainerName)
         {
-            bool result = true;
-            ValidationStatus isFGValid = _kitting.ValidateFGSerialNumber(textBoxUnitContainer.Text, _opcenterCheckData.IsContainerExists);
+            ValidationStatus isFGValid = _kitting.ValidateFGSerialNumber(ContainerName, _opcenterCheckData.IsContainerExists);
             if (!isFGValid.IsSuccess)
             {
-                ZIMessageBox.Show(ErrorCodeMeaning.Translate(isFGValid.ErrorCode), "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIMessageBox.Show($"The Container {ContainerName} {ErrorCodeMeaning.Translate(isFGValid.ErrorCode)}", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 textBoxUnitContainer.Clear();
-                result = false;
+                return false;
             }
-            return result;
+            return true;
+        }
+        private bool ValidateTheCustomerSN()
+        {
+            ValidationStatus status = _kitting.ValidateCustomerSerialNumber(textBoxUnitContainer.Text);
+            if (!status.IsSuccess)
+            {
+                ZIMessageBox.Show(ErrorCodeMeaning.Translate(status.ErrorCode), "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                textBoxUnitContainer.Clear();
+                return false;
+            }
+            return true;
+        }
+        private void ValidateTheContainer()
+        {
+            // Check Initial Data is Ready or Not
+            if (textBoxUnitContainer.Text == "" || textBoxUnitContainer.Text == null) return;
+
+            var dataParse = textBoxUnitContainer.Text.Split('_');
+            if (dataParse.Length == 1) // If only IDN
+            {
+                if (!ValidateTheIDN(textBoxUnitContainer.Text)) return;
+
+                // Select next field
+                textBoxUnitMfg.Select();
+            } else if (dataParse.Length == 3) // If Customer SN
+            {
+                if (!ValidateTheIDN(dataParse[2])) return;
+                if (!ValidateTheCustomerSN()) return;
+                
+                textBoxUnitContainer.Text = dataParse[2];
+
+                // Select next field
+                textBoxUnitMfg.Select();
+            } else
+            {
+                textBoxUnitContainer.Text = "";
+            }
         }
         private void textBoxUnitMfg_Leave(object sender, EventArgs e)
         {
@@ -107,13 +143,7 @@ namespace PCI.KittingApp.Forms
 
         private void CheckContainerField()
         {
-            // Check Initial Data
-            if (textBoxUnitContainer.Text == null || textBoxUnitContainer.Text == "") return;
-
             ValidateTheContainer();
-
-            // Select next field
-            textBoxUnitMfg.Select();
         }
 
         private void textBoxUnitContainer_KeyDown(object sender, KeyEventArgs e)
