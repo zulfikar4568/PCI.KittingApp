@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.6.7"></a>
+## [1.6.7](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.7) (2023-6-6)
+
+### Bug Fixes
+
+* missmatch released ([bd2a799](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/bd2a79934ec035bf5cfda12d66079a0814f1e21f))
+
 <a name="1.6.6"></a>
 ## [1.6.6](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.6) (2023-6-6)
 
