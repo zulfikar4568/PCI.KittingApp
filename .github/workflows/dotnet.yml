@@ -131,14 +131,13 @@ jobs:
       with:
         version: ${{ steps.current_tag.outputs.no-v}}
 
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v9
-      with:
-        author_name: M. Zulfikar Isnaen
-        author_email: isnaen70@gmail.com
-        message: 'chore(release): ${{ steps.current_tag.outputs.tag }}'
-        add: '*.cs'
-        pull: '--rebase --autostash ...'
+    - name: Pull and Create Commit
+      run: |
+        git config --global user.name "M. Zulfikar Isnaen"
+        git config --global user.email "isnaen70@gmail.com"
+        git pull origin master
+        git status
+        git commit -a -m "chore(release): Tag ${{ steps.current_tag.outputs.tag }} push to the AssemblyInfo.cs"
 
     - name: Push changes to GitHub
       uses: ad-m/github-push-action@master
