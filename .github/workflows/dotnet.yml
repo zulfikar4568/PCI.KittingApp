@@ -77,7 +77,6 @@ jobs:
         tags: true
         
     - name: "Create release"
-      id: create_release
       if: steps.versionize.outcome == 'success'
       uses: "actions/github-script@v5"
       with:
@@ -111,7 +110,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
+
     - name: "Get Current Tag"
       id: current_tag
       uses: "actions/github-script@v5"
@@ -137,6 +136,7 @@ jobs:
         author_email: isnaen70@gmail.com
         message: 'chore(release): ${{ steps.current_tag.outputs.tag }}'
         add: '*.cs'
+        pull: '--rebase --autostash ...'
 
     - name: Push changes to GitHub
       uses: ad-m/github-push-action@master
