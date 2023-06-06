@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.6.4"></a>
+## [1.6.4](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.4) (2023-6-6)
+
+### Bug Fixes
+
+* the commit assembly info ([57a7507](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/57a75073cfb34f9674a533094edf7a8bbfae9e5a))
+
+### Other
+
+* Merge branch 'master' of https://github.com/zulfikar4568/PCI.KittingApp ([1aa013e](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/1aa013ea8d24dc0233627150062651d9752fba49))
+
 <a name="1.6.3"></a>
 ## [1.6.3](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.3) (2023-6-6)
 
