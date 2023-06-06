@@ -215,6 +215,10 @@ namespace PCI.KittingApp.Repository.Opcenter
         {
             return _maintenanceTxn.MfgOrderInfo(IgnoreException);
         }
+        public NamedObjectRef[] ListUOM(bool IgnoreException = true)
+        {
+            return _maintenanceTxn.UOMInfo(IgnoreException);
+        }
         public ERPRouteChanges GetERPRoute(string ERPRouteName, string ERPRouteRevision = "", bool IgnoreException = true)
         {
             RevisionedObjectRef objectToChange = new RevisionedObjectRef(ERPRouteName);

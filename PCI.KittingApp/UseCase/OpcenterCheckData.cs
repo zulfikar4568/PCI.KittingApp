@@ -65,6 +65,12 @@ namespace PCI.KittingApp.UseCase
                 BillOfMaterial = BOMs,
             };
         }
+        public string[] GetUOMList()
+        {
+            var dataUOM = _maintenanceTransaction.ListUOM();
+            if (dataUOM == null) return null;
+            return dataUOM.Select(x => x.Name).ToArray();
+        }
         public bool MfgOrderExists(string MfgOrderName)
         {
             return _maintenanceTransaction.MfgOrderExists(MfgOrderName);

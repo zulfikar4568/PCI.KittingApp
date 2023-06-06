@@ -48,13 +48,13 @@
             this.PanelMfgOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelMfgOrder.ColumnCount = 3;
-            this.PanelMfgOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.PanelMfgOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.PanelMfgOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.PanelMfgOrder.ColumnCount = 2;
+            this.PanelMfgOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PanelMfgOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PanelMfgOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.PanelMfgOrder.Controls.Add(this.PanelMfgName, 0, 0);
             this.PanelMfgOrder.Controls.Add(this.panelMfgProduct, 1, 0);
-            this.PanelMfgOrder.Controls.Add(this.panelMfgSubmit, 2, 3);
+            this.PanelMfgOrder.Controls.Add(this.panelMfgSubmit, 1, 3);
             this.PanelMfgOrder.Location = new System.Drawing.Point(35, 69);
             this.PanelMfgOrder.Name = "PanelMfgOrder";
             this.PanelMfgOrder.RowCount = 4;
@@ -72,7 +72,7 @@
             this.PanelMfgName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMfgName.Location = new System.Drawing.Point(3, 3);
             this.PanelMfgName.Name = "PanelMfgName";
-            this.PanelMfgName.Size = new System.Drawing.Size(340, 130);
+            this.PanelMfgName.Size = new System.Drawing.Size(519, 130);
             this.PanelMfgName.TabIndex = 9;
             // 
             // textBoxUnitContainer
@@ -85,7 +85,7 @@
             this.textBoxUnitContainer.ForeColor = System.Drawing.Color.Gainsboro;
             this.textBoxUnitContainer.Location = new System.Drawing.Point(17, 65);
             this.textBoxUnitContainer.Name = "textBoxUnitContainer";
-            this.textBoxUnitContainer.Size = new System.Drawing.Size(300, 50);
+            this.textBoxUnitContainer.Size = new System.Drawing.Size(479, 50);
             this.textBoxUnitContainer.TabIndex = 0;
             this.textBoxUnitContainer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUnitContainer_KeyDown);
             this.textBoxUnitContainer.Leave += new System.EventHandler(this.textBoxUnitContainer_Leave);
@@ -108,9 +108,9 @@
             this.panelMfgProduct.Controls.Add(this.textBoxUnitMfg);
             this.panelMfgProduct.Controls.Add(this.label2);
             this.panelMfgProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgProduct.Location = new System.Drawing.Point(349, 3);
+            this.panelMfgProduct.Location = new System.Drawing.Point(528, 3);
             this.panelMfgProduct.Name = "panelMfgProduct";
-            this.panelMfgProduct.Size = new System.Drawing.Size(340, 130);
+            this.panelMfgProduct.Size = new System.Drawing.Size(519, 130);
             this.panelMfgProduct.TabIndex = 10;
             // 
             // textBoxUnitMfg
@@ -123,7 +123,7 @@
             this.textBoxUnitMfg.ForeColor = System.Drawing.Color.Gainsboro;
             this.textBoxUnitMfg.Location = new System.Drawing.Point(23, 65);
             this.textBoxUnitMfg.Name = "textBoxUnitMfg";
-            this.textBoxUnitMfg.Size = new System.Drawing.Size(300, 50);
+            this.textBoxUnitMfg.Size = new System.Drawing.Size(479, 50);
             this.textBoxUnitMfg.TabIndex = 2;
             this.textBoxUnitMfg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxUnitMfg_KeyDown);
             this.textBoxUnitMfg.Leave += new System.EventHandler(this.textBoxUnitMfg_Leave);
@@ -145,9 +145,9 @@
             // 
             this.panelMfgSubmit.Controls.Add(this.buttonUnitSubmit);
             this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgSubmit.Location = new System.Drawing.Point(695, 465);
+            this.panelMfgSubmit.Location = new System.Drawing.Point(528, 465);
             this.panelMfgSubmit.Name = "panelMfgSubmit";
-            this.panelMfgSubmit.Size = new System.Drawing.Size(352, 77);
+            this.panelMfgSubmit.Size = new System.Drawing.Size(519, 77);
             this.panelMfgSubmit.TabIndex = 14;
             // 
             // buttonUnitSubmit
@@ -165,7 +165,7 @@
             this.buttonUnitSubmit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonUnitSubmit.IconSize = 40;
             this.buttonUnitSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonUnitSubmit.Location = new System.Drawing.Point(105, 16);
+            this.buttonUnitSubmit.Location = new System.Drawing.Point(323, 16);
             this.buttonUnitSubmit.Name = "buttonUnitSubmit";
             this.buttonUnitSubmit.Size = new System.Drawing.Size(179, 46);
             this.buttonUnitSubmit.TabIndex = 13;

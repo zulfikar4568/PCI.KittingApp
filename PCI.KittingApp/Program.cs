@@ -29,7 +29,21 @@ namespace PCI.KittingApp
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(container.Resolve<Main>());
+            
+            // Setup the MainForm
+            var mainForm = container.Resolve<Main>();
+            if (status) mainForm.SetNetworkConnected();
+            else mainForm.SetNetworkNotConnected();
+
+            var scheduler = container.Resolve<Scheduler>();
+            Application.ApplicationExit += new EventHandler(scheduler.StopCronJob);
+
+            // Add data to CheckConnectionJob
+            scheduler.jobData.Add(typeof(Job.CheckConnectionJob).Name, mainForm);
+            // Start the CronJob
+            scheduler.StartCronJob();
+
+            Application.Run(mainForm);
         }
     }
 }

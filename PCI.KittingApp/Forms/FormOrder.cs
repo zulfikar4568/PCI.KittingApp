@@ -1,4 +1,5 @@
-﻿using PCI.KittingApp.Components;
+﻿using Camstar.WCF.ObjectStack;
+using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity.TransactionFailedType;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
@@ -18,6 +19,9 @@ namespace PCI.KittingApp.Forms
 {
     public partial class FormOrder : Form
     {
+        //Fields
+        private string[] _listUOMs = null;
+
         private OpcenterCheckData _opcenterCheckData;
         private OpcenterSaveData _opcenterSaveData;
         public FormOrder(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData)
@@ -25,28 +29,48 @@ namespace PCI.KittingApp.Forms
             InitializeComponent();
             _opcenterCheckData = opcenterCheckData;
             _opcenterSaveData = opcenterSaveData;
-        }
 
+            _listUOMs = _opcenterCheckData.GetUOMList();
+            if (_listUOMs == null) 
+                ZIMessageBox.Show("The list data of UOM cannot be retrieve, perhaps you lost connection or data empty!", "Exception Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+            AssignUOMList();
+        }
+        private void AssignUOMList()
+        {
+            if (_listUOMs == null) return;
+            comboBoxMfgUOM.Items.Clear();
+            foreach (var item in _listUOMs)
+            {
+                comboBoxMfgUOM.Items.Add(item);
+                if (item.ToUpper() == "UNIT")
+                {
+                    comboBoxMfgUOM.SelectedIndex = comboBoxMfgUOM.Items.IndexOf(item);
+                }
+            }
+
+            textBoxMfgName.Select();
+        }
         private void ResetField()
         {
             textBoxMfgName.Clear();
             textBoxMfgProduct.Clear();
             textBoxMfgQty.Clear();
-            textBoxMfgUOM.Clear();
+            AssignUOMList();
         }
         private bool IsRequiredFieldNotEmpty()
         {
             if (textBoxMfgName.Text == null || textBoxMfgName.Text == "") return false;
             if (textBoxMfgProduct.Text == null || textBoxMfgProduct.Text == "") return false;
             if (textBoxMfgQty.Text == null || textBoxMfgQty.Text == "") return false;
-            if (textBoxMfgUOM.Text == null || textBoxMfgUOM.Text == "") return false;
+            if (comboBoxMfgUOM.SelectedIndex== -1) return false;
             return true;
         }
 
         private void buttonMfgSubmit_Click(object sender, EventArgs e)
         {
             if (!IsRequiredFieldNotEmpty()) return;
-            var data = new CreateOrder() { MfgOrderName = textBoxMfgName.Text , ProductName = textBoxMfgProduct.Text, Qty = textBoxMfgQty.Text , UOM = textBoxMfgUOM.Text };
+            var data = new CreateOrder() { MfgOrderName = textBoxMfgName.Text , ProductName = textBoxMfgProduct.Text, Qty = textBoxMfgQty.Text , UOM = comboBoxMfgUOM.SelectedText };
             _opcenterSaveData.SaveMfgOrder(data);
             ResetField();
         }
@@ -108,10 +132,9 @@ namespace PCI.KittingApp.Forms
             }
 
             // Select next field
-            textBoxMfgUOM.Select();
+            buttonMfgSubmit.Select();
         }
-
-        private void textBoxMfgUOM_Leave(object sender, EventArgs e)
+        private void comboBoxMfgUOM_SelectedIndexChanged(object sender, EventArgs e)
         {
             CheckUOMField();
         }
@@ -119,13 +142,7 @@ namespace PCI.KittingApp.Forms
         private void CheckUOMField()
         {
             // Check initial data
-            if (textBoxMfgUOM.Text == null || textBoxMfgUOM.Text == "") return;
-
-            if (!_opcenterCheckData.IsUOMExists(textBoxMfgUOM.Text))
-            {
-                textBoxMfgUOM.Clear();
-                return;
-            }
+            if (comboBoxMfgUOM.SelectedIndex == -1) return;
 
             // Select next field
             buttonMfgSubmit.Select();
@@ -152,14 +169,6 @@ namespace PCI.KittingApp.Forms
             if (e.KeyCode == Keys.Enter)
             {
                 CheckQtyField();
-            }
-        }
-
-        private void textBoxMfgUOM_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                CheckUOMField();
             }
         }
     }
