@@ -88,6 +88,7 @@ jobs:
             const result = await github.request(tags_url)
             const current_tag = result.data[0].name
             const current_tag_no_v = current_tag.replace('v', '')
+            core.setOutput('no-v', current_tag_no_v)
             await github.rest.repos.createRelease({
               draft: false,
               generate_release_notes: true,
@@ -105,4 +106,4 @@ jobs:
       if: steps.versionize.outcome == 'success'
       uses: secondbounce/assemblyinfo-update@v2
       with:
-        version: ${{ steps.create_release.outputs.current_tag_no_v }}
+        version: ${{ steps.create_release.outputs.no-v }}
