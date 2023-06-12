@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.6.11"></a>
+## [1.6.11](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.11) (2023-6-12)
+
+### Bug Fixes
+
+* add packaging of application ([3e3e674](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/3e3e6747787c1d6ff2022f6db70ef28df982f1f5))
+* add packaging of application ([dd416cf](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/dd416cf87bbf7b1f5788b1cc425e7c3dabc248f2))
+* app name ([63ef43d](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/63ef43d219ec2afc0e66ab5aa145ed33aa7b2797))
+* application name on ci ([411e00f](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/411e00fdafff774795ae14db3445472312b114c8))
+* application name on ci ([44cb047](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/44cb04798cd2483cf5b0e60950e5478ebbd824a1))
+* merge ([4422db4](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/4422db4100bbd6a670323d4728b0c9b3559c0f3c))
+
+### Other
+
+* **release:** Tag v1.6.10 push to the AssemblyInfo.cs ([18194af](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/18194af1ae52b33ecaf56c1db6ad8b025a3f3019))
+
 <a name="1.6.10"></a>
 ## [1.6.10](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.10) (2023-6-6)
 
