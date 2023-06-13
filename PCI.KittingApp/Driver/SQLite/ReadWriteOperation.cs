@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PCI.KittingApp.Driver.SQLite
 {
-    public class TransactionFailed<T>
+    public class ReadWriteOperation<T>
     {
         public List<T> ReadAll(string query)
         {

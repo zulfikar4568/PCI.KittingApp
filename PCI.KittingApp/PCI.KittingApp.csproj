@@ -141,10 +141,11 @@
     <Compile Include="Driver\Opcenter\ContainerTransaction.cs" />
     <Compile Include="Driver\Opcenter\Helper.cs" />
     <Compile Include="Driver\Opcenter\MaintenanceTransaction.cs" />
-    <Compile Include="Driver\SQLite\TransactionFailed.cs" />
+    <Compile Include="Driver\SQLite\ReadWriteOperation.cs" />
     <Compile Include="Entity\BillOfMaterial.cs" />
     <Compile Include="Entity\ErrorCode.cs" />
     <Compile Include="Entity\MaterialRegistration.cs" />
+    <Compile Include="Entity\Printer\BasePrinter.cs" />
     <Compile Include="Entity\ProductDefaultStart.cs" />
     <Compile Include="Entity\TransactionFailed.cs" />
     <Compile Include="Entity\TransactionFailedType\CreateOrder.cs" />

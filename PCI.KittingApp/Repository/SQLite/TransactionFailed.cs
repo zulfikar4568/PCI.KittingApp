@@ -10,8 +10,8 @@ namespace PCI.KittingApp.Repository.SQLite
 {
     public class TransactionFailed
     {
-        private TransactionFailed<Entity.TransactionFailed> _transactionFailedDriver;
-        public TransactionFailed(TransactionFailed<Entity.TransactionFailed> transactionFailedDriver)
+        private ReadWriteOperation<Entity.TransactionFailed> _transactionFailedDriver;
+        public TransactionFailed(ReadWriteOperation<Entity.TransactionFailed> transactionFailedDriver)
         {
             _transactionFailedDriver = transactionFailedDriver;
         }

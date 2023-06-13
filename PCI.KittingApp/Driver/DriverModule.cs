@@ -17,7 +17,7 @@ namespace PCI.KittingApp.Driver
             moduleBuilder.RegisterType<Helper>().AsSelf();
             moduleBuilder.RegisterType<MaintenanceTransaction>().AsSelf();
             moduleBuilder.RegisterType<ContainerTransaction>().AsSelf();
-            moduleBuilder.RegisterType<SQLite.TransactionFailed<TransactionFailed>>().AsSelf();
+            moduleBuilder.RegisterType<SQLite.ReadWriteOperation<TransactionFailed>>().AsSelf();
         }
     }
 }
