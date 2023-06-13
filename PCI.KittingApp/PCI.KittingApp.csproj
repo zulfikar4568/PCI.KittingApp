@@ -142,16 +142,17 @@
     <Compile Include="Driver\Opcenter\Helper.cs" />
     <Compile Include="Driver\Opcenter\MaintenanceTransaction.cs" />
     <Compile Include="Driver\SQLite\ReadWriteOperation.cs" />
-    <Compile Include="Entity\BillOfMaterial.cs" />
-    <Compile Include="Entity\ErrorCode.cs" />
-    <Compile Include="Entity\MaterialRegistration.cs" />
-    <Compile Include="Entity\Printer\BasePrinter.cs" />
-    <Compile Include="Entity\ProductDefaultStart.cs" />
-    <Compile Include="Entity\TransactionFailed.cs" />
-    <Compile Include="Entity\TransactionFailedType\CreateOrder.cs" />
-    <Compile Include="Entity\TransactionFailedType\StartMaterial.cs" />
-    <Compile Include="Entity\TransactionFailedType\StartUnit.cs" />
-    <Compile Include="Entity\ValidationStatus.cs" />
+    <Compile Include="Entity\Opcenter\BillOfMaterial.cs" />
+    <Compile Include="Entity\Common\ErrorCode.cs" />
+    <Compile Include="Entity\Opcenter\MaterialRegistration.cs" />
+    <Compile Include="Entity\SQLPrinterData\PrintingLabel.cs" />
+    <Compile Include="Entity\Opcenter\ProductDefaultStart.cs" />
+    <Compile Include="Entity\SQLTxnFailedData\TransactionFailed.cs" />
+    <Compile Include="Entity\TransactionType\CreateOrder.cs" />
+    <Compile Include="Entity\TransactionType\StartMaterial.cs" />
+    <Compile Include="Entity\TransactionType\StartUnit.cs" />
+    <Compile Include="Entity\Common\ValidationStatus.cs" />
+    <Compile Include="Entity\TransactionType\TransactionType.cs" />
     <Compile Include="Forms\FormMaterialRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,19 +188,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\MaintenanceMapper.cs" />
+    <Compile Include="Repository\Opcenter\MaintenanceMapper.cs" />
     <Compile Include="Repository\Opcenter\ContainerTransaction.cs" />
     <Compile Include="Repository\Opcenter\MaintenanceTransaction.cs" />
     <Compile Include="Repository\RepositoryModule.cs" />
+    <Compile Include="Repository\SQLite\PrintingLabel.cs" />
     <Compile Include="Repository\SQLite\TransactionFailed.cs" />
     <Compile Include="Scheduler.cs" />
-    <Compile Include="UseCase\CheckConnection.cs" />
-    <Compile Include="UseCase\Kitting.cs" />
-    <Compile Include="UseCase\OpcenterCheckData.cs" />
-    <Compile Include="UseCase\OpcenterSaveData.cs" />
-    <Compile Include="UseCase\TransactionFailed.cs" />
+    <Compile Include="UseCase\NetworkUseCase\CheckConnection.cs" />
+    <Compile Include="UseCase\KittingUseCase\Kitting.cs" />
+    <Compile Include="UseCase\OpcenterUseCase\OpcenterCheckData.cs" />
+    <Compile Include="UseCase\OpcenterUseCase\OpcenterSaveData.cs" />
+    <Compile Include="UseCase\PrinterUseCase\PrintingLabel.cs" />
+    <Compile Include="UseCase\TxnFailedUseCase\TransactionFailed.cs" />
     <Compile Include="UseCase\UseCaseModule.cs" />
     <Compile Include="Util\EventLogUtil.cs" />
+    <Compile Include="Util\FileUtil.cs" />
     <Compile Include="Util\Formatting.cs" />
     <Compile Include="Util\Logging.cs" />
     <Compile Include="Util\Simple3Des.cs" />

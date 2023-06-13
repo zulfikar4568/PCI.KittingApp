@@ -1,6 +1,6 @@
 ﻿using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
-using PCI.KittingApp.Entity.TransactionFailedType;
+using PCI.KittingApp.Entity.TransactionType;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,7 +35,7 @@ namespace PCI.KittingApp.Forms
 
             foreach (var item in transactionFaileds)
             {
-                dataGridTransactionFail.Rows.Add(item.Id, TransactionFailed.TranslateTypeTransaction(item.TypeTransaction), item.DataTransaction, item.DateTransaction);
+                dataGridTransactionFail.Rows.Add(item.Id, TransactionType.Translate(item.TypeTransaction), item.DataTransaction, item.DateTransaction);
             }
         }
 

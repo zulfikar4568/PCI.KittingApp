@@ -20,6 +20,14 @@ namespace PCI.KittingApp.Driver.SQLite
                 return output.ToList();
             }
         }
+        public T Read(string query)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(AppSettings.LoadConnectionString()))
+            {
+                var output = cnn.QuerySingle<T>(query, new DynamicParameters());
+                return output;
+            }
+        }
 
         public void Write(T data, string query)
         {

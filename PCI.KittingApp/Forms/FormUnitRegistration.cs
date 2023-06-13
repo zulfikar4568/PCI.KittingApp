@@ -1,7 +1,7 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
-using PCI.KittingApp.Entity.TransactionFailedType;
+using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
 using System;
