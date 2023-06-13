@@ -135,7 +135,7 @@ namespace PCI.KittingApp.Forms
             ValidationStatus validateCustomerSerialNumber = isFormatSingle ? _kitting.ValidateCustomerSerialNumberWithoutDelimiter(textBoxRegisterSN.Text, textBoxRegisterPN.Text, containerName) : _kitting.ValidateCustomerSerialNumber(textBoxRegisterSN.Text, containerName);
             if (!validateCustomerSerialNumber.IsSuccess)
             {
-                ShowMessage(ErrorCodeMeaning.Translate(validateCustomerSerialNumber.ErrorCode));
+                ShowMessage(ErrorCodeMeaning.Translate(validateCustomerSerialNumber.ErrorCode, textBoxRegisterPN.Text, textBoxRegisterSN.Text));
                 textBoxRegisterSN.Clear();
                 return;
             }
