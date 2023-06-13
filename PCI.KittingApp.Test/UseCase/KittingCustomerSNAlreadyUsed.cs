@@ -36,11 +36,11 @@ namespace PCI.KittingApp.Test
         {
             var BOMs = new List<BillOfMaterial>
             {
-                new BillOfMaterial() { Product = "GH591874800", Description = "ABC", isRegistered = false, IssueControl = IssueControlEnum.Serialized, QtyRequired = 1, CustomerSerialNumber = "5918748_01_IDN00017" },
-                new BillOfMaterial() { Product = "GH591874900", Description = "ABC", isRegistered = false, IssueControl = IssueControlEnum.Serialized, QtyRequired = 1, CustomerSerialNumber = "5918751_01_IDN00017" },
-                new BillOfMaterial() { Product = "GH591875000", Description = "ABC", isRegistered = false, IssueControl = IssueControlEnum.Serialized, QtyRequired = 1, CustomerSerialNumber = "5918750_01_IDN00017" },
+                new BillOfMaterial() { Product = "GH591874800", Description = "ABC", isRegistered = true, IssueControl = IssueControlEnum.Serialized, QtyRequired = 1, CustomerSerialNumber = "5918748_01_IDN00017" },
+                new BillOfMaterial() { Product = "GH591874900", Description = "ABC", isRegistered = true, IssueControl = IssueControlEnum.Serialized, QtyRequired = 1, CustomerSerialNumber = "5918751_01_IDN00017" },
+                new BillOfMaterial() { Product = "GH591875000", Description = "ABC", isRegistered = true, IssueControl = IssueControlEnum.Serialized, QtyRequired = 1, CustomerSerialNumber = "5918750_01_IDN00017" },
                 new BillOfMaterial() { Product = "GH591875100", Description = "ABC", isRegistered = false, IssueControl = IssueControlEnum.Serialized, QtyRequired = 1 },
-                new BillOfMaterial() { Product = "GH591875200", Description = "ABC", isRegistered = true, IssueControl = IssueControlEnum.Serialized, QtyRequired = 1 },
+                new BillOfMaterial() { Product = "GH591875200", Description = "ABC", isRegistered = false, IssueControl = IssueControlEnum.Serialized, QtyRequired = 1 },
                 new BillOfMaterial() { Product = "GH526236500", Description = "ABC", isRegistered = false, IssueControl = IssueControlEnum.StockPointOnly, QtyRequired = 1 }
             };
 

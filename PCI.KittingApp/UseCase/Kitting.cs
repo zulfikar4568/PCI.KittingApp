@@ -114,5 +114,15 @@ namespace PCI.KittingApp.UseCase
             if (BatchID.Length < 10) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_DIGIT_LESS_10 };
             return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
         }
+
+        public ValidationStatus ValidateCustomerSerialNumberWithoutDelimiter(string CustomerSerialNumberWithoutDelimiter, string InternalPCIPartNumber, string FGSerialNumber)
+        {
+            if (!CustomerSerialNumberWithoutDelimiter.Contains(FGSerialNumber)) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_SN_MISSMATCH };
+            
+            var removeFGSN = CustomerSerialNumberWithoutDelimiter.Replace(FGSerialNumber, "");
+            var actualPartNumber = removeFGSN.Substring(0, removeFGSN.Length - 2);
+            if (!InternalPCIPartNumber.Contains(actualPartNumber)) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_PN_MISSMATCH};
+            return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
+        }
     }
 }

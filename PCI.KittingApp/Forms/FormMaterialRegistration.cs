@@ -131,7 +131,8 @@ namespace PCI.KittingApp.Forms
                 return;
             }
 
-            ValidationStatus validateCustomerSerialNumber = _kitting.ValidateCustomerSerialNumber(textBoxRegisterSN.Text, containerName);
+            bool isFormatSingle = textBoxRegisterSN.Text.Split('_').Length == 1;
+            ValidationStatus validateCustomerSerialNumber = isFormatSingle ? _kitting.ValidateCustomerSerialNumberWithoutDelimiter(textBoxRegisterSN.Text, textBoxRegisterPN.Text, containerName) : _kitting.ValidateCustomerSerialNumber(textBoxRegisterSN.Text, containerName);
             if (!validateCustomerSerialNumber.IsSuccess)
             {
                 ShowMessage(ErrorCodeMeaning.Translate(validateCustomerSerialNumber.ErrorCode));
@@ -147,13 +148,16 @@ namespace PCI.KittingApp.Forms
                 return;
             }
 
-            var actualPN = textBoxRegisterSN.Text.Split('_')[0];
-            ValidationStatus validateIfPNMatch = _kitting.ValidateIfPNMatch(textBoxRegisterPN.Text, actualPN);
-            if (!validateIfPNMatch.IsSuccess)
+            if (!isFormatSingle)
             {
-                ShowMessage(ErrorCodeMeaning.Translate(validateIfPNMatch.ErrorCode, textBoxRegisterPN.Text, actualPN));
-                textBoxRegisterSN.Clear();
-                return;
+                var actualPN = textBoxRegisterSN.Text.Split('_')[0];
+                ValidationStatus validateIfPNMatch = _kitting.ValidateIfPNMatch(textBoxRegisterPN.Text, actualPN);
+                if (!validateIfPNMatch.IsSuccess)
+                {
+                    ShowMessage(ErrorCodeMeaning.Translate(validateIfPNMatch.ErrorCode, textBoxRegisterPN.Text, actualPN));
+                    textBoxRegisterSN.Clear();
+                    return;
+                }
             }
 
             var IsContainerExists = _opcenterCheckData.IsContainerExists(textBoxRegisterSN.Text);
