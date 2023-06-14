@@ -264,11 +264,7 @@ namespace PCI.KittingApp
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            Reset();
+            GoHome();
         }
 
         private void Reset()
@@ -350,6 +346,8 @@ namespace PCI.KittingApp
             btnReprintingLabel.Enabled = true;
             textBoxUsername.Text = string.Empty;
             textBoxPassword.Text = string.Empty;
+            buttonLogoutSidebar.Visible = true;
+            labelUserDisplay.Visible = true;
 
             panelSuccessLogin.Visible = true;
             panelLogin.Visible = false;
@@ -358,18 +356,43 @@ namespace PCI.KittingApp
         private void Logout()
         {
             btnOrder.Enabled = false;
-            btnUnitRegistration.Enabled= false;
-            btnMaterialRegistration.Enabled= false;
-            btnTransactionFailed.Enabled= false;
-            btnReprintingLabel.Enabled= false;
-
+            btnUnitRegistration.Enabled = false;
+            btnMaterialRegistration.Enabled = false;
+            btnTransactionFailed.Enabled = false;
+            btnReprintingLabel.Enabled = false;
+            buttonLogoutSidebar.Visible = false;
+            labelUserDisplay.Visible = false;
+            
             panelSuccessLogin.Visible = false;
             panelLogin.Visible = true;
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            Logout();
+            var confirmation = ZIMessageBox.Show("Are you sure want to logout?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmation == DialogResult.Yes)
+            {
+                Logout();
+            }
+        }   
+
+        private void buttonLogoutSidebar_Click(object sender, EventArgs e)
+        {
+            var confirmation = ZIMessageBox.Show("Are you sure want to logout?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmation == DialogResult.Yes)
+            {
+                GoHome();
+                Logout();
+            }
+        }
+
+        private void GoHome()
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            Reset();
         }
     }
 }

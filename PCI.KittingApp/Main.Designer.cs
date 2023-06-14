@@ -64,6 +64,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelLogin = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonLogoutSidebar = new FontAwesome.Sharp.IconButton();
+            this.labelUserDisplay = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -88,6 +90,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.buttonLogoutSidebar);
             this.panelMenu.Controls.Add(this.btnTransactionFailed);
             this.panelMenu.Controls.Add(this.btnReprintingLabel);
             this.panelMenu.Controls.Add(this.tableLayoutPanel1);
@@ -302,6 +305,7 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.panelTitleBar.Controls.Add(this.labelUserDisplay);
             this.panelTitleBar.Controls.Add(this.btnExit);
             this.panelTitleBar.Controls.Add(this.btnMaximize);
             this.panelTitleBar.Controls.Add(this.btnMinimize);
@@ -620,7 +624,7 @@
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(402, 50);
             this.labelLogin.TabIndex = 2;
-            this.labelLogin.Text = "Hi Zulfikar!";
+            this.labelLogin.Text = "Welcome to kitting application!";
             this.labelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
@@ -633,6 +637,45 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // buttonLogoutSidebar
+            // 
+            this.buttonLogoutSidebar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonLogoutSidebar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonLogoutSidebar.FlatAppearance.BorderSize = 0;
+            this.buttonLogoutSidebar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogoutSidebar.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
+            this.buttonLogoutSidebar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonLogoutSidebar.IconChar = FontAwesome.Sharp.IconChar.PersonWalkingArrowLoopLeft;
+            this.buttonLogoutSidebar.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonLogoutSidebar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonLogoutSidebar.IconSize = 32;
+            this.buttonLogoutSidebar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonLogoutSidebar.Location = new System.Drawing.Point(0, 460);
+            this.buttonLogoutSidebar.Name = "buttonLogoutSidebar";
+            this.buttonLogoutSidebar.Padding = new System.Windows.Forms.Padding(12, 0, 10, 0);
+            this.buttonLogoutSidebar.Size = new System.Drawing.Size(220, 60);
+            this.buttonLogoutSidebar.TabIndex = 9;
+            this.buttonLogoutSidebar.Text = "Logout";
+            this.buttonLogoutSidebar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonLogoutSidebar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonLogoutSidebar.UseVisualStyleBackColor = true;
+            this.buttonLogoutSidebar.Click += new System.EventHandler(this.buttonLogoutSidebar_Click);
+            // 
+            // labelUserDisplay
+            // 
+            this.labelUserDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUserDisplay.AutoSize = true;
+            this.labelUserDisplay.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.labelUserDisplay.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
+            this.labelUserDisplay.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelUserDisplay.Location = new System.Drawing.Point(1031, 46);
+            this.labelUserDisplay.Margin = new System.Windows.Forms.Padding(3, 0, 30, 0);
+            this.labelUserDisplay.Name = "labelUserDisplay";
+            this.labelUserDisplay.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.labelUserDisplay.Size = new System.Drawing.Size(92, 17);
+            this.labelUserDisplay.TabIndex = 5;
+            this.labelUserDisplay.Text = "Hi, Zulfikar!";
             // 
             // Main
             // 
@@ -715,6 +758,8 @@
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.PictureBox pictureBox2;
         private FontAwesome.Sharp.IconButton buttonLogout;
+        private FontAwesome.Sharp.IconButton buttonLogoutSidebar;
+        private System.Windows.Forms.Label labelUserDisplay;
     }
 }
 
