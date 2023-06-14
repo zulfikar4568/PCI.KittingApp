@@ -15,5 +15,6 @@ namespace PCI.KittingApp.Entity.Printer
         public string PathPrinter { get; set; }
         public DateTime? DateTxn { get; set; }
         public string IdTxn { get; set; }
+        public string FinishGood { get; set; }
     }
 }

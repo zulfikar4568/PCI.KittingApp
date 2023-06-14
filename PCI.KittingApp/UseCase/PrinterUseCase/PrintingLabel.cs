@@ -31,6 +31,7 @@ namespace PCI.KittingApp.UseCase
                 DataTxn = startUnit.ContainerName,
                 DateTxn = DateTime.Now,
                 PathPrinter = startUnit.ProductDefaultStart.PathPrinter,
+                FinishGood = startUnit.ContainerName,
                 IdTxn = IdTxn,
             };
         }
@@ -43,6 +44,7 @@ namespace PCI.KittingApp.UseCase
                 DataTxn = startMaterial.CustomerSerialNumber,
                 DateTxn = DateTime.Now,
                 PathPrinter = startMaterial.ProductDefaultStart.PathPrinter,
+                FinishGood = startMaterial.SerialNumberReference,
                 IdTxn = IdTxn,
             };
         }

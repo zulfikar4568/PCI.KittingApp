@@ -18,7 +18,7 @@ namespace PCI.KittingApp.Repository.SQLite
 
         public void Insert(Entity.Printer.PrintingLabel entity)
         {
-            _transactionDriver.Write(entity, "INSERT INTO PrintingLabel (TypeTxn, DataTxn, PathPrinter, DateTxn, IdTxn) VALUES (@TypeTxn, @DataTxn, @PathPrinter, @DateTxn, @IdTxn)");
+            _transactionDriver.Write(entity, "INSERT INTO PrintingLabel (TypeTxn, DataTxn, PathPrinter, DateTxn, IdTxn, FinishGood) VALUES (@TypeTxn, @DataTxn, @PathPrinter, @DateTxn, @IdTxn, @FinishGood)");
         }
 
         public Entity.Printer.PrintingLabel ReadLastPrintedByTypeTxn(string TypeTxn)
