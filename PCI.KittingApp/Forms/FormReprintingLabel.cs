@@ -1,7 +1,7 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Entity;
-using PCI.KittingApp.Entity.DataGrid;
 using PCI.KittingApp.Entity.Printer;
+using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.UseCase;
 using System;
 using System.Collections.Generic;
@@ -40,9 +40,8 @@ namespace PCI.KittingApp.Forms
 
         private void CheckListOfPrintingLabel()
         {
-            //  Clear Data Source
-            reprintingLabelUnitBindingSource.Clear();
-            reprintingLabelMaterialBindingSource.Clear();
+            dataGridUnitPrintingLabel.Rows.Clear();
+            dataGridMaterialPrintingLabel.Rows.Clear();
 
             _unitPrintingLabel = _printingLabelUseCase.GetUnitPrintingLabel(textBoxPrintingContainer.Text);
             _materialPrintingLabel = _printingLabelUseCase.GetMaterialPrintingLabel(textBoxPrintingContainer.Text);
@@ -54,11 +53,11 @@ namespace PCI.KittingApp.Forms
                 buttonReprintingUnitLabel.Enabled = true;
                 foreach (var item in _unitPrintingLabel)
                 {
-                    reprintingLabelUnitBindingSource.Add(new ReprintingLabelUnit() { UnitSN = item.DataTxn, DateStart = item.DateTxn.ToString()});
+                    dataGridUnitPrintingLabel.Rows.Add(item.Id, item.DataTxn, item.DateTxn.ToString());
                 }
                 foreach (var item in _materialPrintingLabel)
                 {
-                    reprintingLabelMaterialBindingSource.Add(new ReprintingLabelMaterial() { MaterialSN = item.DataTxn, DateStart = item.DateTxn.ToString() });
+                    dataGridMaterialPrintingLabel.Rows.Add(item.Id, item.DataTxn, item.DateTxn.ToString());
                 }
             }
         }
@@ -66,12 +65,18 @@ namespace PCI.KittingApp.Forms
         #region Event Handler
         private void buttonReprintingMaterialLabel_Click(object sender, EventArgs e)
         {
-
+            foreach (var dataPrintingLabel in _unitPrintingLabel)
+            {
+                _printingLabelUseCase.StartPrintingLabel(dataPrintingLabel, false);
+            }
         }
 
         private void buttonReprintingUnitLabel_Click(object sender, EventArgs e)
         {
-
+            foreach (var dataPrintingLabel in _materialPrintingLabel)
+            {
+                _printingLabelUseCase.StartPrintingLabel(dataPrintingLabel, false);
+            }
         }
 
         private void textBoxUnitContainer_Leave(object sender, EventArgs e)
@@ -87,5 +92,29 @@ namespace PCI.KittingApp.Forms
             }
         }
         #endregion
+
+        private void dataGridUnitPrintingLabel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridUnitPrintingLabel.Columns[e.ColumnIndex].Name == "PrintUnit")
+            {
+                var stringId = (string)dataGridUnitPrintingLabel.Rows[e.RowIndex].Cells["IdUnit"].FormattedValue;
+                if (stringId == "" || stringId == null) return;
+
+                var dataPrintingLabel = _unitPrintingLabel.Find(x => x.Id == stringId);
+                _printingLabelUseCase.StartPrintingLabel(dataPrintingLabel, false);
+            }
+        }
+
+        private void dataGridMaterialPrintingLabel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridMaterialPrintingLabel.Columns[e.ColumnIndex].Name == "PrintMaterial")
+            {
+                var stringId = (string)dataGridUnitPrintingLabel.Rows[e.RowIndex].Cells["IdMaterial"].FormattedValue;
+                if (stringId == "" || stringId == null) return;
+
+                var dataPrintingLabel = _materialPrintingLabel.Find(x => x.Id == stringId);
+                _printingLabelUseCase.StartPrintingLabel(dataPrintingLabel, false);
+            }
+        }
     }
 }

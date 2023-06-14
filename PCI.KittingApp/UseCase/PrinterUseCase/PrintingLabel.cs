@@ -17,10 +17,10 @@ namespace PCI.KittingApp.UseCase
         {
             _repositoryPrintingLabel = repositoryPrintingLabel;
         }
-        public void StartPrintingLabel(PrintingLabel Data)
+        public void StartPrintingLabel(PrintingLabel Data, bool IsSavedToDB)
         {
             bool result = FileUtil.GenerateLabel(Data.PathPrinter, "KittingApp", TransactionType.Translate(Data.TypeTxn), Data.DataTxn);
-            if (result) _repositoryPrintingLabel.Insert(Data);
+            if (result && IsSavedToDB) _repositoryPrintingLabel.Insert(Data);
         }
 
         public PrintingLabel GenerateDataFromStartUnit(StartUnit startUnit, string IdTxn)

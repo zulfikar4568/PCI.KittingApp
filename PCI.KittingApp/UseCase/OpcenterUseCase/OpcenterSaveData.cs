@@ -61,7 +61,7 @@ namespace PCI.KittingApp.UseCase
             if (result)
             {
                 // Print the Label
-                _printingLabelUseCase.StartPrintingLabel(_printingLabelUseCase.GenerateDataFromStartUnit(data, IdTxn));
+                _printingLabelUseCase.StartPrintingLabel(_printingLabelUseCase.GenerateDataFromStartUnit(data, IdTxn), true);
 
                 // Show Message
                 ZIMessageBox.Show("Success Start the Container", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -103,7 +103,7 @@ namespace PCI.KittingApp.UseCase
             if (result)
             {
                 // Print the Label
-                _printingLabelUseCase.StartPrintingLabel(_printingLabelUseCase.GenerateDataFromStartMaterial(data, IdTxn));
+                _printingLabelUseCase.StartPrintingLabel(_printingLabelUseCase.GenerateDataFromStartMaterial(data, IdTxn), true);
             } else
             {
                 _transactionFailedRepository.Insert(new Entity.TransactionFailed()

@@ -142,8 +142,6 @@
     <Compile Include="Driver\Opcenter\Helper.cs" />
     <Compile Include="Driver\Opcenter\MaintenanceTransaction.cs" />
     <Compile Include="Driver\SQLite\ReadWriteOperation.cs" />
-    <Compile Include="Entity\DataGrid\ReprintingLabelMaterial.cs" />
-    <Compile Include="Entity\DataGrid\ReprintingLabelUnit.cs" />
     <Compile Include="Entity\Opcenter\BillOfMaterial.cs" />
     <Compile Include="Entity\Common\ErrorCode.cs" />
     <Compile Include="Entity\Opcenter\MaterialRegistration.cs" />
@@ -216,8 +214,6 @@
     <Compile Include="Util\Logging.cs" />
     <Compile Include="Util\Simple3Des.cs" />
     <Compile Include="Util\UtilModule.cs" />
-    <None Include="Properties\DataSources\PCI.KittingApp.Entity.DataGrid.ReprintingLabelMaterial.datasource" />
-    <None Include="Properties\DataSources\PCI.KittingApp.Entity.DataGrid.ReprintingLabelUnit.datasource" />
     <None Include="Resources\Logo1.jpg" />
     <None Include="Resources\logoPCI1.png" />
     <None Include="Resources\sync.png" />
