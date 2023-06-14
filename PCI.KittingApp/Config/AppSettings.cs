@@ -96,5 +96,15 @@ namespace PCI.KittingApp.Config
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
         #endregion
+
+        #region DefaultData
+        public static string DefaultPathPrinter
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["DefaultPathPrinter"];
+            }
+        }
+        #endregion
     }
 }

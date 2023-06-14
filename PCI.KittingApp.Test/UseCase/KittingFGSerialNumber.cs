@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using PCI.KittingApp.Entity;
 using FluentAssertions;
 
-namespace PCI.KittingApp.Tests
+namespace PCI.KittingApp.Test
 {
     [TestClass()]
     public class KittingFGSerialNumber

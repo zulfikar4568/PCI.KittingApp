@@ -24,6 +24,8 @@ namespace PCI.KittingApp
         private OpcenterSaveData _opcenterSaveData;
         private Kitting _kitting;
         private TransactionFailed _transactionFailed;
+        private PrintingLabelUseCase _printingLabelUseCase;
+
         #region UI_Field
         //Fields
         private IconButton currentBtn;
@@ -33,7 +35,7 @@ namespace PCI.KittingApp
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.Since the form is resized because it takes into account the size of the title bar and borders.
         #endregion
-        public Main(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting, TransactionFailed transactionFailed)
+        public Main(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting, TransactionFailed transactionFailed, PrintingLabelUseCase printingLabelUseCase)
         {
             InitializeComponent();
             #region UI_Constructor
@@ -53,6 +55,7 @@ namespace PCI.KittingApp
             _opcenterSaveData = opcenterSaveData;
             _kitting = kitting;
             _transactionFailed = transactionFailed;
+            _printingLabelUseCase = printingLabelUseCase;
         }
 
         #region UI_Resposibility
@@ -245,6 +248,18 @@ namespace PCI.KittingApp
             OpenChildForm(new FormMaterialRegistration(_kitting, _opcenterCheckData, _opcenterSaveData));
         }
 
+        private void btnReprintingLabel_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender, Color.Coral);
+            OpenChildForm(new FormReprintingLabel(_printingLabelUseCase));
+        }
+
+        private void btnTransactionFailed_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender, Color.Coral);
+            OpenChildForm(new FormTransactionFailed(_transactionFailed));
+        }
+
         private void btnHome_Click(object sender, EventArgs e)
         {
             if (currentChildForm != null)
@@ -297,12 +312,6 @@ namespace PCI.KittingApp
             formSize = this.ClientSize;
         }
         #endregion
-
-        private void btnTransactionFailed_Click(object sender, EventArgs e)
-        {
-            ActiveButton(sender, Color.Coral);
-            OpenChildForm(new FormTransactionFailed(_transactionFailed));
-        }
 
         private void iconStatusConnection_Click(object sender, EventArgs e)
         {

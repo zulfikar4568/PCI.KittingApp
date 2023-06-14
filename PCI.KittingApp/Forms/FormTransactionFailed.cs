@@ -1,6 +1,6 @@
 ﻿using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
-using PCI.KittingApp.Entity.TransactionFailedType;
+using PCI.KittingApp.Entity.TransactionType;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,21 +35,24 @@ namespace PCI.KittingApp.Forms
 
             foreach (var item in transactionFaileds)
             {
-                dataGridTransactionFail.Rows.Add(item.Id, TransactionFailed.TranslateTypeTransaction(item.TypeTransaction), item.DataTransaction, item.DateTransaction);
+                dataGridTransactionFail.Rows.Add(item.Id, TransactionType.Translate(item.TypeTransaction), item.DataTransaction, item.DateTransaction);
             }
         }
 
         private void dataGridTransactionFail_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridTransactionFail.Rows.Count == 0) return;
-            var stringId = (string)dataGridTransactionFail.Rows[e.RowIndex].Cells["Id"].FormattedValue;
-            if ( stringId == "" || stringId == null) return;
+            if (dataGridTransactionFail.Columns[e.ColumnIndex].Name == "Retry")
+            {
+                var stringId = (string)dataGridTransactionFail.Rows[e.RowIndex].Cells["Id"].FormattedValue;
+                if (stringId == "" || stringId == null) return;
 
-            var dataTransaction = transactionFaileds.Find(x => x.Id == stringId);
-            if (dataTransaction == null) return;
-            _transactionFailedUsecase.RetryTheTransaction(dataTransaction);
+                var dataTransaction = transactionFaileds.Find(x => x.Id == stringId);
+                if (dataTransaction == null) return;
+                _transactionFailedUsecase.RetryTheTransaction(dataTransaction);
 
-            LoadTransactionFailed();
+                LoadTransactionFailed();
+            }
         }
     }
 }

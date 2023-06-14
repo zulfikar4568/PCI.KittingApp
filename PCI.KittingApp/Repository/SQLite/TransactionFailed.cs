@@ -10,8 +10,8 @@ namespace PCI.KittingApp.Repository.SQLite
 {
     public class TransactionFailed
     {
-        private TransactionFailed<Entity.TransactionFailed> _transactionFailedDriver;
-        public TransactionFailed(TransactionFailed<Entity.TransactionFailed> transactionFailedDriver)
+        private ReadWriteOperation<Entity.TransactionFailed> _transactionFailedDriver;
+        public TransactionFailed(ReadWriteOperation<Entity.TransactionFailed> transactionFailedDriver)
         {
             _transactionFailedDriver = transactionFailedDriver;
         }
@@ -23,7 +23,7 @@ namespace PCI.KittingApp.Repository.SQLite
 
         public void Insert(Entity.TransactionFailed entity)
         {
-            _transactionFailedDriver.Write(entity, "insert into TransactionFailed (TypeTransaction, DataTransaction, DateTransaction) values (@TypeTransaction, @DataTransaction, @DateTransaction)");
+            _transactionFailedDriver.Write(entity, "insert into TransactionFailed (TypeTransaction, DataTransaction, DateTransaction, IdTxn) values (@TypeTransaction, @DataTransaction, @DateTransaction, @IdTxn)");
         }
 
         public void Delete(string Id)

@@ -1,7 +1,7 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
-using PCI.KittingApp.Entity.TransactionFailedType;
+using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
 using System;
@@ -58,9 +58,10 @@ namespace PCI.KittingApp.Forms
         private void RegisterUnitContainer()
         {
             var data = new StartUnit() { ContainerName = textBoxUnitContainer.Text, MfgOrderName = textBoxUnitMfg.Text, ProductDefaultStart = _productDefaultData };
+            string TxnId = Guid.NewGuid().ToString();
             if (_productDefaultData != null)
             {
-                _opcenterSaveData.StartContainerMainUnit(data);
+                _opcenterSaveData.StartContainerMainUnit(data, TxnId);
                 ResetField();
             }
         }

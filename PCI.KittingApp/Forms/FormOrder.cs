@@ -1,6 +1,6 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Components;
-using PCI.KittingApp.Entity.TransactionFailedType;
+using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
 using PCI.KittingApp.Util;
@@ -71,7 +71,8 @@ namespace PCI.KittingApp.Forms
         {
             if (!IsRequiredFieldNotEmpty()) return;
             var data = new CreateOrder() { MfgOrderName = textBoxMfgName.Text , ProductName = textBoxMfgProduct.Text, Qty = textBoxMfgQty.Text , UOM = comboBoxMfgUOM.SelectedText };
-            _opcenterSaveData.SaveMfgOrder(data);
+            string TxnId = Guid.NewGuid().ToString();
+            _opcenterSaveData.SaveMfgOrder(data, TxnId);
             ResetField();
         }
 

@@ -2,7 +2,7 @@
 using Camstar.WCF.Services;
 using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
-using PCI.KittingApp.Entity.TransactionFailedType;
+using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.UseCase;
 using System;
 using System.Collections.Generic;
@@ -33,6 +33,8 @@ namespace PCI.KittingApp.Forms
             _kitting = kitting;
             _opcenterCheckData = opcenterCheckData;
             _opcenterSaveData = opcenterSaveData;
+
+            ResetField();
         }
 
         private void CheckContainerRegistration()
@@ -73,6 +75,10 @@ namespace PCI.KittingApp.Forms
             // Select next field
             textBoxRegisterPN.Select();
             textBoxRegisterContainer.Enabled = false;
+
+            textBoxRegisterSN.Enabled = true;
+            textBoxRegisterPN.Enabled = true;
+            textBoxRegisterBatchID.Enabled = true;
         }
 
         private ListView.ListViewItemCollection GenerateListView(ref BillOfMaterial[] billOfMaterials, ListView owner)
@@ -131,10 +137,19 @@ namespace PCI.KittingApp.Forms
                 return;
             }
 
-            ValidationStatus validateCustomerSerialNumber = _kitting.ValidateCustomerSerialNumber(textBoxRegisterSN.Text, containerName);
+            // If format single we need to parse first before validation matching part number
+            bool isFormatSingle = textBoxRegisterSN.Text.Split('_').Length == 1;
+            var actualPN = textBoxRegisterSN.Text.Split('_')[0];
+            if (isFormatSingle)
+            {
+                var removeFGSN = textBoxRegisterSN.Text.Replace(containerName, "");
+                actualPN = removeFGSN.Substring(0, removeFGSN.Length - 2);
+            }
+
+            ValidationStatus validateCustomerSerialNumber = isFormatSingle ? _kitting.ValidateCustomerSerialNumberWithoutDelimiter(textBoxRegisterSN.Text, textBoxRegisterPN.Text, containerName) : _kitting.ValidateCustomerSerialNumber(textBoxRegisterSN.Text, containerName);
             if (!validateCustomerSerialNumber.IsSuccess)
             {
-                ShowMessage(ErrorCodeMeaning.Translate(validateCustomerSerialNumber.ErrorCode));
+                ShowMessage(ErrorCodeMeaning.Translate(validateCustomerSerialNumber.ErrorCode, textBoxRegisterPN.Text, actualPN));
                 textBoxRegisterSN.Clear();
                 return;
             }
@@ -147,7 +162,6 @@ namespace PCI.KittingApp.Forms
                 return;
             }
 
-            var actualPN = textBoxRegisterSN.Text.Split('_')[0];
             ValidationStatus validateIfPNMatch = _kitting.ValidateIfPNMatch(textBoxRegisterPN.Text, actualPN);
             if (!validateIfPNMatch.IsSuccess)
             {
@@ -301,6 +315,9 @@ namespace PCI.KittingApp.Forms
             textBoxRegisterProduct.Clear();
             textBoxRegisterSN.Clear();
             textBoxRegisterContainer.Enabled = true;
+            textBoxRegisterSN.Enabled = false;
+            textBoxRegisterPN.Enabled = false;
+            textBoxRegisterBatchID.Enabled = false;
 
             materialRegistrationData = null;
             containerName = null;
