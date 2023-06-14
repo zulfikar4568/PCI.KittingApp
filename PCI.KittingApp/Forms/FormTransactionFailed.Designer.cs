@@ -79,7 +79,7 @@
             this.DataTransaction,
             this.DateTransaction,
             this.Retry});
-            this.dataGridTransactionFail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dataGridTransactionFail.Cursor = System.Windows.Forms.Cursors.Arrow;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

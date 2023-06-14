@@ -28,6 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelReprintLabel = new System.Windows.Forms.TableLayoutPanel();
             this.PanelMfgName = new System.Windows.Forms.Panel();
             this.textBoxPrintingContainer = new System.Windows.Forms.TextBox();
@@ -36,16 +43,24 @@
             this.buttonReprintingMaterialLabel = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonReprintingUnitLabel = new FontAwesome.Sharp.IconButton();
-            this.listUnitLabel = new System.Windows.Forms.ListView();
-            this.UnitSN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DateStartUnit = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.listMaterialLabel = new System.Windows.Forms.ListView();
-            this.MaterialSN = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DateStartMaterial = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridUnitPrintingLabel = new System.Windows.Forms.DataGridView();
+            this.dataGridMaterialPrintingLabel = new System.Windows.Forms.DataGridView();
+            this.PrintUnit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.PrintMaterial = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.materialSNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateStartDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reprintingLabelMaterialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.unitSNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateStartDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reprintingLabelUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelReprintLabel.SuspendLayout();
             this.PanelMfgName.SuspendLayout();
             this.panelMfgSubmit.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnitPrintingLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMaterialPrintingLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reprintingLabelMaterialBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reprintingLabelUnitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelReprintLabel
@@ -56,11 +71,11 @@
             this.panelReprintLabel.ColumnCount = 2;
             this.panelReprintLabel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.panelReprintLabel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.panelReprintLabel.Controls.Add(this.listUnitLabel, 0, 1);
             this.panelReprintLabel.Controls.Add(this.panel1, 0, 2);
             this.panelReprintLabel.Controls.Add(this.panelMfgSubmit, 0, 2);
             this.panelReprintLabel.Controls.Add(this.PanelMfgName, 0, 0);
-            this.panelReprintLabel.Controls.Add(this.listMaterialLabel, 1, 1);
+            this.panelReprintLabel.Controls.Add(this.dataGridMaterialPrintingLabel, 1, 1);
+            this.panelReprintLabel.Controls.Add(this.dataGridUnitPrintingLabel, 0, 1);
             this.panelReprintLabel.Location = new System.Drawing.Point(40, 39);
             this.panelReprintLabel.Name = "panelReprintLabel";
             this.panelReprintLabel.RowCount = 3;
@@ -111,11 +126,11 @@
             // 
             // panelMfgSubmit
             // 
-            this.panelMfgSubmit.Controls.Add(this.buttonReprintingUnitLabel);
+            this.panelMfgSubmit.Controls.Add(this.buttonReprintingMaterialLabel);
             this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgSubmit.Location = new System.Drawing.Point(3, 472);
+            this.panelMfgSubmit.Location = new System.Drawing.Point(553, 472);
             this.panelMfgSubmit.Name = "panelMfgSubmit";
-            this.panelMfgSubmit.Size = new System.Drawing.Size(544, 90);
+            this.panelMfgSubmit.Size = new System.Drawing.Size(545, 90);
             this.panelMfgSubmit.TabIndex = 15;
             // 
             // buttonReprintingMaterialLabel
@@ -133,22 +148,22 @@
             this.buttonReprintingMaterialLabel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonReprintingMaterialLabel.IconSize = 40;
             this.buttonReprintingMaterialLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonReprintingMaterialLabel.Location = new System.Drawing.Point(251, 17);
+            this.buttonReprintingMaterialLabel.Location = new System.Drawing.Point(234, 17);
             this.buttonReprintingMaterialLabel.Name = "buttonReprintingMaterialLabel";
             this.buttonReprintingMaterialLabel.Size = new System.Drawing.Size(294, 57);
             this.buttonReprintingMaterialLabel.TabIndex = 13;
-            this.buttonReprintingMaterialLabel.Text = "Re - Print Material Label";
+            this.buttonReprintingMaterialLabel.Text = "Reprint All Material SN";
             this.buttonReprintingMaterialLabel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonReprintingMaterialLabel.UseVisualStyleBackColor = false;
             this.buttonReprintingMaterialLabel.Click += new System.EventHandler(this.buttonReprintingMaterialLabel_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.buttonReprintingMaterialLabel);
+            this.panel1.Controls.Add(this.buttonReprintingUnitLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(553, 472);
+            this.panel1.Location = new System.Drawing.Point(3, 472);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(545, 90);
+            this.panel1.Size = new System.Drawing.Size(544, 90);
             this.panel1.TabIndex = 16;
             // 
             // buttonReprintingUnitLabel
@@ -166,82 +181,174 @@
             this.buttonReprintingUnitLabel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonReprintingUnitLabel.IconSize = 40;
             this.buttonReprintingUnitLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonReprintingUnitLabel.Location = new System.Drawing.Point(299, 17);
+            this.buttonReprintingUnitLabel.Location = new System.Drawing.Point(241, 17);
             this.buttonReprintingUnitLabel.Name = "buttonReprintingUnitLabel";
-            this.buttonReprintingUnitLabel.Size = new System.Drawing.Size(242, 57);
+            this.buttonReprintingUnitLabel.Size = new System.Drawing.Size(286, 57);
             this.buttonReprintingUnitLabel.TabIndex = 13;
-            this.buttonReprintingUnitLabel.Text = "Re-Print Unit Label";
+            this.buttonReprintingUnitLabel.Text = "Reprint All Unit SN";
             this.buttonReprintingUnitLabel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonReprintingUnitLabel.UseVisualStyleBackColor = false;
             this.buttonReprintingUnitLabel.Click += new System.EventHandler(this.buttonReprintingUnitLabel_Click);
             // 
-            // listUnitLabel
+            // dataGridUnitPrintingLabel
             // 
-            this.listUnitLabel.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.listUnitLabel.BackColor = System.Drawing.Color.White;
-            this.listUnitLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listUnitLabel.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.UnitSN,
-            this.DateStartUnit});
-            this.listUnitLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listUnitLabel.Enabled = false;
-            this.listUnitLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.listUnitLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(45)))));
-            this.listUnitLabel.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listUnitLabel.HideSelection = false;
-            this.listUnitLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.listUnitLabel.Location = new System.Drawing.Point(30, 160);
-            this.listUnitLabel.Margin = new System.Windows.Forms.Padding(30);
-            this.listUnitLabel.Name = "listUnitLabel";
-            this.listUnitLabel.Size = new System.Drawing.Size(490, 279);
-            this.listUnitLabel.TabIndex = 19;
-            this.listUnitLabel.TileSize = new System.Drawing.Size(228, 20);
-            this.listUnitLabel.UseCompatibleStateImageBehavior = false;
-            this.listUnitLabel.View = System.Windows.Forms.View.Details;
+            this.dataGridUnitPrintingLabel.AllowUserToAddRows = false;
+            this.dataGridUnitPrintingLabel.AutoGenerateColumns = false;
+            this.dataGridUnitPrintingLabel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.dataGridUnitPrintingLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridUnitPrintingLabel.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridUnitPrintingLabel.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridUnitPrintingLabel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridUnitPrintingLabel.ColumnHeadersHeight = 55;
+            this.dataGridUnitPrintingLabel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.unitSNDataGridViewTextBoxColumn,
+            this.dateStartDataGridViewTextBoxColumn,
+            this.PrintUnit});
+            this.dataGridUnitPrintingLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.dataGridUnitPrintingLabel.DataSource = this.reprintingLabelUnitBindingSource;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(8);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridUnitPrintingLabel.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridUnitPrintingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridUnitPrintingLabel.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridUnitPrintingLabel.Location = new System.Drawing.Point(20, 150);
+            this.dataGridUnitPrintingLabel.Margin = new System.Windows.Forms.Padding(20);
+            this.dataGridUnitPrintingLabel.Name = "dataGridUnitPrintingLabel";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridUnitPrintingLabel.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridUnitPrintingLabel.RowHeadersVisible = false;
+            this.dataGridUnitPrintingLabel.RowHeadersWidth = 80;
+            this.dataGridUnitPrintingLabel.RowTemplate.Height = 60;
+            this.dataGridUnitPrintingLabel.Size = new System.Drawing.Size(510, 299);
+            this.dataGridUnitPrintingLabel.TabIndex = 21;
             // 
-            // UnitSN
+            // dataGridMaterialPrintingLabel
             // 
-            this.UnitSN.Text = "Unit SN";
-            this.UnitSN.Width = 250;
+            this.dataGridMaterialPrintingLabel.AllowUserToAddRows = false;
+            this.dataGridMaterialPrintingLabel.AutoGenerateColumns = false;
+            this.dataGridMaterialPrintingLabel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.dataGridMaterialPrintingLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridMaterialPrintingLabel.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dataGridMaterialPrintingLabel.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridMaterialPrintingLabel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridMaterialPrintingLabel.ColumnHeadersHeight = 55;
+            this.dataGridMaterialPrintingLabel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.materialSNDataGridViewTextBoxColumn,
+            this.dateStartDataGridViewTextBoxColumn1,
+            this.PrintMaterial});
+            this.dataGridMaterialPrintingLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.dataGridMaterialPrintingLabel.DataSource = this.reprintingLabelMaterialBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(8);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridMaterialPrintingLabel.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridMaterialPrintingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridMaterialPrintingLabel.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridMaterialPrintingLabel.Location = new System.Drawing.Point(570, 150);
+            this.dataGridMaterialPrintingLabel.Margin = new System.Windows.Forms.Padding(20);
+            this.dataGridMaterialPrintingLabel.Name = "dataGridMaterialPrintingLabel";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(100)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridMaterialPrintingLabel.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridMaterialPrintingLabel.RowHeadersVisible = false;
+            this.dataGridMaterialPrintingLabel.RowHeadersWidth = 80;
+            this.dataGridMaterialPrintingLabel.RowTemplate.Height = 60;
+            this.dataGridMaterialPrintingLabel.Size = new System.Drawing.Size(511, 299);
+            this.dataGridMaterialPrintingLabel.TabIndex = 20;
             // 
-            // DateStartUnit
+            // PrintUnit
             // 
-            this.DateStartUnit.Text = "Date Start";
-            this.DateStartUnit.Width = 250;
+            this.PrintUnit.HeaderText = "Print";
+            this.PrintUnit.MinimumWidth = 6;
+            this.PrintUnit.Name = "PrintUnit";
+            this.PrintUnit.Text = "Print";
+            this.PrintUnit.UseColumnTextForButtonValue = true;
+            this.PrintUnit.Width = 125;
             // 
-            // listMaterialLabel
+            // PrintMaterial
             // 
-            this.listMaterialLabel.Alignment = System.Windows.Forms.ListViewAlignment.Left;
-            this.listMaterialLabel.BackColor = System.Drawing.Color.White;
-            this.listMaterialLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listMaterialLabel.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.MaterialSN,
-            this.DateStartMaterial});
-            this.listMaterialLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listMaterialLabel.Enabled = false;
-            this.listMaterialLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.listMaterialLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(45)))));
-            this.listMaterialLabel.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listMaterialLabel.HideSelection = false;
-            this.listMaterialLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.listMaterialLabel.Location = new System.Drawing.Point(580, 160);
-            this.listMaterialLabel.Margin = new System.Windows.Forms.Padding(30);
-            this.listMaterialLabel.Name = "listMaterialLabel";
-            this.listMaterialLabel.Size = new System.Drawing.Size(491, 279);
-            this.listMaterialLabel.TabIndex = 20;
-            this.listMaterialLabel.TileSize = new System.Drawing.Size(228, 20);
-            this.listMaterialLabel.UseCompatibleStateImageBehavior = false;
-            this.listMaterialLabel.View = System.Windows.Forms.View.Details;
+            this.PrintMaterial.HeaderText = "Print";
+            this.PrintMaterial.MinimumWidth = 6;
+            this.PrintMaterial.Name = "PrintMaterial";
+            this.PrintMaterial.Width = 125;
             // 
-            // MaterialSN
+            // materialSNDataGridViewTextBoxColumn
             // 
-            this.MaterialSN.Text = "Material SN";
-            this.MaterialSN.Width = 250;
+            this.materialSNDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.materialSNDataGridViewTextBoxColumn.DataPropertyName = "MaterialSN";
+            this.materialSNDataGridViewTextBoxColumn.HeaderText = "MaterialSN";
+            this.materialSNDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.materialSNDataGridViewTextBoxColumn.Name = "materialSNDataGridViewTextBoxColumn";
             // 
-            // DateStartMaterial
+            // dateStartDataGridViewTextBoxColumn1
             // 
-            this.DateStartMaterial.Text = "Date Start";
-            this.DateStartMaterial.Width = 250;
+            this.dateStartDataGridViewTextBoxColumn1.DataPropertyName = "DateStart";
+            this.dateStartDataGridViewTextBoxColumn1.HeaderText = "DateStart";
+            this.dateStartDataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dateStartDataGridViewTextBoxColumn1.Name = "dateStartDataGridViewTextBoxColumn1";
+            this.dateStartDataGridViewTextBoxColumn1.Width = 200;
+            // 
+            // reprintingLabelMaterialBindingSource
+            // 
+            this.reprintingLabelMaterialBindingSource.DataSource = typeof(PCI.KittingApp.Entity.DataGrid.ReprintingLabelMaterial);
+            // 
+            // unitSNDataGridViewTextBoxColumn
+            // 
+            this.unitSNDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitSNDataGridViewTextBoxColumn.DataPropertyName = "UnitSN";
+            this.unitSNDataGridViewTextBoxColumn.HeaderText = "UnitSN";
+            this.unitSNDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.unitSNDataGridViewTextBoxColumn.Name = "unitSNDataGridViewTextBoxColumn";
+            // 
+            // dateStartDataGridViewTextBoxColumn
+            // 
+            this.dateStartDataGridViewTextBoxColumn.DataPropertyName = "DateStart";
+            this.dateStartDataGridViewTextBoxColumn.HeaderText = "DateStart";
+            this.dateStartDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateStartDataGridViewTextBoxColumn.Name = "dateStartDataGridViewTextBoxColumn";
+            this.dateStartDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // reprintingLabelUnitBindingSource
+            // 
+            this.reprintingLabelUnitBindingSource.DataSource = typeof(PCI.KittingApp.Entity.DataGrid.ReprintingLabelUnit);
             // 
             // FormReprintingLabel
             // 
@@ -259,6 +366,10 @@
             this.panelMfgSubmit.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUnitPrintingLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridMaterialPrintingLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reprintingLabelMaterialBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reprintingLabelUnitBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -273,11 +384,15 @@
         private FontAwesome.Sharp.IconButton buttonReprintingUnitLabel;
         private System.Windows.Forms.Panel panelMfgSubmit;
         private FontAwesome.Sharp.IconButton buttonReprintingMaterialLabel;
-        private System.Windows.Forms.ListView listUnitLabel;
-        private System.Windows.Forms.ColumnHeader UnitSN;
-        private System.Windows.Forms.ColumnHeader DateStartUnit;
-        private System.Windows.Forms.ListView listMaterialLabel;
-        private System.Windows.Forms.ColumnHeader MaterialSN;
-        private System.Windows.Forms.ColumnHeader DateStartMaterial;
+        private System.Windows.Forms.DataGridView dataGridUnitPrintingLabel;
+        private System.Windows.Forms.DataGridView dataGridMaterialPrintingLabel;
+        private System.Windows.Forms.BindingSource reprintingLabelUnitBindingSource;
+        private System.Windows.Forms.BindingSource reprintingLabelMaterialBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitSNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateStartDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn PrintUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialSNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateStartDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewButtonColumn PrintMaterial;
     }
 }

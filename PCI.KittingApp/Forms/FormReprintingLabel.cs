@@ -1,5 +1,6 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Entity;
+using PCI.KittingApp.Entity.DataGrid;
 using PCI.KittingApp.Entity.Printer;
 using PCI.KittingApp.UseCase;
 using System;
@@ -39,6 +40,10 @@ namespace PCI.KittingApp.Forms
 
         private void CheckListOfPrintingLabel()
         {
+            //  Clear Data Source
+            reprintingLabelUnitBindingSource.Clear();
+            reprintingLabelMaterialBindingSource.Clear();
+
             _unitPrintingLabel = _printingLabelUseCase.GetUnitPrintingLabel(textBoxPrintingContainer.Text);
             _materialPrintingLabel = _printingLabelUseCase.GetMaterialPrintingLabel(textBoxPrintingContainer.Text);
 
@@ -47,28 +52,15 @@ namespace PCI.KittingApp.Forms
             if (_unitPrintingLabel.Count > 0)
             {
                 buttonReprintingUnitLabel.Enabled = true;
-                GenerateListView(_unitPrintingLabel, listUnitLabel);
+                foreach (var item in _unitPrintingLabel)
+                {
+                    reprintingLabelUnitBindingSource.Add(new ReprintingLabelUnit() { UnitSN = item.DataTxn, DateStart = item.DateTxn.ToString()});
+                }
+                foreach (var item in _materialPrintingLabel)
+                {
+                    reprintingLabelMaterialBindingSource.Add(new ReprintingLabelMaterial() { MaterialSN = item.DataTxn, DateStart = item.DateTxn.ToString() });
+                }
             }
-            if (_materialPrintingLabel.Count > 0)
-            {
-                buttonReprintingMaterialLabel.Enabled = true;
-                GenerateListView(_materialPrintingLabel, listMaterialLabel);
-            }
-        }
-        private ListView.ListViewItemCollection GenerateListView(List<PrintingLabel> printingLabelData, ListView owner)
-        {
-            owner.Items.Clear();
-            ListView.ListViewItemCollection listViewItemCollection = new ListView.ListViewItemCollection(owner);
-            foreach (var item in printingLabelData)
-            {
-                if (item == null) continue;
-                if (item.DataTxn == null || item.PathPrinter == null || item.DateTxn == null) continue;
-
-                string[] data = { item.DataTxn, item.DateTxn.ToString() };
-                var listViewItem = new ListViewItem(data);
-                listViewItemCollection.Add(listViewItem);
-            }
-            return listViewItemCollection;
         }
 
         #region Event Handler
