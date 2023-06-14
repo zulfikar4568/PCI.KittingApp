@@ -339,11 +339,12 @@ namespace PCI.KittingApp
 
         private void Login()
         {
-            btnOrder.Enabled = true;
-            btnUnitRegistration.Enabled = true;
-            btnMaterialRegistration.Enabled = true;
-            btnTransactionFailed.Enabled = true;
-            btnReprintingLabel.Enabled = true;
+            btnOrder.Visible = true;
+            btnUnitRegistration.Visible = true;
+            btnMaterialRegistration.Visible = true;
+            btnTransactionFailed.Visible = true;
+            btnReprintingLabel.Visible = true;
+
             textBoxUsername.Text = string.Empty;
             textBoxPassword.Text = string.Empty;
             buttonLogoutSidebar.Visible = true;
@@ -355,11 +356,12 @@ namespace PCI.KittingApp
 
         private void Logout()
         {
-            btnOrder.Enabled = false;
-            btnUnitRegistration.Enabled = false;
-            btnMaterialRegistration.Enabled = false;
-            btnTransactionFailed.Enabled = false;
-            btnReprintingLabel.Enabled = false;
+            btnOrder.Visible = false;
+            btnUnitRegistration.Visible = false;
+            btnMaterialRegistration.Visible = false;
+            btnTransactionFailed.Visible = false;
+            btnReprintingLabel.Visible = false;
+
             buttonLogoutSidebar.Visible = false;
             labelUserDisplay.Visible = false;
             

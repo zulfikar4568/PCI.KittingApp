@@ -121,7 +121,7 @@
             this.btnTransactionFailed.Name = "btnTransactionFailed";
             this.btnTransactionFailed.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnTransactionFailed.Size = new System.Drawing.Size(220, 60);
-            this.btnTransactionFailed.TabIndex = 8;
+            this.btnTransactionFailed.TabIndex = 5;
             this.btnTransactionFailed.Text = "Transaction Failed";
             this.btnTransactionFailed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTransactionFailed.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -145,7 +145,7 @@
             this.btnReprintingLabel.Name = "btnReprintingLabel";
             this.btnReprintingLabel.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.btnReprintingLabel.Size = new System.Drawing.Size(220, 60);
-            this.btnReprintingLabel.TabIndex = 7;
+            this.btnReprintingLabel.TabIndex = 4;
             this.btnReprintingLabel.Text = "Reprinting Label";
             this.btnReprintingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReprintingLabel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -598,7 +598,7 @@
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Size = new System.Drawing.Size(208, 40);
             this.buttonLogout.TabIndex = 14;
-            this.buttonLogout.Text = "Logout";
+            this.buttonLogout.Text = "Logout ";
             this.buttonLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonLogout.UseVisualStyleBackColor = false;
             this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
@@ -641,21 +641,21 @@
             // buttonLogoutSidebar
             // 
             this.buttonLogoutSidebar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLogoutSidebar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonLogoutSidebar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonLogoutSidebar.FlatAppearance.BorderSize = 0;
             this.buttonLogoutSidebar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogoutSidebar.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
-            this.buttonLogoutSidebar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.buttonLogoutSidebar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(225)))));
             this.buttonLogoutSidebar.IconChar = FontAwesome.Sharp.IconChar.PersonWalkingArrowLoopLeft;
-            this.buttonLogoutSidebar.IconColor = System.Drawing.Color.Gainsboro;
+            this.buttonLogoutSidebar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(225)))));
             this.buttonLogoutSidebar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonLogoutSidebar.IconSize = 32;
             this.buttonLogoutSidebar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLogoutSidebar.Location = new System.Drawing.Point(0, 460);
+            this.buttonLogoutSidebar.Location = new System.Drawing.Point(0, 661);
             this.buttonLogoutSidebar.Name = "buttonLogoutSidebar";
             this.buttonLogoutSidebar.Padding = new System.Windows.Forms.Padding(12, 0, 10, 0);
             this.buttonLogoutSidebar.Size = new System.Drawing.Size(220, 60);
-            this.buttonLogoutSidebar.TabIndex = 9;
+            this.buttonLogoutSidebar.TabIndex = 6;
             this.buttonLogoutSidebar.Text = "Logout";
             this.buttonLogoutSidebar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLogoutSidebar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
