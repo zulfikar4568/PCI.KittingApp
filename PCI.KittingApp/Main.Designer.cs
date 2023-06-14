@@ -30,8 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelVersion = new System.Windows.Forms.LinkLabel();
             this.iconStatusConnection = new FontAwesome.Sharp.IconButton();
-            this.btnTransactionFailed = new FontAwesome.Sharp.IconButton();
             this.btnMaterialRegistration = new FontAwesome.Sharp.IconButton();
             this.btnUnitRegistration = new FontAwesome.Sharp.IconButton();
             this.btnOrder = new FontAwesome.Sharp.IconButton();
@@ -46,9 +47,10 @@
             this.panelShadow = new System.Windows.Forms.Panel();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelVersion = new System.Windows.Forms.LinkLabel();
+            this.btnReprintingLabel = new FontAwesome.Sharp.IconButton();
+            this.btnTransactionFailed = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
             this.panelTitleBar.SuspendLayout();
@@ -58,14 +60,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
             this.panelDesktop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
-            this.panelMenu.Controls.Add(this.tableLayoutPanel1);
             this.panelMenu.Controls.Add(this.btnTransactionFailed);
+            this.panelMenu.Controls.Add(this.btnReprintingLabel);
+            this.panelMenu.Controls.Add(this.tableLayoutPanel1);
             this.panelMenu.Controls.Add(this.btnMaterialRegistration);
             this.panelMenu.Controls.Add(this.btnUnitRegistration);
             this.panelMenu.Controls.Add(this.btnOrder);
@@ -75,6 +77,39 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 823);
             this.panelMenu.TabIndex = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.labelVersion, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.iconStatusConnection, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 721);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(220, 102);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // labelVersion
+            // 
+            this.labelVersion.ActiveLinkColor = System.Drawing.Color.Gainsboro;
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelVersion.Font = new System.Drawing.Font("Segoe UI Semibold", 5F);
+            this.labelVersion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelVersion.LinkColor = System.Drawing.Color.Gainsboro;
+            this.labelVersion.Location = new System.Drawing.Point(3, 60);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(214, 42);
+            this.labelVersion.TabIndex = 1;
+            this.labelVersion.TabStop = true;
+            this.labelVersion.Text = "version";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelVersion.VisitedLinkColor = System.Drawing.Color.Gainsboro;
+            this.labelVersion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelVersion_LinkClicked);
             // 
             // iconStatusConnection
             // 
@@ -98,30 +133,6 @@
             this.iconStatusConnection.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconStatusConnection.UseVisualStyleBackColor = true;
             this.iconStatusConnection.Click += new System.EventHandler(this.iconStatusConnection_Click);
-            // 
-            // btnTransactionFailed
-            // 
-            this.btnTransactionFailed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTransactionFailed.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTransactionFailed.FlatAppearance.BorderSize = 0;
-            this.btnTransactionFailed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTransactionFailed.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
-            this.btnTransactionFailed.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnTransactionFailed.IconChar = FontAwesome.Sharp.IconChar.FilterCircleXmark;
-            this.btnTransactionFailed.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnTransactionFailed.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnTransactionFailed.IconSize = 32;
-            this.btnTransactionFailed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransactionFailed.Location = new System.Drawing.Point(0, 340);
-            this.btnTransactionFailed.Name = "btnTransactionFailed";
-            this.btnTransactionFailed.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnTransactionFailed.Size = new System.Drawing.Size(220, 60);
-            this.btnTransactionFailed.TabIndex = 4;
-            this.btnTransactionFailed.Text = "Transaction Failed";
-            this.btnTransactionFailed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransactionFailed.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTransactionFailed.UseVisualStyleBackColor = true;
-            this.btnTransactionFailed.Click += new System.EventHandler(this.btnTransactionFailed_Click);
             // 
             // btnMaterialRegistration
             // 
@@ -340,38 +351,53 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // tableLayoutPanel1
+            // btnReprintingLabel
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.labelVersion, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.iconStatusConnection, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 721);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(220, 102);
-            this.tableLayoutPanel1.TabIndex = 6;
+            this.btnReprintingLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReprintingLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReprintingLabel.FlatAppearance.BorderSize = 0;
+            this.btnReprintingLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReprintingLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnReprintingLabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnReprintingLabel.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnReprintingLabel.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnReprintingLabel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReprintingLabel.IconSize = 32;
+            this.btnReprintingLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReprintingLabel.Location = new System.Drawing.Point(0, 340);
+            this.btnReprintingLabel.Name = "btnReprintingLabel";
+            this.btnReprintingLabel.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnReprintingLabel.Size = new System.Drawing.Size(220, 60);
+            this.btnReprintingLabel.TabIndex = 7;
+            this.btnReprintingLabel.Text = "Reprinting Label";
+            this.btnReprintingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReprintingLabel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReprintingLabel.UseVisualStyleBackColor = true;
+            this.btnReprintingLabel.Click += new System.EventHandler(this.btnReprintingLabel_Click);
             // 
-            // labelVersion
+            // btnTransactionFailed
             // 
-            this.labelVersion.ActiveLinkColor = System.Drawing.Color.Gainsboro;
-            this.labelVersion.AutoSize = true;
-            this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelVersion.Font = new System.Drawing.Font("Segoe UI Semibold", 5F);
-            this.labelVersion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelVersion.LinkColor = System.Drawing.Color.Gainsboro;
-            this.labelVersion.Location = new System.Drawing.Point(3, 60);
-            this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(214, 42);
-            this.labelVersion.TabIndex = 1;
-            this.labelVersion.TabStop = true;
-            this.labelVersion.Text = "version";
-            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelVersion.VisitedLinkColor = System.Drawing.Color.Gainsboro;
-            this.labelVersion.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelVersion_LinkClicked);
+            this.btnTransactionFailed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTransactionFailed.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTransactionFailed.FlatAppearance.BorderSize = 0;
+            this.btnTransactionFailed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransactionFailed.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnTransactionFailed.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnTransactionFailed.IconChar = FontAwesome.Sharp.IconChar.FilterCircleXmark;
+            this.btnTransactionFailed.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnTransactionFailed.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTransactionFailed.IconSize = 32;
+            this.btnTransactionFailed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransactionFailed.Location = new System.Drawing.Point(0, 400);
+            this.btnTransactionFailed.Name = "btnTransactionFailed";
+            this.btnTransactionFailed.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnTransactionFailed.Size = new System.Drawing.Size(220, 60);
+            this.btnTransactionFailed.TabIndex = 8;
+            this.btnTransactionFailed.Text = "Transaction Failed";
+            this.btnTransactionFailed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransactionFailed.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTransactionFailed.UseVisualStyleBackColor = true;
+            this.btnTransactionFailed.Click += new System.EventHandler(this.btnTransactionFailed_Click);
             // 
             // Main
             // 
@@ -389,6 +415,8 @@
             this.Text = "Main";
             this.Load += new System.EventHandler(this.Main_Load);
             this.panelMenu.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
             this.panelTitleBar.ResumeLayout(false);
@@ -399,8 +427,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
             this.panelDesktop.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -422,10 +448,11 @@
         private FontAwesome.Sharp.IconPictureBox btnMaximize;
         private FontAwesome.Sharp.IconPictureBox btnExit;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private FontAwesome.Sharp.IconButton btnTransactionFailed;
         private FontAwesome.Sharp.IconButton iconStatusConnection;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.LinkLabel labelVersion;
+        private FontAwesome.Sharp.IconButton btnTransactionFailed;
+        private FontAwesome.Sharp.IconButton btnReprintingLabel;
     }
 }
 

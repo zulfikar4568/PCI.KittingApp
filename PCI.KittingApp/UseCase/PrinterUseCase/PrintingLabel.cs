@@ -48,6 +48,16 @@ namespace PCI.KittingApp.UseCase
                 IdTxn = IdTxn,
             };
         }
+
+        public List<PrintingLabel> GetUnitPrintingLabel(string ContainerName)
+        {
+            return _repositoryPrintingLabel.GetPrintingLabel(ContainerName, TypeTransaction.StartUnit);
+        }
+
+        public List<PrintingLabel> GetMaterialPrintingLabel(string ContainerName)
+        {
+            return _repositoryPrintingLabel.GetPrintingLabel(ContainerName, TypeTransaction.StartMaterial);
+        }
     }
 }
   

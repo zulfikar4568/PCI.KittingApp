@@ -1,5 +1,6 @@
 ﻿using PCI.KittingApp.Driver.SQLite;
 using PCI.KittingApp.Entity.Printer;
+using PCI.KittingApp.Entity.TransactionType;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,9 @@ namespace PCI.KittingApp.Repository.SQLite
             _transactionDriver.Write(entity, "INSERT INTO PrintingLabel (TypeTxn, DataTxn, PathPrinter, DateTxn, IdTxn, FinishGood) VALUES (@TypeTxn, @DataTxn, @PathPrinter, @DateTxn, @IdTxn, @FinishGood)");
         }
 
-        public Entity.Printer.PrintingLabel ReadLastPrintedByTypeTxn(string TypeTxn)
+        public List<Entity.Printer.PrintingLabel> GetPrintingLabel(string FinishGood, TypeTransaction typeTransaction)
         {
-            return _transactionDriver.Read($"SELECT * FROM PrintingLabel WHERE TypeTxn = '{TypeTxn}' ORDER BY date(DateTxn) DESC LIMIT 1;");
+            return _transactionDriver.ReadAll($"SELECT * FROM PrintingLabel WHERE FinishGood = '{FinishGood}' AND TypeTxn = '{(int)typeTransaction}'");
         }
     }
 }
