@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.7.0"></a>
+## [1.7.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.7.0) (2023-6-14)
+
+### Features
+
+* add printing label ([3fd4a80](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/3fd4a8042d0762da07281616f033431351c8c56a))
+* add triggering print ([cebd9bf](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/cebd9bf435f5dee3f257dd404896a6470d524849))
+* displaying data printing label ([491c35a](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/491c35af0d0e7ed54b64783b8002ab47c2f71596))
+* printing label ([8b3da04](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/8b3da042e0970f3528eb0512613a05e1b14d74db))
+* update two type of customer SN ([561c75c](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/561c75cdd9bc62a9bf9b94791398f31bb2ad7e64))
+
+### Bug Fixes
+
+* additional txn failed ([44dce30](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/44dce302d174b92ee0076ae593d4bcd954c8d39c))
+* datasource column ([2fcf32a](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/2fcf32a33347cb12b317f7cb5454f3c4411fd785))
+* message when PN not match ([70ea1d1](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/70ea1d19db0a8fe20201e3c0977cba9376aeb5a8))
+* selecting data grid txn failed ([5161f1f](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/5161f1ffdc03c542372468e8fc14e4ffd723f6aa))
+* validate PN with customer SN in both format ([e710405](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/e710405b600517ca8ea791a635c99aa11490d456))
+
+### Other
+
+* Merge pull request #8 from zulfikar4568/feat/dev ([c08e94b](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/c08e94b09af6334dfdab1c8e88a411a54cfb8891))
+* add column finishgood ([6192b8b](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/6192b8b0dcbbfd4e943222c4db29e9e4b814b0c8))
+* change name driver sql ([95ca396](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/95ca39661bd2c8411af0df30ccbfe630aba1bf5c))
+* **update:** v1.6.11 push to the AssemblyInfo.cs ([d0f331a](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/d0f331a2add9766c3e30e3ee3fd0398338b60a6f))
+
 <a name="1.6.11"></a>
 ## [1.6.11](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.6.11) (2023-6-12)
 
