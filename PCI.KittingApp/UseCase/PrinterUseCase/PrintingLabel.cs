@@ -23,7 +23,7 @@ namespace PCI.KittingApp.UseCase
             if (result) _repositoryPrintingLabel.Insert(Data);
         }
 
-        public PrintingLabel GenerateDataFromStartUnit(StartUnit startUnit)
+        public PrintingLabel GenerateDataFromStartUnit(StartUnit startUnit, string IdTxn)
         {
             return new PrintingLabel()
             {
@@ -31,11 +31,11 @@ namespace PCI.KittingApp.UseCase
                 DataTxn = startUnit.ContainerName,
                 DateTxn = DateTime.Now,
                 PathPrinter = startUnit.ProductDefaultStart.PathPrinter,
-                IdTxn = Guid.NewGuid().ToString(),
+                IdTxn = IdTxn,
             };
         }
 
-        public PrintingLabel GenerateDataFromStartMaterial(StartMaterial startMaterial)
+        public PrintingLabel GenerateDataFromStartMaterial(StartMaterial startMaterial, string IdTxn)
         {
             return new PrintingLabel()
             {
@@ -43,7 +43,7 @@ namespace PCI.KittingApp.UseCase
                 DataTxn = startMaterial.CustomerSerialNumber,
                 DateTxn = DateTime.Now,
                 PathPrinter = startMaterial.ProductDefaultStart.PathPrinter,
-                IdTxn = Guid.NewGuid().ToString(),
+                IdTxn = IdTxn,
             };
         }
     }

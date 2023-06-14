@@ -1,4 +1,5 @@
 ﻿using Camstar.WCF.ObjectStack;
+using PCI.KittingApp.Config;
 using PCI.KittingApp.Entity;
 using PCI.KittingApp.Repository.Opcenter;
 using System;
@@ -68,7 +69,7 @@ namespace PCI.KittingApp.Repository
                 StartReason = productChanges.StdStartReason.Name,
                 StartUOM = productChanges.StdStartUOM.Name,
                 Workflow = productChanges.Workflow.Name,
-                PathPrinter = productChanges.pciPathPrinter.Value
+                PathPrinter = productChanges.pciPathPrinter != null ? productChanges.pciPathPrinter.Value : AppSettings.DefaultPathPrinter
             };
         }
 

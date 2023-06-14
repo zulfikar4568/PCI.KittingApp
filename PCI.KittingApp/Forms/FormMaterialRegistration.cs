@@ -33,6 +33,8 @@ namespace PCI.KittingApp.Forms
             _kitting = kitting;
             _opcenterCheckData = opcenterCheckData;
             _opcenterSaveData = opcenterSaveData;
+
+            ResetField();
         }
 
         private void CheckContainerRegistration()
@@ -73,6 +75,10 @@ namespace PCI.KittingApp.Forms
             // Select next field
             textBoxRegisterPN.Select();
             textBoxRegisterContainer.Enabled = false;
+
+            textBoxRegisterSN.Enabled = true;
+            textBoxRegisterPN.Enabled = true;
+            textBoxRegisterBatchID.Enabled = true;
         }
 
         private ListView.ListViewItemCollection GenerateListView(ref BillOfMaterial[] billOfMaterials, ListView owner)
@@ -305,6 +311,9 @@ namespace PCI.KittingApp.Forms
             textBoxRegisterProduct.Clear();
             textBoxRegisterSN.Clear();
             textBoxRegisterContainer.Enabled = true;
+            textBoxRegisterSN.Enabled = false;
+            textBoxRegisterPN.Enabled = false;
+            textBoxRegisterBatchID.Enabled = false;
 
             materialRegistrationData = null;
             containerName = null;

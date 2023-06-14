@@ -36,7 +36,7 @@ namespace PCI.KittingApp.UseCase
             _printingLabelUseCase = printingLabelUseCase;
         }
 
-        public void SaveMfgOrder(CreateOrder data)
+        public void SaveMfgOrder(CreateOrder data, string IdTxn)
         {
             bool result = _maintenanceTransaction.SaveMfgOrder(data.MfgOrderName, "", "", data.ProductName, "", "", "", Convert.ToDouble(data.Qty), null, "", data.UOM);
             if (result)
@@ -48,19 +48,20 @@ namespace PCI.KittingApp.UseCase
                 {
                     TypeTransaction = TypeTransaction.CreateOrder,
                     DataTransaction = JsonSerializer.Serialize(data),
-                    DateTransaction = DateTime.Now
+                    DateTransaction = DateTime.Now,
+                    IdTxn = IdTxn,
                 });
                 ZIMessageBox.Show($"Failed Create Order {data.MfgOrderName}, please see on Transaction Failed, and click retry icon!", "Failed Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public void StartContainerMainUnit(StartUnit data)
+        public void StartContainerMainUnit(StartUnit data, string IdTxn)
         {
             var result = _containerTransaction.ExecuteStart(data.ContainerName, data.MfgOrderName, "", "", data.ProductDefaultStart.Workflow, "", data.ProductDefaultStart.StartLevel, data.ProductDefaultStart.StartOwner, data.ProductDefaultStart.StartReason, "", data.ProductDefaultStart.StartQty, data.ProductDefaultStart.StartUOM);
             if (result)
             {
                 // Print the Label
-                _printingLabelUseCase.StartPrintingLabel(_printingLabelUseCase.GenerateDataFromStartUnit(data));
+                _printingLabelUseCase.StartPrintingLabel(_printingLabelUseCase.GenerateDataFromStartUnit(data, IdTxn));
 
                 // Show Message
                 ZIMessageBox.Show("Success Start the Container", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -72,6 +73,7 @@ namespace PCI.KittingApp.UseCase
                     TypeTransaction = TypeTransaction.StartUnit,
                     DataTransaction = JsonSerializer.Serialize(data),
                     DateTransaction = DateTime.Now,
+                    IdTxn = IdTxn,
                 });
                 ZIMessageBox.Show($"Failed Start the Container {data.ContainerName}, please see on Transaction Failed, and click retry icon!", "Failed Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -80,9 +82,10 @@ namespace PCI.KittingApp.UseCase
         public void RegisterAllBillOfMaterial(BillOfMaterial[] BOMs, string SerialNumberReference)
         {
             bool flagOneMaterialFail = false;
+            string TxnId = Guid.NewGuid().ToString();
             foreach (var item in BOMs)
             {
-                var result = StartTheMaterial(new StartMaterial() { CustomerSerialNumber = item.CustomerSerialNumber, Product = item.Product, BatchID = item.BatchID, SerialNumberReference = SerialNumberReference, ProductDefaultStart = item.ProductDefaultStart });
+                var result = StartTheMaterial(new StartMaterial() { CustomerSerialNumber = item.CustomerSerialNumber, Product = item.Product, BatchID = item.BatchID, SerialNumberReference = SerialNumberReference, ProductDefaultStart = item.ProductDefaultStart }, TxnId);
                 if (!result && !flagOneMaterialFail) flagOneMaterialFail = true;
             }
             if (!flagOneMaterialFail)
@@ -94,13 +97,13 @@ namespace PCI.KittingApp.UseCase
             }
         }
 
-        public bool StartTheMaterial(StartMaterial data)
+        public bool StartTheMaterial(StartMaterial data, string IdTxn)
         {
             var result = _containerTransaction.ExecuteStart(data.CustomerSerialNumber, "", data.Product, "", data.ProductDefaultStart.Workflow, "", data.ProductDefaultStart.StartLevel, data.ProductDefaultStart.StartOwner, data.ProductDefaultStart.StartReason, "", data.ProductDefaultStart.StartQty, data.ProductDefaultStart.StartUOM, "", "", data.SerialNumberReference, data.BatchID);
             if (result)
             {
                 // Print the Label
-                _printingLabelUseCase.StartPrintingLabel(_printingLabelUseCase.GenerateDataFromStartMaterial(data));
+                _printingLabelUseCase.StartPrintingLabel(_printingLabelUseCase.GenerateDataFromStartMaterial(data, IdTxn));
             } else
             {
                 _transactionFailedRepository.Insert(new Entity.TransactionFailed()
@@ -108,6 +111,7 @@ namespace PCI.KittingApp.UseCase
                     TypeTransaction = TypeTransaction.StartMaterial,
                     DataTransaction = JsonSerializer.Serialize(data),
                     DateTransaction = DateTime.Now,
+                    IdTxn = IdTxn,
                 });
             }
 

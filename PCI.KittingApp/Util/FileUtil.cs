@@ -17,7 +17,7 @@ namespace PCI.KittingApp.Util
     {
         public static bool GenerateLabel(string Path, string BaseName, string TxnName, string Data, bool IgnoreException = true)
         {
-            var nameFile = $"{BaseName}_{TxnName}_{DateTime.Now:yyyyMMdd}_{DateTime.Now:HHmmss}_{Environment.CurrentManagedThreadId}_{Process.GetCurrentProcess().Id}_1.txt";
+            var nameFile = $"{BaseName}_{TxnName}_{DateTime.Now:yyyyMMdd}_{DateTime.Now:HHmmss}_{Thread.CurrentThread.ManagedThreadId}_{Process.GetCurrentProcess().Id}_{RandomString(5)}.txt";
             var fullPath = Path + nameFile;
             try
             {
@@ -35,6 +35,14 @@ namespace PCI.KittingApp.Util
                 if (!IgnoreException) throw ex;
                 return false;
             }
+        }
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }

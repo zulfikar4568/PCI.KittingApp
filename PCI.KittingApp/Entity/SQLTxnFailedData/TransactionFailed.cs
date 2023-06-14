@@ -10,6 +10,7 @@ namespace PCI.KittingApp.Entity
     public class TransactionFailed
     {
        public string Id { get; set; }
+       public string IdTxn { get; set; }
        public TypeTransaction TypeTransaction { get; set; }
        public string DataTransaction { get; set; }
        public DateTime? DateTransaction { get; set; }

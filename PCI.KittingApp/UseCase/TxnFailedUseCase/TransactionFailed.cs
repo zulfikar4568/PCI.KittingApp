@@ -34,7 +34,7 @@ namespace PCI.KittingApp.UseCase
             ZIMessageBox.Show("The data already exists, this transaction list will remove from the list!", "Data Already Exists!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        public void RetryCreateOrder(CreateOrder data, string Id)
+        public void RetryCreateOrder(CreateOrder data, string Id, string IdTxn)
         {
             if (data == null) return;
 
@@ -44,14 +44,14 @@ namespace PCI.KittingApp.UseCase
             // Check if MfgOrder Already exists
             if (!_opcenterCheckData.MfgOrderExists(data.MfgOrderName))
             {
-                _opcenterSaveData.SaveMfgOrder(data);
+                _opcenterSaveData.SaveMfgOrder(data, IdTxn);
             } else
             {
                 ShowMessageAlreadyExists();
             }
         }
 
-        public void RetryStartUnit(StartUnit data, string Id)
+        public void RetryStartUnit(StartUnit data, string Id, string IdTxn)
         {
             if (data == null) return;
 
@@ -61,7 +61,7 @@ namespace PCI.KittingApp.UseCase
             // Check if Container already exists
             if (!_opcenterCheckData.IsContainerExists(data.ContainerName))
             {
-                _opcenterSaveData.StartContainerMainUnit(data);
+                _opcenterSaveData.StartContainerMainUnit(data, IdTxn);
             }
             else
             {
@@ -69,7 +69,7 @@ namespace PCI.KittingApp.UseCase
             }
         }
 
-        public void RetryStartMaterial(StartMaterial data, string Id)
+        public void RetryStartMaterial(StartMaterial data, string Id, string IdTxn)
         {
             if (data == null) return;
 
@@ -79,7 +79,7 @@ namespace PCI.KittingApp.UseCase
             // check if the Material already exists
             if (!_opcenterCheckData.IsContainerExists(data.CustomerSerialNumber))
             {
-                var result = _opcenterSaveData.StartTheMaterial(data);
+                var result = _opcenterSaveData.StartTheMaterial(data, IdTxn);
                 if (result) ZIMessageBox.Show($"Success proceed the material {data.Product} with SN {data.CustomerSerialNumber}", "Finish Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
             {
@@ -92,13 +92,13 @@ namespace PCI.KittingApp.UseCase
             switch (transactionFailed.TypeTransaction)
             {
                 case TypeTransaction.StartMaterial:
-                    RetryStartMaterial(ExtractRecordTransaction<StartMaterial>(transactionFailed), transactionFailed.Id);
+                    RetryStartMaterial(ExtractRecordTransaction<StartMaterial>(transactionFailed), transactionFailed.Id, transactionFailed.IdTxn);
                     break;
                 case TypeTransaction.StartUnit:
-                    RetryStartUnit(ExtractRecordTransaction<StartUnit>(transactionFailed), transactionFailed.Id);
+                    RetryStartUnit(ExtractRecordTransaction<StartUnit>(transactionFailed), transactionFailed.Id, transactionFailed.IdTxn);
                     break;
                 case TypeTransaction.CreateOrder:
-                    RetryCreateOrder(ExtractRecordTransaction<CreateOrder>(transactionFailed), transactionFailed.Id);
+                    RetryCreateOrder(ExtractRecordTransaction<CreateOrder>(transactionFailed), transactionFailed.Id, transactionFailed.IdTxn);
                     break;
             }
         }

@@ -58,9 +58,10 @@ namespace PCI.KittingApp.Forms
         private void RegisterUnitContainer()
         {
             var data = new StartUnit() { ContainerName = textBoxUnitContainer.Text, MfgOrderName = textBoxUnitMfg.Text, ProductDefaultStart = _productDefaultData };
+            string TxnId = Guid.NewGuid().ToString();
             if (_productDefaultData != null)
             {
-                _opcenterSaveData.StartContainerMainUnit(data);
+                _opcenterSaveData.StartContainerMainUnit(data, TxnId);
                 ResetField();
             }
         }

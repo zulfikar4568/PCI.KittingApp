@@ -71,7 +71,8 @@ namespace PCI.KittingApp.Forms
         {
             if (!IsRequiredFieldNotEmpty()) return;
             var data = new CreateOrder() { MfgOrderName = textBoxMfgName.Text , ProductName = textBoxMfgProduct.Text, Qty = textBoxMfgQty.Text , UOM = comboBoxMfgUOM.SelectedText };
-            _opcenterSaveData.SaveMfgOrder(data);
+            string TxnId = Guid.NewGuid().ToString();
+            _opcenterSaveData.SaveMfgOrder(data, TxnId);
             ResetField();
         }
 
