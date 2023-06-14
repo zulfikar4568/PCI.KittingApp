@@ -59,6 +59,7 @@
             // 
             // dataGridTransactionFail
             // 
+            this.dataGridTransactionFail.AllowUserToAddRows = false;
             this.dataGridTransactionFail.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
             this.dataGridTransactionFail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridTransactionFail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
