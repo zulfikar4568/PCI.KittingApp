@@ -60,10 +60,10 @@
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSuccessLogin = new System.Windows.Forms.TableLayoutPanel();
+            this.buttonLogout = new FontAwesome.Sharp.IconButton();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelLogin = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.buttonLogout = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -81,8 +81,8 @@
             this.panel2.SuspendLayout();
             this.PanelMfgName.SuspendLayout();
             this.panelSuccessLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -476,13 +476,14 @@
             this.buttonLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonLogin.IconSize = 30;
             this.buttonLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonLogin.Location = new System.Drawing.Point(146, 20);
+            this.buttonLogin.Location = new System.Drawing.Point(102, 20);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(126, 40);
+            this.buttonLogin.Size = new System.Drawing.Size(170, 40);
             this.buttonLogin.TabIndex = 13;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
             // panel2
             // 
@@ -573,41 +574,6 @@
             this.panelSuccessLogin.Size = new System.Drawing.Size(408, 519);
             this.panelSuccessLogin.TabIndex = 5;
             // 
-            // labelLogin
-            // 
-            this.labelLogin.AutoSize = true;
-            this.labelLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLogin.ForeColor = System.Drawing.Color.DimGray;
-            this.labelLogin.Location = new System.Drawing.Point(3, 420);
-            this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(402, 50);
-            this.labelLogin.TabIndex = 2;
-            this.labelLogin.Text = "Hi Zulfikar!";
-            this.labelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::PCI.KittingApp.Properties.Resources.Ilustration;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 168);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(560, 397);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::PCI.KittingApp.Properties.Resources.verify;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(402, 414);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
             // buttonLogout
             // 
             this.buttonLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -631,6 +597,42 @@
             this.buttonLogout.Text = "Logout";
             this.buttonLogout.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonLogout.UseVisualStyleBackColor = false;
+            this.buttonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::PCI.KittingApp.Properties.Resources.verify;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(402, 414);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // labelLogin
+            // 
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelLogin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLogin.ForeColor = System.Drawing.Color.DimGray;
+            this.labelLogin.Location = new System.Drawing.Point(3, 420);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(402, 50);
+            this.labelLogin.TabIndex = 2;
+            this.labelLogin.Text = "Hi Zulfikar!";
+            this.labelLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::PCI.KittingApp.Properties.Resources.Ilustration;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 168);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(560, 397);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Main
             // 
@@ -670,8 +672,8 @@
             this.PanelMfgName.PerformLayout();
             this.panelSuccessLogin.ResumeLayout(false);
             this.panelSuccessLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

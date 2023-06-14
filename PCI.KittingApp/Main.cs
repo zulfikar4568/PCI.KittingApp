@@ -49,6 +49,8 @@ namespace PCI.KittingApp
             // Set the label version 
             labelVersion.Text = $"Copyright © 2023 by OpexCG | Version {Assembly.GetEntryAssembly().GetName().Version}";
             labelVersion.LinkBehavior = LinkBehavior.NeverUnderline;
+
+            Logout();
             #endregion
 
             _opcenterCheckData = opcenterCheckData;
@@ -332,6 +334,42 @@ namespace PCI.KittingApp
         {
             labelVersion.LinkVisited = true;
             System.Diagnostics.Process.Start("https://opexcg.com/");
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            Login();
+        }
+
+        private void Login()
+        {
+            btnOrder.Enabled = true;
+            btnUnitRegistration.Enabled = true;
+            btnMaterialRegistration.Enabled = true;
+            btnTransactionFailed.Enabled = true;
+            btnReprintingLabel.Enabled = true;
+            textBoxUsername.Text = string.Empty;
+            textBoxPassword.Text = string.Empty;
+
+            panelSuccessLogin.Visible = true;
+            panelLogin.Visible = false;
+        }
+
+        private void Logout()
+        {
+            btnOrder.Enabled = false;
+            btnUnitRegistration.Enabled= false;
+            btnMaterialRegistration.Enabled= false;
+            btnTransactionFailed.Enabled= false;
+            btnReprintingLabel.Enabled= false;
+
+            panelSuccessLogin.Visible = false;
+            panelLogin.Visible = true;
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            Logout();
         }
     }
 }
