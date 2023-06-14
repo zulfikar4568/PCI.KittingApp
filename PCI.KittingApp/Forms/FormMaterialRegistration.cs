@@ -137,11 +137,19 @@ namespace PCI.KittingApp.Forms
                 return;
             }
 
+            // If format single we need to parse first before validation matching part number
             bool isFormatSingle = textBoxRegisterSN.Text.Split('_').Length == 1;
+            var actualPN = textBoxRegisterSN.Text.Split('_')[0];
+            if (isFormatSingle)
+            {
+                var removeFGSN = textBoxRegisterSN.Text.Replace(containerName, "");
+                actualPN = removeFGSN.Substring(0, removeFGSN.Length - 2);
+            }
+
             ValidationStatus validateCustomerSerialNumber = isFormatSingle ? _kitting.ValidateCustomerSerialNumberWithoutDelimiter(textBoxRegisterSN.Text, textBoxRegisterPN.Text, containerName) : _kitting.ValidateCustomerSerialNumber(textBoxRegisterSN.Text, containerName);
             if (!validateCustomerSerialNumber.IsSuccess)
             {
-                ShowMessage(ErrorCodeMeaning.Translate(validateCustomerSerialNumber.ErrorCode, textBoxRegisterPN.Text, textBoxRegisterSN.Text));
+                ShowMessage(ErrorCodeMeaning.Translate(validateCustomerSerialNumber.ErrorCode, textBoxRegisterPN.Text, actualPN));
                 textBoxRegisterSN.Clear();
                 return;
             }
@@ -154,16 +162,12 @@ namespace PCI.KittingApp.Forms
                 return;
             }
 
-            if (!isFormatSingle)
+            ValidationStatus validateIfPNMatch = _kitting.ValidateIfPNMatch(textBoxRegisterPN.Text, actualPN);
+            if (!validateIfPNMatch.IsSuccess)
             {
-                var actualPN = textBoxRegisterSN.Text.Split('_')[0];
-                ValidationStatus validateIfPNMatch = _kitting.ValidateIfPNMatch(textBoxRegisterPN.Text, actualPN);
-                if (!validateIfPNMatch.IsSuccess)
-                {
-                    ShowMessage(ErrorCodeMeaning.Translate(validateIfPNMatch.ErrorCode, textBoxRegisterPN.Text, actualPN));
-                    textBoxRegisterSN.Clear();
-                    return;
-                }
+                ShowMessage(ErrorCodeMeaning.Translate(validateIfPNMatch.ErrorCode, textBoxRegisterPN.Text, actualPN));
+                textBoxRegisterSN.Clear();
+                return;
             }
 
             var IsContainerExists = _opcenterCheckData.IsContainerExists(textBoxRegisterSN.Text);
