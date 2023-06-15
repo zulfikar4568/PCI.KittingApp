@@ -2,6 +2,7 @@
 using PCI.KittingApp.Entity.Users;
 using PCI.KittingApp.UseCase;
 using PCI.KittingApp.Util;
+using Quartz.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,6 +52,7 @@ namespace PCI.KittingApp.Forms.Users
             textBoxEmployeeId.Text = _userData.EmployeeId;
             textBoxFullName.Text = _userData.FullName;
             textBoxEmail.Text = _userData.Email;
+            textBoxEmployeeId.Enabled = false;
 
             comboBoxRole.SelectedIndex = (int)_userData.Role;
         }
@@ -85,7 +87,12 @@ namespace PCI.KittingApp.Forms.Users
 
         private bool CheckRequiredData()
         {
-            return textBoxFullName.Text != "" && textBoxEmail.Text != "" && textBoxEmployeeId.Text != "" && textBoxPassword.Text != "" && textBoxConfirmPassword.Text != "" && comboBoxRole.SelectedIndex != -1;
+            return (!textBoxEmployeeId.Text.IsNullOrWhiteSpace() && textBoxEmployeeId.Text != null && textBoxEmployeeId.Text != "") &&
+                (!textBoxFullName.Text.IsNullOrWhiteSpace() && textBoxFullName.Text != null && textBoxFullName.Text != "")  &&
+                (!textBoxEmail.Text.IsNullOrWhiteSpace() && textBoxEmail.Text != null && textBoxEmail.Text != "") &&
+                (!textBoxPassword.Text.IsNullOrWhiteSpace() && textBoxPassword.Text != null && textBoxPassword.Text != "")  &&
+                (!textBoxConfirmPassword.Text.IsNullOrWhiteSpace() && textBoxConfirmPassword.Text != null && textBoxConfirmPassword.Text != "") && 
+                comboBoxRole.SelectedIndex != -1;
         }
 
         private void EmployeeIdTriggered()
