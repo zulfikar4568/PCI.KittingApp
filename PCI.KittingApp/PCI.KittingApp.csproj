@@ -192,13 +192,17 @@
     <Compile Include="Forms\Users\FormUser.Designer.cs">
       <DependentUpon>FormUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users\FormUsersManagement.cs" />
+    <Compile Include="Forms\Users\FormUsersManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Users\FormUsersManagement.Designer.cs">
       <DependentUpon>FormUsersManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Job\CheckConnectionJob.cs" />
     <Compile Include="Job\ConsoleLogProvider.cs" />
-    <Compile Include="Main.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
@@ -227,6 +231,7 @@
     <Compile Include="Util\ModalUtil.cs" />
     <Compile Include="Util\Simple3Des.cs" />
     <Compile Include="Util\UtilModule.cs" />
+    <Content Include="migrate-db.sql" />
     <None Include="Resources\verify.png" />
     <None Include="Resources\Logo1.jpg" />
     <None Include="Resources\logoPCI1.png" />

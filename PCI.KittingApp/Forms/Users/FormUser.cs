@@ -73,6 +73,11 @@ namespace PCI.KittingApp.Forms.Users
                 if (result) this.Close();
             } else if(_userMode == UserMode.UPDATE)
             {
+                if (_userData.Role != Main.currentUserSession.Role && _userData.Id == Main.currentUserSession.Id)
+                {
+                    ZIMessageBox.Show($"You cannot edit your self the role, it must be other administrator", "Delete Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 bool result = _userUseCase.UpdateUser(_userData);
                 if (result) this.Close();
             }
