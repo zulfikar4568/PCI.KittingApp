@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using PCI.KittingApp.Forms.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace PCI.KittingApp.Forms
             moduleBuilder.RegisterType<FormMaterialRegistration>().AsSelf();
             moduleBuilder.RegisterType<FormUnitRegistration>().AsSelf();
             moduleBuilder.RegisterType<FormTransactionFailed>().AsSelf();
+            moduleBuilder.RegisterType<FormUsersManagement>().AsSelf();
         }
     }
 }

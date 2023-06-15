@@ -219,12 +219,12 @@
             this.comboBoxMfgUOM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
             this.comboBoxMfgUOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMfgUOM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxMfgUOM.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.comboBoxMfgUOM.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMfgUOM.ForeColor = System.Drawing.Color.Gainsboro;
             this.comboBoxMfgUOM.FormattingEnabled = true;
             this.comboBoxMfgUOM.Location = new System.Drawing.Point(17, 59);
             this.comboBoxMfgUOM.Name = "comboBoxMfgUOM";
-            this.comboBoxMfgUOM.Size = new System.Drawing.Size(300, 58);
+            this.comboBoxMfgUOM.Size = new System.Drawing.Size(300, 49);
             this.comboBoxMfgUOM.TabIndex = 15;
             this.comboBoxMfgUOM.SelectedIndexChanged += new System.EventHandler(this.comboBoxMfgUOM_SelectedIndexChanged);
             // 

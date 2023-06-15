@@ -12,7 +12,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using PCI.KittingApp.Components;
+using PCI.KittingApp.Entity.Users;
 using PCI.KittingApp.Forms;
+using PCI.KittingApp.Forms.Users;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
 
@@ -25,6 +27,8 @@ namespace PCI.KittingApp
         private Kitting _kitting;
         private TransactionFailed _transactionFailed;
         private PrintingLabelUseCase _printingLabelUseCase;
+        private UserUseCase _userUseCase;
+        public static User currentUserSession { get; private set; }
 
         #region UI_Field
         //Fields
@@ -35,7 +39,7 @@ namespace PCI.KittingApp
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.Since the form is resized because it takes into account the size of the title bar and borders.
         #endregion
-        public Main(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting, TransactionFailed transactionFailed, PrintingLabelUseCase printingLabelUseCase)
+        public Main(UserUseCase userUseCase, OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting, TransactionFailed transactionFailed, PrintingLabelUseCase printingLabelUseCase)
         {
             InitializeComponent();
             #region UI_Constructor
@@ -49,6 +53,8 @@ namespace PCI.KittingApp
             // Set the label version 
             labelVersion.Text = $"Copyright © 2023 by OpexCG | Version {Assembly.GetEntryAssembly().GetName().Version}";
             labelVersion.LinkBehavior = LinkBehavior.NeverUnderline;
+
+            Logout();
             #endregion
 
             _opcenterCheckData = opcenterCheckData;
@@ -56,6 +62,7 @@ namespace PCI.KittingApp
             _kitting = kitting;
             _transactionFailed = transactionFailed;
             _printingLabelUseCase = printingLabelUseCase;
+            _userUseCase = userUseCase;
         }
 
         #region UI_Resposibility
@@ -260,13 +267,15 @@ namespace PCI.KittingApp
             OpenChildForm(new FormTransactionFailed(_transactionFailed));
         }
 
+        private void btnUsersManagement_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender, Color.Coral);
+            OpenChildForm(new FormUsersManagement(_userUseCase));
+        }
+
         private void btnHome_Click(object sender, EventArgs e)
         {
-            if (currentChildForm != null)
-            {
-                currentChildForm.Close();
-            }
-            Reset();
+            GoHome();
         }
 
         private void Reset()
@@ -332,6 +341,97 @@ namespace PCI.KittingApp
         {
             labelVersion.LinkVisited = true;
             System.Diagnostics.Process.Start("https://opexcg.com/");
+        }
+        private bool ValidationOfLogin()
+        {
+
+            if (textBoxEmployeeId.Text == "" || textBoxPassword.Text == "")
+            {
+                ZIMessageBox.Show("Employee ID or Password is required!", "Authentication Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            currentUserSession = _userUseCase.Login(textBoxEmployeeId.Text, textBoxPassword.Text);
+            
+            if (currentUserSession == null)
+            {
+                ZIMessageBox.Show("Employee ID or Password is not correct!", "Authentication Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            labelUserDisplay.Text = $"Hi, {currentUserSession.FullName}!";
+            return true;
+        }
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            var statusLogin = ValidationOfLogin();
+            if ( statusLogin) LoginSuccess();
+        }
+
+        private void LoginSuccess()
+        {
+            btnOrder.Visible = true;
+            btnUnitRegistration.Visible = true;
+            btnMaterialRegistration.Visible = true;
+            btnTransactionFailed.Visible = true;
+            btnReprintingLabel.Visible = true;
+
+            if (currentUserSession.Role == Role.Admin) btnUsersManagement.Visible = true;
+
+            textBoxEmployeeId.Text = string.Empty;
+            textBoxPassword.Text = string.Empty;
+            buttonLogoutSidebar.Visible = true;
+            labelUserDisplay.Visible = true;
+
+            panelSuccessLogin.Visible = true;
+            panelLogin.Visible = false;
+        }
+
+        private void Logout()
+        {
+            currentUserSession = null;
+
+            btnOrder.Visible = false;
+            btnUnitRegistration.Visible = false;
+            btnMaterialRegistration.Visible = false;
+            btnTransactionFailed.Visible = false;
+            btnReprintingLabel.Visible = false;
+            btnUsersManagement.Visible = false;
+
+
+            buttonLogoutSidebar.Visible = false;
+            labelUserDisplay.Visible = false;
+            
+            panelSuccessLogin.Visible = false;
+            panelLogin.Visible = true;
+        }
+
+        private void buttonLogout_Click(object sender, EventArgs e)
+        {
+            var confirmation = ZIMessageBox.Show("Are you sure want to logout?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmation == DialogResult.Yes)
+            {
+                Logout();
+            }
+        }   
+
+        private void buttonLogoutSidebar_Click(object sender, EventArgs e)
+        {
+            var confirmation = ZIMessageBox.Show("Are you sure want to logout?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmation == DialogResult.Yes)
+            {
+                GoHome();
+                Logout();
+            }
+        }
+
+        private void GoHome()
+        {
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            Reset();
         }
     }
 }

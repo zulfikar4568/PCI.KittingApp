@@ -24,7 +24,7 @@ namespace PCI.KittingApp.Driver.SQLite
         {
             using (IDbConnection cnn = new SQLiteConnection(AppSettings.LoadConnectionString()))
             {
-                var output = cnn.QuerySingle<T>(query, new DynamicParameters());
+                var output = cnn.Query<T>(query, new DynamicParameters()).FirstOrDefault();
                 return output;
             }
         }

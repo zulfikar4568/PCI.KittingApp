@@ -19,6 +19,7 @@ namespace PCI.KittingApp.Repository
             moduleBuilder.RegisterType<MaintenanceMapper>().AsSelf();
             moduleBuilder.RegisterType<TransactionFailed>().AsSelf();
             moduleBuilder.RegisterType<PrintingLabel>().AsSelf();
+            moduleBuilder.RegisterType<UserRepository>().AsSelf();
         }
     }
 }
