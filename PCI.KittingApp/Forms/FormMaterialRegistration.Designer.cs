@@ -32,7 +32,6 @@
             this.panelMfgSubmit = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonReset = new FontAwesome.Sharp.IconButton();
-            this.buttonRegisterSubmit = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonMaterialRegister = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -53,16 +52,16 @@
             this.textBoxRegisterContainer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.textBoxRegisterProduct = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxRegisterERPBOM = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.textBoxRegisterProduct = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonRegisterSubmit = new FontAwesome.Sharp.IconButton();
             this.PanelMfgOrder.SuspendLayout();
             this.panelMfgSubmit.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -70,8 +69,8 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.PanelMfgName.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelMfgOrder
@@ -82,6 +81,7 @@
             this.PanelMfgOrder.ColumnCount = 2;
             this.PanelMfgOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.5F));
             this.PanelMfgOrder.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.5F));
+            this.PanelMfgOrder.Controls.Add(this.buttonReset, 0, 3);
             this.PanelMfgOrder.Controls.Add(this.panelMfgSubmit, 1, 3);
             this.PanelMfgOrder.Controls.Add(this.panel1, 1, 2);
             this.PanelMfgOrder.Controls.Add(this.tableLayoutPanel2, 1, 1);
@@ -109,22 +109,22 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.buttonReset, 0, 0);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.Controls.Add(this.buttonMaterialRegister, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.buttonRegisterSubmit, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(419, 64);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // buttonReset
             // 
             this.buttonReset.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonReset.AutoSize = true;
             this.buttonReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(200)))), ((int)(((byte)(120)))));
             this.buttonReset.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -136,42 +136,17 @@
             this.buttonReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonReset.IconSize = 40;
             this.buttonReset.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonReset.Location = new System.Drawing.Point(27, 3);
+            this.buttonReset.Location = new System.Drawing.Point(3, 664);
             this.buttonReset.Name = "buttonReset";
-            this.buttonReset.Size = new System.Drawing.Size(179, 58);
+            this.buttonReset.Size = new System.Drawing.Size(179, 64);
             this.buttonReset.TabIndex = 101;
             this.buttonReset.Text = "Reset";
             this.buttonReset.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonReset.UseVisualStyleBackColor = false;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
-            // buttonRegisterSubmit
-            // 
-            this.buttonRegisterSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRegisterSubmit.AutoSize = true;
-            this.buttonRegisterSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
-            this.buttonRegisterSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonRegisterSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonRegisterSubmit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonRegisterSubmit.ForeColor = System.Drawing.Color.White;
-            this.buttonRegisterSubmit.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
-            this.buttonRegisterSubmit.IconColor = System.Drawing.Color.White;
-            this.buttonRegisterSubmit.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.buttonRegisterSubmit.IconSize = 40;
-            this.buttonRegisterSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonRegisterSubmit.Location = new System.Drawing.Point(237, 3);
-            this.buttonRegisterSubmit.Name = "buttonRegisterSubmit";
-            this.buttonRegisterSubmit.Size = new System.Drawing.Size(179, 58);
-            this.buttonRegisterSubmit.TabIndex = 100;
-            this.buttonRegisterSubmit.Text = "Submit";
-            this.buttonRegisterSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonRegisterSubmit.UseVisualStyleBackColor = false;
-            this.buttonRegisterSubmit.Click += new System.EventHandler(this.buttonRegisterSubmit_Click);
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.buttonMaterialRegister);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(711, 594);
             this.panel1.Name = "panel1";
@@ -193,9 +168,9 @@
             this.buttonMaterialRegister.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonMaterialRegister.IconSize = 40;
             this.buttonMaterialRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonMaterialRegister.Location = new System.Drawing.Point(237, 3);
+            this.buttonMaterialRegister.Location = new System.Drawing.Point(96, 3);
             this.buttonMaterialRegister.Name = "buttonMaterialRegister";
-            this.buttonMaterialRegister.Size = new System.Drawing.Size(179, 54);
+            this.buttonMaterialRegister.Size = new System.Drawing.Size(155, 58);
             this.buttonMaterialRegister.TabIndex = 99;
             this.buttonMaterialRegister.Text = "Register";
             this.buttonMaterialRegister.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -439,44 +414,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(696, 101);
             this.tableLayoutPanel3.TabIndex = 1007;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.textBoxRegisterProduct);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(351, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(342, 95);
-            this.panel3.TabIndex = 1008;
-            // 
-            // textBoxRegisterProduct
-            // 
-            this.textBoxRegisterProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxRegisterProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
-            this.textBoxRegisterProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxRegisterProduct.Enabled = false;
-            this.textBoxRegisterProduct.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRegisterProduct.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxRegisterProduct.Location = new System.Drawing.Point(17, 27);
-            this.textBoxRegisterProduct.Name = "textBoxRegisterProduct";
-            this.textBoxRegisterProduct.ReadOnly = true;
-            this.textBoxRegisterProduct.Size = new System.Drawing.Size(298, 50);
-            this.textBoxRegisterProduct.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(13, -5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 28);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Product";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.textBoxRegisterERPBOM);
@@ -515,6 +452,68 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "ERP BOM";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.textBoxRegisterProduct);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(351, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(342, 95);
+            this.panel3.TabIndex = 1008;
+            // 
+            // textBoxRegisterProduct
+            // 
+            this.textBoxRegisterProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxRegisterProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.textBoxRegisterProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRegisterProduct.Enabled = false;
+            this.textBoxRegisterProduct.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRegisterProduct.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxRegisterProduct.Location = new System.Drawing.Point(17, 27);
+            this.textBoxRegisterProduct.Name = "textBoxRegisterProduct";
+            this.textBoxRegisterProduct.ReadOnly = true;
+            this.textBoxRegisterProduct.Size = new System.Drawing.Size(298, 50);
+            this.textBoxRegisterProduct.TabIndex = 11;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label3.Location = new System.Drawing.Point(13, -5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 28);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Product";
+            // 
+            // buttonRegisterSubmit
+            // 
+            this.buttonRegisterSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonRegisterSubmit.AutoSize = true;
+            this.buttonRegisterSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
+            this.buttonRegisterSubmit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegisterSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonRegisterSubmit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonRegisterSubmit.ForeColor = System.Drawing.Color.White;
+            this.buttonRegisterSubmit.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkSquareAlt;
+            this.buttonRegisterSubmit.IconColor = System.Drawing.Color.White;
+            this.buttonRegisterSubmit.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonRegisterSubmit.IconSize = 40;
+            this.buttonRegisterSubmit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonRegisterSubmit.Location = new System.Drawing.Point(257, 3);
+            this.buttonRegisterSubmit.Name = "buttonRegisterSubmit";
+            this.buttonRegisterSubmit.Size = new System.Drawing.Size(159, 58);
+            this.buttonRegisterSubmit.TabIndex = 100;
+            this.buttonRegisterSubmit.Text = "Submit";
+            this.buttonRegisterSubmit.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonRegisterSubmit.UseVisualStyleBackColor = false;
+            this.buttonRegisterSubmit.Click += new System.EventHandler(this.buttonRegisterSubmit_Click);
+            // 
             // FormMaterialRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -525,11 +524,10 @@
             this.Name = "FormMaterialRegistration";
             this.Text = "FormMaterialRegistration";
             this.PanelMfgOrder.ResumeLayout(false);
+            this.PanelMfgOrder.PerformLayout();
             this.panelMfgSubmit.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -541,10 +539,10 @@
             this.PanelMfgName.ResumeLayout(false);
             this.PanelMfgName.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -553,7 +551,6 @@
 
         private System.Windows.Forms.TableLayoutPanel PanelMfgOrder;
         private System.Windows.Forms.Panel panelMfgSubmit;
-        private FontAwesome.Sharp.IconButton buttonRegisterSubmit;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton buttonMaterialRegister;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -582,5 +579,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private FontAwesome.Sharp.IconButton buttonReset;
+        private FontAwesome.Sharp.IconButton buttonRegisterSubmit;
     }
 }
