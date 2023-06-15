@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.8.0"></a>
+## [1.8.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.8.0) (2023-6-15)
+
+### Features
+
+* add confirmation login ([4b301b7](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/4b301b72443d1a800a5d78c0ca4c6f1d254ac814))
+* add CRUD of Users management ([a70ec75](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/a70ec7510bd24adfd3ac98f61ca7fb7a859a3b3a))
+* add login event ([7c2e3f1](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/7c2e3f139a638c2444f0f819dcf02a6857a8f476))
+* add login session ([ce16f82](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/ce16f82645c0d331e093e564a73a947f5bf4ae09))
+* users menu ([da7638c](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/da7638cfc10945612e45eca0aa9a9117c2d92bb8))
+
+### Bug Fixes
+
+* stash ([4aaa915](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/4aaa9154c2f9d29107ebed5d44fa5cae6c736f69))
+* the validation empty space ([37cc47d](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/37cc47dabca6c7d1d83286058c45af80443b7bcb))
+* ui login ([517297b](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/517297ba502e5f07e1603135ff1fee61d0ca63ca))
+
+### Other
+
+* Merge pull request #9 from zulfikar4568/feat/login ([2a4afe0](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/2a4afe0dd93e1ec09906b25cfecf9d22cb3357b6))
+* move button logout ([ceae8b5](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/ceae8b58659bf703be8b3f866538b3f6778e86c7))
+* **update:** v1.7.0 push to the AssemblyInfo.cs ([1d6a4af](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/1d6a4affa3b23aa36e4e7a4f9b6efc6964cbf9b3))
+
 <a name="1.7.0"></a>
 ## [1.7.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.7.0) (2023-6-14)
 
