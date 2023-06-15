@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,13 +43,11 @@
             this.textBoxPrintingContainer = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridMaterialPrintingLabel = new System.Windows.Forms.DataGridView();
-            this.reprintingLabelMaterialBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridUnitPrintingLabel = new System.Windows.Forms.DataGridView();
-            this.reprintingLabelUnitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.IdMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaterialSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateStartMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrintMaterial = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridUnitPrintingLabel = new System.Windows.Forms.DataGridView();
             this.IdUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitSN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateStartUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,9 +57,7 @@
             this.panelMfgSubmit.SuspendLayout();
             this.PanelMfgName.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMaterialPrintingLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reprintingLabelMaterialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUnitPrintingLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reprintingLabelUnitBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelReprintLabel
@@ -244,6 +239,37 @@
             this.dataGridMaterialPrintingLabel.TabIndex = 20;
             this.dataGridMaterialPrintingLabel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridMaterialPrintingLabel_CellContentClick);
             // 
+            // IdMaterial
+            // 
+            this.IdMaterial.HeaderText = "Id";
+            this.IdMaterial.MinimumWidth = 6;
+            this.IdMaterial.Name = "IdMaterial";
+            this.IdMaterial.Visible = false;
+            this.IdMaterial.Width = 125;
+            // 
+            // MaterialSN
+            // 
+            this.MaterialSN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaterialSN.HeaderText = "Material SN";
+            this.MaterialSN.MinimumWidth = 6;
+            this.MaterialSN.Name = "MaterialSN";
+            // 
+            // DateStartMaterial
+            // 
+            this.DateStartMaterial.HeaderText = "Date Start";
+            this.DateStartMaterial.MinimumWidth = 6;
+            this.DateStartMaterial.Name = "DateStartMaterial";
+            this.DateStartMaterial.Width = 200;
+            // 
+            // PrintMaterial
+            // 
+            this.PrintMaterial.HeaderText = "Print";
+            this.PrintMaterial.MinimumWidth = 6;
+            this.PrintMaterial.Name = "PrintMaterial";
+            this.PrintMaterial.Text = "Print";
+            this.PrintMaterial.UseColumnTextForButtonValue = true;
+            this.PrintMaterial.Width = 125;
+            // 
             // dataGridUnitPrintingLabel
             // 
             this.dataGridUnitPrintingLabel.AllowUserToAddRows = false;
@@ -296,37 +322,6 @@
             this.dataGridUnitPrintingLabel.TabIndex = 21;
             this.dataGridUnitPrintingLabel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridUnitPrintingLabel_CellContentClick);
             // 
-            // IdMaterial
-            // 
-            this.IdMaterial.HeaderText = "Id";
-            this.IdMaterial.MinimumWidth = 6;
-            this.IdMaterial.Name = "IdMaterial";
-            this.IdMaterial.Visible = false;
-            this.IdMaterial.Width = 125;
-            // 
-            // MaterialSN
-            // 
-            this.MaterialSN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaterialSN.HeaderText = "Material SN";
-            this.MaterialSN.MinimumWidth = 6;
-            this.MaterialSN.Name = "MaterialSN";
-            // 
-            // DateStartMaterial
-            // 
-            this.DateStartMaterial.HeaderText = "Date Start";
-            this.DateStartMaterial.MinimumWidth = 6;
-            this.DateStartMaterial.Name = "DateStartMaterial";
-            this.DateStartMaterial.Width = 200;
-            // 
-            // PrintMaterial
-            // 
-            this.PrintMaterial.HeaderText = "Print";
-            this.PrintMaterial.MinimumWidth = 6;
-            this.PrintMaterial.Name = "PrintMaterial";
-            this.PrintMaterial.Text = "Print";
-            this.PrintMaterial.UseColumnTextForButtonValue = true;
-            this.PrintMaterial.Width = 125;
-            // 
             // IdUnit
             // 
             this.IdUnit.HeaderText = "Id";
@@ -375,9 +370,7 @@
             this.PanelMfgName.ResumeLayout(false);
             this.PanelMfgName.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMaterialPrintingLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reprintingLabelMaterialBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUnitPrintingLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.reprintingLabelUnitBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,12 +387,6 @@
         private FontAwesome.Sharp.IconButton buttonReprintingMaterialLabel;
         private System.Windows.Forms.DataGridView dataGridUnitPrintingLabel;
         private System.Windows.Forms.DataGridView dataGridMaterialPrintingLabel;
-        private System.Windows.Forms.BindingSource reprintingLabelUnitBindingSource;
-        private System.Windows.Forms.BindingSource reprintingLabelMaterialBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitSNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateStartDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialSNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateStartDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdMaterial;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaterialSN;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateStartMaterial;

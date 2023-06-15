@@ -184,6 +184,12 @@
     <Compile Include="Forms\FormUnitRegistration.Designer.cs">
       <DependentUpon>FormUnitRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\FormUsersManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\FormUsersManagement.Designer.cs">
+      <DependentUpon>FormUsersManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Job\CheckConnectionJob.cs" />
     <Compile Include="Job\ConsoleLogProvider.cs" />
     <Compile Include="Main.cs">
@@ -235,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUnitRegistration.resx">
       <DependentUpon>FormUnitRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\FormUsersManagement.resx">
+      <DependentUpon>FormUsersManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

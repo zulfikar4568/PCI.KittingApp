@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using FontAwesome.Sharp;
 using PCI.KittingApp.Components;
 using PCI.KittingApp.Forms;
+using PCI.KittingApp.Forms.Users;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
 
@@ -262,6 +263,12 @@ namespace PCI.KittingApp
             OpenChildForm(new FormTransactionFailed(_transactionFailed));
         }
 
+        private void btnUsersManagement_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender, Color.Coral);
+            OpenChildForm(new FormUsersManagement());
+        }
+
         private void btnHome_Click(object sender, EventArgs e)
         {
             GoHome();
@@ -344,6 +351,7 @@ namespace PCI.KittingApp
             btnMaterialRegistration.Visible = true;
             btnTransactionFailed.Visible = true;
             btnReprintingLabel.Visible = true;
+            btnUsersManagement.Visible = true;
 
             textBoxUsername.Text = string.Empty;
             textBoxPassword.Text = string.Empty;
@@ -361,6 +369,8 @@ namespace PCI.KittingApp
             btnMaterialRegistration.Visible = false;
             btnTransactionFailed.Visible = false;
             btnReprintingLabel.Visible = false;
+            btnUsersManagement.Visible = false;
+
 
             buttonLogoutSidebar.Visible = false;
             labelUserDisplay.Visible = false;
