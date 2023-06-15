@@ -2,6 +2,7 @@
 using PCI.KittingApp.Driver.Opcenter;
 using PCI.KittingApp.Entity;
 using PCI.KittingApp.Entity.Printer;
+using PCI.KittingApp.Entity.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace PCI.KittingApp.Driver
             moduleBuilder.RegisterType<ContainerTransaction>().AsSelf();
             moduleBuilder.RegisterType<SQLite.ReadWriteOperation<TransactionFailed>>().AsSelf();
             moduleBuilder.RegisterType<SQLite.ReadWriteOperation<PrintingLabel>>().AsSelf();
+            moduleBuilder.RegisterType<SQLite.ReadWriteOperation<User>>().AsSelf();
         }
     }
 }

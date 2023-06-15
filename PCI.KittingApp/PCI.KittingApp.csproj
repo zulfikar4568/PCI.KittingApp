@@ -153,6 +153,8 @@
     <Compile Include="Entity\TransactionType\StartUnit.cs" />
     <Compile Include="Entity\Common\ValidationStatus.cs" />
     <Compile Include="Entity\TransactionType\TransactionType.cs" />
+    <Compile Include="Entity\Users\Role.cs" />
+    <Compile Include="Entity\Users\User.cs" />
     <Compile Include="Forms\FormMaterialRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +186,12 @@
     <Compile Include="Forms\FormUnitRegistration.Designer.cs">
       <DependentUpon>FormUnitRegistration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Users\FormUsersManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +214,7 @@
     <Compile Include="Repository\RepositoryModule.cs" />
     <Compile Include="Repository\SQLite\PrintingLabel.cs" />
     <Compile Include="Repository\SQLite\TransactionFailed.cs" />
+    <Compile Include="Repository\SQLite\UserRepository.cs" />
     <Compile Include="Scheduler.cs" />
     <Compile Include="UseCase\NetworkUseCase\CheckConnection.cs" />
     <Compile Include="UseCase\KittingUseCase\Kitting.cs" />
@@ -214,10 +223,12 @@
     <Compile Include="UseCase\PrinterUseCase\PrintingLabel.cs" />
     <Compile Include="UseCase\TxnFailedUseCase\TransactionFailed.cs" />
     <Compile Include="UseCase\UseCaseModule.cs" />
+    <Compile Include="UseCase\UserUseCase\UserUseCase.cs" />
     <Compile Include="Util\EventLogUtil.cs" />
     <Compile Include="Util\FileUtil.cs" />
     <Compile Include="Util\Formatting.cs" />
     <Compile Include="Util\Logging.cs" />
+    <Compile Include="Util\ModalUtil.cs" />
     <Compile Include="Util\Simple3Des.cs" />
     <Compile Include="Util\UtilModule.cs" />
     <None Include="Resources\verify.png" />
@@ -241,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormUnitRegistration.resx">
       <DependentUpon>FormUnitRegistration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\FormUsersManagement.resx">
       <DependentUpon>FormUsersManagement.cs</DependentUpon>

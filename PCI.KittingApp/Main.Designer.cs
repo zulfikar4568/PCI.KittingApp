@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.btnUsersManagement = new FontAwesome.Sharp.IconButton();
             this.buttonLogoutSidebar = new FontAwesome.Sharp.IconButton();
             this.btnTransactionFailed = new FontAwesome.Sharp.IconButton();
             this.btnReprintingLabel = new FontAwesome.Sharp.IconButton();
@@ -59,14 +60,13 @@
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.PanelMfgName = new System.Windows.Forms.Panel();
-            this.textBoxUsername = new System.Windows.Forms.TextBox();
+            this.textBoxEmployeeId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelSuccessLogin = new System.Windows.Forms.TableLayoutPanel();
             this.buttonLogout = new FontAwesome.Sharp.IconButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelLogin = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnUsersManagement = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -105,6 +105,30 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 823);
             this.panelMenu.TabIndex = 0;
+            // 
+            // btnUsersManagement
+            // 
+            this.btnUsersManagement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsersManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsersManagement.FlatAppearance.BorderSize = 0;
+            this.btnUsersManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsersManagement.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnUsersManagement.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnUsersManagement.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnUsersManagement.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnUsersManagement.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUsersManagement.IconSize = 32;
+            this.btnUsersManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsersManagement.Location = new System.Drawing.Point(0, 460);
+            this.btnUsersManagement.Name = "btnUsersManagement";
+            this.btnUsersManagement.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnUsersManagement.Size = new System.Drawing.Size(220, 60);
+            this.btnUsersManagement.TabIndex = 7;
+            this.btnUsersManagement.Text = "Users Management";
+            this.btnUsersManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsersManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsersManagement.UseVisualStyleBackColor = true;
+            this.btnUsersManagement.Click += new System.EventHandler(this.btnUsersManagement_Click);
             // 
             // buttonLogoutSidebar
             // 
@@ -568,7 +592,7 @@
             // 
             // PanelMfgName
             // 
-            this.PanelMfgName.Controls.Add(this.textBoxUsername);
+            this.PanelMfgName.Controls.Add(this.textBoxEmployeeId);
             this.PanelMfgName.Controls.Add(this.label1);
             this.PanelMfgName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMfgName.Location = new System.Drawing.Point(3, 3);
@@ -576,17 +600,17 @@
             this.PanelMfgName.Size = new System.Drawing.Size(294, 74);
             this.PanelMfgName.TabIndex = 10;
             // 
-            // textBoxUsername
+            // textBoxEmployeeId
             // 
-            this.textBoxUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxEmployeeId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxUsername.BackColor = System.Drawing.Color.White;
-            this.textBoxUsername.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUsername.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxUsername.Location = new System.Drawing.Point(18, 33);
-            this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(254, 38);
-            this.textBoxUsername.TabIndex = 0;
+            this.textBoxEmployeeId.BackColor = System.Drawing.Color.White;
+            this.textBoxEmployeeId.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEmployeeId.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxEmployeeId.Location = new System.Drawing.Point(18, 33);
+            this.textBoxEmployeeId.Name = "textBoxEmployeeId";
+            this.textBoxEmployeeId.Size = new System.Drawing.Size(254, 38);
+            this.textBoxEmployeeId.TabIndex = 0;
             // 
             // label1
             // 
@@ -597,9 +621,9 @@
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Location = new System.Drawing.Point(13, 2);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 28);
+            this.label1.Size = new System.Drawing.Size(131, 28);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Username";
+            this.label1.Text = "Employee ID";
             // 
             // panelSuccessLogin
             // 
@@ -679,30 +703,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // btnUsersManagement
-            // 
-            this.btnUsersManagement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUsersManagement.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUsersManagement.FlatAppearance.BorderSize = 0;
-            this.btnUsersManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsersManagement.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
-            this.btnUsersManagement.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnUsersManagement.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnUsersManagement.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnUsersManagement.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUsersManagement.IconSize = 32;
-            this.btnUsersManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsersManagement.Location = new System.Drawing.Point(0, 460);
-            this.btnUsersManagement.Name = "btnUsersManagement";
-            this.btnUsersManagement.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.btnUsersManagement.Size = new System.Drawing.Size(220, 60);
-            this.btnUsersManagement.TabIndex = 7;
-            this.btnUsersManagement.Text = "Users Management";
-            this.btnUsersManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsersManagement.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUsersManagement.UseVisualStyleBackColor = true;
-            this.btnUsersManagement.Click += new System.EventHandler(this.btnUsersManagement_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -778,7 +778,7 @@
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel PanelMfgName;
-        private System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.TextBox textBoxEmployeeId;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel panelSuccessLogin;
         private System.Windows.Forms.Label labelLogin;

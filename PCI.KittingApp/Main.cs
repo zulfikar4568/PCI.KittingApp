@@ -26,6 +26,7 @@ namespace PCI.KittingApp
         private Kitting _kitting;
         private TransactionFailed _transactionFailed;
         private PrintingLabelUseCase _printingLabelUseCase;
+        private UserUseCase _userUseCase;
 
         #region UI_Field
         //Fields
@@ -36,7 +37,7 @@ namespace PCI.KittingApp
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.Since the form is resized because it takes into account the size of the title bar and borders.
         #endregion
-        public Main(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting, TransactionFailed transactionFailed, PrintingLabelUseCase printingLabelUseCase)
+        public Main(UserUseCase userUseCase, OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting, TransactionFailed transactionFailed, PrintingLabelUseCase printingLabelUseCase)
         {
             InitializeComponent();
             #region UI_Constructor
@@ -59,6 +60,7 @@ namespace PCI.KittingApp
             _kitting = kitting;
             _transactionFailed = transactionFailed;
             _printingLabelUseCase = printingLabelUseCase;
+            _userUseCase = userUseCase;
         }
 
         #region UI_Resposibility
@@ -266,7 +268,7 @@ namespace PCI.KittingApp
         private void btnUsersManagement_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, Color.Coral);
-            OpenChildForm(new FormUsersManagement());
+            OpenChildForm(new FormUsersManagement(_userUseCase));
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -353,7 +355,7 @@ namespace PCI.KittingApp
             btnReprintingLabel.Visible = true;
             btnUsersManagement.Visible = true;
 
-            textBoxUsername.Text = string.Empty;
+            textBoxEmployeeId.Text = string.Empty;
             textBoxPassword.Text = string.Empty;
             buttonLogoutSidebar.Visible = true;
             labelUserDisplay.Visible = true;
