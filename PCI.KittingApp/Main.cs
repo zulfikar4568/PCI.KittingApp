@@ -327,12 +327,12 @@ namespace PCI.KittingApp
             bool status = Bootstrapper.CheckConnection();
             if (!status)
             {
-                ZIMessageBox.Show("Server Disconnected!", "Network Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ZIAlertBox.Error("Network Information", "Server Disconnected!");
                 SetNetworkNotConnected();
             }
             else
             {
-                ZIMessageBox.Show("Server Connected!", "Network Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ZIAlertBox.Success("Network Information", "Server Connected!");
                 SetNetworkConnected();
             }
         }
@@ -347,7 +347,7 @@ namespace PCI.KittingApp
 
             if (textBoxEmployeeId.Text == "" || textBoxPassword.Text == "")
             {
-                ZIMessageBox.Show("Employee ID or Password is required!", "Authentication Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ZIAlertBox.Error("Authentication Message", "Employee ID or Password is required!");
                 return false;
             }
 
@@ -355,7 +355,7 @@ namespace PCI.KittingApp
             
             if (currentUserSession == null)
             {
-                ZIMessageBox.Show("Employee ID or Password is not correct!", "Authentication Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ZIAlertBox.Error("Authentication Message", "Employee ID or Password is not correct!");
                 return false;
             }
 
@@ -385,6 +385,8 @@ namespace PCI.KittingApp
 
             panelSuccessLogin.Visible = true;
             panelLogin.Visible = false;
+
+            ZIAlertBox.Success("Authentication Message", "Login Successfully!");
         }
 
         private void Logout()

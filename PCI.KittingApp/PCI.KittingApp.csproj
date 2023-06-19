@@ -129,11 +129,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Components\ZIAlertBox.cs" />
+    <Compile Include="Components\FormAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Components\FormAlert.Designer.cs">
+      <DependentUpon>FormAlert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\FormMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Components\FormMessageBox.Designer.cs">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\ZIEllipseControl.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Components\ZIMessageBox.cs" />
     <Compile Include="Config\AppSettings.cs" />
@@ -233,10 +243,14 @@
     <Compile Include="Util\Simple3Des.cs" />
     <Compile Include="Util\UtilModule.cs" />
     <Content Include="migrate-db.sql" />
+    <None Include="Resources\success.png" />
     <None Include="Resources\verify.png" />
     <None Include="Resources\Logo1.jpg" />
     <None Include="Resources\logoPCI1.png" />
     <None Include="Resources\sync.png" />
+    <EmbeddedResource Include="Components\FormAlert.resx">
+      <DependentUpon>FormAlert.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\FormMessageBox.resx">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
     </EmbeddedResource>
