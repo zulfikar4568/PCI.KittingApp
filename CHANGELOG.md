@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.9.1"></a>
+## [1.9.1](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.1) (2023-6-19)
+
+### Bug Fixes
+
+* query in where clause ([abdafb0](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/abdafb05f3f468c5e73065050098ebd952f8cf17))
+
+### Other
+
+* **update:** v1.9.0 push to the AssemblyInfo.cs ([9f77b12](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/9f77b1215391b3c4494ca808e3a00404cb398b08))
+
 <a name="1.9.0"></a>
 ## [1.9.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.0) (2023-6-19)
 
