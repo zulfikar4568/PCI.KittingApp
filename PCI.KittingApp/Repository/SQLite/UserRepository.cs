@@ -23,7 +23,7 @@ namespace PCI.KittingApp.Repository.SQLite
         {
             try
             {
-                _transactionDriver.Write($"DELETE FROM Users WHERE Id = {Id}");
+                _transactionDriver.Write($"DELETE FROM Users WHERE Id = '{Id}'");
                 return true;
             }
             catch (Exception ex)
@@ -41,7 +41,7 @@ namespace PCI.KittingApp.Repository.SQLite
 
         public User GetUserByEmployeeId(string EmployeeId)
         {
-            return _transactionDriver.Read($"SELECT * FROM Users WHERE EmployeeId = {EmployeeId}");
+            return _transactionDriver.Read($"SELECT * FROM Users WHERE EmployeeId = '{EmployeeId}'");
         }
 
         public bool InsertUser(User user)
