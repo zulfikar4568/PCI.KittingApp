@@ -59,7 +59,7 @@
             this.textBoxMfgName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMfgName.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMfgName.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxMfgName.Location = new System.Drawing.Point(17, 65);
+            this.textBoxMfgName.Location = new System.Drawing.Point(17, 79);
             this.textBoxMfgName.Name = "textBoxMfgName";
             this.textBoxMfgName.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgName.TabIndex = 0;
@@ -73,7 +73,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(13, 30);
+            this.label1.Location = new System.Drawing.Point(13, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(188, 28);
             this.label1.TabIndex = 1;
@@ -86,7 +86,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(19, 30);
+            this.label2.Location = new System.Drawing.Point(19, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 28);
             this.label2.TabIndex = 3;
@@ -100,7 +100,7 @@
             this.textBoxMfgProduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMfgProduct.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
             this.textBoxMfgProduct.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxMfgProduct.Location = new System.Drawing.Point(23, 65);
+            this.textBoxMfgProduct.Location = new System.Drawing.Point(23, 79);
             this.textBoxMfgProduct.Name = "textBoxMfgProduct";
             this.textBoxMfgProduct.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgProduct.TabIndex = 2;
@@ -114,7 +114,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(19, 30);
+            this.label3.Location = new System.Drawing.Point(19, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(121, 28);
             this.label3.TabIndex = 5;
@@ -128,7 +128,7 @@
             this.textBoxMfgQty.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxMfgQty.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
             this.textBoxMfgQty.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxMfgQty.Location = new System.Drawing.Point(23, 65);
+            this.textBoxMfgQty.Location = new System.Drawing.Point(23, 79);
             this.textBoxMfgQty.Name = "textBoxMfgQty";
             this.textBoxMfgQty.Size = new System.Drawing.Size(300, 50);
             this.textBoxMfgQty.TabIndex = 4;
@@ -142,7 +142,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(13, 28);
+            this.label4.Location = new System.Drawing.Point(13, 42);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 28);
             this.label4.TabIndex = 7;
@@ -165,10 +165,10 @@
             this.PanelMfgOrder.Location = new System.Drawing.Point(35, 42);
             this.PanelMfgOrder.Name = "PanelMfgOrder";
             this.PanelMfgOrder.RowCount = 4;
-            this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 190F));
-            this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150F));
+            this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.PanelMfgOrder.Size = new System.Drawing.Size(1050, 545);
             this.PanelMfgOrder.TabIndex = 8;
             // 
@@ -179,7 +179,7 @@
             this.PanelMfgName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelMfgName.Location = new System.Drawing.Point(3, 3);
             this.PanelMfgName.Name = "PanelMfgName";
-            this.PanelMfgName.Size = new System.Drawing.Size(340, 130);
+            this.PanelMfgName.Size = new System.Drawing.Size(340, 144);
             this.PanelMfgName.TabIndex = 9;
             // 
             // panelMfgProduct
@@ -189,7 +189,7 @@
             this.panelMfgProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgProduct.Location = new System.Drawing.Point(349, 3);
             this.panelMfgProduct.Name = "panelMfgProduct";
-            this.panelMfgProduct.Size = new System.Drawing.Size(340, 130);
+            this.panelMfgProduct.Size = new System.Drawing.Size(340, 144);
             this.panelMfgProduct.TabIndex = 10;
             // 
             // panelMfgQty
@@ -199,7 +199,7 @@
             this.panelMfgQty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgQty.Location = new System.Drawing.Point(695, 3);
             this.panelMfgQty.Name = "panelMfgQty";
-            this.panelMfgQty.Size = new System.Drawing.Size(352, 130);
+            this.panelMfgQty.Size = new System.Drawing.Size(352, 144);
             this.panelMfgQty.TabIndex = 11;
             // 
             // panelMfgUOM
@@ -207,9 +207,9 @@
             this.panelMfgUOM.Controls.Add(this.label4);
             this.panelMfgUOM.Controls.Add(this.comboBoxMfgUOM);
             this.panelMfgUOM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgUOM.Location = new System.Drawing.Point(3, 139);
+            this.panelMfgUOM.Location = new System.Drawing.Point(3, 153);
             this.panelMfgUOM.Name = "panelMfgUOM";
-            this.panelMfgUOM.Size = new System.Drawing.Size(340, 130);
+            this.panelMfgUOM.Size = new System.Drawing.Size(340, 144);
             this.panelMfgUOM.TabIndex = 12;
             // 
             // comboBoxMfgUOM
@@ -222,7 +222,7 @@
             this.comboBoxMfgUOM.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMfgUOM.ForeColor = System.Drawing.Color.Gainsboro;
             this.comboBoxMfgUOM.FormattingEnabled = true;
-            this.comboBoxMfgUOM.Location = new System.Drawing.Point(17, 59);
+            this.comboBoxMfgUOM.Location = new System.Drawing.Point(17, 73);
             this.comboBoxMfgUOM.Name = "comboBoxMfgUOM";
             this.comboBoxMfgUOM.Size = new System.Drawing.Size(300, 49);
             this.comboBoxMfgUOM.TabIndex = 15;
@@ -232,9 +232,9 @@
             // 
             this.panelMfgSubmit.Controls.Add(this.buttonMfgSubmit);
             this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgSubmit.Location = new System.Drawing.Point(695, 465);
+            this.panelMfgSubmit.Location = new System.Drawing.Point(695, 468);
             this.panelMfgSubmit.Name = "panelMfgSubmit";
-            this.panelMfgSubmit.Size = new System.Drawing.Size(352, 77);
+            this.panelMfgSubmit.Size = new System.Drawing.Size(352, 74);
             this.panelMfgSubmit.TabIndex = 14;
             // 
             // buttonMfgSubmit
