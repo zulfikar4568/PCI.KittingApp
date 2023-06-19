@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.9.0"></a>
+## [1.9.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.0) (2023-6-19)
+
+### Features
+
+* add information container during register unit ([cdeefda](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/cdeefda6d25402a5816e5f369439ec5322d72cd4))
+* add message to alert ([0691e3f](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/0691e3fd50b387873987b1672671567b46af6f6c))
+* add printing to device ([873631e](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/873631e0b044557444e5316d84685dbaffca5bdd))
+* alert box ([9ce6759](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/9ce675921bd7f9958c0ceb42a8bc03eee0e74569))
+
+### Bug Fixes
+
+* alert ([a4c827e](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/a4c827e848ada8e2d19c50618de316c32ee6dfa7))
+* layout form order ([f9eb2d1](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/f9eb2d1b5976a4e4b1ca28478638a3c5ffdbb3f1))
+* log printing device when success ([3fc0d2f](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/3fc0d2f4591bda5b2ae4b9558e00a26fce1ad17c))
+* reprinting label data opposite ([5a243b8](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/5a243b89cceed358e80d502cb8e0a377b587a61b))
+
+### Other
+
+* Merge pull request #10 from zulfikar4568/feat/dev ([f3d60c4](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/f3d60c4c80b8578fc6d2452f7cf2cf9714f4a575))
+* Merge pull request #11 from zulfikar4568/feat/dev ([1ea95ba](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/1ea95ba55c4bb8149b7b9b852a41e70749792a8f))
+* change button position ([1159718](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/11597186c1f5246c76dde6be1ecbb7d2336f102b))
+* **update:** v1.8.0 push to the AssemblyInfo.cs ([0664475](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/0664475415f90547bdc168706c2f2323f788fffd))
+
 <a name="1.8.0"></a>
 ## [1.8.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.8.0) (2023-6-15)
 
