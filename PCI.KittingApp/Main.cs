@@ -425,6 +425,7 @@ namespace PCI.KittingApp
             {
                 GoHome();
                 Logout();
+                ZIAlertBox.Success("Authentication Message", "Logout Successfully!");
             }
         }
 
