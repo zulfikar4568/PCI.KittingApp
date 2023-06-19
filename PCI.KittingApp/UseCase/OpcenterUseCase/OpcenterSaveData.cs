@@ -41,7 +41,7 @@ namespace PCI.KittingApp.UseCase
             bool result = _maintenanceTransaction.SaveMfgOrder(data.MfgOrderName, "", "", data.ProductName, "", "", "", Convert.ToDouble(data.Qty), null, "", data.UOM);
             if (result)
             {
-                ZIMessageBox.Show($"Order {data.MfgOrderName} save successfully!", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ZIAlertBox.Success("Success Message", $"Order {data.MfgOrderName} save successfully!");
             } else
             {
                 _transactionFailedRepository.Insert(new Entity.TransactionFailed()
@@ -51,7 +51,7 @@ namespace PCI.KittingApp.UseCase
                     DateTransaction = DateTime.Now,
                     IdTxn = IdTxn,
                 });
-                ZIMessageBox.Show($"Failed Create Order {data.MfgOrderName}, please see on Transaction Failed, and click retry icon!", "Failed Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ZIAlertBox.Error("Failed Message", $"Failed Create Order {data.MfgOrderName}, please see on Transaction Failed, and click retry icon!");
             }
         }
 
@@ -64,7 +64,7 @@ namespace PCI.KittingApp.UseCase
                 _printingLabelUseCase.StartPrintingLabel(_printingLabelUseCase.GenerateDataFromStartUnit(data, IdTxn), true);
 
                 // Show Message
-                ZIMessageBox.Show("Success Start the Container", "Success Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ZIAlertBox.Success("Success Message", $"Success Start the Container {data.ContainerName}");
             }
             else
             {
@@ -75,7 +75,7 @@ namespace PCI.KittingApp.UseCase
                     DateTransaction = DateTime.Now,
                     IdTxn = IdTxn,
                 });
-                ZIMessageBox.Show($"Failed Start the Container {data.ContainerName}, please see on Transaction Failed, and click retry icon!", "Failed Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ZIAlertBox.Error("Failed Message", $"Failed Start the Container {data.ContainerName}, please see on Transaction Failed, and click retry icon!");
             }
         }
 
@@ -90,10 +90,10 @@ namespace PCI.KittingApp.UseCase
             }
             if (!flagOneMaterialFail)
             {
-                ZIMessageBox.Show("Success proceed all BOM to MES", "Finish Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ZIAlertBox.Success("Success Message", "Success proceed all BOM to MES");
             } else
             {
-                ZIMessageBox.Show("Finish the process the BOM to MES, but there's some fail material to start", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Warning Message", "Finish the process the BOM to MES, but there's some fail material to start, please check Transaction Failed!");
             }
         }
 
@@ -117,7 +117,7 @@ namespace PCI.KittingApp.UseCase
 
             if (!result)
             {
-                ZIMessageBox.Show($"Material {data.Product} fail to start, please see the Transaction Failed, and please retry icon", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ZIAlertBox.Error("Error Message", $"Material {data.Product} fail to start, please see the Transaction Failed, and please retry icon");
             }
 
             return result;

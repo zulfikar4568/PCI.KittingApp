@@ -31,7 +31,7 @@ namespace PCI.KittingApp.UseCase
 
         private void ShowMessageAlreadyExists()
         {
-            ZIMessageBox.Show("The data already exists, this transaction list will remove from the list!", "Data Already Exists!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ZIAlertBox.Warning("Data Already Exists!", "The data already exists, this transaction list will remove from the list!");
         }
 
         public void RetryCreateOrder(CreateOrder data, string Id, string IdTxn)
@@ -80,7 +80,7 @@ namespace PCI.KittingApp.UseCase
             if (!_opcenterCheckData.IsContainerExists(data.CustomerSerialNumber))
             {
                 var result = _opcenterSaveData.StartTheMaterial(data, IdTxn);
-                if (result) ZIMessageBox.Show($"Success proceed the material {data.Product} with SN {data.CustomerSerialNumber}", "Finish Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (result) ZIAlertBox.Success("Finish Message", $"Success proceed the material {data.Product} with SN {data.CustomerSerialNumber}");
             } else
             {
                 ShowMessageAlreadyExists();

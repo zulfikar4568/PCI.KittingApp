@@ -414,6 +414,7 @@ namespace PCI.KittingApp
             if (confirmation == DialogResult.Yes)
             {
                 Logout();
+                ZIAlertBox.Success("Authentication Message", "Logout Successfully!");
             }
         }   
 

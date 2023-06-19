@@ -50,11 +50,8 @@ namespace PCI.KittingApp.Components
 
         private void PositionAlertBox()
         {
-            int xPos = 0; int yPos = 0;
-            xPos = Screen.GetWorkingArea(this).Width;
-            yPos = Screen.GetWorkingArea(this).Height;
-
-            this.Location = new Point(xPos - this.Width - 20, yPos - this.Height - 20);
+            Rectangle workingArea = Screen.GetWorkingArea(this);
+            this.Location = new Point(workingArea.Right - Size.Width - 20, workingArea.Bottom - Size.Height - 20);
         }
 
         private void FormAlert_Load(object sender, EventArgs e)

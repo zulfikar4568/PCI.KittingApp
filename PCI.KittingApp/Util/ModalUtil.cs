@@ -22,6 +22,7 @@ namespace PCI.KittingApp.Util
                 modalBackground.BackColor = Color.White;
                 modalBackground.ShowInTaskbar = false;
                 modalBackground.WindowState = FormWindowState.Maximized;
+                modalBackground.Location = Screen.FromPoint(Cursor.Position).Bounds.Location;
                 modalBackground.Show();
                 modal.Owner = modalBackground;
 
@@ -29,6 +30,7 @@ namespace PCI.KittingApp.Util
                 parentY = parent.Location.Y;
 
                 modal.ShowDialog();
+                modal.Location = Screen.FromPoint(Cursor.Position).Bounds.Location;
                 modalBackground.Dispose();
             }
         }

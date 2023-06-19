@@ -77,7 +77,7 @@ namespace PCI.KittingApp.Forms
             ValidationStatus isFGValid = _kitting.ValidateFGSerialNumber(ContainerName, _opcenterCheckData.IsContainerExists);
             if (!isFGValid.IsSuccess)
             {
-                ZIMessageBox.Show($"The Container {ContainerName} {ErrorCodeMeaning.Translate(isFGValid.ErrorCode)}", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Validation Message", $"The Container {ContainerName} {ErrorCodeMeaning.Translate(isFGValid.ErrorCode)}");
                 textBoxUnitContainer.Clear();
                 return false;
             }
@@ -88,7 +88,7 @@ namespace PCI.KittingApp.Forms
             ValidationStatus status = _kitting.ValidateCustomerSerialNumber(textBoxUnitContainer.Text);
             if (!status.IsSuccess)
             {
-                ZIMessageBox.Show(ErrorCodeMeaning.Translate(status.ErrorCode), "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Validation Message", ErrorCodeMeaning.Translate(status.ErrorCode));
                 textBoxUnitContainer.Clear();
                 return false;
             }

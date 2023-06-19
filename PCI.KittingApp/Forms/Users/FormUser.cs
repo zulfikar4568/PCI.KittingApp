@@ -66,7 +66,7 @@ namespace PCI.KittingApp.Forms.Users
         {
             if (!CheckRequiredData())
             {
-                ZIMessageBox.Show("Please complete the data first!", "Data Completion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ZIAlertBox.Error("Data Completion", "Please complete the data first!");
                 return;
             }
             if (_userMode == UserMode.CREATE)
@@ -77,7 +77,7 @@ namespace PCI.KittingApp.Forms.Users
             {
                 if (_userData.Role != Main.currentUserSession.Role && _userData.Id == Main.currentUserSession.Id)
                 {
-                    ZIMessageBox.Show($"You cannot edit your self the role, it must be other administrator", "Delete Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ZIAlertBox.Error("Delete Information", $"You cannot edit your self the role, it must be other administrator");
                     return;
                 }
                 bool result = _userUseCase.UpdateUser(_userData);
@@ -127,7 +127,7 @@ namespace PCI.KittingApp.Forms.Users
             if (_userData.Password != textBoxConfirmPassword.Text)
             {
                 textBoxConfirmPassword.Text = "";
-                ZIMessageBox.Show("Password doesn't match!", "Wrong Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ZIAlertBox.Error("Wrong Data", "Password doesn't match!");
                 return;
             }
         }

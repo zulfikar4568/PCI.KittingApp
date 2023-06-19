@@ -65,7 +65,7 @@ namespace PCI.KittingApp.Forms.Users
 
                 if (stringId == Main.currentUserSession.Id)
                 {
-                    ZIMessageBox.Show($"You cannot delete your self!", "Delete Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ZIAlertBox.Error("Delete Information", $"You cannot delete your self!");
                     return;
                 }
 
