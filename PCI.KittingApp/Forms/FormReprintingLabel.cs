@@ -65,7 +65,7 @@ namespace PCI.KittingApp.Forms
         #region Event Handler
         private void buttonReprintingMaterialLabel_Click(object sender, EventArgs e)
         {
-            foreach (var dataPrintingLabel in _unitPrintingLabel)
+            foreach (var dataPrintingLabel in _materialPrintingLabel)
             {
                 _printingLabelUseCase.StartPrintingLabel(dataPrintingLabel, false);
             }
@@ -73,7 +73,7 @@ namespace PCI.KittingApp.Forms
 
         private void buttonReprintingUnitLabel_Click(object sender, EventArgs e)
         {
-            foreach (var dataPrintingLabel in _materialPrintingLabel)
+            foreach (var dataPrintingLabel in _unitPrintingLabel)
             {
                 _printingLabelUseCase.StartPrintingLabel(dataPrintingLabel, false);
             }
