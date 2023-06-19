@@ -25,18 +25,22 @@ namespace PCI.KittingApp.UseCase
             _containerTransaction = containerTransaction;
             _maintenanceMapper = maintenanceMapper;
         }
-        public ProductDefaultStart ProductDefaultDataFromMfgOrder(string MfgOrderName)
+        public MfgOrderChanges GetMfgOrderInformation(string MfgOrderName)
         {
             MfgOrderChanges mfgOrderChanges = _maintenanceTransaction.GetMfgOrder(MfgOrderName);
             if (mfgOrderChanges == null)
             {
-                ZIMessageBox.Show("Mfg Order data cannot be found!");
+                ZIAlertBox.Warning("Not Found", "Mfg Order data cannot be found!");
                 return null;
             }
-            ProductDefaultStart productDefaultStart = _maintenanceMapper.ExtractDefaultDataFromMfgOrder(mfgOrderChanges);
+            return mfgOrderChanges;
+        }
+        public ProductDefaultStart ProductDefaultDataFromMfgOrder(MfgOrderChanges MfgOrderChanges)
+        {
+            ProductDefaultStart productDefaultStart = _maintenanceMapper.ExtractDefaultDataFromMfgOrder(MfgOrderChanges);
             if (productDefaultStart == null)
             {
-                ZIMessageBox.Show("Metadata modelling is not complete, please check product definition in MES (StartLevel, StartOwner, StartReason, StartQty, StartUOM)!");
+                ZIAlertBox.Warning("Data Not Complete", "Metadata modelling is not complete, please check product definition in MES (StartLevel, StartOwner, StartReason, StartQty, StartUOM)!");
             }
             return productDefaultStart;
         }
@@ -79,7 +83,7 @@ namespace PCI.KittingApp.UseCase
         {
             if (!_maintenanceTransaction.MfgOrderExists(MfgOrderName))
             {
-                ZIMessageBox.Show($"Mfg Order {MfgOrderName} not found!", "Not Found Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Not Found", $"Mfg Order {MfgOrderName} not found!");
                 return false;
             }
             return true;
@@ -88,7 +92,7 @@ namespace PCI.KittingApp.UseCase
         {
             if (_maintenanceTransaction.MfgOrderExists(MfgOrderName))
             {
-                ZIMessageBox.Show($"Mfg Order {MfgOrderName} already exists!", "Validate Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Validate Message", $"Mfg Order {MfgOrderName} already exists!");
                 return false;
             }
             return true;
@@ -102,7 +106,7 @@ namespace PCI.KittingApp.UseCase
         {
             if (!_maintenanceTransaction.ProductExists(ProductName))
             {
-                ZIMessageBox.Show($"Product {ProductName} not found!", "Not Found Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Not Found Message", $"Product {ProductName} not found!");
                 return false;
             }
             return true;
@@ -112,7 +116,7 @@ namespace PCI.KittingApp.UseCase
         {
             if (!_maintenanceTransaction.UOMExists(UOMName))
             {
-                ZIMessageBox.Show($"UOM {UOMName} not found!", "Not Found Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Not Found Message", $"UOM {UOMName} not found!");
                 return false;
             }
             return true;
@@ -122,7 +126,7 @@ namespace PCI.KittingApp.UseCase
         {
             if (!Formatting.CanCovertTo<Double>(Qty))
             {
-                ZIMessageBox.Show($"Qty {Qty} is not number!", "Type Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Type Error Message", $"Qty {Qty} is not number!");
                 return false;
             }
             return true;

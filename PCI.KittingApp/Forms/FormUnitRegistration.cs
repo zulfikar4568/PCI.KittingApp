@@ -6,6 +6,7 @@ using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -22,6 +23,7 @@ namespace PCI.KittingApp.Forms
     {
         //Fields
         private ProductDefaultStart _productDefaultData = null;
+        private MfgOrderChanges _mfgOrderChanges = null;
 
         private OpcenterCheckData _opcenterCheckData;
         private OpcenterSaveData _opcenterSaveData;
@@ -38,8 +40,9 @@ namespace PCI.KittingApp.Forms
         private void ResetField()
         {
             textBoxUnitContainer.Clear();
-            textBoxUnitMfg.Clear();
             _productDefaultData = null;
+            EmptyInformationOfMfgOrder();
+            textBoxUnitMfg.Select();
         }
 
         private bool IsRequiredFieldNotEmpty()
@@ -62,7 +65,10 @@ namespace PCI.KittingApp.Forms
             if (_productDefaultData != null)
             {
                 _opcenterSaveData.StartContainerMainUnit(data, TxnId);
-                ResetField();
+                textBoxUnitContainer.Clear();
+                _mfgOrderChanges = _opcenterCheckData.GetMfgOrderInformation(textBoxUnitMfg.Text);
+                AssignedFieldReadOnly();
+                textBoxUnitContainer.Select();
             }
         }
 
@@ -71,7 +77,7 @@ namespace PCI.KittingApp.Forms
             ValidationStatus isFGValid = _kitting.ValidateFGSerialNumber(ContainerName, _opcenterCheckData.IsContainerExists);
             if (!isFGValid.IsSuccess)
             {
-                ZIMessageBox.Show($"The Container {ContainerName} {ErrorCodeMeaning.Translate(isFGValid.ErrorCode)}", "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Validation Message", $"The Container {ContainerName} {ErrorCodeMeaning.Translate(isFGValid.ErrorCode)}");
                 textBoxUnitContainer.Clear();
                 return false;
             }
@@ -82,7 +88,7 @@ namespace PCI.KittingApp.Forms
             ValidationStatus status = _kitting.ValidateCustomerSerialNumber(textBoxUnitContainer.Text);
             if (!status.IsSuccess)
             {
-                ZIMessageBox.Show(ErrorCodeMeaning.Translate(status.ErrorCode), "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ZIAlertBox.Warning("Validation Message", ErrorCodeMeaning.Translate(status.ErrorCode));
                 textBoxUnitContainer.Clear();
                 return false;
             }
@@ -99,7 +105,7 @@ namespace PCI.KittingApp.Forms
                 if (!ValidateTheIDN(textBoxUnitContainer.Text)) return;
 
                 // Select next field
-                textBoxUnitMfg.Select();
+                buttonUnitSubmit.Select();
             } else if (dataParse.Length == 3) // If Customer SN
             {
                 if (!ValidateTheIDN(dataParse[2])) return;
@@ -108,7 +114,7 @@ namespace PCI.KittingApp.Forms
                 textBoxUnitContainer.Text = dataParse[2];
 
                 // Select next field
-                textBoxUnitMfg.Select();
+                buttonUnitSubmit.Select();
             } else
             {
                 textBoxUnitContainer.Text = "";
@@ -126,16 +132,68 @@ namespace PCI.KittingApp.Forms
 
             if (!_opcenterCheckData.IsMfgOrderExists(textBoxUnitMfg.Text))
             {
-                textBoxUnitMfg.Clear();
+                EmptyInformationOfMfgOrder();
+                return;
+            }
+            _mfgOrderChanges = _opcenterCheckData.GetMfgOrderInformation(textBoxUnitMfg.Text);
+            _productDefaultData = _opcenterCheckData.ProductDefaultDataFromMfgOrder(_mfgOrderChanges);
+
+            if (_productDefaultData == null)
+            {
+                EmptyInformationOfMfgOrder();
                 return;
             }
 
-            _productDefaultData = _opcenterCheckData.ProductDefaultDataFromMfgOrder(textBoxUnitMfg.Text);
+            AssignedFieldReadOnly();
 
             // Select next field
-            buttonUnitSubmit.Select();
+            textBoxUnitContainer.Select();
         }
 
+        private void EmptyInformationOfMfgOrder()
+        {
+            textBoxUnitMfg.Clear();
+            dataGridUnitListContainer.Rows.Clear();
+            _mfgOrderChanges= null;
+            textBoxUnitBalance.Clear();
+            textBoxUnitQty.Clear();
+            textBoxUnitTotalQty.Clear();
+            _productDefaultData = null;
+        }
+
+        private void AssignedFieldReadOnly()
+        {
+            if (_mfgOrderChanges == null) return;
+            
+            // Assign Qty
+            if (_mfgOrderChanges.Qty != null) textBoxUnitQty.Text = _mfgOrderChanges.Qty.ToString();
+            else textBoxUnitQty.Text = "0";
+
+            // Assign TotalQty and Balance
+            if (_mfgOrderChanges.Containers != null)
+            {
+                var balance = _mfgOrderChanges.Qty.Value - _mfgOrderChanges.Containers.Length;
+                textBoxUnitBalance.Text = balance.ToString();
+                textBoxUnitTotalQty.Text = _mfgOrderChanges.Containers.Length.ToString();
+            }
+            else
+            {
+                textBoxUnitBalance.Text = "0";
+                textBoxUnitTotalQty.Text = "0";
+            }
+
+            // Assign list of containers
+            if (_mfgOrderChanges.Containers == null) return;
+            if (_mfgOrderChanges.Containers.Length> 0)
+            {
+                int i = 0;
+                foreach (var item in _mfgOrderChanges.Containers)
+                {
+                    i++;
+                    dataGridUnitListContainer.Rows.Add(i, item.Value);
+                }
+            }
+        }
 
         private void textBoxUnitContainer_Leave(object sender, EventArgs e)
         {
@@ -161,6 +219,11 @@ namespace PCI.KittingApp.Forms
             {
                 CheckMfgField();
             }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            ResetField();
         }
     }
 }

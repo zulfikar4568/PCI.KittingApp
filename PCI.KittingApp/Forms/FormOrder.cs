@@ -31,8 +31,8 @@ namespace PCI.KittingApp.Forms
             _opcenterSaveData = opcenterSaveData;
 
             _listUOMs = _opcenterCheckData.GetUOMList();
-            if (_listUOMs == null) 
-                ZIMessageBox.Show("The list data of UOM cannot be retrieve, perhaps you lost connection or data empty!", "Exception Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_listUOMs == null)
+                ZIAlertBox.Warning("Data Empty", "The list data of UOM cannot be retrieve, perhaps you lost connection or data empty!");
             
             AssignUOMList();
         }

@@ -97,12 +97,33 @@ namespace PCI.KittingApp.Config
         }
         #endregion
 
-        #region DefaultData
+        #region PRINTER CONFIG
+        public static string PrinterName
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["PrinterName"];
+            }
+        }
         public static string DefaultPathPrinter
         {
             get
             {
                 return ConfigurationManager.AppSettings["DefaultPathPrinter"];
+            }
+        }
+        public static bool IsPrintingFileEnabled
+        {
+            get
+            {
+                return Convert.ToBoolean(ConfigurationManager.AppSettings["IsPrintingFileEnabled"]);
+            }
+        }
+        public static bool IsPrintingDeviceEnabled
+        {
+            get
+            {
+                return Convert.ToBoolean(ConfigurationManager.AppSettings["IsPrintingDeviceEnabled"]);
             }
         }
         #endregion

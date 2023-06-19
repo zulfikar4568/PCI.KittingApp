@@ -46,7 +46,7 @@ namespace PCI.KittingApp.UseCase
             var checkData = _userRepository.GetUserByEmployeeId(userData.EmployeeId);
             if (checkData != null)
             {
-                ZIMessageBox.Show($"Employee with ID {userData.EmployeeId} already exists!", "Duplicate Data", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                ZIAlertBox.Error("Duplicate Data", $"Employee with ID {userData.EmployeeId} already exists!");
                 return false;
             }
 
@@ -59,7 +59,7 @@ namespace PCI.KittingApp.UseCase
             var checkData = _userRepository.GetUserByEmployeeId(userData.EmployeeId);
             if (checkData == null)
             {
-                ZIMessageBox.Show($"Employee with ID {userData.EmployeeId} doesn't exists!", "Not Found Data", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                ZIAlertBox.Error("Not Found Data", $"Employee with ID {userData.EmployeeId} doesn't exists!");
                 return false;
             }
 
@@ -72,7 +72,7 @@ namespace PCI.KittingApp.UseCase
             var checkData = _userRepository.GetUserByEmployeeId(userData.EmployeeId);
             if (checkData == null)
             {
-                ZIMessageBox.Show($"Employee with ID {userData.EmployeeId} doesn't exists!", "Not Found Data", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                ZIAlertBox.Error("Not Found Data", $"Employee with ID {userData.EmployeeId} doesn't exists!");
                 return false;
             }
 

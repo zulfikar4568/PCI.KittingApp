@@ -104,7 +104,7 @@ namespace PCI.KittingApp.Forms
         }
         private void ShowMessage(string errorMsg)
         {
-            ZIMessageBox.Show(errorMsg, "Validation Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ZIAlertBox.Warning("Validation Message", errorMsg);
         }
 
         private void CheckPartNumberRegistration()
