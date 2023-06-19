@@ -36,7 +36,7 @@ namespace PCI.KittingApp.UseCase
             try
             {
                 bool result = RawPrinterUtil.SendStringToPrinter(AppSettings.PrinterName, Data.DataTxn);
-                EventLogUtil.LogEvent($"Print Label {Data.DataTxn} success!", System.Diagnostics.EventLogEntryType.Information, 6);
+                if (result) EventLogUtil.LogEvent($"Print Label {Data.DataTxn} using {AppSettings.PrinterName} success!", System.Diagnostics.EventLogEntryType.Information, 6);
                 return result;
             }
             catch (Exception ex)
