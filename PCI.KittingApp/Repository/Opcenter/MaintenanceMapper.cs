@@ -75,7 +75,7 @@ namespace PCI.KittingApp.Repository
 
         private bool CheckingTheDefaultProductData(ProductChanges productChanges)
         {
-            return productChanges.StdStartLevel == null && productChanges.StdStartOwner == null && productChanges.StdStartQty == null && productChanges.StdStartReason == null && productChanges.StdStartUOM == null && productChanges.Workflow == null;
+            return productChanges.StdStartLevel == null || productChanges.StdStartOwner == null || productChanges.StdStartQty == null || productChanges.StdStartReason == null || productChanges.StdStartUOM == null || productChanges.Workflow == null;
         }
     }
 }

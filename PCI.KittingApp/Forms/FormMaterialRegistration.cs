@@ -41,14 +41,31 @@ namespace PCI.KittingApp.Forms
         {
             // Check Initial Data is Ready or Not
             if (textBoxRegisterContainer.Text == "" || textBoxRegisterContainer.Text == null) return;
-            ValidationStatus status = _kitting.ValidateCustomerSerialNumber(textBoxRegisterContainer.Text);
-            if (!status.IsSuccess)
+
+            // If format single we need to parse first before validation matching part number
+            bool isFormatSingle = textBoxRegisterContainer.Text.Split('_').Length == 1;
+            if (!isFormatSingle)
             {
-                ShowMessage(ErrorCodeMeaning.Translate(status.ErrorCode));
-                textBoxRegisterContainer.Clear();
-                return;
+                ValidationStatus status = _kitting.ValidateCustomerSerialNumber(textBoxRegisterContainer.Text);
+                if (!status.IsSuccess)
+                {
+                    ShowMessage(ErrorCodeMeaning.Translate(status.ErrorCode));
+                    textBoxRegisterContainer.Clear();
+                    return;
+                }
+                containerName = textBoxRegisterContainer.Text.Split('_')[2];
+            } else
+            {
+                var checkIDN = textBoxRegisterContainer.Text.IndexOf("IDN");
+                if (checkIDN == -1)
+                {
+                    ShowMessage("S/N is not valid!");
+                    textBoxRegisterContainer.Clear();
+                    return;
+                }
+                containerName = textBoxRegisterContainer.Text.Remove(0, checkIDN);
             }
-            containerName = textBoxRegisterContainer.Text.Split('_')[2];
+
             ValidationStatus isFGValid = _kitting.ValidateFGSerialNumberExists(containerName, _opcenterCheckData.IsContainerExists);
             if (!isFGValid.IsSuccess)
             {
