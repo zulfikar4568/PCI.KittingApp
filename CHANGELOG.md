@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.9.2"></a>
+## [1.9.2](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.2) (2023-6-20)
+
+### Bug Fixes
+
+* update duplicate rows containers ([41a226d](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/41a226d2e5738ac5519fb41102dd6584b86b5c19))
+
+### Other
+
+* **update:** v1.9.1 push to the AssemblyInfo.cs ([02db654](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/02db654c1df256c669067d0c931cc1a4e973ce93))
+
 <a name="1.9.1"></a>
 ## [1.9.1](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.1) (2023-6-19)
 
