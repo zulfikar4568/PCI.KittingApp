@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.9.4"></a>
+## [1.9.4](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.4) (2023-6-20)
+
+### Bug Fixes
+
+* reprinting label missing table material ([d6e2797](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/d6e27977d9c1cb36b852dba3b4a5219fb606a1a0))
+
+### Other
+
+* **update:** v1.9.3 push to the AssemblyInfo.cs ([4da15b2](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/4da15b2d6d5669af6f61ccb0723f11614ff786a9))
+
 <a name="1.9.3"></a>
 ## [1.9.3](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.3) (2023-6-20)
 
