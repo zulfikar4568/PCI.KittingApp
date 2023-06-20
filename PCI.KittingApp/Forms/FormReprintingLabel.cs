@@ -55,6 +55,11 @@ namespace PCI.KittingApp.Forms
                 {
                     dataGridUnitPrintingLabel.Rows.Add(item.Id, item.DataTxn, item.DateTxn.ToString());
                 }
+            }
+
+            if (_materialPrintingLabel.Count > 0)
+            {
+                buttonReprintingMaterialLabel.Enabled = true;
                 foreach (var item in _materialPrintingLabel)
                 {
                     dataGridMaterialPrintingLabel.Rows.Add(item.Id, item.DataTxn, item.DateTxn.ToString());
