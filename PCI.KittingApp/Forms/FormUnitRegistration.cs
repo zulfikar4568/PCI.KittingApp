@@ -183,6 +183,7 @@ namespace PCI.KittingApp.Forms
             }
 
             // Assign list of containers
+            dataGridUnitListContainer.Rows.Clear();
             if (_mfgOrderChanges.Containers == null) return;
             if (_mfgOrderChanges.Containers.Length> 0)
             {
