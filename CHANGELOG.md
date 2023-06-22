@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.9.5"></a>
+## [1.9.5](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.5) (2023-6-22)
+
+### Bug Fixes
+
+* database missing TxnId in Transaction failed ([f809bc0](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/f809bc0ce33b6677f27652c1a61c28882cf3361c))
+
+### Other
+
+* **update:** v1.9.4 push to the AssemblyInfo.cs ([8bf01e6](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/8bf01e66c83fd97165b3dcfe9906910da7a58d6a))
+
 <a name="1.9.4"></a>
 ## [1.9.4](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.4) (2023-6-20)
 
