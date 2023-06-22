@@ -370,11 +370,11 @@ namespace PCI.KittingApp
 
         private void LoginSuccess()
         {
-            btnOrder.Visible = true;
-            btnUnitRegistration.Visible = true;
-            btnMaterialRegistration.Visible = true;
-            btnTransactionFailed.Visible = true;
             btnReprintingLabel.Visible = true;
+            btnTransactionFailed.Visible = true;
+            btnMaterialRegistration.Visible = true;
+            btnUnitRegistration.Visible = true;
+            btnOrder.Visible = true;
 
             if (currentUserSession.Role == Role.Admin) btnUsersManagement.Visible = true;
 
