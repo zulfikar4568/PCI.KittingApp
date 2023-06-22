@@ -24,18 +24,36 @@ namespace PCI.KittingApp.Forms
 
         private OpcenterCheckData _opcenterCheckData;
         private OpcenterSaveData _opcenterSaveData;
+        private BackgroundWorker _backgroundWorker;
         public FormOrder(OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData)
         {
             InitializeComponent();
             _opcenterCheckData = opcenterCheckData;
             _opcenterSaveData = opcenterSaveData;
 
-            _listUOMs = _opcenterCheckData.GetUOMList();
-            if (_listUOMs == null)
-                ZIAlertBox.Warning("Data Empty", "The list data of UOM cannot be retrieve, perhaps you lost connection or data empty!");
-            
-            AssignUOMList();
+            RunGetUOM();
         }
+
+        private void RunGetUOM()
+        {
+            _backgroundWorker = new BackgroundWorker();
+            _backgroundWorker.DoWork += (o, e) =>
+            {
+                e.Result = _opcenterCheckData.GetUOMList();
+
+            };
+            _backgroundWorker.RunWorkerCompleted += (o, e) =>
+            {
+                _listUOMs = (string[])e.Result;
+                if (_listUOMs == null)
+                    ZIAlertBox.Warning("Data Empty", "The list data of UOM cannot be retrieve, perhaps you lost connection or data empty!");
+                AssignUOMList();
+                return;
+            };
+
+            _backgroundWorker.RunWorkerAsync();
+        }
+
         private void AssignUOMList()
         {
             if (_listUOMs == null) return;
@@ -67,13 +85,23 @@ namespace PCI.KittingApp.Forms
             return true;
         }
 
-        private void buttonMfgSubmit_Click(object sender, EventArgs e)
+        private void buttonMfgSubmit_Click(object sender, EventArgs _)
         {
             if (!IsRequiredFieldNotEmpty()) return;
-            var data = new CreateOrder() { MfgOrderName = textBoxMfgName.Text , ProductName = textBoxMfgProduct.Text, Qty = textBoxMfgQty.Text , UOM = comboBoxMfgUOM.SelectedText };
-            string TxnId = Guid.NewGuid().ToString();
-            _opcenterSaveData.SaveMfgOrder(data, TxnId);
-            ResetField();
+            
+            // Run Background Worker
+            _backgroundWorker = new BackgroundWorker();
+            _backgroundWorker.DoWork += (o, e) =>
+            {
+                var dataOrder = (CreateOrder)e.Argument;
+                string TxnId = Guid.NewGuid().ToString();
+                _opcenterSaveData.SaveMfgOrder(dataOrder, TxnId);
+                ResetField();
+            };
+
+            // Assign new Object
+            var data = new CreateOrder() { MfgOrderName = textBoxMfgName.Text, ProductName = textBoxMfgProduct.Text, Qty = textBoxMfgQty.Text, UOM = comboBoxMfgUOM.SelectedText };
+            _backgroundWorker.RunWorkerAsync(data);
         }
 
         private void textBoxMfgName_Leave(object sender, EventArgs e)
@@ -86,14 +114,25 @@ namespace PCI.KittingApp.Forms
             // Check initial data
             if (textBoxMfgName.Text == null || textBoxMfgName.Text == "") return;
 
-            if (!_opcenterCheckData.IsMfgOrderNotExists(textBoxMfgName.Text))
+            _backgroundWorker = new BackgroundWorker();
+            _backgroundWorker.DoWork += (o, e) => {
+                var mfgName = (string)e.Argument;
+                e.Result = _opcenterCheckData.IsMfgOrderNotExists(mfgName);
+            };
+            _backgroundWorker.RunWorkerCompleted += (o, e) =>
             {
-                textBoxMfgName.Clear();
-                return;
-            }
+                if (!(bool)e.Result)
+                {
+                    textBoxMfgName.Clear();
+                    textBoxMfgName.Select();
+                    return;
+                }
 
-            // Select next field
-            textBoxMfgProduct.Select();
+                // Select next field
+                textBoxMfgProduct.Select();
+                return;
+            };
+            _backgroundWorker.RunWorkerAsync(textBoxMfgName.Text);
         }
 
         private void textBoxMfgProduct_Leave(object sender, EventArgs e)
@@ -106,14 +145,25 @@ namespace PCI.KittingApp.Forms
             // Check initial data
             if (textBoxMfgProduct.Text == null || textBoxMfgProduct.Text == "") return;
 
-            if (!_opcenterCheckData.IsProductExists(textBoxMfgProduct.Text))
+            _backgroundWorker = new BackgroundWorker();
+            _backgroundWorker.DoWork += (o, e) => {
+                var productName = (string)e.Argument;
+                e.Result = _opcenterCheckData.IsProductExists(productName);
+            };
+            _backgroundWorker.RunWorkerCompleted += (o, e) =>
             {
-                textBoxMfgProduct.Clear();
-                return;
-            }
+                if (!(bool)e.Result)
+                {
+                    textBoxMfgProduct.Clear();
+                    textBoxMfgProduct.Select();
+                    return;
+                }
 
-            // Select next field
-            textBoxMfgQty.Select();
+                // Select next field
+                textBoxMfgQty.Select();
+                return;
+            };
+            _backgroundWorker.RunWorkerAsync(textBoxMfgProduct.Text);
         }
 
         private void textBoxMfgQty_Leave(object sender, EventArgs e)
