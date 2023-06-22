@@ -4,6 +4,7 @@ using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.Util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -15,6 +16,7 @@ namespace PCI.KittingApp.UseCase
     public class PrintingLabelUseCase
     {
         private Repository.SQLite.PrintingLabel _repositoryPrintingLabel;
+        private string _locationTemplatePrinter = AppSettings.TemplatePrinter;
         public PrintingLabelUseCase(Repository.SQLite.PrintingLabel repositoryPrintingLabel)
         {
             _repositoryPrintingLabel = repositoryPrintingLabel;
@@ -35,7 +37,19 @@ namespace PCI.KittingApp.UseCase
         {
             try
             {
-                bool result = RawPrinterUtil.SendStringToPrinter(AppSettings.PrinterName, Data.DataTxn);
+                if (!File.Exists(_locationTemplatePrinter)) return false;
+
+                var tempStringBuilder = "";
+                using (StreamReader sr = new StreamReader(_locationTemplatePrinter))
+                {
+                    tempStringBuilder = sr.ReadToEnd();
+                }
+                //put file into StringBuilder
+                StringBuilder stringBuilder = new StringBuilder(tempStringBuilder);
+                //Replace with correct Value
+                stringBuilder.Replace(AppSettings.FormatToBeReplaced, Data.DataTxn);
+
+                bool result = RawPrinterUtil.SendStringToPrinter(AppSettings.PrinterName, stringBuilder.ToString());
                 if (result) EventLogUtil.LogEvent($"Print Label {Data.DataTxn} using {AppSettings.PrinterName} success!", System.Diagnostics.EventLogEntryType.Information, 6);
                 return result;
             }
