@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.10.0"></a>
+## [1.10.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.10.0) (2023-6-23)
+
+### Features
+
+* add container attr transaction ([3d4d2ce](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/3d4d2cefe40fa313bc990ca579d11ed60b234c98))
+* add summary table ([d079348](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/d0793482649301c09217147b317fe0df5b0f5205))
+* loader image ([654b346](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/654b3464f5bfeaefa512b90aa91cb0dc46fb2e86))
+* running using backgroud worker ([8170d4a](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/8170d4ae455c96213a1871babad261045e4165c8))
+* store the unit txn and material txn into attribute ([20f593e](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/20f593e19829b63146377332991150d075cb80fe))
+
+### Bug Fixes
+
+* change menu order ([bf3e915](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/bf3e915eed8dc8e0b292eb9fc72b089e66d36fb1))
+* printer triggering ([d2a7b55](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/d2a7b55747ee0db0bb44e1792911e8d8f899a0dd))
+* the thread operation in reset field ([2a9b93a](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/2a9b93a71f68601f9f52afa5bf1c404b77b38149))
+
+### Other
+
+* Merge branch 'master' of https://github.com/zulfikar4568/PCI.KittingApp ([3ccfcad](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/3ccfcad6ec3127a0bd933d12b02896e3955604d9))
+* Merge pull request #12 from zulfikar4568/feat/dev ([69403e5](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/69403e564275ea3bde68d510be6254ae133b3180))
+* change color ([6158e4d](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/6158e4dd56f6dad22a625a582517c9714c02bb7b))
+* change json deserialize ([c00369d](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/c00369d74a8d479f900aa44ba26f477936630a07))
+* change the naming of function validation ([90b8507](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/90b85073a558fd4d410fc45ee3d3e6cf4fcb420f))
+* order registration using bg worker ([559e0f8](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/559e0f813dc491ba3b9b380bd28b99ddd490ef25))
+* **update:** v1.9.5 push to the AssemblyInfo.cs ([32eb091](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/32eb09182a11a3f1cee6100e2f3ab13c085a5e40))
+
 <a name="1.9.5"></a>
 ## [1.9.5](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.9.5) (2023-6-22)
 
