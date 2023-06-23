@@ -96,6 +96,9 @@ namespace PCI.KittingApp.Forms
                 var dataOrder = (CreateOrder)e.Argument;
                 string TxnId = Guid.NewGuid().ToString();
                 _opcenterSaveData.SaveMfgOrder(dataOrder, TxnId);
+            };
+            _backgroundWorker.RunWorkerCompleted += (o, e) =>
+            {
                 ResetField();
             };
 

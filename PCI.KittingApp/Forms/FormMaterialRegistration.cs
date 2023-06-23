@@ -66,7 +66,7 @@ namespace PCI.KittingApp.Forms
                 containerName = textBoxRegisterContainer.Text.Remove(0, checkIDN);
             }
 
-            ValidationStatus isFGValid = _kitting.ValidateFGSerialNumberExists(containerName, _opcenterCheckData.IsContainerExists);
+            ValidationStatus isFGValid = _kitting.ValidateFGSerialNumberCheckIfExists(containerName, _opcenterCheckData.IsContainerExists);
             if (!isFGValid.IsSuccess)
             {
                 ShowMessage($"The Container {containerName} {ErrorCodeMeaning.Translate(isFGValid.ErrorCode)}");
@@ -83,11 +83,7 @@ namespace PCI.KittingApp.Forms
 
             // Clear the Initial materials
             listViewMaterial.Items.Clear();
-
-            var newBOMs = materialRegistrationData.BillOfMaterial;
-            GenerateListView(ref newBOMs, listViewMaterial);
-            // reassign the new BOM
-            materialRegistrationData.BillOfMaterial = newBOMs;
+            GenerateListView(materialRegistrationData.BillOfMaterial, listViewMaterial);
 
             // Select next field
             textBoxRegisterPN.Select();
@@ -98,17 +94,13 @@ namespace PCI.KittingApp.Forms
             textBoxRegisterBatchID.Enabled = true;
         }
 
-        private ListView.ListViewItemCollection GenerateListView(ref BillOfMaterial[] billOfMaterials, ListView owner)
+        private ListView.ListViewItemCollection GenerateListView(BillOfMaterial[] billOfMaterials, ListView owner)
         {
             ListView.ListViewItemCollection listViewItemCollection = new ListView.ListViewItemCollection(owner);
             List<BillOfMaterial> newBOMs = new List<BillOfMaterial>();
 
             foreach (var item in billOfMaterials)
             {
-                if (item == null) continue;
-                if (item.IssueControl != IssueControlEnum.Serialized) continue;
-                newBOMs.Add(item);
-
                 string[] data = { item.Product, item.Description };
                 var listViewItem = new ListViewItem(data)
                 {
@@ -116,7 +108,6 @@ namespace PCI.KittingApp.Forms
                 };
                 listViewItemCollection.Add(listViewItem);
             }
-            billOfMaterials = newBOMs.ToArray();
             return listViewItemCollection;
         }
         private void ShowMessage(string errorMsg)
@@ -230,19 +221,16 @@ namespace PCI.KittingApp.Forms
             // Clear the Initial materials
             listViewMaterial.Items.Clear();
 
-            var newBOMs = materialRegistrationData.BillOfMaterial;
-            for (int i = 0; i < newBOMs.Length; i++)
+            for (int i = 0; i < materialRegistrationData.BillOfMaterial.Length; i++)
             {
-                if (newBOMs[i].Product == textBoxRegisterPN.Text)
+                if (materialRegistrationData.BillOfMaterial[i].Product == textBoxRegisterPN.Text)
                 {
-                    newBOMs[i].isRegistered = true;
-                    newBOMs[i].CustomerSerialNumber = textBoxRegisterSN.Text;
-                    newBOMs[i].BatchID = textBoxRegisterBatchID.Text;
+                    materialRegistrationData.BillOfMaterial[i].isRegistered = true;
+                    materialRegistrationData.BillOfMaterial[i].CustomerSerialNumber = textBoxRegisterSN.Text;
+                    materialRegistrationData.BillOfMaterial[i].BatchID = textBoxRegisterBatchID.Text;
                 }
             }
-            GenerateListView(ref newBOMs, listViewMaterial);
-            // reassign the new BOM
-            materialRegistrationData.BillOfMaterial = newBOMs;
+            GenerateListView(materialRegistrationData.BillOfMaterial, listViewMaterial);
 
             //Reset Field
             textBoxRegisterPN.Clear();

@@ -1,6 +1,7 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
+using PCI.KittingApp.Entity.Summary;
 using PCI.KittingApp.Repository;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.Util;
@@ -24,6 +25,16 @@ namespace PCI.KittingApp.UseCase
             _maintenanceTransaction = maintenanceTransaction;
             _containerTransaction = containerTransaction;
             _maintenanceMapper = maintenanceMapper;
+        }
+        public List<ContainerAttributes> GetContainerAttrDetails(Primitive<string>[] Containers)
+        {
+            if (Containers == null) return null;
+            List<ContainerAttributes> result = new List<ContainerAttributes>();
+            foreach (var container in Containers)
+            {
+                result.Add(new ContainerAttributes() { MaterialRegistration = ExtractMaterialRequirementFromContainer(((string)container)), ContainerName = container.ToString(), ContainerAttrDetails = _containerTransaction.GetContainerAttrDetails(container.ToString())});
+            }
+            return result;
         }
         public MfgOrderChanges GetMfgOrderInformation(string MfgOrderName)
         {
@@ -59,7 +70,7 @@ namespace PCI.KittingApp.UseCase
             if (eRPBOMData == null) return null;
             if (eRPBOMData.MaterialList == null) return null;
 
-            BillOfMaterial[] BOMs = _maintenanceMapper.ExtractBOMFromERPBOM(eRPBOMData);
+            BillOfMaterial[] BOMs = _maintenanceMapper.ExtractBOMFromERPBOM(eRPBOMData, IssueControlEnum.Serialized);
             if (BOMs == null) return null;
 
             return new MaterialRegistration()

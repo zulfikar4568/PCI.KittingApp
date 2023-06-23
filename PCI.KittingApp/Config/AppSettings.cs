@@ -105,6 +105,20 @@ namespace PCI.KittingApp.Config
                 return ConfigurationManager.AppSettings["PrinterName"];
             }
         }
+        public static string FormatToBeReplaced
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["FormatToBeReplaced"];
+            }
+        }
+        public static string TemplatePrinter
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["TemplatePrinter"];
+            }
+        }
         public static string DefaultPathPrinter
         {
             get

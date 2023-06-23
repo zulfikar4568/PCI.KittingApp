@@ -138,5 +138,45 @@ namespace PCI.KittingApp.Driver.Opcenter
                 if (!(oService is null)) oService.Close();
             }
         }
+        public ContainerAttrDetail[] GetContainerAttrDetails(ContainerAttrMaint_Info ContainerAttrInfo, string ContainerName, bool IgnoreException = true)
+        {
+            string TxnId = Guid.NewGuid().ToString();
+            ContainerAttrMaintService oService = null;
+            try
+            {
+                oService = new ContainerAttrMaintService(AppSettings.ExCoreUserProfile);
+
+                // Setting Input Data
+                ContainerAttrMaint oServiceObject = new ContainerAttrMaint() { Container = new ContainerRef(ContainerName) };
+                ContainerAttrMaint_Request oServiceRequest = new ContainerAttrMaint_Request() { Info = ContainerAttrInfo };
+
+                //Request the Data
+                ResultStatus oResultStatus = oService.GetAttributes(oServiceObject, oServiceRequest, out ContainerAttrMaint_Result oServiceResult);
+
+                //Return Result
+                string sMessage = "";
+                if (_helper.ProcessResult(oResultStatus, ref sMessage, false))
+                {
+                    EventLogUtil.LogEvent(Logging.LoggingContainer(ContainerName, TxnId, sMessage), System.Diagnostics.EventLogEntryType.Information, 3);
+                    return oServiceResult.Value.ServiceDetails;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Source = AppSettings.AssemblyName == ex.Source ? MethodBase.GetCurrentMethod().Name : MethodBase.GetCurrentMethod().Name + "." + ex.Source;
+                string exceptionMsg = Logging.LoggingContainer(ContainerName, TxnId, ex.Message);
+                EventLogUtil.LogErrorEvent(ex.Source, exceptionMsg);
+                if (!IgnoreException) throw ex;
+                return null;
+            }
+            finally
+            {
+                if (!(oService is null)) oService.Close();
+            }
+        }
     }
 }

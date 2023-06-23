@@ -158,6 +158,8 @@
     <Compile Include="Entity\SQLPrinterData\PrintingLabel.cs" />
     <Compile Include="Entity\Opcenter\ProductDefaultStart.cs" />
     <Compile Include="Entity\SQLTxnFailedData\TransactionFailed.cs" />
+    <Compile Include="Entity\Summary\Summary.cs" />
+    <Compile Include="Entity\TransactionType\ContainerAttribute.cs" />
     <Compile Include="Entity\TransactionType\CreateOrder.cs" />
     <Compile Include="Entity\TransactionType\StartMaterial.cs" />
     <Compile Include="Entity\TransactionType\StartUnit.cs" />
@@ -183,6 +185,12 @@
     </Compile>
     <Compile Include="Forms\FormReprintingLabel.Designer.cs">
       <DependentUpon>FormReprintingLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSummary.Designer.cs">
+      <DependentUpon>FormSummary.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormTransactionFailed.cs">
       <SubType>Form</SubType>
@@ -231,6 +239,7 @@
     <Compile Include="UseCase\OpcenterUseCase\OpcenterCheckData.cs" />
     <Compile Include="UseCase\OpcenterUseCase\OpcenterSaveData.cs" />
     <Compile Include="UseCase\PrinterUseCase\PrintingLabel.cs" />
+    <Compile Include="UseCase\SummaryUseCase\Summary.cs" />
     <Compile Include="UseCase\TxnFailedUseCase\TransactionFailed.cs" />
     <Compile Include="UseCase\UseCaseModule.cs" />
     <Compile Include="UseCase\UserUseCase\UserUseCase.cs" />
@@ -243,6 +252,7 @@
     <Compile Include="Util\Simple3Des.cs" />
     <Compile Include="Util\UtilModule.cs" />
     <Content Include="migrate-db.sql" />
+    <None Include="Resources\loading_ring.gif" />
     <None Include="Resources\success.png" />
     <None Include="Resources\verify.png" />
     <None Include="Resources\Logo1.jpg" />
@@ -262,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReprintingLabel.resx">
       <DependentUpon>FormReprintingLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSummary.resx">
+      <DependentUpon>FormSummary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormTransactionFailed.resx">
       <DependentUpon>FormTransactionFailed.cs</DependentUpon>

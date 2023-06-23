@@ -16,7 +16,8 @@ namespace PCI.KittingApp.UseCase
             if (!partNumberBOM.ToUpper().Contains(partNumberActual.ToUpper())) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_PN_MISSMATCH};
             return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
         }
-        public ValidationStatus ValidateFGSerialNumberExists(string FGSerialNumber, Func<string, bool> ValidateFGExists)
+        // Will error if FG SN not exists!
+        public ValidationStatus ValidateFGSerialNumberCheckIfExists(string FGSerialNumber, Func<string, bool> ValidateFGExists)
         {
             // IDN00002
             // Validate 8 digit characters
@@ -28,7 +29,8 @@ namespace PCI.KittingApp.UseCase
             return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
 
         }
-        public ValidationStatus ValidateFGSerialNumber(string FGSerialNumber, Func<string, bool> ValidateFGExists)
+        // Will error if FG SN already exists!
+        public ValidationStatus ValidateFGSerialNumberCheckIfNotDuplicate(string FGSerialNumber, Func<string, bool> ValidateFGExists)
         {
             // IDN00002
             // Validate 8 digit characters

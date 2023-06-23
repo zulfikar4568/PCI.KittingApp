@@ -16,9 +16,11 @@ namespace PCI.KittingApp.Repository.Opcenter
     public class ContainerTransaction
     {
         private readonly Driver.Opcenter.ContainerTransaction _containerTxn;
-        public ContainerTransaction(Driver.Opcenter.ContainerTransaction containerTxn)
+        private readonly Helper _helper;
+        public ContainerTransaction(Driver.Opcenter.ContainerTransaction containerTxn, Helper helper)
         {
             _containerTxn = containerTxn;
+            _helper = helper;
         }
         public bool ContainerExists(string ContainerName)
         {
@@ -79,15 +81,104 @@ namespace PCI.KittingApp.Repository.Opcenter
             containerInfo.Product = new Info(true);
             return _containerTxn.ContainerInfo(containerInfo, ContainerName, IgnoreException);
         }
-        public CurrentContainerStatus GetContainerStatusDetails(string ContainerName, string DataCollectionName = "", string DataCollectionRev = "", bool IgnoreException = true)
+        public bool ExecuteContainerAttrMaint(string ContainerName, ContainerAttrDetail[] Attributes, string Comments = "", bool IgnoreException = true)
         {
-            ContainerTxn serviceObject = new ContainerTxn();
-            serviceObject.Container = new ContainerRef(ContainerName);
-            if (DataCollectionName != "")
+            string TxnId = Guid.NewGuid().ToString();
+            ContainerAttrMaintService oService = null;
+            try
             {
-                serviceObject.DataCollectionDef = new RevisionedObjectRef() { Name = DataCollectionName, Revision = DataCollectionRev, RevisionOfRecord = (DataCollectionRev == "") };
+                string sMessage = "";
+                oService = new ContainerAttrMaintService(AppSettings.ExCoreUserProfile);
+
+                ContainerAttrMaint oServiceObject = new ContainerAttrMaint() { Container = new ContainerRef(ContainerName) };
+                ContainerAttrMaint_Request oServiceRequest = new ContainerAttrMaint_Request();
+                oServiceRequest.Info = new ContainerAttrMaint_Info();
+                oServiceRequest.Info.ServiceDetails = new ContainerAttrDetail_Info();
+                oServiceRequest.Info.ServiceDetails.Attribute = new Info(true);
+                oServiceRequest.Info.ServiceDetails.Name = new Info(true);
+                oServiceRequest.Info.ServiceDetails.DataType = new Info(true);
+                oServiceRequest.Info.ServiceDetails.AttributeValue = new Info(true);
+                oServiceRequest.Info.ServiceDetails.IsExpression = new Info(true);
+                ContainerAttrMaint_Result oServiceResult = null;
+                ResultStatus oResultStatus = oService.GetAttributes(oServiceObject, oServiceRequest, out oServiceResult);
+                if (_helper.ProcessResult(oResultStatus, ref sMessage, false))
+                {
+                    ContainerAttrDetail[] cCurrentAttrs = oServiceResult.Value.ServiceDetails;
+
+                    EventLogUtil.LogEvent(Logging.LoggingContainer(ContainerName, TxnId, "Setting input data for ContainerAttrMaint ..."), System.Diagnostics.EventLogEntryType.Information, 3);
+
+                    oServiceObject = new ContainerAttrMaint() { Container = new ContainerRef(ContainerName) };
+                    if (cCurrentAttrs != null)
+                    {
+                        foreach (ContainerAttrDetail oAttr in Attributes)
+                        {
+                            foreach (var oCurrentAttr in cCurrentAttrs)
+                            {
+                                if (oAttr.Name == oCurrentAttr.Attribute.Name)
+                                {
+                                    oAttr.Attribute = oCurrentAttr.Attribute;
+                                    break;
+                                }
+                            }
+                        }
+                        foreach (ContainerAttrDetail oCurrentAttr in cCurrentAttrs)
+                        {
+                            bool bFoundAttr = false;
+                            foreach (ContainerAttrDetail oAttr in Attributes)
+                            {
+                                if (oAttr.Name == oCurrentAttr.Name)
+                                {
+                                    bFoundAttr = true;
+                                    break;
+                                }
+                            }
+                            if (!bFoundAttr)
+                            {
+                                Array.Resize(ref Attributes, Attributes.Length + 1);
+                                Attributes[Attributes.Length - 1] = new ContainerAttrDetail() { Attribute = oCurrentAttr.Attribute, Name = oCurrentAttr.Name, DataType = oCurrentAttr.DataType, AttributeValue = oCurrentAttr.AttributeValue, IsExpression = oCurrentAttr.IsExpression };
+                            }
+                        }
+                    }
+
+                    oServiceObject.ServiceDetails = Attributes;
+                    if (Comments != "") oServiceObject.Comments = Comments;
+
+                    EventLogUtil.LogEvent(Logging.LoggingContainer(ContainerName, TxnId, "Executing ContainerAttrMaint ..."), System.Diagnostics.EventLogEntryType.Information, 3);
+                    oResultStatus = oService.ExecuteTransaction(oServiceObject);
+                    bool ExecuteContainerAttrStatus = _helper.ProcessResult(oResultStatus, ref sMessage, false);
+                    EventLogUtil.LogEvent(Logging.LoggingContainer(ContainerName, TxnId, sMessage), System.Diagnostics.EventLogEntryType.Information, 3);
+                    return ExecuteContainerAttrStatus;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            return _containerTxn.ContainerStatusInfo(serviceObject, ContainerName, IgnoreException);
+            catch (Exception ex)
+            {
+                ex.Source = AppSettings.AssemblyName == ex.Source ? MethodBase.GetCurrentMethod().Name : MethodBase.GetCurrentMethod().Name + "." + ex.Source;
+                string exceptionMsg = Logging.LoggingContainer(ContainerName, TxnId, ex.Message);
+                EventLogUtil.LogErrorEvent(ex.Source, exceptionMsg);
+                if (!IgnoreException) throw ex;
+                return false;
+            }
+            finally
+            {
+                if (!(oService is null)) oService.Close();
+            }
+        }
+        public ContainerAttrDetail[] GetContainerAttrDetails(string ContainerName, bool IgnoreException = true)
+        {
+            ContainerAttrMaint_Info containerAttrInfo = new ContainerAttrMaint_Info();
+            containerAttrInfo.ServiceDetails = new ContainerAttrDetail_Info();
+
+            containerAttrInfo.ServiceDetails.Attribute = new Info(true);
+            containerAttrInfo.ServiceDetails.Name = new Info(true);
+            containerAttrInfo.ServiceDetails.DataType = new Info(true);
+            containerAttrInfo.ServiceDetails.AttributeValue = new Info(true);
+            containerAttrInfo.ServiceDetails.IsExpression = new Info(true);
+
+            return _containerTxn.GetContainerAttrDetails(containerAttrInfo, ContainerName, IgnoreException);
         }
     }
 }
