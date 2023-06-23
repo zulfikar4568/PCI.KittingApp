@@ -1,8 +1,11 @@
-﻿using PCI.KittingApp.Config;
+﻿using Camstar.WCF.ObjectStack;
+using PCI.KittingApp.Config;
 using PCI.KittingApp.Entity.Summary;
+using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.Util;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -55,6 +58,53 @@ namespace PCI.KittingApp.UseCase
             if (findDataSummaryUnit.AttributeValue == null || findDataSummaryUnit.AttributeValue == "") return null;
 
             return ExtractRecordSummary<SummaryUnit>(findDataSummaryUnit.AttributeValue.Value);
+        }
+        public void FilterTheDataFromAttributes(List<ContainerAttributes> containerAttributes, ref SummaryDataTable dataTable)
+        {
+            if (containerAttributes != null)
+            {
+                foreach (ContainerAttributes dataAttributes in containerAttributes)
+                {
+                    SummaryUnit summaryUnit = FindSummaryUnit(dataAttributes);
+                    if (summaryUnit == null) continue;
+
+                    List<SummaryMaterial> summaryMaterials = FindSummaryMaterial(dataAttributes);
+
+                    // Assign Data Unit
+                    var statusDone = false;
+                    if (summaryMaterials != null)
+                    {
+                        if (summaryMaterials.ToArray().Length >= dataAttributes.MaterialRegistration.BillOfMaterial.Length) statusDone = true;
+                    }
+                    dataTable.DataSummaryUnit.Rows.Add(summaryUnit.VersanaSN, summaryUnit.KittingEmployee, statusDone ? "Completed" : "Not Completed");
+
+                    if (summaryMaterials == null) continue;
+                    if (summaryMaterials.Count == 0) continue;
+
+                    // Assign Data Material
+                    foreach (var summaryMaterial in summaryMaterials)
+                    {
+                        dataTable.DataSummaryMaterial.Rows.Add(summaryMaterial.VersanaSN, summaryMaterial.MaterialPN, summaryMaterial.CustomerSN, summaryMaterial.KittingEmployee);
+                    }
+                }
+            }
+        }
+        public SummaryDataTable InstantiateDataTable()
+        {
+            var _summaryDataTable = new SummaryDataTable() { DataSummaryMaterial = new DataTable(), DataSummaryUnit = new DataTable() };
+
+            //Parent table
+            _summaryDataTable.DataSummaryUnit.Columns.Add("Versana S/N", typeof(string));
+            _summaryDataTable.DataSummaryUnit.Columns.Add("Kitting Employee", typeof(string));
+            _summaryDataTable.DataSummaryUnit.Columns.Add("Kitting Status", typeof(string));
+
+            //Child table
+            _summaryDataTable.DataSummaryMaterial.Columns.Add("Versana S/N", typeof(string));
+            _summaryDataTable.DataSummaryMaterial.Columns.Add("P/N", typeof(string));
+            _summaryDataTable.DataSummaryMaterial.Columns.Add("Customer S/N", typeof(string));
+            _summaryDataTable.DataSummaryMaterial.Columns.Add("Kitting Employee", typeof(string));
+
+            return _summaryDataTable;
         }
     }
 }

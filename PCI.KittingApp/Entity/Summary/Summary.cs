@@ -1,6 +1,7 @@
 ﻿using Camstar.WCF.ObjectStack;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,5 +26,10 @@ namespace PCI.KittingApp.Entity.Summary
         public string ContainerName { get; set; }
         public MaterialRegistration MaterialRegistration { get; set; }
         public ContainerAttrDetail[] ContainerAttrDetails { get; set; }
+    }
+    public class SummaryDataTable
+    {
+        public DataTable DataSummaryUnit { get; set; }
+        public DataTable DataSummaryMaterial { get; set; }
     }
 }

@@ -408,7 +408,7 @@ namespace PCI.KittingApp
             btnTransactionFailed.Visible = false;
             btnReprintingLabel.Visible = false;
             btnUsersManagement.Visible = false;
-            //btnSummary.Visible = false;
+            btnSummary.Visible = false;
 
 
             buttonLogoutSidebar.Visible = false;

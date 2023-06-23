@@ -21,12 +21,6 @@ namespace PCI.KittingApp.Forms
 {
     public partial class FormSummary : Form
     {
-        //Field
-        private DataTable dataSummaryUnit = null;
-        private DataTable dataSummaryMaterial = null;
-        private DataSet dataSet = null;
-        private List<ContainerAttributes> _containerAttributes = new List<ContainerAttributes>();
-
         private OpcenterCheckData _opcenterCheckData;
         private SummaryUseCase _summaryUseCase;
         public FormSummary(OpcenterCheckData opcenterCheckData, SummaryUseCase summaryUseCase)
@@ -40,8 +34,6 @@ namespace PCI.KittingApp.Forms
         {
             // Check Initial Data
             if (textBoxMfg.Text == null || textBoxMfg.Text == "") return;
-
-            InitialTable();
 
             if (!_opcenterCheckData.IsMfgOrderExists(textBoxMfg.Text))
             {
@@ -75,67 +67,44 @@ namespace PCI.KittingApp.Forms
                 textBoxTotalQty.Text = "0";
             }
 
-            _containerAttributes = _opcenterCheckData.GetContainerAttrDetails(MfgOrderChanges.Containers);
-            if (_containerAttributes != null)
+            RunningHeavyFilterData(MfgOrderChanges.Containers);
+        }
+        private void RunningHeavyFilterData(Primitive<string>[] containers)
+        {
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (o, e) =>
             {
-                foreach (ContainerAttributes dataAttributes in _containerAttributes)
-                {
-                    SummaryUnit summaryUnit = _summaryUseCase.FindSummaryUnit(dataAttributes);
-                    if (summaryUnit == null) continue;
+                var containerParams = (Primitive<string>[])e.Argument;
+                SummaryDataTable summaryDataTable = _summaryUseCase.InstantiateDataTable();
+                _summaryUseCase.FilterTheDataFromAttributes(_opcenterCheckData.GetContainerAttrDetails(containerParams), ref summaryDataTable);
+                e.Result = summaryDataTable;
+            };
+            worker.RunWorkerCompleted += (o, e) =>
+            {
+                var summaryDataTable = (SummaryDataTable)e.Result;
 
-                    List<SummaryMaterial> summaryMaterials = _summaryUseCase.FindSummaryMaterial(dataAttributes);
+                InitializationDataGrid(summaryDataTable);
+            };
+            worker.RunWorkerAsync(containers);
+        }
+        private void InitializationDataGrid(SummaryDataTable summaryDataTable)
+        {
+            // Create new DataSet
+            var dataSet = new DataSet();
 
-                    // Assign Data Unit
-                    var statusDone = false;
-                    if (summaryMaterials != null)
-                    {
-                        if (summaryMaterials.ToArray().Length >= dataAttributes.MaterialRegistration.BillOfMaterial.Length) statusDone = true;
-                    }
-                    dataSummaryUnit.Rows.Add(summaryUnit.VersanaSN, summaryUnit.KittingEmployee, statusDone ? "Completed" : "Not Completed");
-
-                    if (summaryMaterials == null) continue;
-                    if (summaryMaterials.Count == 0) continue;
-
-                    // Assign Data Material
-                    foreach (var summaryMaterial in summaryMaterials)
-                    {
-                        dataSummaryMaterial.Rows.Add(summaryMaterial.VersanaSN, summaryMaterial.MaterialPN, summaryMaterial.CustomerSN, summaryMaterial.KittingEmployee);
-                    }
-                }
-            }
-
-            //Add two DataTables  in Dataset 
-            dataSet.Tables.Add(dataSummaryUnit);
-            dataSet.Tables.Add(dataSummaryMaterial);
+            //Add two DataTables  in Dataset
+            dataSet.Tables.Add(summaryDataTable.DataSummaryUnit);
+            dataSet.Tables.Add(summaryDataTable.DataSummaryMaterial);
 
             if (dataSet.Tables[0].Rows.Count > 0 && dataSet.Tables[1].Rows.Count > 0)
             {
                 DataRelation Datatablerelation = new DataRelation("List of Material", dataSet.Tables[0].Columns[0], dataSet.Tables[1].Columns[0], true);
                 dataSet.Relations.Add(Datatablerelation);
             }
-            
+
             dataGridListContainer.DataSource = dataSet.Tables[0];
-        }
 
-        private void InitialTable()
-        {
-            // Empty First
-            dataSummaryMaterial = new DataTable();
-            dataSummaryUnit = new DataTable();
-            dataSet = new DataSet();
             dataGridListContainer.DataBindings.Clear();
-
-            //Parent table
-            dataSummaryUnit.Columns.Add("Versana S/N", typeof(string));
-            dataSummaryUnit.Columns.Add("Kitting Employee", typeof(string));
-            dataSummaryUnit.Columns.Add("Kitting Status", typeof(string));
-
-            //Child table
-            dataSummaryMaterial.Columns.Add("Versana S/N", typeof(string));
-            dataSummaryMaterial.Columns.Add("P/N", typeof(string));
-            dataSummaryMaterial.Columns.Add("Customer S/N", typeof(string));
-            dataSummaryMaterial.Columns.Add("Kitting Employee", typeof(string));
-
             dataGridListContainer.PreferredColumnWidth = (int)(dataGridListContainer.Width / 2.5);
         }
         private void EmptyInformationOfMfgOrder()
@@ -144,12 +113,13 @@ namespace PCI.KittingApp.Forms
             textBoxBalance.Clear();
             textBoxQty.Clear();
             textBoxTotalQty.Clear();
+            InitializationDataGrid(_summaryUseCase.InstantiateDataTable());
         }
 
         #region Event Trigger
         private void FormSummary_Load(object sender, EventArgs e)
         {
-            InitialTable();
+            EmptyInformationOfMfgOrder();
         }
 
         private void buttonSearch_Click(object sender, EventArgs e)
