@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.PanelMfgOrder = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panelMfgSubmit = new System.Windows.Forms.Panel();
+            this.buttonSearch = new FontAwesome.Sharp.IconButton();
+            this.panelMfgProduct = new System.Windows.Forms.Panel();
+            this.textBoxMfg = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panelListContainer = new System.Windows.Forms.Panel();
             this.dataGridListContainer = new System.Windows.Forms.DataGrid();
@@ -43,13 +49,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxBalance = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panelMfgProduct = new System.Windows.Forms.Panel();
-            this.textBoxMfg = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panelMfgSubmit = new System.Windows.Forms.Panel();
-            this.buttonSearch = new FontAwesome.Sharp.IconButton();
             this.PanelMfgOrder.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panelMfgSubmit.SuspendLayout();
+            this.panelMfgProduct.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panelListContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridListContainer)).BeginInit();
@@ -58,9 +61,6 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.panelMfgProduct.SuspendLayout();
-            this.panelMfgSubmit.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelMfgOrder
@@ -79,6 +79,90 @@
             this.PanelMfgOrder.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PanelMfgOrder.Size = new System.Drawing.Size(1312, 723);
             this.PanelMfgOrder.TabIndex = 10;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 195F));
+            this.tableLayoutPanel1.Controls.Add(this.panelMfgSubmit, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelMfgProduct, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1306, 109);
+            this.tableLayoutPanel1.TabIndex = 15;
+            // 
+            // panelMfgSubmit
+            // 
+            this.panelMfgSubmit.Controls.Add(this.buttonSearch);
+            this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMfgSubmit.Location = new System.Drawing.Point(1114, 3);
+            this.panelMfgSubmit.Name = "panelMfgSubmit";
+            this.panelMfgSubmit.Size = new System.Drawing.Size(189, 103);
+            this.panelMfgSubmit.TabIndex = 15;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSearch.AutoSize = true;
+            this.buttonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
+            this.buttonSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSearch.ForeColor = System.Drawing.Color.White;
+            this.buttonSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.buttonSearch.IconColor = System.Drawing.Color.White;
+            this.buttonSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buttonSearch.IconSize = 40;
+            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSearch.Location = new System.Drawing.Point(23, 38);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(146, 50);
+            this.buttonSearch.TabIndex = 13;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.buttonSearch.UseVisualStyleBackColor = false;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
+            // 
+            // panelMfgProduct
+            // 
+            this.panelMfgProduct.Controls.Add(this.textBoxMfg);
+            this.panelMfgProduct.Controls.Add(this.label2);
+            this.panelMfgProduct.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMfgProduct.Location = new System.Drawing.Point(3, 3);
+            this.panelMfgProduct.Name = "panelMfgProduct";
+            this.panelMfgProduct.Size = new System.Drawing.Size(1105, 103);
+            this.panelMfgProduct.TabIndex = 11;
+            // 
+            // textBoxMfg
+            // 
+            this.textBoxMfg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxMfg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
+            this.textBoxMfg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxMfg.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
+            this.textBoxMfg.ForeColor = System.Drawing.Color.Gainsboro;
+            this.textBoxMfg.Location = new System.Drawing.Point(23, 38);
+            this.textBoxMfg.Name = "textBoxMfg";
+            this.textBoxMfg.Size = new System.Drawing.Size(1065, 50);
+            this.textBoxMfg.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.Location = new System.Drawing.Point(19, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 28);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Mfg Order";
             // 
             // tableLayoutPanel2
             // 
@@ -107,7 +191,7 @@
             // 
             // dataGridListContainer
             // 
-            this.dataGridListContainer.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(61)))));
+            this.dataGridListContainer.BackgroundColor = System.Drawing.Color.White;
             this.dataGridListContainer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridListContainer.CaptionBackColor = System.Drawing.Color.White;
             this.dataGridListContainer.CaptionFont = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -267,90 +351,6 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Balance";
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 195F));
-            this.tableLayoutPanel1.Controls.Add(this.panelMfgSubmit, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panelMfgProduct, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1306, 109);
-            this.tableLayoutPanel1.TabIndex = 15;
-            // 
-            // panelMfgProduct
-            // 
-            this.panelMfgProduct.Controls.Add(this.textBoxMfg);
-            this.panelMfgProduct.Controls.Add(this.label2);
-            this.panelMfgProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgProduct.Location = new System.Drawing.Point(3, 3);
-            this.panelMfgProduct.Name = "panelMfgProduct";
-            this.panelMfgProduct.Size = new System.Drawing.Size(1105, 103);
-            this.panelMfgProduct.TabIndex = 11;
-            // 
-            // textBoxMfg
-            // 
-            this.textBoxMfg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxMfg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(65)))));
-            this.textBoxMfg.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxMfg.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Bold);
-            this.textBoxMfg.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxMfg.Location = new System.Drawing.Point(23, 38);
-            this.textBoxMfg.Name = "textBoxMfg";
-            this.textBoxMfg.Size = new System.Drawing.Size(1065, 50);
-            this.textBoxMfg.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(19, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 28);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Mfg Order";
-            // 
-            // panelMfgSubmit
-            // 
-            this.panelMfgSubmit.Controls.Add(this.buttonSearch);
-            this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgSubmit.Location = new System.Drawing.Point(1114, 3);
-            this.panelMfgSubmit.Name = "panelMfgSubmit";
-            this.panelMfgSubmit.Size = new System.Drawing.Size(189, 103);
-            this.panelMfgSubmit.TabIndex = 15;
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSearch.AutoSize = true;
-            this.buttonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(146)))), ((int)(((byte)(222)))));
-            this.buttonSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSearch.ForeColor = System.Drawing.Color.White;
-            this.buttonSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.buttonSearch.IconColor = System.Drawing.Color.White;
-            this.buttonSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.buttonSearch.IconSize = 40;
-            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSearch.Location = new System.Drawing.Point(23, 38);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(146, 50);
-            this.buttonSearch.TabIndex = 13;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonSearch.UseVisualStyleBackColor = false;
-            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
-            // 
             // FormSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -362,6 +362,11 @@
             this.Text = "FormSummary";
             this.Load += new System.EventHandler(this.FormSummary_Load);
             this.PanelMfgOrder.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panelMfgSubmit.ResumeLayout(false);
+            this.panelMfgSubmit.PerformLayout();
+            this.panelMfgProduct.ResumeLayout(false);
+            this.panelMfgProduct.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panelListContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridListContainer)).EndInit();
@@ -373,11 +378,6 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panelMfgProduct.ResumeLayout(false);
-            this.panelMfgProduct.PerformLayout();
-            this.panelMfgSubmit.ResumeLayout(false);
-            this.panelMfgSubmit.PerformLayout();
             this.ResumeLayout(false);
 
         }
