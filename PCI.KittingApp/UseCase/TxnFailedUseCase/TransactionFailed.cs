@@ -1,11 +1,14 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Components;
+using PCI.KittingApp.Config;
 using PCI.KittingApp.Entity;
 using PCI.KittingApp.Entity.Summary;
 using PCI.KittingApp.Entity.TransactionType;
+using PCI.KittingApp.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -137,10 +140,20 @@ namespace PCI.KittingApp.UseCase
                     break;
             }
         }
-
         private T ExtractRecordTransaction<T>(Entity.TransactionFailed transactionFailed)
         {
-            return JsonSerializer.Deserialize<T>(transactionFailed.DataTransaction);
+            try
+            {
+                if (transactionFailed == null) return default;
+                if (string.IsNullOrEmpty(transactionFailed.DataTransaction)) return default;
+                return JsonSerializer.Deserialize<T>(transactionFailed.DataTransaction);
+            }
+            catch (Exception ex)
+            {
+                ex.Source = AppSettings.AssemblyName == ex.Source ? MethodBase.GetCurrentMethod().Name : MethodBase.GetCurrentMethod().Name + "." + ex.Source;
+                EventLogUtil.LogErrorEvent(ex.Source, ex);
+                return default;
+            }
         }
     }
 }
