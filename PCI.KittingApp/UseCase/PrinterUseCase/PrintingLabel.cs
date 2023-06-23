@@ -35,6 +35,7 @@ namespace PCI.KittingApp.UseCase
 
         public bool SendDataToPrinter(PrintingLabel Data)
         {
+            if (Data == null) return false;
             try
             {
                 if (!File.Exists(_locationTemplatePrinter)) return false;

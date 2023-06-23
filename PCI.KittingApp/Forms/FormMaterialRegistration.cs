@@ -73,25 +73,35 @@ namespace PCI.KittingApp.Forms
                 textBoxRegisterContainer.Clear();
                 return;
             }
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (o, e) =>
+            {
+                string containerSN = (string)e.Argument;
+                e.Result = _opcenterCheckData.ExtractMaterialRequirementFromContainer(containerSN);
+            };
+            worker.RunWorkerCompleted += (o, e) => 
+            {
+                materialRegistrationData = (MaterialRegistration)e.Result;
 
-            materialRegistrationData = _opcenterCheckData.ExtractMaterialRequirementFromContainer(containerName);
-            if (materialRegistrationData == null) return;
-            if (materialRegistrationData.ProductName == null || materialRegistrationData.ERPBOMName == null || materialRegistrationData.BillOfMaterial == null) return;
+                if (materialRegistrationData == null) return;
+                if (materialRegistrationData.ProductName == null || materialRegistrationData.ERPBOMName == null || materialRegistrationData.BillOfMaterial == null) return;
 
-            textBoxRegisterProduct.Text = materialRegistrationData.ProductName;
-            textBoxRegisterERPBOM.Text = materialRegistrationData.ERPBOMName;
+                textBoxRegisterProduct.Text = materialRegistrationData.ProductName;
+                textBoxRegisterERPBOM.Text = materialRegistrationData.ERPBOMName;
 
-            // Clear the Initial materials
-            listViewMaterial.Items.Clear();
-            GenerateListView(materialRegistrationData.BillOfMaterial, listViewMaterial);
+                // Clear the Initial materials
+                listViewMaterial.Items.Clear();
+                GenerateListView(materialRegistrationData.BillOfMaterial, listViewMaterial);
 
-            // Select next field
-            textBoxRegisterPN.Select();
-            textBoxRegisterContainer.Enabled = false;
+                // Select next field
+                textBoxRegisterPN.Select();
+                textBoxRegisterContainer.Enabled = false;
 
-            textBoxRegisterSN.Enabled = true;
-            textBoxRegisterPN.Enabled = true;
-            textBoxRegisterBatchID.Enabled = true;
+                textBoxRegisterSN.Enabled = true;
+                textBoxRegisterPN.Enabled = true;
+                textBoxRegisterBatchID.Enabled = true;
+            };
+            worker.RunWorkerAsync(containerName);
         }
 
         private ListView.ListViewItemCollection GenerateListView(BillOfMaterial[] billOfMaterials, ListView owner)
@@ -304,10 +314,14 @@ namespace PCI.KittingApp.Forms
                 ShowMessage(ErrorCodeMeaning.Translate(statusOfBOM.ErrorCode));
                 return;
             }
-
-            _opcenterSaveData.RegisterAllBillOfMaterial(materialRegistrationData.BillOfMaterial, containerName);
-
-            ResetField();
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.DoWork += (o, _) => DoWorkerDoWork(materialRegistrationData.BillOfMaterial, containerName);
+            worker.RunWorkerCompleted += (o, _e) => ResetField();
+            worker.RunWorkerAsync();
+        }
+        private void DoWorkerDoWork(BillOfMaterial[] billOfMaterials, string SerialNumberReference)
+        {
+            _opcenterSaveData.RegisterAllBillOfMaterial(billOfMaterials, SerialNumberReference);
         }
 
         private void ResetField()
