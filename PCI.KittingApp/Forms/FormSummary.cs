@@ -1,4 +1,5 @@
 ﻿using Camstar.WCF.ObjectStack;
+using PCI.KittingApp.Components;
 using PCI.KittingApp.Config;
 using PCI.KittingApp.Entity;
 using PCI.KittingApp.Entity.Summary;
@@ -21,6 +22,8 @@ namespace PCI.KittingApp.Forms
 {
     public partial class FormSummary : Form
     {
+        private bool buttonActive = true;
+
         private OpcenterCheckData _opcenterCheckData;
         private SummaryUseCase _summaryUseCase;
         public FormSummary(OpcenterCheckData opcenterCheckData, SummaryUseCase summaryUseCase)
@@ -34,6 +37,10 @@ namespace PCI.KittingApp.Forms
         {
             // Check Initial Data
             if (textBoxMfg.Text == null || textBoxMfg.Text == "") return;
+            
+            pictureBoxLoading.Visible = true;
+            textBoxMfg.Enabled = false;
+            buttonActive = false;
 
             if (!_opcenterCheckData.IsMfgOrderExists(textBoxMfg.Text))
             {
@@ -106,6 +113,10 @@ namespace PCI.KittingApp.Forms
 
             dataGridListContainer.DataBindings.Clear();
             dataGridListContainer.PreferredColumnWidth = (int)(dataGridListContainer.Width / 2.5);
+
+            pictureBoxLoading.Visible = false;
+            textBoxMfg.Enabled = true;
+            buttonActive = true;
         }
         private void EmptyInformationOfMfgOrder()
         {
@@ -124,7 +135,8 @@ namespace PCI.KittingApp.Forms
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            CheckMfgField();
+            if (buttonActive) CheckMfgField();
+            else ZIAlertBox.Warning("Information", "Please wait, you still requesting some data!");
         }
         #endregion
     }

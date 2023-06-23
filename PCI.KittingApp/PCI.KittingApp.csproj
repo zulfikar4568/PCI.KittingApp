@@ -252,6 +252,7 @@
     <Compile Include="Util\Simple3Des.cs" />
     <Compile Include="Util\UtilModule.cs" />
     <Content Include="migrate-db.sql" />
+    <None Include="Resources\loading_ring.gif" />
     <None Include="Resources\success.png" />
     <None Include="Resources\verify.png" />
     <None Include="Resources\Logo1.jpg" />

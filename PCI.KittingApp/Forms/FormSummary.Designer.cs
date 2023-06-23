@@ -49,6 +49,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxBalance = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
             this.PanelMfgOrder.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelMfgSubmit.SuspendLayout();
@@ -61,6 +62,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelMfgOrder
@@ -84,7 +86,7 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 195F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 248F));
             this.tableLayoutPanel1.Controls.Add(this.panelMfgSubmit, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelMfgProduct, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -97,11 +99,12 @@
             // 
             // panelMfgSubmit
             // 
+            this.panelMfgSubmit.Controls.Add(this.pictureBoxLoading);
             this.panelMfgSubmit.Controls.Add(this.buttonSearch);
             this.panelMfgSubmit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMfgSubmit.Location = new System.Drawing.Point(1114, 3);
+            this.panelMfgSubmit.Location = new System.Drawing.Point(1061, 3);
             this.panelMfgSubmit.Name = "panelMfgSubmit";
-            this.panelMfgSubmit.Size = new System.Drawing.Size(189, 103);
+            this.panelMfgSubmit.Size = new System.Drawing.Size(242, 103);
             this.panelMfgSubmit.TabIndex = 15;
             // 
             // buttonSearch
@@ -119,7 +122,7 @@
             this.buttonSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.buttonSearch.IconSize = 40;
             this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSearch.Location = new System.Drawing.Point(23, 38);
+            this.buttonSearch.Location = new System.Drawing.Point(76, 38);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(146, 50);
             this.buttonSearch.TabIndex = 13;
@@ -135,7 +138,7 @@
             this.panelMfgProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMfgProduct.Location = new System.Drawing.Point(3, 3);
             this.panelMfgProduct.Name = "panelMfgProduct";
-            this.panelMfgProduct.Size = new System.Drawing.Size(1105, 103);
+            this.panelMfgProduct.Size = new System.Drawing.Size(1052, 103);
             this.panelMfgProduct.TabIndex = 11;
             // 
             // textBoxMfg
@@ -148,7 +151,7 @@
             this.textBoxMfg.ForeColor = System.Drawing.Color.Gainsboro;
             this.textBoxMfg.Location = new System.Drawing.Point(23, 38);
             this.textBoxMfg.Name = "textBoxMfg";
-            this.textBoxMfg.Size = new System.Drawing.Size(1065, 50);
+            this.textBoxMfg.Size = new System.Drawing.Size(1012, 50);
             this.textBoxMfg.TabIndex = 2;
             // 
             // label2
@@ -351,6 +354,16 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Balance";
             // 
+            // pictureBoxLoading
+            // 
+            this.pictureBoxLoading.Image = global::PCI.KittingApp.Properties.Resources.loading_ring;
+            this.pictureBoxLoading.Location = new System.Drawing.Point(13, 38);
+            this.pictureBoxLoading.Name = "pictureBoxLoading";
+            this.pictureBoxLoading.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLoading.TabIndex = 14;
+            this.pictureBoxLoading.TabStop = false;
+            // 
             // FormSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -378,6 +391,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -405,5 +419,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelMfgSubmit;
         private FontAwesome.Sharp.IconButton buttonSearch;
+        private System.Windows.Forms.PictureBox pictureBoxLoading;
     }
 }
