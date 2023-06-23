@@ -28,6 +28,7 @@ namespace PCI.KittingApp
         private TransactionFailed _transactionFailed;
         private PrintingLabelUseCase _printingLabelUseCase;
         private UserUseCase _userUseCase;
+        private SummaryUseCase _summaryUseCase;
         public static User currentUserSession { get; private set; }
 
         #region UI_Field
@@ -39,7 +40,7 @@ namespace PCI.KittingApp
         private int borderSize = 2;
         private Size formSize; //Keep form size when it is minimized and restored.Since the form is resized because it takes into account the size of the title bar and borders.
         #endregion
-        public Main(UserUseCase userUseCase, OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting, TransactionFailed transactionFailed, PrintingLabelUseCase printingLabelUseCase)
+        public Main(UserUseCase userUseCase, OpcenterCheckData opcenterCheckData, OpcenterSaveData opcenterSaveData, Kitting kitting, TransactionFailed transactionFailed, PrintingLabelUseCase printingLabelUseCase, SummaryUseCase summaryUseCase)
         {
             InitializeComponent();
             #region UI_Constructor
@@ -63,6 +64,7 @@ namespace PCI.KittingApp
             _transactionFailed = transactionFailed;
             _printingLabelUseCase = printingLabelUseCase;
             _userUseCase = userUseCase;
+            _summaryUseCase = summaryUseCase;
         }
 
         #region UI_Resposibility
@@ -276,7 +278,7 @@ namespace PCI.KittingApp
         private void btnSummary_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, Color.Coral);
-            OpenChildForm(new FormSummary(_opcenterCheckData));
+            OpenChildForm(new FormSummary(_opcenterCheckData, _summaryUseCase));
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -406,7 +408,7 @@ namespace PCI.KittingApp
             btnTransactionFailed.Visible = false;
             btnReprintingLabel.Visible = false;
             btnUsersManagement.Visible = false;
-            btnSummary.Visible = false;
+            //btnSummary.Visible = false;
 
 
             buttonLogoutSidebar.Visible = false;

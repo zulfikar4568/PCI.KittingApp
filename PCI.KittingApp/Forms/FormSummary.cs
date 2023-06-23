@@ -1,14 +1,18 @@
 ﻿using Camstar.WCF.ObjectStack;
+using PCI.KittingApp.Config;
 using PCI.KittingApp.Entity;
 using PCI.KittingApp.Entity.Summary;
 using PCI.KittingApp.UseCase;
+using PCI.KittingApp.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -18,22 +22,26 @@ namespace PCI.KittingApp.Forms
     public partial class FormSummary : Form
     {
         //Field
-        private DataTable dataSummaryUnit = new DataTable();
-        private DataTable dataSummaryMaterial = new DataTable();
-        private DataSet dataSet = new DataSet();
+        private DataTable dataSummaryUnit = null;
+        private DataTable dataSummaryMaterial = null;
+        private DataSet dataSet = null;
         private List<ContainerAttributes> _containerAttributes = new List<ContainerAttributes>();
 
         private OpcenterCheckData _opcenterCheckData;
-        public FormSummary(OpcenterCheckData opcenterCheckData)
+        private SummaryUseCase _summaryUseCase;
+        public FormSummary(OpcenterCheckData opcenterCheckData, SummaryUseCase summaryUseCase)
         {
             InitializeComponent();
             _opcenterCheckData = opcenterCheckData;
+            _summaryUseCase = summaryUseCase;
         }
 
         private void CheckMfgField()
         {
             // Check Initial Data
             if (textBoxMfg.Text == null || textBoxMfg.Text == "") return;
+
+            InitialTable();
 
             if (!_opcenterCheckData.IsMfgOrderExists(textBoxMfg.Text))
             {
@@ -44,8 +52,7 @@ namespace PCI.KittingApp.Forms
 
             AssignedFieldReadOnly(mfgOrderChanges);
 
-            // Select next field
-            textBoxMfg.Select();
+            textBoxQty.Select();
         }
         private void AssignedFieldReadOnly(MfgOrderChanges MfgOrderChanges)
         {
@@ -68,64 +75,34 @@ namespace PCI.KittingApp.Forms
                 textBoxTotalQty.Text = "0";
             }
 
-            // Assign list of containers
-            if (MfgOrderChanges.Containers == null) return;
             _containerAttributes = _opcenterCheckData.GetContainerAttrDetails(MfgOrderChanges.Containers);
-        }
-        private void EmptyInformationOfMfgOrder()
-        {
-            textBoxMfg.Clear();
-            dataGridListContainer.DataBindings.Clear();
-            textBoxBalance.Clear();
-            textBoxQty.Clear();
-            textBoxTotalQty.Clear();
-        }
-
-        #region Event Trigger
-        private void textBoxMfg_Leave(object sender, EventArgs e)
-        {
-            CheckMfgField();
-        }
-
-        private void textBoxMfg_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            if (_containerAttributes != null)
             {
-                CheckMfgField();
+                foreach (ContainerAttributes dataAttributes in _containerAttributes)
+                {
+                    SummaryUnit summaryUnit = _summaryUseCase.FindSummaryUnit(dataAttributes);
+                    if (summaryUnit == null) continue;
+
+                    List<SummaryMaterial> summaryMaterials = _summaryUseCase.FindSummaryMaterial(dataAttributes);
+
+                    // Assign Data Unit
+                    var statusDone = false;
+                    if (summaryMaterials != null)
+                    {
+                        if (summaryMaterials.ToArray().Length >= dataAttributes.MaterialRegistration.BillOfMaterial.Length) statusDone = true;
+                    }
+                    dataSummaryUnit.Rows.Add(summaryUnit.VersanaSN, summaryUnit.KittingEmployee, statusDone ? "Completed" : "Not Completed");
+
+                    if (summaryMaterials == null) continue;
+                    if (summaryMaterials.Count == 0) continue;
+
+                    // Assign Data Material
+                    foreach (var summaryMaterial in summaryMaterials)
+                    {
+                        dataSummaryMaterial.Rows.Add(summaryMaterial.VersanaSN, summaryMaterial.MaterialPN, summaryMaterial.CustomerSN, summaryMaterial.KittingEmployee);
+                    }
+                }
             }
-        }
-        #endregion
-
-        private void FormSummary_Load(object sender, EventArgs e)
-        {
-            //Parent table
-            dataSummaryUnit.Columns.Add("Versana S/N", typeof(string));
-            dataSummaryUnit.Columns.Add("Kitting Employee", typeof(string));
-            dataSummaryUnit.Columns.Add("Kitting Status", typeof(string));
-
-            //Child table
-            dataSummaryMaterial.Columns.Add("Versana S/N", typeof(int));
-            dataSummaryMaterial.Columns.Add("P/N", typeof(int));
-            dataSummaryMaterial.Columns.Add("Customer S/N", typeof(string));
-            dataSummaryMaterial.Columns.Add("Kitting Employee", typeof(int));
-
-
-            /* 
-            dataSummaryMaterial.Rows.Add(222, "01", "Physics", 80);
-            dataSummaryMaterial.Rows.Add(222, "02", "English", 95);
-            dataSummaryMaterial.Rows.Add(222, "03", "Commerce", 95);
-            dataSummaryMaterial.Rows.Add(222, "01", "BankPO", 99);
-            
-            dataSummaryUnit.Rows.Add(111, "Devesh", "03021013014", "Done");
-            dataSummaryUnit.Rows.Add(222, "ROLI", "0302101444", "Done");
-            dataSummaryUnit.Rows.Add(333, "ROLI Ji", "030212222", "Done");
-            dataSummaryUnit.Rows.Add(444, "NIKHIL", "KANPUR", "Done");
-
-            
-            dataSummaryMaterial.Rows.Add(111, "01", "Physics", 99);
-            dataSummaryMaterial.Rows.Add(111, "02", "Maths", 77);
-            dataSummaryMaterial.Rows.Add(111, "03", "C#", 100);
-            dataSummaryMaterial.Rows.Add(111, "01", "Physics", 99);*/
 
             //Add two DataTables  in Dataset 
             dataSet.Tables.Add(dataSummaryUnit);
@@ -136,9 +113,49 @@ namespace PCI.KittingApp.Forms
                 DataRelation Datatablerelation = new DataRelation("List of Material", dataSet.Tables[0].Columns[0], dataSet.Tables[1].Columns[0], true);
                 dataSet.Relations.Add(Datatablerelation);
             }
-
+            
             dataGridListContainer.DataSource = dataSet.Tables[0];
+        }
+
+        private void InitialTable()
+        {
+            // Empty First
+            dataSummaryMaterial = new DataTable();
+            dataSummaryUnit = new DataTable();
+            dataSet = new DataSet();
+            dataGridListContainer.DataBindings.Clear();
+
+            //Parent table
+            dataSummaryUnit.Columns.Add("Versana S/N", typeof(string));
+            dataSummaryUnit.Columns.Add("Kitting Employee", typeof(string));
+            dataSummaryUnit.Columns.Add("Kitting Status", typeof(string));
+
+            //Child table
+            dataSummaryMaterial.Columns.Add("Versana S/N", typeof(string));
+            dataSummaryMaterial.Columns.Add("P/N", typeof(string));
+            dataSummaryMaterial.Columns.Add("Customer S/N", typeof(string));
+            dataSummaryMaterial.Columns.Add("Kitting Employee", typeof(string));
+
             dataGridListContainer.PreferredColumnWidth = (int)(dataGridListContainer.Width / 2.5);
         }
+        private void EmptyInformationOfMfgOrder()
+        {
+            textBoxMfg.Clear();
+            textBoxBalance.Clear();
+            textBoxQty.Clear();
+            textBoxTotalQty.Clear();
+        }
+
+        #region Event Trigger
+        private void FormSummary_Load(object sender, EventArgs e)
+        {
+            InitialTable();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            CheckMfgField();
+        }
+        #endregion
     }
 }

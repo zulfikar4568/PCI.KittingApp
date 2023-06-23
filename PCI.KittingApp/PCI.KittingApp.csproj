@@ -239,6 +239,7 @@
     <Compile Include="UseCase\OpcenterUseCase\OpcenterCheckData.cs" />
     <Compile Include="UseCase\OpcenterUseCase\OpcenterSaveData.cs" />
     <Compile Include="UseCase\PrinterUseCase\PrintingLabel.cs" />
+    <Compile Include="UseCase\SummaryUseCase\Summary.cs" />
     <Compile Include="UseCase\TxnFailedUseCase\TransactionFailed.cs" />
     <Compile Include="UseCase\UseCaseModule.cs" />
     <Compile Include="UseCase\UserUseCase\UserUseCase.cs" />

@@ -28,6 +28,7 @@ namespace PCI.KittingApp.UseCase
         }
         public List<ContainerAttributes> GetContainerAttrDetails(Primitive<string>[] Containers)
         {
+            if (Containers == null) return null;
             List<ContainerAttributes> result = new List<ContainerAttributes>();
             foreach (var container in Containers)
             {
