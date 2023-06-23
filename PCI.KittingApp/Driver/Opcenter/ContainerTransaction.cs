@@ -138,33 +138,6 @@ namespace PCI.KittingApp.Driver.Opcenter
                 if (!(oService is null)) oService.Close();
             }
         }
-        public bool ContainerAttrTxn(ContainerAttrMaint ServiceObject, ContainerAttrMaintService Service, bool IgnoreException = true)
-        {
-            string TxnId = Guid.NewGuid().ToString();
-            try
-            {
-                string message = "";
-                ResultStatus resultStatus = null;
-                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, "Execution Container Attribute ...."), System.Diagnostics.EventLogEntryType.Information, 2);
-                resultStatus = Service.ExecuteTransaction(ServiceObject);
-                bool statusContainerAttr = _helper.ProcessResult(resultStatus, ref message, false);
-
-                EventLogUtil.LogEvent(Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, message), System.Diagnostics.EventLogEntryType.Information, 2);
-                return statusContainerAttr;
-            }
-            catch (Exception ex)
-            {
-                ex.Source = AppSettings.AssemblyName == ex.Source ? MethodBase.GetCurrentMethod().Name : MethodBase.GetCurrentMethod().Name + "." + ex.Source;
-                EventLogUtil.LogErrorEvent(Logging.LoggingContainer(ServiceObject.Container.Name, TxnId, ex.Source), ex);
-                if (!IgnoreException) throw ex;
-                return false;
-            }
-            finally
-            {
-                if (!(Service is null)) Service.Close();
-            }
-
-        }
         public ContainerAttrDetail[] GetContainerAttrDetails(ContainerAttrMaint_Info ContainerAttrInfo, string ContainerName, bool IgnoreException = true)
         {
             string TxnId = Guid.NewGuid().ToString();

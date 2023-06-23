@@ -273,6 +273,12 @@ namespace PCI.KittingApp
             OpenChildForm(new FormUsersManagement(_userUseCase));
         }
 
+        private void btnSummary_Click(object sender, EventArgs e)
+        {
+            ActiveButton(sender, Color.Coral);
+            OpenChildForm(new FormSummary(_opcenterCheckData));
+        }
+
         private void btnHome_Click(object sender, EventArgs e)
         {
             GoHome();
@@ -370,6 +376,7 @@ namespace PCI.KittingApp
 
         private void LoginSuccess()
         {
+            btnSummary.Visible = true;
             btnReprintingLabel.Visible = true;
             btnTransactionFailed.Visible = true;
             btnMaterialRegistration.Visible = true;
@@ -399,6 +406,7 @@ namespace PCI.KittingApp
             btnTransactionFailed.Visible = false;
             btnReprintingLabel.Visible = false;
             btnUsersManagement.Visible = false;
+            btnSummary.Visible = false;
 
 
             buttonLogoutSidebar.Visible = false;

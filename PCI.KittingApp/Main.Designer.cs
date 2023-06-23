@@ -67,6 +67,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelLogin = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSummary = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -91,6 +92,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.btnSummary);
             this.panelMenu.Controls.Add(this.btnUsersManagement);
             this.panelMenu.Controls.Add(this.buttonLogoutSidebar);
             this.panelMenu.Controls.Add(this.btnTransactionFailed);
@@ -703,6 +705,30 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // btnSummary
+            // 
+            this.btnSummary.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSummary.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnSummary.FlatAppearance.BorderSize = 0;
+            this.btnSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSummary.Font = new System.Drawing.Font("Segoe UI Semibold", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnSummary.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnSummary.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlassChart;
+            this.btnSummary.IconColor = System.Drawing.Color.Gainsboro;
+            this.btnSummary.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSummary.IconSize = 32;
+            this.btnSummary.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSummary.Location = new System.Drawing.Point(0, 520);
+            this.btnSummary.Name = "btnSummary";
+            this.btnSummary.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnSummary.Size = new System.Drawing.Size(220, 60);
+            this.btnSummary.TabIndex = 8;
+            this.btnSummary.Text = "Summary";
+            this.btnSummary.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSummary.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSummary.UseVisualStyleBackColor = true;
+            this.btnSummary.Click += new System.EventHandler(this.btnSummary_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -787,6 +813,7 @@
         private FontAwesome.Sharp.IconButton buttonLogoutSidebar;
         private System.Windows.Forms.Label labelUserDisplay;
         private FontAwesome.Sharp.IconButton btnUsersManagement;
+        private FontAwesome.Sharp.IconButton btnSummary;
     }
 }
 

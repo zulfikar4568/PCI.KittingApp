@@ -1,6 +1,7 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
+using PCI.KittingApp.Entity.Summary;
 using PCI.KittingApp.Repository;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.Util;
@@ -24,6 +25,15 @@ namespace PCI.KittingApp.UseCase
             _maintenanceTransaction = maintenanceTransaction;
             _containerTransaction = containerTransaction;
             _maintenanceMapper = maintenanceMapper;
+        }
+        public List<ContainerAttributes> GetContainerAttrDetails(Primitive<string>[] Containers)
+        {
+            List<ContainerAttributes> result = new List<ContainerAttributes>();
+            foreach (var container in Containers)
+            {
+                result.Add(new ContainerAttributes() { MaterialRegistration = ExtractMaterialRequirementFromContainer(((string)container)), ContainerName = container.ToString(), ContainerAttrDetails = _containerTransaction.GetContainerAttrDetails(container.ToString())});
+            }
+            return result;
         }
         public MfgOrderChanges GetMfgOrderInformation(string MfgOrderName)
         {

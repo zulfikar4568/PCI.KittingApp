@@ -18,6 +18,8 @@ namespace PCI.KittingApp.Entity.TransactionType
                     return "StartUnit";
                 case TypeTransaction.CreateOrder:
                     return "CreateOrder";
+                case TypeTransaction.ContainerAttribute:
+                    return "ContainerAttribute";
                 default:
                     return "Unknown";
             }
@@ -28,6 +30,7 @@ namespace PCI.KittingApp.Entity.TransactionType
     {
         StartMaterial,
         StartUnit,
-        CreateOrder
+        CreateOrder,
+        ContainerAttribute,
     }
 }

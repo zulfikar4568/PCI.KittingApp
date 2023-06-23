@@ -158,6 +158,8 @@
     <Compile Include="Entity\SQLPrinterData\PrintingLabel.cs" />
     <Compile Include="Entity\Opcenter\ProductDefaultStart.cs" />
     <Compile Include="Entity\SQLTxnFailedData\TransactionFailed.cs" />
+    <Compile Include="Entity\Summary\Summary.cs" />
+    <Compile Include="Entity\TransactionType\ContainerAttribute.cs" />
     <Compile Include="Entity\TransactionType\CreateOrder.cs" />
     <Compile Include="Entity\TransactionType\StartMaterial.cs" />
     <Compile Include="Entity\TransactionType\StartUnit.cs" />
@@ -183,6 +185,12 @@
     </Compile>
     <Compile Include="Forms\FormReprintingLabel.Designer.cs">
       <DependentUpon>FormReprintingLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormSummary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSummary.Designer.cs">
+      <DependentUpon>FormSummary.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormTransactionFailed.cs">
       <SubType>Form</SubType>
@@ -262,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormReprintingLabel.resx">
       <DependentUpon>FormReprintingLabel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSummary.resx">
+      <DependentUpon>FormSummary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormTransactionFailed.resx">
       <DependentUpon>FormTransactionFailed.cs</DependentUpon>
