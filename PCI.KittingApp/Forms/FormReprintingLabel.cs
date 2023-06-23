@@ -171,7 +171,7 @@ namespace PCI.KittingApp.Forms
         {
             if (dataGridMaterialPrintingLabel.Columns[e.ColumnIndex].Name == "PrintMaterial")
             {
-                var stringId = (string)dataGridUnitPrintingLabel.Rows[e.RowIndex].Cells["IdMaterial"].FormattedValue;
+                var stringId = (string)dataGridMaterialPrintingLabel.Rows[e.RowIndex].Cells["IdMaterial"].FormattedValue;
                 if (stringId == "" || stringId == null) return;
 
                 var dataPrintingLabel = _materialPrintingLabel.Find(x => x.Id == stringId);
