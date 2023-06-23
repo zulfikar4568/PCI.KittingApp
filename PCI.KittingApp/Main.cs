@@ -258,7 +258,7 @@ namespace PCI.KittingApp
         private void btnReprintingLabel_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, Color.Coral);
-            OpenChildForm(new FormReprintingLabel(_printingLabelUseCase));
+            OpenChildForm(new FormReprintingLabel(_printingLabelUseCase, _opcenterCheckData, _kitting));
         }
 
         private void btnTransactionFailed_Click(object sender, EventArgs e)

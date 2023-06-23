@@ -72,9 +72,9 @@ namespace PCI.KittingApp.Forms
             }
         }
 
-        private bool ValidateTheIDN(string ContainerName)
+        private bool ValidateTheIDNCheckIfNotDuplicate(string ContainerName)
         {
-            ValidationStatus isFGValid = _kitting.ValidateFGSerialNumber(ContainerName, _opcenterCheckData.IsContainerExists);
+            ValidationStatus isFGValid = _kitting.ValidateFGSerialNumberCheckIfNotDuplicate(ContainerName, _opcenterCheckData.IsContainerExists);
             if (!isFGValid.IsSuccess)
             {
                 ZIAlertBox.Warning("Validation Message", $"The Container {ContainerName} {ErrorCodeMeaning.Translate(isFGValid.ErrorCode)}");
@@ -102,13 +102,13 @@ namespace PCI.KittingApp.Forms
             var dataParse = textBoxUnitContainer.Text.Split('_');
             if (dataParse.Length == 1) // If only IDN
             {
-                if (!ValidateTheIDN(textBoxUnitContainer.Text)) return;
+                if (!ValidateTheIDNCheckIfNotDuplicate(textBoxUnitContainer.Text)) return;
 
                 // Select next field
                 buttonUnitSubmit.Select();
             } else if (dataParse.Length == 3) // If Customer SN
             {
-                if (!ValidateTheIDN(dataParse[2])) return;
+                if (!ValidateTheIDNCheckIfNotDuplicate(dataParse[2])) return;
                 if (!ValidateTheCustomerSN()) return;
                 
                 textBoxUnitContainer.Text = dataParse[2];

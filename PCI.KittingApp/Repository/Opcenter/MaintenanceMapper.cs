@@ -17,7 +17,7 @@ namespace PCI.KittingApp.Repository
         {
             _maintenanceTransaction = maintenanceTransaction;
         }
-        public BillOfMaterial[] ExtractBOMFromERPBOM(ERPBOMChanges eRPBOMChanges)
+        public BillOfMaterial[] ExtractBOMFromERPBOM(ERPBOMChanges eRPBOMChanges, IssueControlEnum issueControlFilter = IssueControlEnum.NoTracking)
         {
             List<BillOfMaterial> result = new List<BillOfMaterial>();
 
@@ -30,6 +30,7 @@ namespace PCI.KittingApp.Repository
                 if (item.Product.Name == null) continue;
                 if (item.isProductDescription == null) continue;
                 if (item.IssueControl == null) continue;
+                if (item.IssueControl != issueControlFilter) continue;
 
                 var defaultProductData = ExtractDefaultData(_maintenanceTransaction.GetProduct(item.Product.Name));
                 if (defaultProductData == null) continue;

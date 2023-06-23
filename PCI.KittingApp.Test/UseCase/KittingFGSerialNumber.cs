@@ -24,9 +24,9 @@ namespace PCI.KittingApp.Test
             var correctValue = new ValidationStatus() { IsSuccess = true, ErrorCode = null };
 
             // Do the test
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber1, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber2, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber3, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber1, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber2, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber3, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
         }
         [TestMethod()]
         public void CapitalSNTest()
@@ -39,10 +39,10 @@ namespace PCI.KittingApp.Test
             var wrongValue = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_IDN };
 
             // Do the test
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber1, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber2, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber3, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber4, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber1, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber2, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber3, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber4, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
         }
 
         [TestMethod()]
@@ -54,9 +54,9 @@ namespace PCI.KittingApp.Test
             var correctValue = new ValidationStatus() { IsSuccess = true, ErrorCode = null };
             var wrongValue = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_DIGIT_8 };
 
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber1, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber2, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber3, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber1, ContainerDoesntExistsMock).Should().BeEquivalentTo(correctValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber2, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber3, ContainerDoesntExistsMock).Should().BeEquivalentTo(wrongValue);
         }
 
         [TestMethod()]
@@ -65,7 +65,7 @@ namespace PCI.KittingApp.Test
             string FGSerialNumber1 = "IDN00001";
             var wrongValue = new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_DUPLICATE_FG };
 
-            kittingUsecase.ValidateFGSerialNumber(FGSerialNumber1, ContainerExistsMock).Should().BeEquivalentTo(wrongValue);
+            kittingUsecase.ValidateFGSerialNumberCheckIfNotDuplicate(FGSerialNumber1, ContainerExistsMock).Should().BeEquivalentTo(wrongValue);
         }
 
         public bool ContainerExistsMock(string FGSerialNumber)

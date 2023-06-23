@@ -1,4 +1,5 @@
 ﻿using Camstar.WCF.ObjectStack;
+using PCI.KittingApp.Components;
 using PCI.KittingApp.Entity;
 using PCI.KittingApp.Entity.Printer;
 using PCI.KittingApp.Entity.TransactionType;
@@ -20,11 +21,15 @@ namespace PCI.KittingApp.Forms
         //Field
         private List<PrintingLabel> _unitPrintingLabel = new List<PrintingLabel>();
         private List<PrintingLabel> _materialPrintingLabel = new List<PrintingLabel>();
-        private PrintingLabelUseCase _printingLabelUseCase;
-        public FormReprintingLabel(PrintingLabelUseCase printingLabelUseCase)
+        private PrintingLabelUseCase _printingLabelUseCase; 
+        private OpcenterCheckData _opcenterCheckData;
+        private Kitting _kitting;
+        public FormReprintingLabel(PrintingLabelUseCase printingLabelUseCase, OpcenterCheckData opcenterCheckData, Kitting kitting)
         {
             InitializeComponent();
-            _printingLabelUseCase = printingLabelUseCase;
+            _printingLabelUseCase = printingLabelUseCase; 
+            _opcenterCheckData = opcenterCheckData;
+            _kitting = kitting;
 
             ResetField();
         }
@@ -37,9 +42,61 @@ namespace PCI.KittingApp.Forms
             buttonReprintingUnitLabel.Enabled = false;
             buttonReprintingMaterialLabel.Enabled = false;
         }
+        private bool ValidateTheIDNCheckIfExists(string ContainerName)
+        {
+            ValidationStatus isFGValid = _kitting.ValidateFGSerialNumberCheckIfExists(ContainerName, _opcenterCheckData.IsContainerExists);
+            if (!isFGValid.IsSuccess)
+            {
+                ZIAlertBox.Warning("Validation Message", $"The Container {ContainerName} {ErrorCodeMeaning.Translate(isFGValid.ErrorCode)}");
+                textBoxPrintingContainer.Clear();
+                return false;
+            }
+            return true;
+        }
+        private bool ValidateTheCustomerSN()
+        {
+            ValidationStatus status = _kitting.ValidateCustomerSerialNumber(textBoxPrintingContainer.Text);
+            if (!status.IsSuccess)
+            {
+                ZIAlertBox.Warning("Validation Message", ErrorCodeMeaning.Translate(status.ErrorCode));
+                textBoxPrintingContainer.Clear();
+                return false;
+            }
+            return true;
+        }
+
+        private void ValidateTheContainer()
+        {
+            // Check Initial Data is Ready or Not
+            if (textBoxPrintingContainer.Text == "" || textBoxPrintingContainer.Text == null) return;
+
+            var dataParse = textBoxPrintingContainer.Text.Split('_');
+            if (dataParse.Length == 1) // If only IDN
+            {
+                if (!ValidateTheIDNCheckIfExists(textBoxPrintingContainer.Text)) return;
+
+                // Select next field
+                textBoxPrintingContainer.Select();
+            }
+            else if (dataParse.Length == 3) // If Customer SN
+            {
+                if (!ValidateTheIDNCheckIfExists(dataParse[2])) return;
+                if (!ValidateTheCustomerSN()) return;
+
+                textBoxPrintingContainer.Text = dataParse[2];
+
+                // Select next field
+                textBoxPrintingContainer.Select();
+            }
+            else
+            {
+                textBoxPrintingContainer.Text = "";
+            }
+        }
 
         private void CheckListOfPrintingLabel()
         {
+            ValidateTheContainer();
             dataGridUnitPrintingLabel.Rows.Clear();
             dataGridMaterialPrintingLabel.Rows.Clear();
 

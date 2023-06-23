@@ -59,7 +59,7 @@ namespace PCI.KittingApp.UseCase
             if (eRPBOMData == null) return null;
             if (eRPBOMData.MaterialList == null) return null;
 
-            BillOfMaterial[] BOMs = _maintenanceMapper.ExtractBOMFromERPBOM(eRPBOMData);
+            BillOfMaterial[] BOMs = _maintenanceMapper.ExtractBOMFromERPBOM(eRPBOMData, IssueControlEnum.Serialized);
             if (BOMs == null) return null;
 
             return new MaterialRegistration()
