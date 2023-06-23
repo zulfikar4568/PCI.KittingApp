@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.10.1"></a>
+## [1.10.1](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.10.1) (2023-6-23)
+
+### Bug Fixes
+
+* material registeration use bg worker ([98a5d41](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/98a5d41f590b39c00ee4a5594ababb9912861b0c))
+* reprinting label ([fd88500](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/fd88500c9c7d5874c7103614c9ec4ee398e35311))
+
+### Other
+
+* Merge pull request #13 from zulfikar4568/feat/dev ([ad59a9f](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/ad59a9f0f85d4faba1bbc25e4971aee3d2472982))
+* **update:** v1.10.0 push to the AssemblyInfo.cs ([95d988b](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/95d988bf404bb533782ea67ed3729c08a0607310))
+
 <a name="1.10.0"></a>
 ## [1.10.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.10.0) (2023-6-23)
 
