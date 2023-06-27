@@ -31,6 +31,7 @@
             this.PanelMfgOrder = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelMfgSubmit = new System.Windows.Forms.Panel();
+            this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
             this.buttonSearch = new FontAwesome.Sharp.IconButton();
             this.panelMfgProduct = new System.Windows.Forms.Panel();
             this.textBoxMfg = new System.Windows.Forms.TextBox();
@@ -49,10 +50,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBoxBalance = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBoxLoading = new System.Windows.Forms.PictureBox();
             this.PanelMfgOrder.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelMfgSubmit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
             this.panelMfgProduct.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panelListContainer.SuspendLayout();
@@ -62,7 +63,6 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelMfgOrder
@@ -106,6 +106,16 @@
             this.panelMfgSubmit.Name = "panelMfgSubmit";
             this.panelMfgSubmit.Size = new System.Drawing.Size(242, 103);
             this.panelMfgSubmit.TabIndex = 15;
+            // 
+            // pictureBoxLoading
+            // 
+            this.pictureBoxLoading.Image = global::PCI.KittingApp.Properties.Resources.loading_ring;
+            this.pictureBoxLoading.Location = new System.Drawing.Point(13, 38);
+            this.pictureBoxLoading.Name = "pictureBoxLoading";
+            this.pictureBoxLoading.Size = new System.Drawing.Size(50, 50);
+            this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLoading.TabIndex = 14;
+            this.pictureBoxLoading.TabStop = false;
             // 
             // buttonSearch
             // 
@@ -163,9 +173,9 @@
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(19, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 28);
+            this.label2.Size = new System.Drawing.Size(173, 28);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Mfg Order";
+            this.label2.Text = "Mfg Order Name";
             // 
             // tableLayoutPanel2
             // 
@@ -259,9 +269,9 @@
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
             this.label4.Location = new System.Drawing.Point(3, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 28);
+            this.label4.Size = new System.Drawing.Size(117, 28);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Total Qty";
+            this.label4.Text = "Kitting Qty";
             // 
             // tableLayoutPanel4
             // 
@@ -312,9 +322,9 @@
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
             this.label3.Location = new System.Drawing.Point(3, -1);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 28);
+            this.label3.Size = new System.Drawing.Size(79, 28);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Qty";
+            this.label3.Text = "PO Qty";
             // 
             // panel3
             // 
@@ -354,16 +364,6 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Balance";
             // 
-            // pictureBoxLoading
-            // 
-            this.pictureBoxLoading.Image = global::PCI.KittingApp.Properties.Resources.loading_ring;
-            this.pictureBoxLoading.Location = new System.Drawing.Point(13, 38);
-            this.pictureBoxLoading.Name = "pictureBoxLoading";
-            this.pictureBoxLoading.Size = new System.Drawing.Size(50, 50);
-            this.pictureBoxLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLoading.TabIndex = 14;
-            this.pictureBoxLoading.TabStop = false;
-            // 
             // FormSummary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -378,6 +378,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panelMfgSubmit.ResumeLayout(false);
             this.panelMfgSubmit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).EndInit();
             this.panelMfgProduct.ResumeLayout(false);
             this.panelMfgProduct.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -391,7 +392,6 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLoading)).EndInit();
             this.ResumeLayout(false);
 
         }

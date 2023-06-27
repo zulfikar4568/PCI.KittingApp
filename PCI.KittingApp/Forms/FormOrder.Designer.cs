@@ -116,9 +116,9 @@
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
             this.label3.Location = new System.Drawing.Point(19, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 28);
+            this.label3.Size = new System.Drawing.Size(94, 28);
             this.label3.TabIndex = 5;
-            this.label3.Text = "* Order Qty";
+            this.label3.Text = "* PO Qty";
             // 
             // textBoxMfgQty
             // 
