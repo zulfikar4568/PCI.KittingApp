@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.10.2"></a>
+## [1.10.2](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.10.2) (2023-6-28)
+
+### Bug Fixes
+
+* database initial ([020862d](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/020862da8cb368b22844b14b6644560bb0ddc79f))
+
+### Other
+
+* change some title ([2568dd9](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/2568dd9ac26a5d5e91d4fbb96a2f5602a88470f1))
+* **update:** v1.10.1 push to the AssemblyInfo.cs ([e770a47](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/e770a474b790201c6356edf74da16f76dfff774c))
+
 <a name="1.10.1"></a>
 ## [1.10.1](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.10.1) (2023-6-23)
 
