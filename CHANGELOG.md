@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.10.3"></a>
+## [1.10.3](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.10.3) (2023-7-3)
+
+### Bug Fixes
+
+* missing field pn on customer serial number ([818cd50](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/818cd50ef4e11456bbff27daaed171ad0be1054f))
+
+### Other
+
+* Merge branch 'master' of https://github.com/zulfikar4568/PCI.KittingApp ([28dcc52](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/28dcc5262b0b43c9b45670175c10725f371da9c6))
+* **update:** v1.10.2 push to the AssemblyInfo.cs ([fb24838](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/fb2483853e4fe85268502ad7ef9d041ffd801983))
+
 <a name="1.10.2"></a>
 ## [1.10.2](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.10.2) (2023-6-28)
 
