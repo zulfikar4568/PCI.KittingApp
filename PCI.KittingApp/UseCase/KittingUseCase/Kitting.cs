@@ -13,7 +13,7 @@ namespace PCI.KittingApp.UseCase
         public ValidationStatus ValidateIfPNMatch(string partNumberBOM, string partNumberActual)
         {
             // Validate if PN is contained
-            if (!partNumberBOM.ToUpper().Contains(partNumberActual.ToUpper())) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_PN_MISSMATCH};
+            if (partNumberActual == "" || partNumberActual is null || !partNumberBOM.ToUpper().Contains(partNumberActual.ToUpper())) return new ValidationStatus() { IsSuccess = false, ErrorCode = ErrorCode.ERROR_PN_MISSMATCH};
             return new ValidationStatus() { IsSuccess = true, ErrorCode = null };
         }
         // Will error if FG SN not exists!
