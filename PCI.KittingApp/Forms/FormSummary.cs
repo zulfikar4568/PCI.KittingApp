@@ -37,6 +37,9 @@ namespace PCI.KittingApp.Forms
         {
             // Check Initial Data
             if (textBoxMfg.Text == null || textBoxMfg.Text == "") return;
+
+            if (AppSettings.ConvertToCapital) 
+                textBoxMfg.Text = textBoxMfg.Text.ToUpper();
             
             pictureBoxLoading.Visible = true;
             textBoxMfg.Enabled = false;

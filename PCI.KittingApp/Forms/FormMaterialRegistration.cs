@@ -1,6 +1,7 @@
 ﻿using Camstar.WCF.ObjectStack;
 using Camstar.WCF.Services;
 using PCI.KittingApp.Components;
+using PCI.KittingApp.Config;
 using PCI.KittingApp.Entity;
 using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.UseCase;
@@ -41,6 +42,9 @@ namespace PCI.KittingApp.Forms
         {
             // Check Initial Data is Ready or Not
             if (textBoxRegisterContainer.Text == "" || textBoxRegisterContainer.Text == null) return;
+
+            if (AppSettings.ConvertToCapital) 
+                textBoxRegisterContainer.Text = textBoxRegisterContainer.Text.ToUpper();
 
             // If format single we need to parse first before validation matching part number
             bool isFormatSingle = textBoxRegisterContainer.Text.Split('_').Length == 1;
@@ -132,6 +136,9 @@ namespace PCI.KittingApp.Forms
             if (materialRegistrationData.BillOfMaterial == null) return;
             if (textBoxRegisterPN.Text == "" || textBoxRegisterPN.Text == null) return;
 
+            if (AppSettings.ConvertToCapital) 
+                textBoxRegisterPN.Text = textBoxRegisterPN.Text.ToUpper();
+
             ValidationStatus partNumberStatus = _kitting.ValidatePNAssociatedWithERPBOM(textBoxRegisterPN.Text, materialRegistrationData.BillOfMaterial);
             if (!partNumberStatus.IsSuccess)
             {
@@ -154,6 +161,9 @@ namespace PCI.KittingApp.Forms
                 textBoxRegisterSN.Clear();
                 return;
             }
+
+            if (AppSettings.ConvertToCapital) 
+                textBoxRegisterSN.Text = textBoxRegisterSN.Text.ToUpper();
 
             // If format single we need to parse first before validation matching part number
             bool isFormatSingle = textBoxRegisterSN.Text.Split('_').Length == 1;
@@ -204,6 +214,9 @@ namespace PCI.KittingApp.Forms
         {
             // Check Initial Data is Ready or Not
             if (textBoxRegisterBatchID.Text == null || textBoxRegisterBatchID.Text == "") return;
+
+            if (AppSettings.ConvertToCapital) 
+                textBoxRegisterBatchID.Text = textBoxRegisterBatchID.Text.ToUpper();
 
             ValidationStatus validateBatchID = _kitting.ValidateBatchID(textBoxRegisterBatchID.Text);
             if (!validateBatchID.IsSuccess)

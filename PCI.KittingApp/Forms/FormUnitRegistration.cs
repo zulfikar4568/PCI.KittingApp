@@ -1,5 +1,6 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Components;
+using PCI.KittingApp.Config;
 using PCI.KittingApp.Entity;
 using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.Repository.Opcenter;
@@ -99,6 +100,9 @@ namespace PCI.KittingApp.Forms
             // Check Initial Data is Ready or Not
             if (textBoxUnitContainer.Text == "" || textBoxUnitContainer.Text == null) return;
 
+            if (AppSettings.ConvertToCapital)
+                textBoxUnitContainer.Text = textBoxUnitContainer.Text.ToUpper();
+
             var dataParse = textBoxUnitContainer.Text.Split('_');
             if (dataParse.Length == 1) // If only IDN
             {
@@ -129,6 +133,9 @@ namespace PCI.KittingApp.Forms
         {
             // Check Initial Data
             if (textBoxUnitMfg.Text == null || textBoxUnitMfg.Text == "") return;
+
+            if (AppSettings.ConvertToCapital) 
+                textBoxUnitMfg.Text = textBoxUnitMfg.Text.ToUpper();
 
             if (!_opcenterCheckData.IsMfgOrderExists(textBoxUnitMfg.Text))
             {

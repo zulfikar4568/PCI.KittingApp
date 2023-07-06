@@ -141,5 +141,15 @@ namespace PCI.KittingApp.Config
             }
         }
         #endregion
+
+        #region Capital Field
+        public static bool ConvertToCapital
+        {
+            get
+            {
+                return Convert.ToBoolean(ConfigurationManager.AppSettings["ConvertToCapital"]);
+            }
+        }
+        #endregion
     }
 }

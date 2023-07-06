@@ -1,5 +1,6 @@
 ﻿using Camstar.WCF.ObjectStack;
 using PCI.KittingApp.Components;
+using PCI.KittingApp.Config;
 using PCI.KittingApp.Entity.TransactionType;
 using PCI.KittingApp.Repository.Opcenter;
 using PCI.KittingApp.UseCase;
@@ -117,6 +118,9 @@ namespace PCI.KittingApp.Forms
             // Check initial data
             if (textBoxMfgName.Text == null || textBoxMfgName.Text == "") return;
 
+            if (AppSettings.ConvertToCapital) 
+                textBoxMfgName.Text = textBoxMfgName.Text.ToUpper();
+
             _backgroundWorker = new BackgroundWorker();
             _backgroundWorker.DoWork += (o, e) => {
                 var mfgName = (string)e.Argument;
@@ -147,6 +151,9 @@ namespace PCI.KittingApp.Forms
         {
             // Check initial data
             if (textBoxMfgProduct.Text == null || textBoxMfgProduct.Text == "") return;
+
+            if (AppSettings.ConvertToCapital) 
+                textBoxMfgProduct.Text = textBoxMfgProduct.Text.ToUpper();
 
             _backgroundWorker = new BackgroundWorker();
             _backgroundWorker.DoWork += (o, e) => {
