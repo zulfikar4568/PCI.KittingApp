@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.11.0"></a>
+## [1.11.0](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.11.0) (2023-7-6)
+
+### Features
+
+* add feature capital enabled/disabled ([f22fb28](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/f22fb2865771ed090115f348352f8532f68553ea))
+
+### Other
+
+* **update:** v1.10.3 push to the AssemblyInfo.cs ([f5900dd](https://www.github.com/zulfikar4568/PCI.KittingApp/commit/f5900ddd3a77673a9a5898b6dc197146af2b49ca))
+
 <a name="1.10.3"></a>
 ## [1.10.3](https://www.github.com/zulfikar4568/PCI.KittingApp/releases/tag/v1.10.3) (2023-7-3)
 
