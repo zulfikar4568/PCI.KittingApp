@@ -5,6 +5,11 @@
   <a href="https://github.com/zulfikar4568/PCI.KittingApp/blob/master/LICENSE"><img src="https://img.shields.io/github/license/zulfikar4568/PCI.KittingApp.svg" /></a>
 </h1>
 
+<h1 align="center">
+  <img src="https://github.com/zulfikar4568/PCI.KittingApp/assets/64786139/1c204ed0-aa1f-497c-95bf-d9b01e8f272a" width="1000px"/>
+  <img src="https://github.com/zulfikar4568/PCI.KittingApp/assets/64786139/e6fac120-99e1-4619-bf65-9b7d4f330564" width="1000px"/>
+</h1>
+
 # Change the Config of the Application
 Edit the hosts in your `Endpoints.config`
 ```config
